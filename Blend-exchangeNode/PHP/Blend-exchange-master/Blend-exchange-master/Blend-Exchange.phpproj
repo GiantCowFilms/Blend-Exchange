@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>Blend_Exchange</Name>
+    <ProjectGuid>b940c347-c224-48b9-9605-da9435fb1f62</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Blend_Exchange</RootNamespace>
+    <!-- important to be opened by PHP Tools, when also Phalanger Tools are installed -->
+    <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+    <AssemblyName>Blend-Exchange</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <IncludeDebugInformation>true</IncludeDebugInformation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <IncludeDebugInformation>false</IncludeDebugInformation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="finish\index.php" />
+    <Compile Include="index.php" />
+    <Compile Include="parts\header.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dropzone.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="jquery.js" />
+    <Content Include="main.css" />
+    <Content Include="uploader.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="finish\" />
+    <Folder Include="parts\" />
+  </ItemGroup>
+</Project>
