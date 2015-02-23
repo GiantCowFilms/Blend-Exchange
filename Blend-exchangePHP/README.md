@@ -11,7 +11,4 @@ In an HTTP header often the site that the link was clicked on his provided... if
 
 ###TODO for the project
 
- - Database to store the id, name, location, password, question and a validation (once it has been investigated, it should stop throwing flags)
- - Another table to hold views and downloads, especially where they came from, as well as a **Hash** of the ip, to see if all the valid source are a single person etc.
- - **ACCESS THE GITHUB API** I've spent many hours trying... please tell me if you want to give it a shot, soon I might switch it to nodejs, which has some nice libraries
- 
+Stuff
