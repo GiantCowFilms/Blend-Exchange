@@ -3,8 +3,8 @@ Blend exchange source code
 
 ## Nodejs edition:
 
-Designed to work with github for file storage
+Not working, ignore it!
 
 ##PHP edition:
 
-Designed to work with dropbox for file storage
+Designed to work with google drive for file storage
