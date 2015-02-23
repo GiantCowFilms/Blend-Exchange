@@ -1,34 +1,63 @@
 <html>
     <?php
+    //Get file 
+    //$blob = file_get_contents("../document.txt");
+    //$blob = fopen($_FILES['file']['tmp_name'], "rb");
+    //Get Oauth keys
+    $secretKeys = json_decode(file_get_contents("../secret.json"));
+    $Key = $secretKeys->key;
+    $Cid = $secretKeys->cid;
+    $Secret = $secretKeys->secret;
+    $AccessToken = $secretKeys->accessToken;
+    $RefreshToken = $secretKeys->refreshToken;
     
-    //ALL OF THIS CURL GARBAGE HERE DOESN'T WORK. ALL THE LIBRARIES REQUIRE USING COMPOSER *SIGH*... I can't fix this
-    
-    //$blob = file_get_contents($_FILES['file']['tmp_name']);
-    
-    $blob = "Hello World";
-    
-    $curl = curl_init("https://api.github.com/?access_token=[INTSERT HERE]");
-    
-    //$curl = curl_init("https://api.github.com/repos/GiantCowFilms/blend-exhcange/contents/");
-    //SJIS - encoding... also could be called Shift_JIS
-    $data_string = '{
-        "content": "' + $blob +'",
-        "encoding": "utf-8"
-    }';
-    curl_setopt($curl, CURLOPT_URL, "https://api.github.com/repos/GiantCowFilms/blend-exhcange/contents/");
-    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");                                                                     
-    curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);                                                                  
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);                                                                      
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array(                                                                          
-        'Content-Type: application/json',                                                                                
-        'Content-Length: ' . strlen($data_string))                                                                       
-    );                                                                                                                   
-    
-    $result = curl_exec($curl);
-    echo $result;
-    curl_close($curl);
-    ?>
+    //Load dropbox library
+    require_once '../Google_Drive_Api/autoload.php';
 
+    $client = new Google_Client();
+    // Get your credentials from the console
+    $client->setClientId($Cid);
+    $client->setClientSecret($Secret);
+    $AccessTokenJson = '{
+        "access_token": "' . $AccessToken . '",
+        "token_type": "Bearer",
+        "expires_in": 3600,
+        "refresh_token": "' . $RefreshToken . '",
+        "created": 1424627698
+    }';
+    $client->setAccessToken($AccessTokenJson);
+    
+    $service = new Google_Service_Drive($client);
+    
+    //Insert a file
+    $file = new Google_Service_Drive_DriveFile();
+    $file->setTitle($_FILES['file']["name"]);
+    $file->setDescription('A test document');
+    $file->setMimeType('text/plain');
+
+    $data = file_get_contents($_FILES['file']['tmp_name']);
+    $dataSize = filesize($_FILES['file']['tmp_name']);
+    
+    $createdFile = $service->files->insert($file, array(
+          'data' => $data,
+          'mimeType' => 'application/octet-stream',
+          'uploadType' => 'media'
+        ));
+    //echo'<pre>';
+    //echo $createdFile["downloadUrl"];
+    //echo '</pre>';
+    
+    //Get information from form
+    $questionUrl = $_GET["url"];
+    $password =$_GET["password"];
+    ?>
+    <?php
+    
+    $db = new PDO("mysql:host=".$secretKeys->mysql->host.";dbname=".$secretKeys->mysql->database,$secretKeys->mysql->user,$secretKeys->mysql->password);
+    $db->prepare("INSERT INTO `blends` SET `id`=NULL, `fileName`='".$_FILES['file']["name"]."', `fileUrl`='".$createdFile["downloadUrl"]."', `flags`='', `views`=0, `downloads`=0, `password`='".$password."', `uploaderIp`='NOTSUPPORTED', `questionLink`='".$questionUrl."', `fileSize`='".$dataSize."'")->execute();
+    $db->lastInsertId("Id");
+    
+    ?>
     <?php include("../parts/header.php"); ?>
         <div id="uploadContainer">
             <div id="uploadTarget">

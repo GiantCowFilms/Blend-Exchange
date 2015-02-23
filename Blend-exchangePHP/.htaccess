@@ -1,0 +1,3 @@
+﻿RewriteEngine On
+RewriteRule ^b/([0-9]+)/$ /b/index.php?blendId=$1
+RewriteRule ^d/([0-9]+)/.+\..+$ /d/index.php?blendId=$1

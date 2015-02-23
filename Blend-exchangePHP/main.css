@@ -10,6 +10,7 @@
     font-weight: 100;
     display: inline-block;
     height: 72px;
+    position: relative;
 }
 .logoOrange {
     color:#ff782a;
@@ -45,6 +46,10 @@
     list-style: none;
     float: right;
     font-size: 24px;
+}
+#navLinks a{
+    text-decoration: none;
+    color: black;
 }
 #uploadTarget {
     width: 600px;
@@ -87,6 +92,14 @@ h2{
     color:#ff782a;
     font-size: 26px;
 }
+h1{
+    font-weight: 100;
+    color:#31a5f1;
+    font-size: 46px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .progressContainer {
     height: 10px;
     border:#ff782a 1px solid;
@@ -97,4 +110,17 @@ h2{
 }
 #uploadArea {
     margin: 20px;
+}
+.logoStatus{
+    color: #ff2a2a;
+    font-size: 24px;
+    font-weight: 500;
+    position: absolute;
+    top: 5px;
+    right: -25px;
+    transform: rotate(35deg);
+    -webkit-transform: rotate(35deg);
+    -moz-transform: rotate(35deg);
+    -ms-transform: rotate(35deg);
+    -o-transform: rotate(35deg);
 }
