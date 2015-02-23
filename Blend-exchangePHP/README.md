@@ -1,5 +1,5 @@
 # Blend-exchange
-This is a WIP project to add "permiment" blend hosting for blender.stackexchange until we can convice the SE lords to add the feature
+This is a WIP project to add permiment blend hosting for blender.stackexchange until we can convice the SE lords to add the feature
 
 ###Basic idea:
 
@@ -11,4 +11,7 @@ In an HTTP header often the site that the link was clicked on his provided... if
 
 ###TODO for the project
 
-Stuff
+* Flagging feature
+* Proper database setup
+* Editing and deleteing
+* Double check the .blend files are actually blends
