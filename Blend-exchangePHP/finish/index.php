@@ -55,34 +55,11 @@
     
     $db = new PDO("mysql:host=".$secretKeys->mysql->host.";dbname=".$secretKeys->mysql->database,$secretKeys->mysql->user,$secretKeys->mysql->password);
     $db->prepare("INSERT INTO `blends` SET `id`=NULL, `fileName`='".$_FILES['file']["name"]."', `fileUrl`='".$createdFile["downloadUrl"]."', `flags`='', `views`=0, `downloads`=0, `password`='".$password."', `uploaderIp`='NOTSUPPORTED', `questionLink`='".$questionUrl."', `fileSize`='".$dataSize."'")->execute();
-    $db->lastInsertId("Id");
-    
+    $blendId = $db->lastInsertId("Id");
+    $blendData["id"] = $blendId;
+    $blendData["fileName"] = $_FILES['file']["name"];
+    $blendData["questionLink"] = $questionUrl;
+    $blendData["fileSize"] = $dataSize;
     ?>
     <?php include("../parts/header.php"); ?>
-        <div id="uploadContainer">
-            <div id="uploadTarget">
-                <div id="uploadText">
-                    <div class="centerText">
-                        File stats
-                    </div>
-                </div>
-            </div>
-            <div id="uploadOptions">
-                <div id="cancel" class="btnBlue" style="width: 289px; display: inline-block;">
-                    Flag
-                </div><div id="upload" class="btnBlue" style="width: 289px; margin-left: 10px; display: inline-block;">
-                    Download
-                </div>
-            </div>
-            <div id="usageNotice">
-                <h2>
-                    Disclaimer:
-                </h2>
-                Download this file at your own risk. It could contain viruses or other harmful material.
-            </div>
-        </div>
-        <script src="jquery.js"></script>
-        <script src="dropzone.js"></script>
-        </script>
-    </body>
-</html>
+    <?php include("../parts/downloadPage.php"); ?>

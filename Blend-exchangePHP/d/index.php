@@ -1,5 +1,4 @@
-<html>
-    <?php
+<?php
     //Get file 
     //$blob = file_get_contents("../document.txt");
     //$blob = fopen($_FILES['file']['tmp_name'], "rb");
@@ -43,6 +42,4 @@
     
     header('Content-type:  application/x-blender');
     
-    echo $httpRequest->getResponseBody();
-    ?>
-  
+    echo $httpRequest->getResponseBody();?>

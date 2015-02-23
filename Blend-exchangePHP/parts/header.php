@@ -6,13 +6,14 @@
     <body>
         <div id="nav">
             <div id="logo">
-                <span class="logoOrange">Blend</span><span class="logoBlue">-exchange</span>
+                <a href="/" style="text-decoration: none;">
+                <span class="logoOrange">Blend</span><span class="logoBlue">-exchange</span></a>
                 <div><a class="logoCredit" href="http://blender.stackexchange.com/users/3127/giantcowfilms">-By GiantCowFilms</a></div>
                 <div class="logoStatus">&#945;lpha</div>
             </div>
                 <ul id="navLinks">
-                    <li> - About</li>
+                    <li><a href="/About"> - About</a></li>
                     <li><a href="/contribute"> - Contribute</a></li>
-                    <li>Help</li>
+                    <li><a href="/help">Help</a></li>
                 </ul>
         </div>

@@ -1,5 +1,5 @@
 <html>
-    <?php include("/parts/header.php"); ?>
+    <?php include("parts/header.php"); ?>
         <div id="uploadContainer">
             <div id="uploadTarget">
                 <div id="uploadText">
@@ -7,9 +7,9 @@
                         Drag a file here to upload a .blend<br /> or<br /> click to browse
                     </div>
                 </div>
-                <div id="uploadArea">
+                                                         <div id="uploadArea">
 
-                </div>
+                    </div>
             </div>
             <div id="uploadOptions">
                 <input style="margin-top: 10px;" class="txtBlue" id="questionUrl" placeholder="Enter the url of the queston on blender.stackexchange"/>
