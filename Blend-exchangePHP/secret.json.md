@@ -1,6 +1,6 @@
 # Secret.json
 
-There is a missing file, and it is missing for good reason, since it contains sensitive information. it is called `secret.json` and should be here in this directory
+There is a missing file, and it is missing for good reason, since it contains sensitive information. it is called `secret.json` and should be here in this directory `/secret`
 
 This is how it should look:
 
