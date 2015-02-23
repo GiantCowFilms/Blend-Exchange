@@ -7,6 +7,7 @@
             <h2>I clicked on the upload box nothing happend!</h2>
             That is a known issue... I'm working to fix it
         </div>
+        <?php include("../parts/footer.php"); ?>
         <script src="jquery.js"></script>
         <script src="dropzone.js"></script>
     </body>

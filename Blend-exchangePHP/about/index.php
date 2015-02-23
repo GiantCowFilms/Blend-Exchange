@@ -14,6 +14,7 @@
 <img src="http://blender.stackexchange.com/users/flair/3127.png" width="208" height="58" alt="profile for GiantCowFilms at Blender Stack Exchange, Q&amp;A for people who use Blender to create 3D graphics, animations, or games" title="profile for GiantCowFilms at Blender Stack Exchange, Q&amp;A for people who use Blender to create 3D graphics, animations, or games">
 </a>
         </div>
+     <?php include("../parts/footer.php"); ?>
         <script src="jquery.js"></script>
         <script src="dropzone.js"></script>
     </body>

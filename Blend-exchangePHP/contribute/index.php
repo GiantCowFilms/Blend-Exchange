@@ -10,5 +10,6 @@
         </div>
         <script src="jquery.js"></script>
         <script src="dropzone.js"></script>
+    <?php include("../parts/footer.php"); ?>
     </body>
 </html>

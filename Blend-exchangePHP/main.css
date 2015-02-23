@@ -130,3 +130,9 @@ h1{
     height: 64px;
     resize: none;
 }
+#footer {
+    width: 600px;
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
+}

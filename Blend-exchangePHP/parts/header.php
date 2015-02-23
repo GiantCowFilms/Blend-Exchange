@@ -12,7 +12,7 @@
                 <div class="logoStatus">&#945;lpha</div>
             </div>
                 <ul id="navLinks">
-                    <li><a href="/About"> - About</a></li>
+                    <li><a href="/about"> - About</a></li>
                     <li><a href="/contribute"> - Contribute</a></li>
                     <li><a href="/help">Help</a></li>
                 </ul>

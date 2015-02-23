@@ -31,6 +31,7 @@
             </div><br />
             <span>By using this service you agree to our <a href="/terms">terms of service</a></span>
         </div>
+        <?php include("parts/footer.php"); ?>
         <script src="jquery.js"></script>
         <script src="dropzone.js"></script>
         <script>
