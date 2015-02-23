@@ -1,5 +1,13 @@
 <html>
     <?php
+    //Get information from form
+    $questionUrl = $_GET["url"];
+    if(!preg_match('/http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-#0-9]+$/',$questionUrl)){
+        echo "Invalid url";
+        exit;
+    };
+    $password =$_GET["password"];
+    
     //Get file 
     //$blob = file_get_contents("../document.txt");
     //$blob = fopen($_FILES['file']['tmp_name'], "rb");
@@ -47,9 +55,6 @@
     //echo $createdFile["downloadUrl"];
     //echo '</pre>';
     
-    //Get information from form
-    $questionUrl = $_GET["url"];
-    $password =$_GET["password"];
     ?>
     <?php
     

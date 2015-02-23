@@ -47,7 +47,9 @@ Temporary Items
 secret.json
 
 #node version
-/Blend-exchangeNode
+Blend-exchangeNode/
 
 #Google_Drive_Api
-/Google_Drive_Api
+Google_Drive_Api/
+#secrets must be hidden
+secret/

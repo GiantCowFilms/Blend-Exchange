@@ -143,6 +143,7 @@
     <Compile Include="help\index.php" />
     <Compile Include="index.php" />
     <Compile Include="parts\downloadPage.php" />
+    <Compile Include="parts\flagForm.php" />
     <Compile Include="parts\footer.php" />
     <Compile Include="parts\header.php" />
     <Compile Include="terms\index.php" />
