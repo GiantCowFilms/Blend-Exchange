@@ -115,7 +115,6 @@ h1{
     border: 3px dashed #ffd6be;
     border-radius: 10px;
     display: block;
-    z-index: 20;
 }
 #uploadTarget .centerText {
     margin: auto;

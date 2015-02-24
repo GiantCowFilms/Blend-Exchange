@@ -43,7 +43,7 @@
                 this.removeAllFiles();
                 this.addFile(file);
             });
-            $("#uploadTarget").click(function (e) {
+            $(".centerText").click(function (e) {
                 e.stopPropagation();
             });
             $("#uploadText").click(function (e) {
