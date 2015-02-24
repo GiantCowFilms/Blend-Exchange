@@ -108,11 +108,14 @@ h1{
     width: 600px;
 }
 #uploadTarget {
+    cursor: pointer;
     width: 600px;
     height: 200px;
     position: relative;
     border: 3px dashed #ffd6be;
     border-radius: 10px;
+    display: block;
+    z-index: 20;
 }
 #uploadTarget .centerText {
     margin: auto;

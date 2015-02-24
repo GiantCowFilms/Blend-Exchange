@@ -1,16 +1,16 @@
 <html>
     <?php include("parts/header.php"); ?>
         <div id="uploadContainer">
-            <div id="uploadTarget" class="bodyStack">
+            <form id="uploadTarget" class="bodyStack">
                 <div id="uploadText">
                     <div class="centerText">
                         Drag a file here to upload a .blend<br /> or<br /> click to browse
                     </div>
                 </div>
-                                                         <div id="uploadArea">
+                    <div id="uploadArea">
 
                     </div>
-            </div>
+            </form>
             <div id="uploadOptions">
                 <input class="txtBlue bodyStack" id="questionUrl" placeholder="Enter the url of the queston on blender.stackexchange"/>
                 
@@ -35,9 +35,19 @@
         <script src="jquery.js"></script>
         <script src="dropzone.js"></script>
         <script>
-            var blendDropzone = new Dropzone("div#uploadContainer", { url: "/finish/", maxFilesize: 50, clickable: true, autoProcessQueue: false, acceptedFiles: ".blend", uploadMultiple: false, previewTemplate: '<div><div><h2 data-dz-name>Name.blend</h2><div class="progressContainer"  role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" ><div class="progress"style="width:0%;" data-dz-uploadprogress></div></div><span data-dz-size>- 3.5MB</span></div></div>', previewsContainer: "#uploadArea" });
-            blendDropzone.on("drop", function () {
+            var blendDropzone = new Dropzone("#uploadTarget", { url: "/finish/", clickable: ["#uploadTarget", ".centerText", "#uploadText"], maxFilesize: 50, autoProcessQueue: false, acceptedFiles: ".blend", uploadMultiple: false, previewTemplate: '<div><div><h2 data-dz-name>Name.blend</h2><div class="progressContainer"  role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" ><div class="progress"style="width:0%;" data-dz-uploadprogress></div></div><span data-dz-size>- 3.5MB</span></div></div>', previewsContainer: "#uploadArea",maxFiles: 1 });
+            blendDropzone.on("addedfile", function () {
                 $("#uploadText").hide();
+            });
+            blendDropzone.on("maxfilesexceeded", function (file) {
+                this.removeAllFiles();
+                this.addFile(file);
+            });
+            $("#uploadTarget").click(function (e) {
+                e.stopPropagation();
+            });
+            $("#uploadText").click(function (e) {
+                e.stopPropagation();
             });
             blendDropzone.on("success", function (e,r) {
                 document.write(r);
