@@ -35,10 +35,17 @@
     $blendData = $db->prepare("SELECT `id`, `fileName`, `fileGoogleId`, `flags`, `views`, `downloads`, `password`, `uploaderIp`, `questionLink`, `fileSize` FROM `blends` WHERE `id`= :id");
     $blendData->execute(array('id' => $blendId));
     $blendData = $blendData->fetchAll(PDO::FETCH_ASSOC)["0"];
-    
+    //Old download counter
     $blendData["downloads"] = intval($blendData["downloads"]);
     $blendData["downloads"]++;
     $db->prepare("UPDATE `blends` SET `downloads`='".$blendData["downloads"]."' WHERE `id`='".$blendId."'")->execute();
+    //New better download counter
+    
+    //Get IP adress
+    $ipAdress = $_SERVER['REMOTE_ADDR'];
+    $ipAdress = hash("sha256", $ipAdress, false); 
+    
+    $db->prepare("INSERT INTO `accesses` SET `type`='download', `ip`='".$ipAdress."', `fileId`='".$blendId."', `date`=NOW()")->execute();    
     
     $file = $service->files->get($blendData["fileGoogleId"]);
     $request = new Google_Http_Request($file->getDownloadUrl(), 'GET', null, null);

@@ -46,9 +46,11 @@
                         </div>
             </div>
             <div class="bodyStack">
-                <div id="flagBtn" class="btnBlue" style="width: 289px; display: inline-block;">
+                <div id="flagBtn" class="btnBlue" style="width: 187px; display: inline-block;">
                     Flag
-                </div><div id="downloadFile" class="btnBlue" style="width: 289px; margin-left: 10px; display: inline-block;">
+                </div><div id="favoriteBtn" class="btnBlue" style="width: 187px; margin-left: 10px; display: inline-block;">
+                    Favorite
+                </div><div id="downloadFile" class="btnBlue" style="width: 187px; margin-left: 10px; display: inline-block;">
                     <a href="/d/<?php echo $blendData["id"] ?>/<?php echo $blendData["fileName"] ?>">Download</a>
                 </div>
             </div>
@@ -85,6 +87,16 @@
                         alert(["File flagged"]);
                     },
                     data: { id: "<?php echo $blendData["id"] ?>", flag: value }
+                });
+            });
+            $("#favoriteBtn").click(function () {
+                $.ajax({
+                    url: "/favorite",
+                    type: "get",
+                    success: function (result) {
+                        alert([result]);
+                    },
+                    data: { id: "<?php echo $blendData["id"] ?>"}
                 });
             });
         </script>

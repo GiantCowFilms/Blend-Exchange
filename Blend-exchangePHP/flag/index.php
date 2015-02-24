@@ -1,5 +1,4 @@
  <?php
-    $offsense = $_GET["flag"];
     $id = $_GET["id"];
     
     $secretKeys = json_decode(file_get_contents("../secret/secret.json"));
@@ -20,6 +19,6 @@
     $db->prepare("UPDATE `blends` SET `flags`='".$flags."' WHERE `id`='".$id."'")->execute();
     $blendId = $db->lastInsertId("Id");
     
-    $db->prepare("INSERT INTO `accesses` SET `type`='flag', `ip`='".$ipAdress."', `val`='".$offsense."', `fileId`='".$id."'")->execute();
+    $db->prepare("INSERT INTO `accesses` SET `type`='flag', `ip`='".$ipAdress."', `val`='".$offsense."', `fileId`='".$id."', `date`=NOW()")->execute();
     $blendId = $db->lastInsertId("Id");
 ?>
