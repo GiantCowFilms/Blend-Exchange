@@ -149,6 +149,7 @@ h1{
     font-weight: 100;
 }
 
+
 /*misc*/
 #embedCode {
     width: 100%;
@@ -160,4 +161,19 @@ h1{
     margin: auto;
     text-align: center;
     margin-top: 20px;
+}
+.noticeWarning {
+    border: solid 2px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.nwDanger {
+    background-color: #FF7A7A;
+    border-color: #ff2a2a;
+    color: #ffffff;
+}
+.nwNotice {
+    background-color: #FFCE7A;
+    border-color: #FFA200;
+    color: #000;
 }

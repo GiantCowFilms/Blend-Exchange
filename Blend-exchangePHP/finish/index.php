@@ -67,6 +67,7 @@
     $blendData["fileSize"] = $dataSize;
     $blendData["views"] = 0;
     $blendData["downloads"] = 0;
+    $blendData["flags"] = "";
     ?>
     <?php include("../parts/header.php"); ?>
     <?php include("../parts/downloadPage.php"); ?>

@@ -8,7 +8,6 @@
     $blendData["views"] = intval($blendData["views"]);
     $blendData["views"]++;
     $db->prepare("UPDATE `blends` SET `views`='".$blendData["views"]."' WHERE `id`='".$blendId."'")->execute();
-    $blendId = $db->lastInsertId("Id");
     
     ?>
     <?php include("../parts/header.php"); ?>

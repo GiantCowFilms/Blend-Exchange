@@ -1,4 +1,34 @@
+        <?php
+            //Process flags
+            $virusAlert = false;
+            $copyrightAlert = false;
+            if(strlen($blendData["flags"]) != 0) {
+                $blendData["flags"] = split(";",$blendData["flags"]);
+                foreach ($blendData["flags"] as $flag)
+                {
+                    if ($flag == "virus"){
+                        $virusAlert = true;  
+                    };
+                    if ($flag == "copyright"){
+                        $copyrightAlert = true;  
+                    };
+                }
+            } 
+        ?>
         <div id="uploadContainer">
+            <?php 
+            if ($copyrightAlert){
+                echo "            <div class=\"noticeWarning nwNotice\">
+                NOTICE: This file has been removed on a copyright claim!
+                </div>";
+                exit;
+            };
+            if ($virusAlert){
+                echo "            <div class=\"noticeWarning nwDanger\">
+                WARNING: This blend has been reported as containing a virus. Download at your own risk. The report is unconfirmed.
+                </div>";
+            };
+            ?>
             <div id="uploadTarget" class="bodyStack">
                         <img class="blendDisplayIcon" src="/blenderFileIcon.png"/>
                         <div style="width: 420px; display: inline-block; margin-top: 25px;">
@@ -32,6 +62,9 @@
                 Download this file at your own risk. It could contain viruses or other harmful material.
                 <span>By using this service you agree to our <a href="/terms">terms of service</a></span>
             </div>
+           <h2>
+                Flags:
+           </h2>
         </div>
         <script src="/jquery.js"></script>
         <script src="/dropzone.js"></script>
