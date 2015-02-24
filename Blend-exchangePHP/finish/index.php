@@ -55,11 +55,14 @@
     //echo $createdFile["downloadUrl"];
     //echo '</pre>';
     
+    //Get IP adress
+    $ipAdress = $_SERVER['REMOTE_ADDR'];
+    $ipAdress = hash("sha256", $ipAdress, false); 
     ?>
     <?php
     
     $db = new PDO("mysql:host=".$secretKeys->mysql->host.";dbname=".$secretKeys->mysql->database,$secretKeys->mysql->user,$secretKeys->mysql->password);
-    $db->prepare("INSERT INTO `blends` SET `id`=NULL, `fileName`='".$_FILES['file']["name"]."', `fileUrl`='".$createdFile["downloadUrl"]."', `flags`='', `views`=0, `downloads`=0, `password`='".$password."', `uploaderIp`='NOTSUPPORTED', `questionLink`='".$questionUrl."', `fileSize`='".$dataSize."'")->execute();
+    $db->prepare("INSERT INTO `blends` SET `id`=NULL, `fileName`='".$_FILES['file']["name"]."', `fileUrl`='".$createdFile["downloadUrl"]."', `flags`='', `views`=0, `downloads`=0, `password`='".$password."', `uploaderIp`='".$ipAdress."', `questionLink`='".$questionUrl."', `fileSize`='".$dataSize."'")->execute();
     $blendId = $db->lastInsertId("Id");
     $blendData["id"] = $blendId;
     $blendData["fileName"] = $_FILES['file']["name"];

@@ -97,6 +97,7 @@ h1{
     list-style: none;
     float: right;
     font-size: 24px;
+    margin-left: 20px;
 }
 #navLinks a{
     text-decoration: none;

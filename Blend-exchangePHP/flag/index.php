@@ -13,6 +13,13 @@
     
     $flags = $flags.$offsense.";";
     
+    //Get IP adress
+    $ipAdress = $_SERVER['REMOTE_ADDR'];
+    $ipAdress = hash("sha256", $ipAdress, false); //Use this to catch duplicates
+    
     $db->prepare("UPDATE `blends` SET `flags`='".$flags."' WHERE `id`='".$id."'")->execute();
+    $blendId = $db->lastInsertId("Id");
+    
+    $db->prepare("INSERT INTO `accesses` SET `type`='flag', `ip`='".$ipAdress."', `val`='".$offsense."', `fileId`='".$id."'")->execute();
     $blendId = $db->lastInsertId("Id");
 ?>
