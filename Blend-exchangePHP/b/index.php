@@ -21,6 +21,10 @@
     
     $db->prepare("INSERT INTO `accesses` SET `type`='view', `ip`='".$ipAdress."', `fileId`='".$blendId."', `date`=NOW()")->execute();
     
+    $rows = $db->prepare("SELECT `ip` FROM `accesses` WHERE `type`='favorite' AND `fileId`=:fileId");
+    $rows->execute(array('fileId' => $blendId));
+    $rows = $rows->rowCount();
+    $blendData["favorites"] = $rows;
     
     ?>
     <?php include("../parts/header.php"); ?>

@@ -77,6 +77,7 @@
     $blendData["views"] = 0;
     $blendData["downloads"] = 0;
     $blendData["flags"] = "";
+    $blendData["favorites"] = 0;
     ?>
     <?php include("../parts/header.php"); ?>
     <?php include("../parts/downloadPage.php"); ?>

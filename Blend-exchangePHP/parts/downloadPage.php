@@ -41,7 +41,8 @@
                                 <?php echo round(intval($blendData["fileSize"])/1000000, 1, PHP_ROUND_HALF_UP); ?> MB
                                 <br />
                                 <?php echo $blendData["views"] ?> views <br />
-                                <?php echo $blendData["downloads"] ?> downloads
+                                <?php echo $blendData["downloads"] ?> downloads<br />
+                                <?php echo $blendData["favorites"] ?> favorites
                             </span>
                         </div>
             </div>
