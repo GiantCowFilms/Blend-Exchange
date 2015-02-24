@@ -30,20 +30,25 @@
     
     $blendId = $_GET["blendId"];
     
-    $db = new PDO("mysql:host=".$secretKeys->mysql->host.";dbname=".$secretKeys->mysql->database,$secretKeys->mysql->user,$secretKeys->mysql->password);
-    $blendData = $db->query("SELECT `id`, `fileName`, `fileUrl`, `flags`, `views`, `downloads`, `password`, `uploaderIp`, `questionLink` FROM `blends` WHERE `id`=" . $blendId);
+    include("../parts/database.php");
+    
+    $blendData = $db->prepare("SELECT `id`, `fileName`, `fileGoogleId`, `flags`, `views`, `downloads`, `password`, `uploaderIp`, `questionLink`, `fileSize` FROM `blends` WHERE `id`= :id");
+    $blendData->execute(array('id' => $blendId));
     $blendData = $blendData->fetchAll(PDO::FETCH_ASSOC)["0"];
     
     $blendData["downloads"] = intval($blendData["downloads"]);
     $blendData["downloads"]++;
     $db->prepare("UPDATE `blends` SET `downloads`='".$blendData["downloads"]."' WHERE `id`='".$blendId."'")->execute();
     
-    $request = new Google_Http_Request($blendData["fileUrl"], 'GET', null, null);
+    $file = $service->files->get($blendData["fileGoogleId"]);
+    $request = new Google_Http_Request($file->getDownloadUrl(), 'GET', null, null);
     $SignhttpRequest = $client->getAuth()->sign($request);
     $httpRequest = $client->getIo()->makeRequest($SignhttpRequest);
     
     //Set header
     
     header('Content-type:  application/x-blender');
+   
+    echo $httpRequest->getResponseBody();
     
-    echo $httpRequest->getResponseBody();?>
+    ?>

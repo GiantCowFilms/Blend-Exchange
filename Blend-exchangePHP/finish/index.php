@@ -52,7 +52,7 @@
           'uploadType' => 'media'
         ));
     //echo'<pre>';
-    //echo $createdFile["downloadUrl"];
+    //var_dump($createdFile["id"]);
     //echo '</pre>';
     
     //Get IP adress
@@ -62,7 +62,13 @@
     <?php
     
     $db = new PDO("mysql:host=".$secretKeys->mysql->host.";dbname=".$secretKeys->mysql->database,$secretKeys->mysql->user,$secretKeys->mysql->password);
-    $db->prepare("INSERT INTO `blends` SET `id`=NULL, `fileName`='".$_FILES['file']["name"]."', `fileUrl`='".$createdFile["downloadUrl"]."', `flags`='', `views`=0, `downloads`=0, `password`='".$password."', `uploaderIp`='".$ipAdress."', `questionLink`='".$questionUrl."', `fileSize`='".$dataSize."'")->execute();
+    $db->prepare("INSERT INTO `blends` SET `id`=NULL, `fileName`=:fileName, `fileGoogleId`='".$createdFile["id"]."', `flags`='', `views`=0, `downloads`=0, `password`=:password, `uploaderIp`='".$ipAdress."', `questionLink`='".$questionUrl."', `fileSize`='".$dataSize."'")
+    ->execute(
+        array(
+        'fileName' => $_FILES['file']["name"],
+        'password' => $password
+        )
+    );
     $blendId = $db->lastInsertId("Id");
     $blendData["id"] = $blendId;
     $blendData["fileName"] = $_FILES['file']["name"];

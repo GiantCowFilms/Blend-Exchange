@@ -1,9 +1,13 @@
 <html>
     <?php
     $blendId = $_GET["blendId"];
+    $blendId = intval($blendId);
     $secretKeys = json_decode(file_get_contents("../secret/secret.json"));
-    $db = new PDO("mysql:host=".$secretKeys->mysql->host.";dbname=".$secretKeys->mysql->database,$secretKeys->mysql->user,$secretKeys->mysql->password);
-    $blendData = $db->query("SELECT `id`, `fileName`, `fileUrl`, `flags`, `views`, `downloads`, `password`, `uploaderIp`, `questionLink`, `fileSize` FROM `blends` WHERE `id`=" . $blendId);
+    
+    include("../parts/database.php");
+    
+    $blendData = $db->prepare("SELECT `id`, `fileName`, `fileGoogleId`, `flags`, `views`, `downloads`, `password`, `uploaderIp`, `questionLink`, `fileSize` FROM `blends` WHERE `id`= :id");
+    $blendData->execute(array('id' => $blendId));
     $blendData = $blendData->fetchAll(PDO::FETCH_ASSOC)["0"];
     $blendData["views"] = intval($blendData["views"]);
     $blendData["views"]++;
