@@ -2,11 +2,11 @@
     <?php
     //Get information from form
     $questionUrl = $_GET["url"];
-    if(!preg_match('/http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-#0-9]+$/',$questionUrl)){
+    if(!preg_match('/http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-#0-9\/]+$/',$questionUrl)){
         echo "Invalid url";
         exit;
     };
-    $password =$_GET["password"];
+    $password = $_GET["password"];
     
     //Get file 
     //$blob = file_get_contents("../document.txt");
@@ -65,6 +65,8 @@
     $blendData["fileName"] = $_FILES['file']["name"];
     $blendData["questionLink"] = $questionUrl;
     $blendData["fileSize"] = $dataSize;
+    $blendData["views"] = 0;
+    $blendData["downloads"] = 0;
     ?>
     <?php include("../parts/header.php"); ?>
     <?php include("../parts/downloadPage.php"); ?>

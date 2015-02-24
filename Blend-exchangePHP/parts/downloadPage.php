@@ -1,22 +1,30 @@
         <div id="uploadContainer">
-            <div id="uploadTarget">
-                        <h2>
-                            <?php echo $blendData["fileName"] ?>
-                        </h2>
-                        <span>
-                             - <?php echo round(intval($blendData["fileSize"])/1000000, 1, PHP_ROUND_HALF_UP); ?> MB | <?php echo $blendData["questionLink"] ?>
-                        </span>
+            <div id="uploadTarget" class="bodyStack">
+                        <img class="blendDisplayIcon" src="/blenderFileIcon.png"/>
+                        <div style="width: 420px; display: inline-block; margin-top: 25px;">
+                            <h2 class="blendDisplayTitle">
+                                <?php echo $blendData["fileName"] ?>
+                            </h2>
+                            <span style="font-size: 18px;">
+                                 <a href="<?php echo $blendData["questionLink"] ?>"><?php echo substr($blendData["questionLink"], 7, 45); ?>...</a>
+                                <br />
+                                <?php echo round(intval($blendData["fileSize"])/1000000, 1, PHP_ROUND_HALF_UP); ?> MB
+                                <br />
+                                <?php echo $blendData["views"] ?> views <br />
+                                <?php echo $blendData["downloads"] ?> downloads
+                            </span>
+                        </div>
             </div>
-            <div id="uploadOptions">
+            <div class="bodyStack">
                 <div id="flagBtn" class="btnBlue" style="width: 289px; display: inline-block;">
                     Flag
-                </div><div id="upload" class="btnBlue" style="width: 289px; margin-left: 10px; display: inline-block;">
+                </div><div id="downloadFile" class="btnBlue" style="width: 289px; margin-left: 10px; display: inline-block;">
                     <a href="/d/<?php echo $blendData["id"] ?>/<?php echo $blendData["fileName"] ?>">Download</a>
                 </div>
             </div>
             <?php include("flagForm.php"); ?>
             <div>Embed (Copy into your post):</div>
-            <textarea id="embedCode" class="txtBlue">[<img src="http://blend-exchange.giantcowfilms.com/embedImage.png?bid=<?php echo $blendData["id"] ?>" />](http://blend-exchange.giantcowfilms.com/b/<?php echo $blendId; ?>/)</textarea>
+            <textarea id="embedCode" class="txtBlue">[<img src="http://blend-exchange.giantcowfilms.com/embedImage.png?bid=<?php echo $blendData["id"] ?>" />](http://blend-exchange.giantcowfilms.com/b/<?php echo $blendData["id"]; ?>/)</textarea>
             <div id="usageNotice">
                 <h2>
                     Disclaimer:

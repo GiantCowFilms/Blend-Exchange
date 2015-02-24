@@ -1,7 +1,7 @@
 <html>
     <?php include("parts/header.php"); ?>
         <div id="uploadContainer">
-            <div id="uploadTarget">
+            <div id="uploadTarget" class="bodyStack">
                 <div id="uploadText">
                     <div class="centerText">
                         Drag a file here to upload a .blend<br /> or<br /> click to browse
@@ -12,14 +12,14 @@
                     </div>
             </div>
             <div id="uploadOptions">
-                <input style="margin-top: 10px;" class="txtBlue" id="questionUrl" placeholder="Enter the url of the queston on blender.stackexchange"/>
+                <input class="txtBlue bodyStack" id="questionUrl" placeholder="Enter the url of the queston on blender.stackexchange"/>
                 
-                <div style="margin-top: 10px; margin-bottom: 10px;">
-                    <label for="password">Optional: </label><input class="txtBlue" id="password" style="width: 531px;" placeholder="Enter a password to enabled editing or deleting"/>
+                <div>
+                    <label for="password">Optional: </label><input class="txtBlue bodyStack" id="password" style="width: 531px;" placeholder="Enter a password to enabled editing or deleting"/>
                 </div>
-                <div id="cancel" class="btnBlue" style="width: 289px; display: inline-block;">
+                <div id="cancel" class="btnBlue bodyStack" style="width: 289px; display: inline-block;">
                     Cancel
-                </div><div id="upload" class="btnBlue" style="width: 289px; margin-left: 10px; display: inline-block;">
+                </div><div id="upload" class="btnBlue bodyStack" style="width: 289px; margin-left: 10px; display: inline-block;">
                     Upload
                 </div>
             </div>
