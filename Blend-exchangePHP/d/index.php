@@ -3,7 +3,7 @@
     //$blob = file_get_contents("../document.txt");
     //$blob = fopen($_FILES['file']['tmp_name'], "rb");
     //Get Oauth keys
-    $secretKeys = json_decode(file_get_contents("../secret.json"));
+    $secretKeys = json_decode(file_get_contents("../secret/secret.json"));
     $Key = $secretKeys->key;
     $Cid = $secretKeys->cid;
     $Secret = $secretKeys->secret;

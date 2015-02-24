@@ -22,6 +22,7 @@
     <Compile Include="contribute\index.php" />
     <Compile Include="d\index.php" />
     <Compile Include="finish\index.php" />
+    <Compile Include="flag\index.php" />
     <Compile Include="Google_Drive_Api\autoload.php" />
     <Compile Include="Google_Drive_Api\src\Google\Auth\Abstract.php" />
     <Compile Include="Google_Drive_Api\src\Google\Auth\AppIdentity.php" />
@@ -164,7 +165,8 @@
     <Content Include="Google_Drive_Api\style\ruleset.xml" />
     <Content Include="jquery.js" />
     <Content Include="main.css" />
-    <Content Include="secret.json" />
+    <Content Include="secret\.htaccess" />
+    <Content Include="secret\secret.json" />
     <Content Include="uploader.js" />
   </ItemGroup>
   <ItemGroup>
@@ -188,6 +190,8 @@
     <Folder Include="contribute\" />
     <Folder Include="about\" />
     <Folder Include="help\" />
+    <Folder Include="flag\" />
+    <Folder Include="secret\" />
     <Folder Include="terms\" />
     <Folder Include="parts\" />
   </ItemGroup>

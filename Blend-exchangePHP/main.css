@@ -5,6 +5,44 @@
     max-width: 850px;
     margin: auto;
 }
+
+/*Generic Styles*/
+.txtBlue{
+    width: 600px;
+    height: 35px;
+    color: #000;
+    font-family: Raleway !important;
+    font-size: 16px;
+    font-weight: 300 !important;
+    border-radius: 10px;
+    border: 1px #31a5f1 solid;
+    outline: none !important;
+    background: transparent;
+}
+.btnBlue {
+    height: 35px;
+    border-radius: 10px;
+    outline: none !important;
+    border: 3px #31a5f1 solid;
+    text-align: center;
+    line-height: 35px;
+    cursor: pointer;
+}
+h2{
+    font-weight: 300;
+    color:#ff782a;
+    font-size: 26px;
+}
+h1{
+    font-weight: 100;
+    color:#31a5f1;
+    font-size: 46px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+/*Logo styles*/
 #logo {
     font-size: 48px !important;
     font-weight: 100;
@@ -26,12 +64,22 @@
     color: #000 !important;
     float: right;
 }
+.logoStatus{
+    color: #ff2a2a;
+    font-size: 24px;
+    font-weight: 500;
+    position: absolute;
+    top: 5px;
+    right: -25px;
+    transform: rotate(35deg);
+    -webkit-transform: rotate(35deg);
+    -moz-transform: rotate(35deg);
+    -ms-transform: rotate(35deg);
+    -o-transform: rotate(35deg);
+}
+/*navStyles*/
 #nav {
     margin-bottom: 20px;
-}
-#uploadContainer{
-    margin: auto;
-    width: 600px;
 }
 #navLinks{
     height: 72px;
@@ -51,12 +99,17 @@
     text-decoration: none;
     color: black;
 }
+/*Upload styles*/
+#uploadContainer{
+    margin: auto;
+    width: 600px;
+}
 #uploadTarget {
     width: 600px;
     height: 200px;
+    position: relative;
     border: 3px dashed #ffd6be;
     border-radius: 10px;
-    position: relative;
 }
 #uploadTarget .centerText {
     margin: auto;
@@ -67,38 +120,6 @@
 #uploadText{
     padding-top: 68px;
     padding-bottom: 68px;
-}
-.txtBlue{
-    border-radius: 10px;
-    outline: none !important;
-    border: 1px #31a5f1 solid;
-    height: 35px;
-    width: 600px;
-    font-size: 16px;
-    font-family: Raleway !important;
-    font-weight: 300 !important;
-    color: #000;
-}
-.btnBlue {
-        border-radius: 10px;
-    outline: none !important;
-    border: 3px #31a5f1 solid;
-    height: 35px;
-    text-align: center;
-    line-height: 35px;
-    cursor: pointer;
-}
-h2{
-    font-weight: 300;
-    color:#ff782a;
-    font-size: 26px;
-}
-h1{
-    font-weight: 100;
-    color:#31a5f1;
-    font-size: 46px;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 .progressContainer {
@@ -111,19 +132,6 @@ h1{
 }
 #uploadArea {
     margin: 20px;
-}
-.logoStatus{
-    color: #ff2a2a;
-    font-size: 24px;
-    font-weight: 500;
-    position: absolute;
-    top: 5px;
-    right: -25px;
-    transform: rotate(35deg);
-    -webkit-transform: rotate(35deg);
-    -moz-transform: rotate(35deg);
-    -ms-transform: rotate(35deg);
-    -o-transform: rotate(35deg);
 }
 #embedCode {
     width: 100%;

@@ -2,7 +2,7 @@
     $offsense = $_GET["flag"];
     $id = $_GET["id"];
     
-    $secretKeys = json_decode(file_get_contents("../secret.json"));
+    $secretKeys = json_decode(file_get_contents("../secret/secret.json"));
     
     $db = new PDO("mysql:host=".$secretKeys->mysql->host.";dbname=".$secretKeys->mysql->database,$secretKeys->mysql->user,$secretKeys->mysql->password);
     

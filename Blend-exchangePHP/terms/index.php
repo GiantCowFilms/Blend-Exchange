@@ -9,7 +9,7 @@
             <p>You must be at least 13 [thirteen] years of age to use this website.  By using this website and by agreeing to these terms and conditions, you warrant and represent that you are at least 13 years of age.</p>
 
 
-            <h2>License to use website</h2>
+            <h2>License to use website</h2> 
             <p>Unless otherwise stated, blend-exchange.giantcowfilms.com and/or its licensors own the intellectual property rights published on this website and materials used on blend-exchange.giantcowfilms.com.  Subject to the license below, all these intellectual property rights are reserved.</p>
 
             <p>You may view, download for caching purposes only, and print pages, files or other content from the website for your own personal use, subject to the restrictions set out below and elsewhere in these terms and conditions.</p>
