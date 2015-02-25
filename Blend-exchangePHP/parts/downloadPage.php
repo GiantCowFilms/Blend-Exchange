@@ -25,7 +25,7 @@
             };
             if ($virusAlert){
                 echo "            <div class=\"noticeWarning nwDanger\">
-                WARNING: This blend has been reported as containing a virus. Download at your own risk. The report is unconfirmed.
+                WARNING: This blend has been reported as containing maleware. Download at your own risk. The report is unconfirmed.
                 </div>";
             };
             ?>
@@ -47,11 +47,11 @@
                         </div>
             </div>
             <div class="bodyStack">
-                <div id="flagBtn" class="btnBlue" style="width: 187px; display: inline-block;">
+                <div id="flagBtn" class="btnBlue" style="width: 187px;">
                     Flag
-                </div><div id="favoriteBtn" class="btnBlue" style="width: 187px; margin-left: 10px; display: inline-block;">
+                </div><div id="favoriteBtn" class="btnBlue" style="width: 187px; margin-left: 10px;">
                     Favorite
-                </div><div id="downloadFile" class="btnBlue" style="width: 187px; margin-left: 10px; display: inline-block;">
+                </div><div id="downloadFile" class="btnBlue" style="width: 187px; margin-left: 10px;">
                     <a href="/d/<?php echo $blendData["id"] ?>/<?php echo $blendData["fileName"] ?>">Download</a>
                 </div>
             </div>
