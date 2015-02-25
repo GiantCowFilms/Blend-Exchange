@@ -9,7 +9,7 @@
             <div id="logo">
                 <a href="/" style="text-decoration: none;">
                 <span class="logoOrange">Blend</span><span class="logoBlue">-exchange</span></a>
-                <div><a class="logoCredit" href="http://blender.stackexchange.com/users/">-By The Community</a></div>
+                <div><a class="logoCredit" href="http://blender.stackexchange.com/users/">A community project</a></div>
                 <div class="logoStatus">&#945;lpha</div>
             </div>
                 <ul id="navLinks">

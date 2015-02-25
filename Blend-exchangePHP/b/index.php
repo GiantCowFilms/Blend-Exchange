@@ -6,20 +6,62 @@
     
     include("../parts/database.php");
     
-    $blendData = $db->prepare("SELECT `id`, `fileName`, `fileGoogleId`, `flags`, `views`, `downloads`, `password`, `uploaderIp`, `questionLink`, `fileSize` FROM `blends` WHERE `id`= :id");
+    $blendData = $db->prepare("SELECT `id`, `fileName`, `fileGoogleId`, `flags`, `password`, `uploaderIp`, `questionLink`, `fileSize` FROM `blends` WHERE `id`= :id");
     $blendData->execute(array('id' => $blendId));
     $blendData = $blendData->fetchAll(PDO::FETCH_ASSOC)["0"];
-    //Old view counter
-    $blendData["views"] = intval($blendData["views"]);
-    $blendData["views"]++;
-    $db->prepare("UPDATE `blends` SET `views`='".$blendData["views"]."' WHERE `id`='".$blendId."'")->execute();
     
     //New better view counter
     //Get IP adress
     $ipAdress = $_SERVER['REMOTE_ADDR'];
     $ipAdress = hash("sha256", $ipAdress, false); 
     
-    $db->prepare("INSERT INTO `accesses` SET `type`='view', `ip`='".$ipAdress."', `fileId`='".$blendId."', `date`=NOW()")->execute();
+    $db->prepare("INSERT INTO `accesses` SET `type`='view', `ip`='".$ipAdress."', `fileId`=:fileId, `date`=NOW()")->execute(array('fileId' => $blendId));
+    
+    //Read download count
+    $rows = $db->prepare("SELECT `ip` FROM `accesses` WHERE `type`='view' AND `fileId`=:fileId");
+    $rows->execute(array('fileId' => $blendId));
+    $rows = $rows->fetchAll(PDO::FETCH_ASSOC);
+    $ips = [];
+    foreach ($rows as $key => $row)
+    {
+        $remove = false;
+        foreach ($ips as $ip)
+        {
+            if($ip == $row["ip"]){
+                unset($rows[$key]);
+                $remove = true;
+                break;
+            }
+        }
+        if($remove == false){
+            $ips[] = $row["ip"];
+        }
+    }
+    $blendData["views"] = count($rows);
+    
+    
+    
+    $rows = $db->prepare("SELECT `ip` FROM `accesses` WHERE `type`='download' AND `fileId`=:fileId");
+    $rows->execute(array('fileId' => $blendId));
+    $rows = $rows->fetchAll(PDO::FETCH_ASSOC);
+    $ips = [];
+    foreach ($rows as $key => $row)
+    {
+      $remove = false;
+      foreach ($ips as $ip)
+      {
+          if($ip == $row["ip"]){
+              unset($rows[$key]);
+              $remove = true;
+              break;
+          }
+      }
+      if($remove == false){
+          $ips[] = $row["ip"];
+      }
+    }
+
+    $blendData["downloads"] = count($rows);
     
     $rows = $db->prepare("SELECT `ip` FROM `accesses` WHERE `type`='favorite' AND `fileId`=:fileId");
     $rows->execute(array('fileId' => $blendId));
