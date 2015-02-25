@@ -85,7 +85,7 @@
                     type: "get",
                     success: function (result) {
                         $("#flagFile").hide();
-                        alert(["File flagged"]);
+                        alert([result]);
                     },
                     data: { id: "<?php echo $blendData["id"] ?>", flag: value }
                 });
