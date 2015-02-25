@@ -57,7 +57,7 @@
     
     //Get IP adress
     $ipAdress = $_SERVER['REMOTE_ADDR'];
-    $ipAdress = hash("sha256", $ipAdress, false); 
+    $ipAdress = hash("sha256", $ipAdress, false);;
     ?>
     <?php
     
@@ -66,7 +66,7 @@
     ->execute(
         array(
         'fileName' => $_FILES['file']["name"],
-        'password' => $password
+        'password' => $ipAdress = hash("sha256", $password, false)
         )
     );
     $blendId = $db->lastInsertId("Id");

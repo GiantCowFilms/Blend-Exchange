@@ -21,6 +21,8 @@
     <Compile Include="b\index.php" />
     <Compile Include="contribute\index.php" />
     <Compile Include="d\index.php" />
+    <Compile Include="embedUpload\index.php" />
+    <Compile Include="favorite\index.php" />
     <Compile Include="finish\index.php" />
     <Compile Include="flag\index.php" />
     <Compile Include="Google_Drive_Api\autoload.php" />
@@ -143,10 +145,13 @@
     <Compile Include="Google_Drive_Api\src\Google\Verifier\Pem.php" />
     <Compile Include="help\index.php" />
     <Compile Include="index.php" />
+    <Compile Include="parts\database.php" />
     <Compile Include="parts\downloadPage.php" />
     <Compile Include="parts\flagForm.php" />
     <Compile Include="parts\footer.php" />
+    <Compile Include="parts\head.php" />
     <Compile Include="parts\header.php" />
+    <Compile Include="parts\uploadPage.php" />
     <Compile Include="terms\index.php" />
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +172,7 @@
     <Content Include="main.css" />
     <Content Include="secret\.htaccess" />
     <Content Include="secret\secret.json" />
+    <Content Include="upload.js" />
     <Content Include="uploader.js" />
   </ItemGroup>
   <ItemGroup>
@@ -191,6 +197,8 @@
     <Folder Include="about\" />
     <Folder Include="help\" />
     <Folder Include="flag\" />
+    <Folder Include="favorite\" />
+    <Folder Include="embedUpload\" />
     <Folder Include="secret\" />
     <Folder Include="terms\" />
     <Folder Include="parts\" />
