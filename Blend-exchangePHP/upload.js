@@ -13,6 +13,12 @@ $("#uploadText").click(function (e) {
     e.stopPropagation();
 });
 blendDropzone.on("success", function (e, r) {
+    //Alert for iframe
+    window.parent.postMessage({ name: 'uploadAct' }, "*");
+    //Alert for popup
+    if (window.opener != null && !window.opener.closed) {
+        window.opener.postMessage({name: 'uploadAct'}, "*");
+    }
     document.write(r);
 });
 $("#upload").click(function () {

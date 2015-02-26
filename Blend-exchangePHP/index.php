@@ -1,6 +1,6 @@
 <html>
     <?php include("parts/header.php"); ?>
-        <div id="uploadContainer">
+        <div id="mainContainer">
             <?php include("parts/uploadPage.php"); ?>
             <div id="usageNotice">
                 <h2>
