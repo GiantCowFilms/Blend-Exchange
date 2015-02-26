@@ -1,8 +1,7 @@
-﻿body {
-    font-family: Raleway;
-    font-weight: 300;
-    font-size: 16px;
-    max-width: 850px;
+/*Only structural layout css allowed in here. Fonts, colors, etc. should be go in separate theme stylesheets*/
+
+body {
+    max-width: 960px;
     margin: auto;
 }
 
@@ -10,73 +9,33 @@
 .txtBlue{
     width: 100%;
     height: 35px;
-    color: #000;
-    font-family: Raleway !important;
-    font-size: 16px;
-    font-weight: 300 !important;
-    border-radius: 10px;
-    border: 1px #31a5f1 solid;
-    outline: none !important;
-    background: transparent;
 }
 .btnBlue {
-    display:inline-block;
     height: 35px;
-    width: 100%;
-    border-radius: 10px;
-    outline: none !important;
-    border: 3px #31a5f1 solid;
     text-align: center;
     line-height: 35px;
     cursor: pointer;
 }
-h2{
-    font-weight: 300;
-    color:#ff782a;
-    font-size: 26px;
-}
-h1{
-    font-weight: 100;
-    color:#31a5f1;
-    font-size: 46px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
+
 #mainContainer{
     margin: auto;
     width: 600px;
 }
-/*layout styles*/
+
 .bodyStack {
     margin-bottom: 10px;
 }
 
 /*Logo styles*/
 #logo {
-    font-size: 48px !important;
-    font-weight: 100;
     display: inline-block;
     height: 72px;
     position: relative;
 }
-.logoOrange {
-    color:#ff782a;
-}
-.logoBlue {
-    color: #109df0;
-}
 .logoCredit{
-    font-size: 14px !important;
-    font-weight: 300;
     display: inline-block;
-    text-decoration: none;
-    color: #000 !important;
-    float: right;
 }
 .logoStatus{
-    color: #ff2a2a;
-    font-size: 24px;
-    font-weight: 500;
     position: absolute;
     top: 5px;
     right: -25px;
@@ -98,32 +57,23 @@ h1{
     float: right;
 }
 #navLinks li{
-    height: 72px;
-    line-height: 72px;
     list-style: none;
-    float: right;
     font-size: 24px;
     margin-left: 20px;
 }
-#navLinks a{
-    text-decoration: none;
-    color: black;
-}
+
 /*Upload styles*/
 #uploadTarget {
     cursor: pointer;
     width: 600px;
     height: 200px;
     position: relative;
-    border: 3px dashed #ffd6be;
-    border-radius: 10px;
     display: block;
 }
 #uploadTarget .centerText {
     margin: auto;
     width: 300px;
     text-align: center;
-    font-size: 18px;
 }
 #uploadText{
     padding-top: 68px;
@@ -132,11 +82,9 @@ h1{
 
 .progressContainer {
     height: 10px;
-    border:#ff782a 1px solid;
 }
 .progress {
     height: 10px;
-    background-color:#ff782a;
 }
 #uploadArea {
     margin: 20px;
@@ -149,9 +97,7 @@ h1{
     vertical-align: top;
 }
 .blendDisplayTitle {
-    font-size: 48px;
     margin: 0;
-    font-weight: 100;
 }
 
 
