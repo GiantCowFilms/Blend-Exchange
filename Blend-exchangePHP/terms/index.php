@@ -46,7 +46,7 @@
 
             <h2>User content</h2>
 
-            <p>In these terms and conditions, �your user content� means material (including without limitation text, images, audio material, video material and audio-visual material) that you submit to this website, for whatever purpose.</p>
+            <p>In these terms and conditions, &ldquo;your user content&rdquo; means material (including without limitation text, images, audio material, video material and audio-visual material) that you submit to this website, for whatever purpose.</p>
 
             <p>You grant to blend-exchange.giantcowfilms.com a worldwide, irrevocable, non-exclusive, royalty-free license to use, reproduce, adapt, publish, translate and distribute your user content in any existing or future media.  You also grant to blend-exchange.giantcowfilms.com the right to sub-license these rights, and the right to bring an action for infringement of these rights.</p>
 
@@ -60,7 +60,7 @@
 
             <h2>No warranties</h2>
 
-            <p>This website is provided �as is� without any representations or warranties, express or implied.  blend-exchange.giantcowfilms.com makes no representations or warranties in relation to this website or the information and materials provided on this website.</p>
+            <p>This website is provided &ldquo;as is&rdquo; without any representations or warranties, express or implied.  blend-exchange.giantcowfilms.com makes no representations or warranties in relation to this website or the information and materials provided on this website.</p>
 
             <p>Without prejudice to the generality of the foregoing paragraph, blend-exchange.giantcowfilms.com does not warrant that:</p>
             <ul>
