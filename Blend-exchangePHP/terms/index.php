@@ -1,7 +1,7 @@
 <html>
     <?php include("../parts/header.php"); ?>
         <div id="mainContainer">
-<h1> Terms of Service for blend-exchange</h1>
+<h1> Terms of Service for Blend-Exchange</h1>
 <p> If you require any more information or have any questions about our Terms of Service, please feel free to contact us by email at <a name="contactlink"></a> <a href="mailto:">blend-exchange@gmail.com</a>.<h2>Introduction</h2>
 
             <p>These terms and conditions govern your use of this website; by using this website, you accept these terms and conditions in full and without reservation. If you disagree with these terms and conditions or any part of these terms and conditions, you must not use this website.</p>
@@ -9,7 +9,7 @@
             <p>You must be at least 13 [thirteen] years of age to use this website.  By using this website and by agreeing to these terms and conditions, you warrant and represent that you are at least 13 years of age.</p>
 
 
-            <h2>License to use website</h2> 
+            <h2>License to use website</h2>
             <p>Unless otherwise stated, blend-exchange.giantcowfilms.com and/or its licensors own the intellectual property rights published on this website and materials used on blend-exchange.giantcowfilms.com.  Subject to the license below, all these intellectual property rights are reserved.</p>
 
             <p>This site, excluding user uploaded content, is licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported</a></p>
@@ -35,7 +35,7 @@
 
             <p>You must not use this website for any purposes related to marketing without the express written consent of blend-exchange.giantcowfilms.com.</p>
 
-		<!-- If password protected areas BEGIN -->            
+		<!-- If password protected areas BEGIN -->
 		<h2>Restricted access</h2>
 
             <p>Access to certain areas of this website is restricted. blend-exchange.giantcowfilms.com reserves the right to restrict access to certain areas of this website, or at our discretion, this entire website. blend-exchange.giantcowfilms.com may change or modify this policy without notice.</p>
@@ -46,7 +46,7 @@
 
             <h2>User content</h2>
 
-            <p>In these terms and conditions, “your user content” means material (including without limitation text, images, audio material, video material and audio-visual material) that you submit to this website, for whatever purpose.</p>
+            <p>In these terms and conditions, &ldquo;your user content&rdquo; means material (including without limitation text, images, audio material, video material and audio-visual material) that you submit to this website, for whatever purpose.</p>
 
             <p>You grant to blend-exchange.giantcowfilms.com a worldwide, irrevocable, non-exclusive, royalty-free license to use, reproduce, adapt, publish, translate and distribute your user content in any existing or future media.  You also grant to blend-exchange.giantcowfilms.com the right to sub-license these rights, and the right to bring an action for infringement of these rights.</p>
 
@@ -60,7 +60,7 @@
 
             <h2>No warranties</h2>
 
-            <p>This website is provided “as is” without any representations or warranties, express or implied.  blend-exchange.giantcowfilms.com makes no representations or warranties in relation to this website or the information and materials provided on this website.</p>
+            <p>This website is provided &ldquo;as is&rdquo; without any representations or warranties, express or implied.  blend-exchange.giantcowfilms.com makes no representations or warranties in relation to this website or the information and materials provided on this website.</p>
 
             <p>Without prejudice to the generality of the foregoing paragraph, blend-exchange.giantcowfilms.com does not warrant that:</p>
             <ul>
