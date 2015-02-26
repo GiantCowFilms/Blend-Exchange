@@ -1,6 +1,6 @@
 <html>
     <?php include("../parts/header.php"); ?>
-        <div id="uploadContainer">
+        <div id="mainContainer">
 <h1> Terms of Service for blend-exchange</h1>
 <p> If you require any more information or have any questions about our Terms of Service, please feel free to contact us by email at <a name="contactlink"></a> <a href="mailto:">blend-exchange@gmail.com</a>.<h2>Introduction</h2>
 

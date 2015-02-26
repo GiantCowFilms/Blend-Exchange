@@ -1,6 +1,6 @@
 <html>
     <?php include("../parts/header.php"); ?>
-        <div id="uploadContainer">
+        <div id="mainContainer">
             <h1>Contribute:</h1>
             Blend-exchange is a free volunteer run service, made by contributions from people like you. All the development and administration is done by blender.stackexchange forum users.
             <h2>Contribute Code:</h2>

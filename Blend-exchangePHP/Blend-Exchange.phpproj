@@ -18,6 +18,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="about\index.php" />
+    <Compile Include="admin\index.php" />
+    <Compile Include="admin\login\index.php" />
     <Compile Include="b\index.php" />
     <Compile Include="contribute\index.php" />
     <Compile Include="d\index.php" />
@@ -151,6 +153,8 @@
     <Compile Include="parts\footer.php" />
     <Compile Include="parts\head.php" />
     <Compile Include="parts\header.php" />
+    <Compile Include="parts\loginForm.php" />
+    <Compile Include="parts\requireLogin.php" />
     <Compile Include="parts\uploadPage.php" />
     <Compile Include="terms\index.php" />
   </ItemGroup>
@@ -170,11 +174,14 @@
     <Content Include="Google_Drive_Api\style\ruleset.xml" />
     <Content Include="jquery.js" />
     <Content Include="main.css" />
+    <Content Include="parts\secret.json" />
     <Content Include="secret\.htaccess" />
     <Content Include="secret\secret.json" />
+    <Content Include="sha256.js" />
     <Content Include="upload.js" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="admin\login\" />
     <Folder Include="finish\" />
     <Folder Include="Google_Drive_Api\" />
     <Folder Include="Google_Drive_Api\src\" />
@@ -198,6 +205,7 @@
     <Folder Include="flag\" />
     <Folder Include="favorite\" />
     <Folder Include="embedUpload\" />
+    <Folder Include="admin\" />
     <Folder Include="secret\" />
     <Folder Include="terms\" />
     <Folder Include="parts\" />

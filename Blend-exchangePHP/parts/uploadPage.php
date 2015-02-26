@@ -9,7 +9,7 @@
                     </div>
             </form>
             <div id="uploadOptions">
-                <input class="txtBlue bodyStack" id="questionUrl" placeholder="Enter the url of the queston on blender.stackexchange" value="<?php if(isset($questionLink)) { echo $questionLink; }?>"/>
+                <input class="txtBlue bodyStack" <?php if(isset($embedUpload) && ($embedUpload == true)){echo 'style="display: none;"';}?> id="questionUrl" placeholder="Enter the url of the queston on blender.stackexchange" value="<?php if(isset($questionLink)) { echo $questionLink; }?>"/>
                 
                 <div>
                     <input class="txtBlue bodyStack" id="password" placeholder="Enter a password to enable editing or deleting (optional)"/>

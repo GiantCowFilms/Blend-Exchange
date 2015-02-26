@@ -15,7 +15,7 @@
                 }
             } 
         ?>
-        <div id="uploadContainer">
+        <div id="mainContainer">
             <?php 
             if ($copyrightAlert){
                 echo "            <div class=\"noticeWarning nwNotice\">

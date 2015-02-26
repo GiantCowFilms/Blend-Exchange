@@ -1,6 +1,6 @@
 <html>
     <?php include("../parts/header.php"); ?>
-        <div id="uploadContainer">
+        <div id="mainContainer">
             <h1>Help:</h1>
             <h2>How do I edit or delete my .blend</h2>
             If you entered a password and still have it you can do that as soon as the feature is added.
