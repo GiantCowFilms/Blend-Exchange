@@ -173,7 +173,6 @@
     <Content Include="secret\.htaccess" />
     <Content Include="secret\secret.json" />
     <Content Include="upload.js" />
-    <Content Include="uploader.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="finish\" />

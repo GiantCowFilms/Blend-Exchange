@@ -12,19 +12,7 @@
             <h2>License to use website</h2> 
             <p>Unless otherwise stated, blend-exchange.giantcowfilms.com and/or its licensors own the intellectual property rights published on this website and materials used on blend-exchange.giantcowfilms.com.  Subject to the license below, all these intellectual property rights are reserved.</p>
 
-            <p>You may view, download for caching purposes only, and print pages, files or other content from the website for your own personal use, subject to the restrictions set out below and elsewhere in these terms and conditions.</p>
-
-            <p>You must not:</p>
-            <ul>
-                <li>republish material from this website in neither print nor digital media or documents (including republication on another website);</li>
-                <li>sell, rent or sub-license material from the website;</li>
-                <li>show any material from the website in public;</li>
-                <li>reproduce, duplicate, copy or otherwise exploit material on this website for a commercial purpose;</li>
-                <li>edit or otherwise modify any material on the website;</li>
-                <li>redistribute material from this website - except for content specifically and expressly made available for redistribution; or</li>
-		  <li>republish or reproduce any part of this website through the use of iframes or screenscrapers.</li>
-            </ul>
-            <p>Where content is specifically made available for redistribution, it may only be redistributed within your organisation.</p>
+            <p>This site, excluding user uploaded content, is licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported</a></p>
 
             <h2>Acceptable use</h2>
 
@@ -33,15 +21,15 @@
             <p>You must not use this website to copy, store, host, transmit, send, use, publish or distribute any material which consists of (or is linked to) any spyware, computer virus, Trojan horse, worm, keystroke logger, rootkit or other malicious computer software.</p>
 
             <p>You must not conduct any systematic or automated data collection activities on or in relation to this website without blend-exchange.giantcowfilms.com's express written consent.<br />
-This includes:
-<ul><li>scraping</li>
-<li>data mining</li>
-<li>data extraction</li>
-<li>data harvesting</li>
-<li>'framing' (iframes)</li>
-<li>Article 'Spinning'</li>
-</ul>
-</p>
+            This includes:
+            <ul><li>scraping</li>
+            <li>data mining</li>
+            <li>data extraction</li>
+            <li>data harvesting</li>
+            <li>'framing' (iframes) except where permitted</li>
+            <li>Article 'Spinning'</li>
+            </ul>
+            </p>
 
             <p>You must not use this website or any part of it to transmit or send unsolicited commercial communications.</p>
 

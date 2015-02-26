@@ -100,6 +100,14 @@
                     data: { id: "<?php echo $blendData["id"] ?>"}
                 });
             });
+            //Events for embed
+
+            //Alert for iframe
+            window.parent.postMessage({ name: "embedSource", content: $("#embedCode").val() }, "*");
+            //Alert for popup
+            if (window.opener != null && !window.opener.closed) {
+                window.opener.postMessage({ name: "embedSource", content: $("#embedCode").val() }, "*");
+            }
         </script>
     </body>
 </html>
