@@ -9,8 +9,12 @@
             </div>
                 <ul id="navLinks">
                     <li><a href="/about">About</a></li>
+<<<<<<< Updated upstream
                     <li><a href="/userscript">User-script</a></li>
                     <li><a href="/contribute">Contribute</a></li>
+=======
+>>>>>>> Stashed changes
                     <li><a href="/help">Help</a></li>
+                    <li><a href="/contribute">Contribute</a></li>
                 </ul>
         </div>
