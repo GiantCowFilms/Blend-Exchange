@@ -43,17 +43,59 @@
     $file->setDescription('A test document');
     $file->setMimeType('text/plain');
 
-    $data = file_get_contents($_FILES['file']['tmp_name']);
+    $data = fopen($_FILES['file']['tmp_name'],"rb");
     $dataSize = filesize($_FILES['file']['tmp_name']);
     
-    $createdFile = $service->files->insert($file, array(
-          'data' => $data,
-          'mimeType' => 'application/octet-stream',
-          'uploadType' => 'media'
-        ));
-    //echo'<pre>';
-    //var_dump($createdFile["id"]);
-    //echo '</pre>';
+    //$createdFile = $service->files->insert($file, array(
+    //      'data' => $data,
+    //      'mimeType' => 'application/octet-stream',
+    //      'uploadType' => 'media'
+    //    ));
+    ////echo'<pre>';
+    ////var_dump($createdFile["id"]);
+    ////echo '</pre>';
+    
+    //New big file upload
+    
+    $client->setDefer(true);
+    $request = $service->files->insert($file);
+    //Set size of chuncks for upload
+    $chunkSizeBytes = 1 * 1024 * 1024;
+    
+    // Create a media file upload to represent our upload process.
+    $media = new Google_Http_MediaFileUpload(
+      $client,
+      $request,
+      'application/octet-stream',
+      null,
+      true,
+      $chunkSizeBytes
+    );
+    $media->setFileSize($dataSize);
+
+    // Upload the various chunks. $status will be false until the process is
+    // complete.
+    $status = false;
+    $handle = $data;
+    while (!$status && !feof($handle)) {
+        $chunk = fread($handle, $chunkSizeBytes);
+        $status = $media->nextChunk($chunk);
+    }
+
+    // The final value of $status will be the data from the API for the object
+    // that has been uploaded.
+    $result = false;
+    if($status != false) {
+        $result = $status;
+    }
+
+    fclose($handle);
+    // Reset to the client to execute requests immediately in the future.
+    $client->setDefer(false);    
+    
+    print_r($request);
+    
+    //$createdFile = $request;
     
     //Get IP adress
     $ipAdress = $_SERVER['REMOTE_ADDR'];

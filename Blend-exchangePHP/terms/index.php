@@ -131,7 +131,7 @@
 
             <h2>Law and jurisdiction</h2>
 
-            <p>These terms and conditions will be governed by and construed in accordance with the laws of NEVADA, USA, and any disputes relating to these terms and conditions will be subject to the exclusive jurisdiction of the courts of NEVADA, USA.</p>
+            <p>These terms and conditions will be governed by and construed in accordance with the laws of the USA, and any disputes relating to these terms and conditions will be subject to the exclusive jurisdiction of the courts of the USA.</p>
 
 <h2>About these website Terms of Service</h2>
 <p>We created these website terms and conditions using the TOS/T&C generator available from <a href="http://www.PrivacyPolicyOnline.com">Privacy Policy Online</a>.

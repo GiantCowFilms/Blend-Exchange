@@ -8,7 +8,16 @@
     
     $blendData = $db->prepare("SELECT `id`, `fileName`, `fileGoogleId`, `flags`, `password`, `uploaderIp`, `questionLink`, `fileSize` FROM `blends` WHERE `id`= :id");
     $blendData->execute(array('id' => $blendId));
-    $blendData = $blendData->fetchAll(PDO::FETCH_ASSOC)["0"];
+    //If there are no rows, no file
+    $fileExists = ($blendData->rowCount() != 0);
+    
+    if($fileExists){
+        $blendData = $blendData->fetchAll(PDO::FETCH_ASSOC)["0"];
+    } else {
+        $blendData = [];
+    }
+    
+    $blendData["fileExists"] = $fileExists;
     
     //New better view counter
     //Get IP adress
@@ -67,9 +76,18 @@
     $rows->execute(array('fileId' => $blendId));
     $rows = $rows->rowCount();
     $blendData["favorites"] = $rows;
-    
+    if(!$blendData["fileExists"]){
+        header("HTTP/1.0 404 Not Found");
+    }
     ?>
     <?php include("../parts/header.php"); ?>
-
+    <?php 
+    if(!$blendData["fileExists"]){
+        echo "            <div class=\"noticeWarning nwDanger\">
+                    Blend file not found
+                </div>";
+        exit();
+    }
+    ?>
     <?php include("../parts/downloadPage.php"); ?>
     <?php include("../parts/footer.php"); ?>

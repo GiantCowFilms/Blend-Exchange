@@ -22,6 +22,7 @@
 .btnBlue {
     display:inline-block;
     height: 35px;
+    width: 100%;
     border-radius: 10px;
     outline: none !important;
     border: 3px #31a5f1 solid;
