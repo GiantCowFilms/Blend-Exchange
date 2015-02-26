@@ -20,6 +20,7 @@
     background: transparent;
 }
 .btnBlue {
+    display:inline-block;
     height: 35px;
     border-radius: 10px;
     outline: none !important;
