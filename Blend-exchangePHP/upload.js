@@ -24,7 +24,7 @@ blendDropzone.on("success", function (e, r) {
 $("#upload").click(function () {
     var password = $("#password").val().trim();
     var questionUrl = $("#questionUrl").val().trim();
-    if (/http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-#0-9\/]+$/.test(questionUrl)) {
+    if (/http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-#0-9\/_]+$/.test(questionUrl)) {
         blendDropzone.options.url = "/finish/?url=" + questionUrl + "&password=" + password;
         blendDropzone.processQueue();
     } else {

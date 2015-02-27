@@ -2,7 +2,7 @@
     <?php
     //Get information from form
     $questionUrl = $_GET["url"];
-    if(!preg_match('/http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-#0-9\/]+$/',$questionUrl)){
+    if(!preg_match('/http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-#0-9\/_]+$/',$questionUrl)){
         echo "Invalid url";
         exit;
     };
