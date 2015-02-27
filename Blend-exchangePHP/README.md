@@ -11,7 +11,13 @@ In an HTTP header often the site that the link was clicked on his provided... if
 
 ###TODO for the project
 
-* Flagging feature
-* Proper database setup
-* Editing and deleting
-* Double check the .blend files are actually blends
+* **Admin tools:** [~]
+ - Login [✓]
+ - View flags basic [ ] 
+ - View flags advanced [ ] 
+ - View large files [ ] 
+ - View suspecious ref files [ ] 
+* **Themes:** [ ]
+ - CSS work [ ]
+ - Switch themes javascript [ ] 
+ - Switch themes php [ ] 
