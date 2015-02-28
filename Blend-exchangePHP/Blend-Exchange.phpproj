@@ -18,6 +18,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="about\index.php" />
+    <Compile Include="admin\adminTools\index.php" />
     <Compile Include="admin\index.php" />
     <Compile Include="admin\login\index.php" />
     <Compile Include="b\index.php" />
@@ -188,6 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="admin\login\" />
+    <Folder Include="admin\adminTools\" />
     <Folder Include="finish\" />
     <Folder Include="Google_Drive_Api\" />
     <Folder Include="Google_Drive_Api\src\" />
