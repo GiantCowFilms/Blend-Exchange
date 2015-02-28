@@ -17,7 +17,9 @@ body {
   font-family:Raleway;
   color:#444;
 }
-
+h1{
+     color: #109df0;
+}
 ::-moz-selection {
   background-color:#109df0;
   color:white;
@@ -107,6 +109,12 @@ a:hover {
 
 .logoCredit, .logoCredit:hover, .logoStatus {
   color:#ababab;
+}
+.logoOrange{
+    color: #ff782a;
+}
+#logo:hover .logoOrange{
+    color:#109df0;
 }
 
 #footer {
