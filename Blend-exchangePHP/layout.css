@@ -1,83 +1,162 @@
 /*Only structural layout css allowed in here. Fonts, colors, etc. should be go in separate theme stylesheets*/
 
-body {
-    max-width: 960px;
-    margin: auto;
+html {
+    height: 100%;
 }
+body {
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    max-width:960px;
+    margin:auto;
+    padding:0px 15px;
+    height:100%;
+}
+.wrapper {
+    flex:1 0 auto;
+}
+
 
 /*Generic Styles*/
-.txtBlue{
-    width: 100%;
-    height: 35px;
-}
-.btnBlue {
-    height: 35px;
-    text-align: center;
-    line-height: 35px;
-    cursor: pointer;
-}
-
-#mainContainer{
-    margin: auto;
-    width: 600px;
-}
-
 .bodyStack {
     margin-bottom: 10px;
 }
 
-/*Logo styles*/
-#logo {
-    display: inline-block;
-    height: 72px;
-    position: relative;
+.txtBlue{
+    width:100%;
+    height:35px;
+    border:0;
+    outline:0;
+    padding:0px 5px;
+    font-size:12pt;
 }
+.btnBlue {
+    display:inline-block;
+    min-width:50px;
+    padding:0px 20px;
+    max-width:350px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    cursor: pointer;
+    margin:0;
+    
+    /*make button label not highlightable*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.btnBlue > a {
+  display:block; /*make a fill button, so user can click anywhere on the button (not just on the text)*/
+}
+
+/*#mainContainer{
+    margin: auto;
+    width: 100%;
+}*/
+
+/*Logo styles*/
+#logo > img {
+    display:inline-block;
+    position:absolute;
+    bottom:0;
+    left:-55px;
+    opacity:.2;
+    z-index:-1;
+}
+#logo {
+    position:absolute;
+    left:0;
+    bottom:0;
+    font-size:38pt;
+    display: inline-block;
+    height: 80px;
+}
+
 .logoCredit{
+    font-size:8pt;
+    font-style:italic;
     display: inline-block;
 }
 .logoStatus{
     position: absolute;
-    top: 5px;
-    right: -25px;
-    transform: rotate(35deg);
-    -webkit-transform: rotate(35deg);
-    -moz-transform: rotate(35deg);
-    -ms-transform: rotate(35deg);
-    -o-transform: rotate(35deg);
+    top:5px;
+    right:0px;
+    font-size:12pt;
 }
 /*navStyles*/
+.headspace {height:7%; min-height:10px;}
 #nav {
+    position:relative;
+    height:160px;
     margin-bottom: 20px;
 }
 #navLinks{
-    height: 72px;
+    display:flex;
+    flex-direction: column;
+    justify-content:space-around;
+    position:absolute;
+    right:0;
+    bottom:0;
+    height: 100%;
     margin: 0;
     margin-left: 10px;
     padding: 0;
-    float: right;
+    min-height:100%;
 }
 #navLinks li{
+    flex:1;
+    flex-grow:0;
     list-style: none;
-    font-size: 24px;
-    margin-left: 20px;
+    font-size: 18pt;
+    text-align:right;
+    border-right:2px;
 }
+#navLinks li:hover{
+    border-right-width:5px;
+}
+#navLinks li a {
+    display:block;
+    height:100%;
+    padding:5px 10px;
+}
+
 
 /*Upload styles*/
 #uploadTarget {
     cursor: pointer;
-    width: 600px;
-    height: 200px;
+    height: 300px;
     position: relative;
-    display: block;
+    
 }
 #uploadTarget .centerText {
     margin: auto;
-    width: 300px;
+    position:absolute;
+    top:0; left:0; bottom:0; right:0;
+    height:50px;
     text-align: center;
 }
 #uploadText{
-    padding-top: 68px;
-    padding-bottom: 68px;
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+#uploadOptions > div {
+    height:35px;
+}
+#password {
+    width:65%;
+    margin:0;
+    vertical-align:bottom;
+}
+#upload {
+    width:35%;
+    padding:0;
+    float:right;
 }
 
 .progressContainer {
@@ -108,23 +187,89 @@ body {
     resize: none;
 }
 #footer {
-    width: 600px;
-    margin: auto;
+    position:relative;
+    font-size:10pt;
+    margin-top:20px;
+    width: 100%;
     text-align: center;
-    margin-top: 20px;
+    padding:10px 0px;
 }
-.noticeWarning {
-    border: solid 2px;
-    padding: 10px;
-    border-radius: 10px;
-}
-.nwDanger {
-    background-color: #FF7A7A;
-    border-color: #ff2a2a;
-    color: #ffffff;
-}
-.nwNotice {
-    background-color: #FFCE7A;
-    border-color: #FFA200;
-    color: #000;
+
+
+
+@media only screen and (max-width: 545px) {
+   #nav {
+      position:fixed;
+      left:0;
+      top:0;
+      width:100%;
+      height:40px;
+      z-index: 2;
+   }
+   
+   #navLinks{
+      display:table;
+      position:absolute;
+      width:100%;
+       bottom:0px;
+      
+      min-height:10px;
+      
+   }
+   #navLinks li{
+      display:table-cell;
+      border:0;
+      height:100%;
+      padding:0;
+      padding-top:5px;
+      font-size: 13pt;
+      text-align:center;
+   }
+    #navLinks li a {
+        padding:0;
+        min-height:100%;
+    }
+   #navLinks li:hover{
+      border:0;
+   }
+   /*Logo styles*/
+   #logo > img {
+      display:inline-block;
+      position:fixed;
+      padding:5px;
+      height:25;
+      opacity:.5;
+      left:0;
+      top:0;
+   }
+   #logo {
+      visibility: hidden;
+      position:absolute;
+      left:25px;
+      top:0;
+      padding:5px;
+      font-size:10pt;
+      display: inline-block;
+      height: 80px;
+      width:100%;
+   }
+   .logoCredit{
+      font-size:7pt;
+      font-style:italic;
+      display: inline-block;
+   }
+   .logoStatus{
+      position: absolute;
+      top:0px;
+      left:-moz-calc(100% - 75px);
+      padding:5px;
+      font-size:7pt;
+   }
+   #mainContainer {
+      margin-top:80px;
+   }
+   #uploadTarget {
+      height:200px;
+   }
+   
 }

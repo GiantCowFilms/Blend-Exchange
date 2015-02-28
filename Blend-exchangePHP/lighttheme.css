@@ -1,3 +1,139 @@
+/*light theme, only colors and fonts allowed in here*/
+
+/*colors:
+name    normal   alt
+
+orange  ff782a   cd5c02
+blue    109df0   29b0ff
+silver  f5f5f5   fafafa
+grey    ababab   777777
+black   444444
+
+*/
+
+
 body {
   background-color:white;
+  font-family:Raleway;
+  color:#444;
+}
+
+::-moz-selection {
+  background-color:#109df0;
+  color:white;
+}
+::selection {
+  background-color:#109df0;
+  color:white;
+}
+::-webkit-input-placeholder {
+  color: #ababab;
+  opacity:1;
+}
+::-moz-placeholder {  
+  color: #ababab;
+  opacity:1;
+}
+:-ms-input-placeholder {  
+  color: #ababab;
+  opacity:1;
+}
+a {
+  text-decoration:none;
+  color:#109df0;
+}
+a:hover {
+  color:#ff782a;
+}
+
+.txtBlue {
+  background-color:#f5f5f5;
+  color:#444;
+}
+.txtBlue:hover {
+  background-color:#fbfbfb;
+}
+.txtBlue:hover::-moz-placeholder {  
+  color: #777;
+}
+.txtBlue:hover:-ms-input-placeholder {  
+  color: #777;
+}
+.txtBlue:hover::-webkit-input-placeholder {  
+  color: #777;
+}
+
+.btnBlue {
+  background-color:#109df0;
+  color:white;
+  transition:background .3s;
+}
+.btnBlue:hover {
+  background-color:#ff782a;
+}
+.btnBlue > a {
+  color:inherit;
+}
+
+#uploadTarget {
+  border:dashed #ababab;
+  background-color:#fbfbfb;
+}
+#uploadTarget:hover {
+  background-color:white;
+}
+#uploadText {
+  color:#ababab;
+}
+#uploadText:hover {
+  color:#777;
+}
+
+#navLinks li {
+  border-right-color:#109df0;
+  border-right-style:solid;
+  transition:border, background, .3s;
+}
+#navLinks li:hover {
+  border-right-color:#cd5c02;
+  color:white;
+  background-color:#ff782a;
+}
+#navLinks li a:hover {
+  color:white;
+}
+
+.logoCredit, .logoCredit:hover, .logoStatus {
+  color:#ababab;
+}
+
+#footer {
+  width:100%;
+  background-color:#f5f5f5;
+  color:#ababab;
+}
+
+.noticeWarning {
+    border: solid 2px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.nwDanger {
+    background-color: #FF7A7A;
+    border-color: #ff2a2a;
+    color: #ffffff;
+}
+.nwNotice {
+    background-color: #FFCE7A;
+    border-color: #FFA200;
+    color: #000;
+}
+
+
+@media only screen and (max-width: 545px) {
+   
+#nav {
+  background-color:#f5f5f5;
+}
+    
 }
