@@ -1,4 +1,6 @@
         <?php
+            //Include login check
+            include("checklogin.php");
             //Process flags
             $virusAlert = false;
             $copyrightAlert = false;
@@ -56,6 +58,11 @@
                 </div>
             </div>
             <?php include("flagForm.php"); ?>
+            <?php 
+                if ($loggedIn == true){
+                    include("adminTools.php");  
+                };
+            ?>
             <div>Embed (Copy into your post):</div>
             <textarea id="embedCode" class="txtBlue">[<img src="http://blend-exchange.giantcowfilms.com/embedImage.png?bid=<?php echo $blendData["id"] ?>" />](http://blend-exchange.giantcowfilms.com/b/<?php echo $blendData["id"]; ?>/)</textarea>
             <div id="usageNotice">
@@ -107,6 +114,41 @@
             //Alert for popup
             if (window.opener != null && !window.opener.closed) {
                 window.opener.postMessage({ name: "embedSource", content: $("#embedCode").val() }, "*");
+            }
+        </script>
+        <script>
+            $(document).on("click", "#adminComment", function () {
+                $("#adminCommentForm").show();
+            });
+            $(document).on("click", "#adminCommentPost", function () {
+                comment = $("#adminCommentText").val();
+                $.ajax({
+                    url: "/admin/adminTools/",
+                    type: "POST",
+                    data: { fileId: "<?php echo $blendData["id"] ?>", act: "Comment", text: comment },
+                    success: function () {
+                    
+                    }
+                });
+            });
+            $(document).on("click", "#adminDeclineFlag", function () {
+                actOnFlag("decline");
+            });
+            $(document).on("click", "#adminAcceptFlag", function () {
+                actOnFlag("accept");
+            });
+            function actOnFlag(action) {
+                $(document).on("click", "#adminFlagContinue", function () {
+                    flagId = $("#adminFlagSelect option:selected").val();
+                    $.ajax({
+                        url: "/admin/adminTools/",
+                        type: "POST",
+                        data: { fileId: "<?php echo $blendData["id"] ?>", act: "actOnFlag", flagId: flagId, type: action },
+                        success: function () {
+
+                        }
+                    });
+                });
             }
         </script>
     </body>
