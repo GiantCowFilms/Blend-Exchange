@@ -1,7 +1,7 @@
 <html>
     <?php include("../parts/header.php"); ?>
         <div id="mainContainer">
-            <h1>User-script</h1>
+            <h1>Userscript</h1>
            <p> To use the user-script, please install <a href="https://tampermonkey.net/">Tampermonkey</a> or an equivalent plugin into your browser.</p>
             <div class="btnBlue"><a href="https://github.com/gandalf3/BlendExchanger/raw/master/blendexchanger.user.js">Download Now</a></div>
 
