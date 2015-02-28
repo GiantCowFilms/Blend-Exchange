@@ -49,6 +49,8 @@ a:hover {
 .txtBlue {
   background-color:#f5f5f5;
   color:#444;
+  border-color: #109df0;
+  border-style: solid;
 }
 .txtBlue:hover {
   background-color:#fbfbfb;

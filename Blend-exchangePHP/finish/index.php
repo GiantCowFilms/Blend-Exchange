@@ -98,10 +98,7 @@
     //Get IP adress
     $ipAdress = $_SERVER['REMOTE_ADDR'];
     $ipAdress = hash("sha256", $ipAdress, false);;
-    ?>
-    <?php
-    
-    <?php include("../parts/database.php"); ?>
+    include("../parts/database.php");
     $db->prepare("INSERT INTO `blends` SET `id`=NULL, `fileName`=:fileName, `fileGoogleId`='".$createdFile->id."', `flags`='', `views`=0, `downloads`=0, `password`=:password, `uploaderIp`='".$ipAdress."', `questionLink`='".$questionUrl."', `fileSize`='".$dataSize."'")
     ->execute(
         array(
