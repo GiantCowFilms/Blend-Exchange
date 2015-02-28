@@ -12,6 +12,10 @@ body {
     padding:0px 15px;
     height:100%;
 }
+h1{
+    font-size: 48px;
+    font-weight: 400;
+}
 .wrapper {
     flex:1 0 auto;
 }
@@ -71,20 +75,20 @@ body {
     position:absolute;
     left:0;
     bottom:0;
-    font-size:38pt;
+    font-size:44pt;
     display: inline-block;
     height: 80px;
+    font-weight:300;
 }
-
 .logoCredit{
-    font-size:8pt;
+    font-size:10pt;
     font-style:italic;
     display: inline-block;
 }
 .logoStatus{
     position: absolute;
     top:5px;
-    right:0px;
+    right: 0;
     font-size:12pt;
 }
 /*navStyles*/
@@ -108,6 +112,7 @@ body {
     min-height:100%;
 }
 #navLinks li{
+    font-weight: 300;
     flex:1;
     flex-grow:0;
     list-style: none;

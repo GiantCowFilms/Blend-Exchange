@@ -178,6 +178,8 @@
     <Content Include="Google_Drive_Api\src\Google\IO\cacerts.pem" />
     <Content Include="Google_Drive_Api\style\ruleset.xml" />
     <Content Include="jquery.js" />
+    <Content Include="layout.css" />
+    <Content Include="lighttheme.css" />
     <Content Include="login.js" />
     <Content Include="main.css" />
     <Content Include="parts\.htaccess" />

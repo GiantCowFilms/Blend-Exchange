@@ -17,7 +17,9 @@ body {
   font-family:Raleway;
   color:#444;
 }
-
+h1{
+     color: #109df0;
+}
 ::-moz-selection {
   background-color:#109df0;
   color:white;
@@ -68,10 +70,10 @@ a:hover {
 .btnBlue {
   background-color:#109df0;
   color:white;
-  transition:background .3s;
+  transition:background .1s;
 }
 .btnBlue:hover {
-  background-color:#ff782a;
+  background-color:#0d7dbf;
 }
 .btnBlue > a {
   color:inherit;
@@ -107,6 +109,12 @@ a:hover {
 
 .logoCredit, .logoCredit:hover, .logoStatus {
   color:#ababab;
+}
+.logoOrange{
+    color: #ff782a;
+}
+#logo:hover .logoOrange{
+    color:#109df0;
 }
 
 #footer {
