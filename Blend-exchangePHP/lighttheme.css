@@ -94,6 +94,7 @@ a:hover {
 }
 
 #navLinks li {
+  font-weight: 300;
   border-right-color:#109df0;
   border-right-style:solid;
   transition:border, background, .3s;
