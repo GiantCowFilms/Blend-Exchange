@@ -2,7 +2,7 @@
     <h2>Flag:</h2>
     <input type="radio" name="offense" value="virus">Virus<br>
     <input type="radio" name="offense" value="copyright">Copyright Offense<br>
-    <input type="radio" name="offense" value="notSE">Not used on the linked blender.stackexchange question<br>
+    <input type="radio" name="offense" value="notSE">Abuse of Service: Not used on the linked blender.stackexchange question<br>
     <input type="radio" name="offense" value="Other">Other<br>
     <div id="flagCancel" class="btnBlue" style="width: 289px; display: inline-block;">
         Cancel

@@ -93,9 +93,7 @@
     // Reset to the client to execute requests immediately in the future.
     $client->setDefer(false);    
     
-    print_r($request);
-    
-    //$createdFile = $request;
+    $createdFile = $result;
     
     //Get IP adress
     $ipAdress = $_SERVER['REMOTE_ADDR'];
@@ -103,8 +101,8 @@
     ?>
     <?php
     
-    $db = new PDO("mysql:host=".$secretKeys->mysql->host.";dbname=".$secretKeys->mysql->database,$secretKeys->mysql->user,$secretKeys->mysql->password);
-    $db->prepare("INSERT INTO `blends` SET `id`=NULL, `fileName`=:fileName, `fileGoogleId`='".$createdFile["id"]."', `flags`='', `views`=0, `downloads`=0, `password`=:password, `uploaderIp`='".$ipAdress."', `questionLink`='".$questionUrl."', `fileSize`='".$dataSize."'")
+    <?php include("../parts/database.php"); ?>
+    $db->prepare("INSERT INTO `blends` SET `id`=NULL, `fileName`=:fileName, `fileGoogleId`='".$createdFile->id."', `flags`='', `views`=0, `downloads`=0, `password`=:password, `uploaderIp`='".$ipAdress."', `questionLink`='".$questionUrl."', `fileSize`='".$dataSize."'")
     ->execute(
         array(
         'fileName' => $_FILES['file']["name"],

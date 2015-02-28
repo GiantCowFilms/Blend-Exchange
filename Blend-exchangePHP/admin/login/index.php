@@ -22,14 +22,14 @@
         
         //Send status
         echo '{
-            stauts: 1,
-            message: "You are logged in"
+            "status": 1,
+            "message": "You are logged in"
         }';
     } else {
         //Send status
         echo '{
-            stauts: 0,
-            message: "Login failed"
+            "status": 0,
+            "message": "Login failed"
         }';
     }
     

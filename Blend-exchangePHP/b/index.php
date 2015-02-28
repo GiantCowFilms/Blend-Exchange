@@ -24,7 +24,10 @@
     $ipAdress = $_SERVER['REMOTE_ADDR'];
     $ipAdress = hash("sha256", $ipAdress, false); 
     
+    $referingAdress = '';
+    if(isset($_SERVER['HTTP_REFERER'])) {
     $referingAdress = $_SERVER['HTTP_REFERER'];
+    }
     
     $db->prepare("INSERT INTO `accesses` SET `ref`=:ref, `type`='view', `ip`='".$ipAdress."', `fileId`=:fileId, `date`=NOW()")->execute(array('fileId' => $blendId,'ref' => $referingAdress));
     

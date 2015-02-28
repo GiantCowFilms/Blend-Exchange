@@ -7,6 +7,12 @@
 }
 
 /*Generic Styles*/
+textarea .txtBlue{
+    width: 100%;
+    height: 64px;
+    resize: none;
+}
+
 .txtBlue{
     width: 100%;
     height: 35px;
