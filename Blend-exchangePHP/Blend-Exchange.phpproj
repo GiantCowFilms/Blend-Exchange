@@ -183,7 +183,6 @@
     <Content Include="login.js" />
     <Content Include="main.css" />
     <Content Include="parts\.htaccess" />
-    <Content Include="parts\secret.json" />
     <Content Include="secret\.htaccess" />
     <Content Include="secret\secret.json" />
     <Content Include="sha256.js" />
