@@ -19,7 +19,6 @@ body {
 }
 h1{
      color: #109df0;
-     font-weight: 400;
 }
 ::-moz-selection {
   background-color:#109df0;
@@ -71,10 +70,10 @@ a:hover {
 .btnBlue {
   background-color:#109df0;
   color:white;
-  transition:background .3s;
+  transition:background .1s;
 }
 .btnBlue:hover {
-  background-color:#ff782a;
+  background-color:#0d7dbf;
 }
 .btnBlue > a {
   color:inherit;
@@ -95,7 +94,6 @@ a:hover {
 }
 
 #navLinks li {
-  font-weight: 300;
   border-right-color:#109df0;
   border-right-style:solid;
   transition:border, background, .3s;
