@@ -23,7 +23,17 @@
         url: "/admin/login",
         type: "get",
         success: function (result) {
-            alert([result]);
+            //Parse the message
+            message = JSON.parse(result);
+            //Check if logged in
+            if (message.status == 1) {
+                location.reload();
+            } else {
+                $("#loginFormError").show();
+                setTimeout(function () {
+                    $("#loginFormError").fadeOut("400");
+                },3000);
+            }
         },
         data: loginData
     });

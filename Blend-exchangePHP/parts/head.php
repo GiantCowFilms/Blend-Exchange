@@ -1,3 +1,6 @@
+    <?php if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    } ?>
     <head>
         <title>Blend-Exchange</title>
         <link rel="stylesheet" media="screen" href="/layout.css" />

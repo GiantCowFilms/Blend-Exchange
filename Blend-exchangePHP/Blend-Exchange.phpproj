@@ -18,6 +18,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="about\index.php" />
+    <Compile Include="admin\adminTools\index.php" />
     <Compile Include="admin\index.php" />
     <Compile Include="admin\login\index.php" />
     <Compile Include="b\index.php" />
@@ -147,6 +148,9 @@
     <Compile Include="Google_Drive_Api\src\Google\Verifier\Pem.php" />
     <Compile Include="help\index.php" />
     <Compile Include="index.php" />
+    <Compile Include="parts\adminTools.php" />
+    <Compile Include="parts\admin\getFlaggedFiles.php" />
+    <Compile Include="parts\checkLogin.php" />
     <Compile Include="parts\database.php" />
     <Compile Include="parts\downloadPage.php" />
     <Compile Include="parts\flagForm.php" />
@@ -157,6 +161,7 @@
     <Compile Include="parts\requireLogin.php" />
     <Compile Include="parts\uploadPage.php" />
     <Compile Include="terms\index.php" />
+    <Compile Include="userscript\index.php" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".htaccess" />
@@ -173,7 +178,9 @@
     <Content Include="Google_Drive_Api\src\Google\IO\cacerts.pem" />
     <Content Include="Google_Drive_Api\style\ruleset.xml" />
     <Content Include="jquery.js" />
+    <Content Include="login.js" />
     <Content Include="main.css" />
+    <Content Include="parts\.htaccess" />
     <Content Include="parts\secret.json" />
     <Content Include="secret\.htaccess" />
     <Content Include="secret\secret.json" />
@@ -182,6 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="admin\login\" />
+    <Folder Include="admin\adminTools\" />
     <Folder Include="finish\" />
     <Folder Include="Google_Drive_Api\" />
     <Folder Include="Google_Drive_Api\src\" />
@@ -206,6 +214,8 @@
     <Folder Include="favorite\" />
     <Folder Include="embedUpload\" />
     <Folder Include="admin\" />
+    <Folder Include="parts\admin\" />
+    <Folder Include="userscript\" />
     <Folder Include="secret\" />
     <Folder Include="terms\" />
     <Folder Include="parts\" />

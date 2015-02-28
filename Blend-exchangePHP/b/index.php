@@ -24,7 +24,12 @@
     $ipAdress = $_SERVER['REMOTE_ADDR'];
     $ipAdress = hash("sha256", $ipAdress, false); 
     
-    $db->prepare("INSERT INTO `accesses` SET `type`='view', `ip`='".$ipAdress."', `fileId`=:fileId, `date`=NOW()")->execute(array('fileId' => $blendId));
+    $referingAdress = '';
+    if(isset($_SERVER['HTTP_REFERER'])) {
+    $referingAdress = $_SERVER['HTTP_REFERER'];
+    }
+    
+    $db->prepare("INSERT INTO `accesses` SET `ref`=:ref, `type`='view', `ip`='".$ipAdress."', `fileId`=:fileId, `date`=NOW()")->execute(array('fileId' => $blendId,'ref' => $referingAdress));
     
     //Read download count
     $rows = $db->prepare("SELECT `ip` FROM `accesses` WHERE `type`='view' AND `fileId`=:fileId");
