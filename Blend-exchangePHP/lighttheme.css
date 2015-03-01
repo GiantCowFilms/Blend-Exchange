@@ -75,6 +75,9 @@ h1 {
 .btnBlue:hover {
   background-color:#29b0ff;
 }
+.btnBlue:active {
+  background-color:#ff782a;
+}
 .btnBlue > a {
   color:inherit;
 }
