@@ -15,9 +15,12 @@ body {
 
 h1{
  font-size:38pt;
- font-weight:500;
 }
-
+#mainContainer img {
+  border:10px;
+  padding:5px;
+  max-width:calc(100% - 30px);
+}
 .wrapper {
     flex:1 0 auto;
 }

@@ -45,7 +45,9 @@ a {
 a:hover {
   color:#ff782a;
 }
-
+h1 {
+  font-weight:500;
+}
 .txtBlue {
   background-color:#fbfbfb;
   color:#444;
@@ -156,6 +158,11 @@ a:hover {
 
 #logo > a:hover > .logoOrange {
   color:#FF9A3B;
+}
+
+#mainContainer img {
+  border-color:#eee;
+  border-style:solid;
 }
 
 #footer {
