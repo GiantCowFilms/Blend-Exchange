@@ -2,7 +2,7 @@
     <?php include("../parts/header.php"); ?>
         <div id="mainContainer">
             <h1>About:</h1>
-            Blend-Exchange is a free blend hosting site for the users of blender.stackexchage.com. It is operated by members of the community.
+            Blend-Exchange is a free blend hosting site for the users of blender.stackexchange.com. It is operated by members of the community.
             <h1>
                 Faq:
             </h1>
