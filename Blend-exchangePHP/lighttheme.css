@@ -30,11 +30,11 @@ body {
   color: #ababab;
   opacity:1;
 }
-::-moz-placeholder {  
+::-moz-placeholder {
   color: #ababab;
   opacity:1;
 }
-:-ms-input-placeholder {  
+:-ms-input-placeholder {
   color: #ababab;
   opacity:1;
 }
@@ -57,13 +57,13 @@ h1 {
 .txtBlue:hover {
   background-color:white;
 }
-.txtBlue:hover::-moz-placeholder {  
+.txtBlue:hover::-moz-placeholder {
   color: #777;
 }
-.txtBlue:hover:-ms-input-placeholder {  
+.txtBlue:hover:-ms-input-placeholder {
   color: #777;
 }
-.txtBlue:hover::-webkit-input-placeholder {  
+.txtBlue:hover::-webkit-input-placeholder {
   color: #777;
 }
 
@@ -149,6 +149,7 @@ h1 {
 .logoCredit, .logoCredit:hover, .logoStatus {
   color:#ababab;
 }
+<<<<<<< HEAD
 #logo > a {
   color:#109df0;
 }
@@ -164,6 +165,8 @@ h1 {
   border-color:#eee;
   border-style:solid;
 }
+=======
+>>>>>>> cab776019b0b4c4a69dae121873325fa93c18c64
 
 #footer {
   width:100%;
