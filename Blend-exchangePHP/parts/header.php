@@ -11,6 +11,7 @@
             <img src="/logo.png" />
       </div>
          <ul id="navLinks">
+            <li><a href="/">Upload</a></li>
             <li><a href="/help">Help</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/userscript">Userscript</a></li>

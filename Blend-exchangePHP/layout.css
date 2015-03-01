@@ -12,10 +12,12 @@ body {
     padding:0px 15px;
     height:100%;
 }
+
 h1{
-    font-size: 48px;
-    font-weight: 400;
+ font-size:38pt;
+ font-weight:500;
 }
+
 .wrapper {
     flex:1 0 auto;
 }
@@ -75,20 +77,20 @@ h1{
     position:absolute;
     left:0;
     bottom:0;
-    font-size:44pt;
+    font-size:38pt;
     display: inline-block;
     height: 80px;
-    font-weight:300;
 }
-.logoCredit{
+
+.logoCredit {
     font-size:10pt;
     font-style:italic;
-    display: inline-block;
+    display:inline-block;
 }
-.logoStatus{
+.logoStatus {
     position: absolute;
     top:5px;
-    right: 0;
+    right:0px;
     font-size:12pt;
 }
 /*navStyles*/
@@ -106,27 +108,29 @@ h1{
     right:0;
     bottom:0;
     height: 100%;
+    width:20%;
+    min-width:150px;
     margin: 0;
     margin-left: 10px;
     padding: 0;
     min-height:100%;
 }
 #navLinks li{
-    font-weight: 300;
     flex:1;
-    flex-grow:0;
+    position:relative;
     list-style: none;
-    font-size: 18pt;
+    font-size: 14pt;
+    font-weight:300;
     text-align:right;
-    border-right:2px;
 }
 #navLinks li:hover{
-    border-right-width:5px;
+    padding-right:5px;
 }
 #navLinks li a {
     display:block;
     height:100%;
     padding:5px 10px;
+    padding-right:0px;
 }
 
 
@@ -154,10 +158,10 @@ h1{
     height:35px;
 }
 #password {
-    width:64%;
+    width:calc(65% - 10px);
     margin:0;
     vertical-align:bottom;
-    margin-right: 1%;
+    margin-right:10px;
 }
 #upload {
     width:35%;
@@ -203,7 +207,7 @@ h1{
 
 
 
-@media only screen and (max-width: 545px) {
+@media only screen and (max-width: 589px) {
    #nav {
       position:fixed;
       left:0;
