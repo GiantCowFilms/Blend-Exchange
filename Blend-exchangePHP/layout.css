@@ -223,7 +223,7 @@ h1{
 }
 
 #fileStats img{
-   border-size: 0;
+   border-width:0;
    padding: 0;
 }
 
