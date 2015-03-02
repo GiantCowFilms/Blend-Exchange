@@ -278,6 +278,7 @@ h1{
        left: 0;
    }
    #logo {
+       width:100%;
        font-size:23pt;
    }
    .logoText{
@@ -285,6 +286,7 @@ h1{
        left: 55px;
    }
    .logoCredit{
+       width:calc(100% - 55px);
        font-size:10pt;
        position:relative;
        left: 55px;
