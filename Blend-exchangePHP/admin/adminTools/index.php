@@ -20,13 +20,13 @@
         case "actOnFlag":
             $flagId = $_POST["flagId"];
             $type = $_POST["type"];
-            $type = ($type == "accept")? 1 : 0;
+            $type = ($type == "accept")? 1 : 2;
             //TODO
-            $db->prepare("UPDATE `accesses` SET `accepet`=:comment WHERE `id`=:blendId")
+            $db->prepare("UPDATE `accesses` SET `accepet`=:accept WHERE `id`=:flagId")
             ->execute(
                 array(
-                'blendId' => $blendId,
-                'comment' => $comment
+                'flagId' => $flagId,
+                'accept' => $type
                 )
             );
             break;

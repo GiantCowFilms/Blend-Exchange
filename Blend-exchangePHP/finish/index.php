@@ -2,13 +2,13 @@
     <?php
     //Get information from form
     $questionUrl = $_GET["url"];
-    if(!preg_match('^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-#0-9\/_?=]+$',$questionUrl)){
+    if(!preg_match('/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-#0-9\/_?=]+$/',$questionUrl)){
         echo "Invalid url";
         exit;
     };
     //Process URL to get rid of stuff after the last slash
      $matches = [];
-     preg_match_all('^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/', $questionUrl, $matches);
+     preg_match('/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\//', $questionUrl, $matches);
      $questionUrl = $matches["0"];
     $password = $_GET["password"];
     
@@ -119,7 +119,7 @@
     $blendData["fileSize"] = $dataSize;
     $blendData["views"] = 0;
     $blendData["downloads"] = 0;
-    $blendData["flags"] = "";
+    $blendData["flags"] = [];
     $blendData["favorites"] = 0;
     ?>
     <?php include("../parts/header.php"); ?>
