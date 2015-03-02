@@ -66,6 +66,23 @@ h1 {
 .txtBlue:hover::-webkit-input-placeholder {
   color: #777;
 }
+.txtBlueError{
+    animation: txtBlueError 0.4s;
+    -webkit-animation: txtBlueError 0.4s; /* Chrome, Safari, Opera */
+    -moz-animation: txtBlueError 0.4s; /* Firefox */
+    -o-animation: txtBlueError 0.4s; /* Opera */
+    animation-iteration-count: 3;
+    -webkit-animation-iteration-count: 3; /* Chrome, Safari, Opera */
+    -moz-animation-iteration-count: 3; /* Firefox */
+    -o-animation-iteration-count: 3; /* Opera */
+}
+@-webkit-keyframes txtBlueError {
+        50%{
+            background-color: #FF7A7A;
+            border-color: #ff2a2a;
+            color: #ffffff;
+        }
+}
 
 .btnBlue {
   background-color:#109df0;
