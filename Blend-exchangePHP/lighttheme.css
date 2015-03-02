@@ -82,11 +82,11 @@ h1 {
   color:inherit;
 }
 
-#uploadTarget {
+.contentTarget {
   border:dashed #ababab;
   background-color:#fbfbfb;
 }
-#uploadTarget:hover {
+.contentTarget:hover {
   background-color:white;
 }
 #uploadText {
@@ -129,6 +129,10 @@ h1 {
   background-color:rgba(255,120,42,.1);
 }
 
+/*Styles for download box*/
+#fileStats{
+    border-color: #60BCF1;
+}
 
 #navLinks li {
   font-weight:300;

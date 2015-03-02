@@ -31,14 +31,15 @@
                 </div>";
             };
             ?>
-            <div id="uploadTarget" class="bodyStack">
+            <div id="fileStats" class="bodyStack contentTarget">
+                <div style="text-align: center;">
                         <img class="blendDisplayIcon" src="/blenderFileIcon.png"/>
-                        <div style="width: 420px; display: inline-block; margin-top: 25px;">
+                        <div style="display: inline-block; margin-top: 25px; text-align: left;">
                             <h2 class="blendDisplayTitle">
                                 <?php echo $blendData["fileName"] ?>
                             </h2>
-                            <span style="font-size: 18px;">
-                                 <a href="<?php echo $blendData["questionLink"] ?>"><?php echo substr($blendData["questionLink"], 7, 45); ?>...</a>
+                            <span class="downloadQuestionLink">
+                                 <a href="<?php echo $blendData["questionLink"] ?>"><?php echo substr($blendData["questionLink"], 32, 40); ?>...</a>
                                 <br />
                                 <?php echo round(intval($blendData["fileSize"])/1000000, 1, PHP_ROUND_HALF_UP); ?> MB
                                 <br />
@@ -47,6 +48,7 @@
                                 <?php echo $blendData["favorites"] ?> favorites
                             </span>
                         </div>
+                </div>
             </div>
             <div class="bodyStack">
                 <div id="flagBtn" class="btnBlue" style="width: 187px;">
