@@ -290,8 +290,8 @@ h1{
    }
    
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 590px) {
     body{
-        padding: 15px;
+        padding:0px 15px;
     }
 }
