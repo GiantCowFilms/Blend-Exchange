@@ -9,8 +9,9 @@ body {
     position:relative;
     max-width:960px;
     margin:auto;
-    padding:0px 15px;
+    padding:0px 75px;
     height:100%;
+    min-width: 340px;
 }
 
 h1{
@@ -223,7 +224,7 @@ h1{
 
 
 
-@media only screen and (max-width: 589px) {
+@media only screen and (max-width: 640px) {
    #nav {
       position:fixed;
       left:0;
@@ -266,12 +267,19 @@ h1{
    /*Logo styles*/
    #logo > img {
        height:120px;
+       left: 0;
    }
    #logo {
        font-size:23pt;
    }
+   .logoText{
+       position:relative;
+       left: 55px;
+   }
    .logoCredit{
        font-size:10pt;
+       position:relative;
+       left: 55px;
    }
    .logoStatus{
        right:0;
@@ -281,4 +289,9 @@ h1{
       height:200px;
    }
    
+}
+@media only screen and (max-width: 500px) {
+    body{
+        padding: 15px;
+    }
 }
