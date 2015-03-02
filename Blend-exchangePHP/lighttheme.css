@@ -136,12 +136,10 @@ h1 {
 }
 #navLinks li:hover {
   font-weight:500;
-  border-right-color:#cd5c02;
-  color:white;
-  background-color:#ff782a;
+    color:#29b0ff;
 }
 #navLinks li a:hover {
-  color:white;
+  color:#29b0ff;
 }
 #logo {
   font-weight:500;
@@ -205,6 +203,15 @@ h1 {
 }
 #navLinks li a {
   font-weight:400;
+}
+#navLinks li:hover {
+  font-weight:500;
+  border-right-color:#cd5c02;
+  color:white;
+  background-color:#ff782a;
+}
+#navLinks li a:hover {
+  color:white;
 }
     
 }
