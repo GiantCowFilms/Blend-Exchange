@@ -99,7 +99,6 @@ h1{
 }
 .logoStatus {
     position:absolute;
-    height:20px;
     top:0;
     right:0px;
     font-size:12pt;
@@ -290,8 +289,8 @@ h1{
    }
    
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 590px) {
     body{
-        padding: 15px;
+        padding:0px 15px;
     }
 }
