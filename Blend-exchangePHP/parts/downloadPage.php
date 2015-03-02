@@ -1,6 +1,6 @@
         <?php
             //Include login check
-            include("checklogin.php");
+            include($_SERVER["DOCUMENT_ROOT"]."/parts/checkLogin.php");
             //Process flags
             $virusAlert = false;
             $copyrightAlert = false;
