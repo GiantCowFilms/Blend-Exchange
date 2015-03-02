@@ -13,6 +13,16 @@
                     
                 ?>
             </ul>
+            <h2>Auto Flagged Files:</h2>
+            <ul>
+                <?php
+                foreach ($autoFlags as $autoFlag)
+                    {
+                        echo "<li><a href='/b/".$autoFlag["id"]."/'>".$autoFlag["fileName"]."</a> - <a href='".$autoFlag["questionLink"]."'>Question</a> - Flagged: ".$autoFlag["val"]."</li>";
+                    }
+                    
+                ?>
+            </ul>
         </div>
         <?php include("../parts/footer.php"); ?>
         <script src="jquery.js"></script>

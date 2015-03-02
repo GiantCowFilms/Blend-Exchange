@@ -13,7 +13,7 @@ In an HTTP header often the site that the link was clicked on his provided... if
 
 * **Admin tools:** [~]
  - Login [✓]
- - View flags basic [ ] 
+ - View flags basic [✓]
  - View flags advanced [ ] 
  - View large files [ ] 
  - View suspecious ref files [ ] 

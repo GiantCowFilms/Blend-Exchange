@@ -2,10 +2,14 @@
     <?php
     //Get information from form
     $questionUrl = $_GET["url"];
-    if(!preg_match('/http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-#0-9\/_]+$/',$questionUrl)){
+    if(!preg_match('^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-#0-9\/_?=]+$',$questionUrl)){
         echo "Invalid url";
         exit;
     };
+    //Process URL to get rid of stuff after the last slash
+     $matches = [];
+     preg_match_all('^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/', $questionUrl, $matches);
+     $questionUrl = $matches["0"];
     $password = $_GET["password"];
     
     //Get file 
@@ -97,9 +101,9 @@
     
     //Get IP adress
     $ipAdress = $_SERVER['REMOTE_ADDR'];
-    $ipAdress = hash("sha256", $ipAdress, false);
-    
-    include("../parts/database.php");
+    $ipAdress = hash("sha256", $ipAdress, false);;
+
+    include("../parts/database.php"); 
     
     $db->prepare("INSERT INTO `blends` SET `id`=NULL, `fileName`=:fileName, `fileGoogleId`='".$createdFile->id."', `flags`='', `views`=0, `downloads`=0, `password`=:password, `uploaderIp`='".$ipAdress."', `questionLink`='".$questionUrl."', `fileSize`='".$dataSize."'")
     ->execute(
