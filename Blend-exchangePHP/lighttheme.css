@@ -216,7 +216,8 @@ h1 {
 /*Upload styles*/
 
 .contentTarget {
-   border:dashed #ababab;
+   border-style:dashed;
+   border-color:#ababab;
    background-color:#fbfbfb;
 }
 .contentTarget:hover {
@@ -275,19 +276,15 @@ h1 {
 }
 
 .noticeWarning {
-   border: solid 2px;
-   padding: 10px;
-   border-radius: 10px;
+    padding: 15px;
 }
 .nwDanger {
-   background-color: #FF7A7A;
-   border-color: #ff2a2a;
-   color: #ffffff;
+    background-color: #ff2a2a;
+    color: white;
 }
 .nwNotice {
-   background-color: #FFCE7A;
-   border-color: #FFA200;
-   color: #000;
+    background-color: #FFA200;
+    color: #000;
 }
 
 
