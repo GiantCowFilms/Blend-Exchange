@@ -149,18 +149,24 @@ h1 {
 .logoOrange {
   color:#ff782a;
 }
-.logoCredit, .logoCredit:hover, .logoStatus {
+.logoCredit {
   color:#ababab;
 }
+.logoCredit:hover {
+  color:#ccc;
+}
+.logoStatus {
+  color:#ddd;
+}
 
-#logo > a {
+.logoText > a {
   color:#109df0;
 }
-#logo > a:hover > .logoBlue {
+.logoText > a:hover > .logoBlue {
   color:#29b0ff;
 }
 
-#logo > a:hover > .logoOrange {
+.logoText > a:hover > .logoOrange {
   color:#FF9A3B;
 }
 
@@ -197,6 +203,8 @@ h1 {
 #nav {
   background-color:#f5f5f5;
 }
-
+#navLinks li a {
+  font-weight:400;
+}
     
 }
