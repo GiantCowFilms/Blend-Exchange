@@ -4,14 +4,13 @@
             //Process flags
             $virusAlert = false;
             $copyrightAlert = false;
-            if(strlen($blendData["flags"]) != 0) {
-                $blendData["flags"] = split(";",$blendData["flags"]);
+            if(count($blendData["flags"]) != 0) {
                 foreach ($blendData["flags"] as $flag)
                 {
-                    if ($flag == "virus"){
+                    if ($flag["val"] == "virus"){
                         $virusAlert = true;  
                     };
-                    if ($flag == "copyright"){
+                     if ($flag["val"] == "copyright"){
                         $copyrightAlert = true;  
                     };
                 }
@@ -20,13 +19,13 @@
         <div id="mainContainer">
             <?php 
             if ($copyrightAlert){
-                echo "            <div class=\"noticeWarning nwNotice\">
+                echo "            <div class=\"noticeWarning nwNotice bodyStack\">
                 NOTICE: This file has been removed on a copyright claim!
                 </div>";
                 exit;
             };
             if ($virusAlert){
-                echo "            <div class=\"noticeWarning nwDanger\">
+                echo "            <div class=\"noticeWarning nwDanger bodyStack\">
                 WARNING: This blend has been reported as containing maleware. Download at your own risk. The report is unconfirmed.
                 </div>";
             };
@@ -51,11 +50,11 @@
                 </div>
             </div>
             <div class="bodyStack">
-                <div id="flagBtn" class="btnBlue" style="width: 187px;">
+                <div id="flagBtn" class="btnBlue downloadBtnRow">
                     Flag
-                </div><div id="favoriteBtn" class="btnBlue" style="width: 187px; margin-left: 10px;">
+                </div><div id="favoriteBtn" class="btnBlue downloadBtnRow">
                     Favorite
-                </div><div id="downloadFile" class="btnBlue" style="width: 187px; margin-left: 10px;">
+                </div><div id="downloadFile" class="btnBlue downloadBtnRow" style="margin-right: 0">
                     <a href="/d/<?php echo $blendData["id"] ?>/<?php echo $blendData["fileName"] ?>">Download</a>
                 </div>
             </div>
@@ -140,14 +139,18 @@
                 actOnFlag("accept");
             });
             function actOnFlag(action) {
+                $("#adminFlagForm").show();
+
+                var flagId = $("#adminFlagSelect option:selected").val();
+
                 $(document).on("click", "#adminFlagContinue", function () {
                     flagId = $("#adminFlagSelect option:selected").val();
                     $.ajax({
                         url: "/admin/adminTools/",
                         type: "POST",
                         data: { fileId: "<?php echo $blendData["id"] ?>", act: "actOnFlag", flagId: flagId, type: action },
-                        success: function () {
-
+                        success: function (r) {
+                            alert([r]);
                         }
                     });
                 });

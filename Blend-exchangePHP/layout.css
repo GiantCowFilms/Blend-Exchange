@@ -195,6 +195,10 @@ h1{
     margin: 20px;
 }
 /*Blend file display*/
+.downloadBtnRow{
+    width: 32.5%;
+    margin-right: 1%;
+}
 .blendDisplayIcon {
     height: 150px;
     margin-top: 25px;
@@ -205,11 +209,9 @@ h1{
     margin: 0;
     font-size:36px;
 }
-#fileStats{
-    height: 210px;
-}
 #fileStats img{
     border: none !important;
+    padding: 0;
 }
 
 
