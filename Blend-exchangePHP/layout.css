@@ -1,238 +1,261 @@
 /*Only structural layout css allowed in here. Fonts, colors, etc. should be go in separate theme stylesheets*/
 
 html {
-    height: 100%;
-}
-body {
-    display:flex;
-    flex-direction:column;
-    position:relative;
-    max-width:960px;
-    margin:auto;
-    padding:0px 75px;
-    height:100%;
-    min-width: 340px;
+   height: 100%;
 }
 
-h1{
- font-size:38pt;
+body {
+   display:flex;
+   flex-direction:column;
+   position:relative;
+   max-width:960px;
+   margin:auto;
+   padding:0px 75px;
+   height:100%;
+   min-width: 340px;
 }
+
+/*Generic styles*/
+
+h1{
+   font-size:38pt;
+}
+
 #mainContainer img {
-  border:10px;
-  padding:5px;
-  max-width:calc(100% - 30px);
+   border:10px;
+   padding:5px;
+   max-width:calc(100% - 30px);
 }
 
 .wrapper {
-    flex:1 0 auto;
+   flex:1 0 auto;
 }
 
-
-/*Generic Styles*/
 .bodyStack {
-    margin-bottom: 10px;
+   margin-bottom: 10px;
 }
+
+/*Text input styles*/
 
 .txtBlue{
-    width:100%;
-    height:35px;
-    border:1px;
-    outline:0;
-    padding:0px 5px;
-    font-size:12pt;
+   width:100%;
+   height:35px;
+   border:1px;
+   outline:0;
+   padding:0px 5px;
+   font-size:12pt;
 }
+
+/*Button styles*/
+ 
 .btnBlue {
-    display:inline-block;
-    min-width:50px;
-    max-width:350px;
-    height: 35px;
-    text-align: center;
-    line-height: 35px;
-    cursor: pointer;
-    margin:0;
-    
-    /*make button label not highlightable*/
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+   display:inline-block;
+   min-width:50px;
+   max-width:350px;
+   height: 35px;
+   text-align: center;
+   line-height: 35px;
+   cursor: pointer;
+   margin:0;
+   /*make button label not highlightable*/
+   -webkit-touch-callout: none;
+   -webkit-user-select: none;
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
 }
 .btnBlue > a {
-  padding:0px 20px;
-  display:block; /*make a fill button, so user can click anywhere on the button (not just on the text)*/
-  outline:none;
+   padding:0px 20px;
+   display:block; /*make anchor fill button, so user can click anywhere on the button (not just on the text)*/
+   outline:none;
 }
-
-/*#mainContainer{
-    margin: auto;
-    width: 100%;
-}*/
 
 /*Logo styles*/
+
 #logo > img {
-    display:inline-block;
-    position:absolute;
-    bottom:0;
-    height:160px;
-    left:-55px;
-    opacity:.2;
-    height:160px; /*height of #header*/
-    z-index: -1;
+   display:inline-block;
+   position:absolute;
+   bottom:0;
+   height:160px;
+   left:-55px;
+   opacity:.2;
+   height:160px; /*height of #header*/
+   z-index: -1;
 }
 #logo {
-    position:absolute;
-    left:0;
-    bottom:0;
-    font-size:38pt;
-    display: inline-block;
-    height:80px;
+   position:absolute;
+   left:0;
+   bottom:0;
+   font-size:38pt;
+   display: inline-block;
+   height:80px;
 }
 .logoText {
-    display:inline-block;
-    position:relative;
+   display:inline-block;
+   position:relative;
 }
 .logoCredit {
-    font-size:10pt;
-    display:inline-block;
+   font-size:10pt;
+   display:inline-block;
 }
 .logoStatus {
-    position:absolute;
-    top:0;
-    right:0px;
-    font-size:12pt;
+   position:absolute;
+   top:0;
+   right:0px;
+   font-size:12pt;
 }
-/*navStyles*/
-.headspace {height:7%; min-height:10px;}
+
+/*Nav styles*/
+
+.headspace {
+   height:7%;
+   min-height:10px;
+}
 #header {
-    position:relative;
-    height:160px;
-    margin-bottom: 20px;
+   position:relative;
+   height:160px;
+   margin-bottom: 20px;
 }
 #nav {
-    position:absolute;
-    height:100%;
-    right:0;
+   position:absolute;
+   height:100%;
+   right:0;
 }
 #navLinks{
-    display:flex;
-    flex-direction: column;
-    justify-content:space-around;
-    position:absolute;
-    right:0;
-    bottom:0;
-    height: 100%;
-    width:20%;
-    min-width:150px;
-    margin: 0;
-    margin-left: 10px;
-    padding: 0;
-    min-height:100%;
+   display:flex;
+   flex-direction: column;
+   justify-content:space-around;
+   position:absolute;
+   right:0;
+   bottom:0;
+   height: 100%;
+   width:20%;
+   min-width:150px;
+   margin: 0;
+   margin-left: 10px;
+   padding: 0;
+   min-height:100%;
 }
 #navLinks li{
-    flex:1;
-    position:relative;
-    list-style: none;
-    font-size: 14pt;
-    font-weight:300;
-    text-align:right;
+   flex:1;
+   position:relative;
+   list-style: none;
+   font-size: 14pt;
+   font-weight:300;
+   text-align:right;
 }
 #navLinks li a {
-    display:block;
-    height:100%;
-    padding:5px 10px;
-    padding-right:0px;
-    transition:padding .3s;
+   display:block;
+   height:100%;
+   padding:5px 10px;
+   padding-right:0px;
+   transition:padding .3s;
 }
 #navLinks li a:hover{
-    padding-right:5px;
+   padding-right:5px;
 }
-
 
 /*Upload styles*/
+
 .contentTarget {
-    cursor: pointer;
-    height: 300px;
-    position: relative;
-    
+   cursor: pointer;
+   height: 300px;
+   position: relative;
 }
 .contentTarget .centerText {
-    margin: auto;
-    position:absolute;
-    top:0; left:0; bottom:0; right:0;
-    height:50px;
-    text-align: center;
+   margin: auto;
+   position:absolute;
+   top:0; left:0; bottom:0; right:0;
+   height:50px;
+   text-align: center;
 }
+
 #uploadText{
-    position:relative;
-    width:100%;
-    height:100%;
+   position:relative;
+   width:100%;
+   height:100%;
 }
 
 #uploadOptions > div {
-    height:35px;
+   height:35px;
 }
+
 #password {
-    width:calc(65% - 10px);
-    margin:0;
-    vertical-align:bottom;
-    margin-right:10px;
+   width:calc(65% - 10px);
+   margin:0;
+   vertical-align:bottom;
+   margin-right:10px;
 }
-#upload {
-    width:35%;
-    padding:0;
-    float:right;
+
+#upload { /*upload button*/
+   width:35%;
+   padding:0;
+   float:right;
 }
 
 .progressContainer {
-    height: 10px;
+   height: 10px;
 }
 .progress {
-    height: 10px;
+   height: 10px;
 }
+
 #uploadArea {
-    margin: 20px;
+   margin: 20px;
 }
-/*Blend file display*/
+
+/*Download styles*/
+
 .downloadBtnRow{
-    width: 32.5%;
-    margin-right: 1%;
+   width: 32.5%;
+   margin-right: 1%;
 }
 .blendDisplayIcon {
-    height: 150px;
-    margin-top: 25px;
-    margin-left: 10px;
-    vertical-align: top;
+   height: 150px;
+   margin-top: 25px;
+   margin-left: 10px;
+   vertical-align: top;
 }
 .blendDisplayTitle {
-    margin: 0;
-    font-size:36px;
+   margin: 0;
+   font-size:36px;
 }
+
 #fileStats img{
-    border: none !important;
-    padding: 0;
+   border: none;
+   padding: 0;
 }
 
-
-/*misc*/
 #embedCode {
-    width: 100%;
-    height: 64px;
-    resize: none;
-}
-#footer {
-    position:relative;
-    font-size:10pt;
-    margin-top:20px;
-    width: 100%;
-    text-align: center;
-    padding:10px 0px;
+   width: 100%;
+   height: 64px;
+   resize: none;
 }
 
+/*Misc Styles*/
+
+#footer {
+   position:relative;
+   font-size:10pt;
+   margin-top:20px;
+   width: 100%;
+   text-align: center;
+   padding:10px 0px;
+}
 
 
 @media only screen and (max-width: 640px) {
+   body{
+      padding:0px 15px;
+   }
+   
+   #mainContainer {
+      margin:0;
+   }
+   
+   /*Small nav styles*/
+   
    #nav {
       position:fixed;
       left:0;
@@ -241,18 +264,12 @@ h1{
       height:40px;
       z-index: 2;
    }
-   #header {
-   }
-   #mainContainer {
-       margin:0;
-   }
    #navLinks{
       display:table;
       position:absolute;
       width:100%;
       bottom:0px;
       min-height:10px;
-      
    }
    #navLinks > li {
       display:table-cell;
@@ -260,63 +277,61 @@ h1{
       height:100%;
       padding:0;
       font-size:12pt;
-      /*font-size:4vw;*/
       text-align:center;
    }
-    #navLinks li a {
-        padding:0;
-        padding-top:5px;
-        min-height:100%;
-    }
-   #navLinks li a:hover{
-       padding:0;
-       padding-top:5px;
+   #navLinks li a {
+      padding:0;
+      padding-top:5px;
+      min-height:100%;
    }
-   /*Logo styles*/
+   #navLinks li a:hover{
+      padding:0;
+      padding-top:5px;
+   }
+   
+   /*Small logo styles*/
+   
    #logo > img {
-       height:120px;
-       left: 0;
+      height:120px;
+      left: 0;
    }
    #logo {
-       width:100%;
-       font-size:23pt;
+      width:100%;
+      font-size:23pt;
    }
    .logoText{
-       position:relative;
-       left: 55px;
+      position:relative;
+      left: 55px;
    }
    .logoCredit{
-       width:calc(100% - 55px);
-       font-size:10pt;
-       position:relative;
-       left: 55px;
+      width:calc(100% - 55px);
+      font-size:10pt;
+      position:relative;
+      left: 55px;
    }
    .logoStatus{
-       right:0;
-       font-size:8pt;
+      right:0;
+      font-size:8pt;
    }
    .contentTarget {
       height:200px;
    }
    
-}
-@media only screen and (max-width:  640px) {
-    body{
-        padding:0px 15px;
-    }
-    /*blend display styles*/
-    .blendDisplayTitle{
-        font-size: 24px;
-    }
-    .downloadQuestionLink {
-        font-size: 10px;
-    }
-    .blendDisplayIcon {
-        height: 75px;
-        margin-top: 25px;
-        margin-left: 0;
-    }
-    #fileStats {
-        height: 135px;
-    }
+   /*Small download styles*/
+   
+   .blendDisplayTitle{
+      font-size: 24px;
+   }
+   .downloadQuestionLink {
+      font-size: 10px;
+   }
+   .blendDisplayIcon {
+      height: 75px;
+      margin-top: 25px;
+      margin-left: 0;
+   }
+   
+   #fileStats {
+      height: 135px;
+   }
 }
