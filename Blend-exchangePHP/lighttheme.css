@@ -17,9 +17,7 @@ body {
   font-family:Raleway;
   color:#444;
 }
-h1{
-     color: #109df0;
-}
+
 ::-moz-selection {
   background-color:#109df0;
   color:white;
@@ -32,11 +30,11 @@ h1{
   color: #ababab;
   opacity:1;
 }
-::-moz-placeholder {  
+::-moz-placeholder {
   color: #ababab;
   opacity:1;
 }
-:-ms-input-placeholder {  
+:-ms-input-placeholder {
   color: #ababab;
   opacity:1;
 }
@@ -47,33 +45,38 @@ a {
 a:hover {
   color:#ff782a;
 }
-
+h1 {
+  font-weight:500;
+}
 .txtBlue {
-  background-color:#f5f5f5;
+  background-color:#fbfbfb;
   color:#444;
-  border-color: #109df0;
+  border-color: #ccc;
   border-style: solid;
 }
 .txtBlue:hover {
-  background-color:#fbfbfb;
+  background-color:white;
 }
-.txtBlue:hover::-moz-placeholder {  
+.txtBlue:hover::-moz-placeholder {
   color: #777;
 }
-.txtBlue:hover:-ms-input-placeholder {  
+.txtBlue:hover:-ms-input-placeholder {
   color: #777;
 }
-.txtBlue:hover::-webkit-input-placeholder {  
+.txtBlue:hover::-webkit-input-placeholder {
   color: #777;
 }
 
 .btnBlue {
   background-color:#109df0;
   color:white;
-  transition:background .1s;
+  /*transition:background .3s;*/
 }
 .btnBlue:hover {
-  background-color:#0d7dbf;
+  background-color:#29b0ff;
+}
+.btnBlue:active {
+  background-color:#ff782a;
 }
 .btnBlue > a {
   color:inherit;
@@ -92,13 +95,47 @@ a:hover {
 #uploadText:hover {
   color:#777;
 }
+#uploadTarget.dz-drag-hover {
+  background-color:#E6FFEB;
+}
+
+/*hack to add "drop file here" text. Possibly better to add in js, but can be cleaned up a bit if this css solution is preffered*/
+#uploadTarget.dz-drag-hover > #uploadText:before {
+  content:"Drop file here";
+  font-size:20pt;
+  font-weight:500;
+  position:absolute;
+  margin: auto;
+  top:0; left:0; bottom:0; right:0;
+  text-align: center;
+  height:50px;
+  background-color:#E6FFEB;
+  z-index: 1;
+}
+@keyframes file_drop_highlight {
+  from {
+    background-color:rgba(255,120,42,1);
+  }
+  to {
+    background-color:rgba(255,120,42,.1);
+  }
+}
+
+#uploadTarget.dz-max-files-reached {
+  border-color:#ff782a;
+  animation:file_drop_highlight;
+  animation-duration:2s;
+  animation-timing-function: cubic-bezier;
+  background-color:rgba(255,120,42,.1);
+}
+
 
 #navLinks li {
-  border-right-color:#109df0;
-  border-right-style:solid;
-  transition:border, background, .3s;
+  font-weight:300;
+  transition:background, .3s, font .01s;
 }
 #navLinks li:hover {
+  font-weight:500;
   border-right-color:#cd5c02;
   color:white;
   background-color:#ff782a;
@@ -106,15 +143,36 @@ a:hover {
 #navLinks li a:hover {
   color:white;
 }
-
-.logoCredit, .logoCredit:hover, .logoStatus {
+#logo {
+  font-weight:500;
+}
+.logoOrange {
+  color:#ff782a;
+}
+.logoCredit {
   color:#ababab;
 }
-.logoOrange{
-    color: #ff782a;
+.logoCredit:hover {
+  color:#ccc;
 }
-#logo:hover .logoOrange{
-    color:#109df0;
+.logoStatus {
+  color:#ddd;
+}
+
+.logoText > a {
+  color:#109df0;
+}
+.logoText > a:hover > .logoBlue {
+  color:#29b0ff;
+}
+
+.logoText > a:hover > .logoOrange {
+  color:#FF9A3B;
+}
+
+#mainContainer img {
+  border-color:#eee;
+  border-style:solid;
 }
 
 #footer {
@@ -140,10 +198,13 @@ a:hover {
 }
 
 
-@media only screen and (max-width: 545px) {
+@media only screen and (max-width: 589px) {
    
 #nav {
   background-color:#f5f5f5;
+}
+#navLinks li a {
+  font-weight:400;
 }
     
 }
