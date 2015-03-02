@@ -81,6 +81,12 @@
     $rows->execute(array('fileId' => $blendId));
     $rows = $rows->rowCount();
     $blendData["favorites"] = $rows;
+    
+    $rows = $db->prepare("SELECT `val`,`id`,`accept` FROM `accesses` WHERE `type`='flag' AND `fileId`=:fileId");
+    $rows->execute(array('fileId' => $blendId));
+    $rows = $rows->fetchAll(PDO::FETCH_ASSOC);
+    $blendData["flags"] = $rows;
+    
     if(!$blendData["fileExists"]){
         header("HTTP/1.0 404 Not Found");
     }

@@ -1,4 +1,4 @@
-            <form id="uploadTarget" class="bodyStack">
+            <form id="uploadTarget" class="bodyStack contentTarget">
                 <div id="uploadText">
                     <div class="centerText">
                         Drag a file here to upload a .blend<br>or click to browse

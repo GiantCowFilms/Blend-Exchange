@@ -151,13 +151,13 @@ h1{
 
 
 /*Upload styles*/
-#uploadTarget {
+.contentTarget {
     cursor: pointer;
     height: 300px;
     position: relative;
     
 }
-#uploadTarget .centerText {
+.contentTarget .centerText {
     margin: auto;
     position:absolute;
     top:0; left:0; bottom:0; right:0;
@@ -195,6 +195,10 @@ h1{
     margin: 20px;
 }
 /*Blend file display*/
+.downloadBtnRow{
+    width: 32.5%;
+    margin-right: 1%;
+}
 .blendDisplayIcon {
     height: 150px;
     margin-top: 25px;
@@ -203,6 +207,11 @@ h1{
 }
 .blendDisplayTitle {
     margin: 0;
+    font-size:36px;
+}
+#fileStats img{
+    border: none !important;
+    padding: 0;
 }
 
 
@@ -284,13 +293,28 @@ h1{
        right:0;
        font-size:8pt;
    }
-   #uploadTarget {
+   .contentTarget {
       height:200px;
    }
    
 }
-@media only screen and (max-width: 590px) {
+@media only screen and (max-width:  640px) {
     body{
         padding:0px 15px;
+    }
+    /*blend display styles*/
+    .blendDisplayTitle{
+        font-size: 24px;
+    }
+    .downloadQuestionLink {
+        font-size: 10px;
+    }
+    .blendDisplayIcon {
+        height: 75px;
+        margin-top: 25px;
+        margin-left: 0;
+    }
+    #fileStats {
+        height: 135px;
     }
 }
