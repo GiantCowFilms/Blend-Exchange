@@ -18,6 +18,11 @@
         ?>
         <div id="mainContainer">
             <?php
+            if ($blendData["adminComment"] != ""){
+                echo "<div class=\"noticeWarning nwInfo bodyStack\">
+                ".$blendData["adminComment"]."
+                </div>";
+            }
             if ($copyrightAlert){
                 echo "            <div class=\"noticeWarning nwNotice bodyStack\">
                 NOTICE: This file has been removed on a copyright claim!
@@ -80,10 +85,13 @@
         <script src="/jquery.js"></script>
         <script src="/dropzone.js"></script>
         <script>
-           var embed = $("#embedCode")
-           embed.focus()
-           embed.select()
-        
+            //Only on finish page
+            if (window.location.pathname == "/") {
+                var embed = $("#embedCode")
+                embed.focus()
+                embed.select()
+            }
+
             $("#flagBtn").click(function () {
                 $("#flagFile").show();
             });

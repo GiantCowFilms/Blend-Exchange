@@ -286,6 +286,10 @@ h1 {
     background-color: #FFA200;
     color: #000;
 }
+.nwInfo {
+    background-color: #29b0ff;
+    color: white;
+}
 
 
 @media only screen and (max-width: 640px) {
