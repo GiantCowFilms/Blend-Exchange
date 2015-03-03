@@ -22,11 +22,11 @@
             $type = $_POST["type"];
             $type = ($type == "accept")? 1 : 2;
             //TODO
-            $db->prepare("UPDATE `accesses` SET `accepet`=:accepet WHERE `id`=:flagId")
+            $db->prepare("UPDATE `accesses` SET `accepet`=:accept WHERE `id`=:flagId")
             ->execute(
                 array(
                 'flagId' => $flagId,
-                'accepet' => $type
+                'accept' => $type
                 )
             );
             break;
