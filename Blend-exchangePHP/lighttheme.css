@@ -260,6 +260,12 @@ h1 {
    
    background-color:rgba(255,120,42,.1);
 }
+.progressContainer{
+    border-color: #ff782a;
+}
+.progress{
+    background-color: #ff782a;
+}
 
 /*Download styles*/
 
