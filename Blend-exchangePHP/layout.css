@@ -11,8 +11,8 @@ body {
    max-width:960px;
    margin:auto;
    padding:0px 75px;
-   height:100%;
-   min-width: 340px;
+   min-height:100%;
+   min-width:280px;
 }
 
 /*Generic styles*/
@@ -301,13 +301,13 @@ h1{
    }
    .logoText{
       position:relative;
-      left: 55px;
+      left: 10%;
    }
    .logoCredit{
-      width:calc(100% - 55px);
+      width:calc(100% - 10%);
       font-size:10pt;
       position:relative;
-      left: 55px;
+      left: 10%;
    }
    .logoStatus{
       right:0;
