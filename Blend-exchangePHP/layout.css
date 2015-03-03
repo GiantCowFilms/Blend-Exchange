@@ -195,6 +195,7 @@ h1{
 }
 
 .progressContainer {
+   border: 1px solid;
    height: 10px;
 }
 .progress {
