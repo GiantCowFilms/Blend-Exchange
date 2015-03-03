@@ -8,16 +8,16 @@
                 foreach ($blendData["flags"] as $flag)
                 {
                     if ($flag["val"] == "virus"){
-                        $virusAlert = true;  
+                        $virusAlert = true;
                     };
                      if ($flag["val"] == "copyright"){
-                        $copyrightAlert = true;  
+                        $copyrightAlert = true;
                     };
                 }
-            } 
+            }
         ?>
         <div id="mainContainer">
-            <?php 
+            <?php
             if ($copyrightAlert){
                 echo "            <div class=\"noticeWarning nwNotice bodyStack\">
                 NOTICE: This file has been removed on a copyright claim!
@@ -59,9 +59,9 @@
                 </div>
             </div>
             <?php include("flagForm.php"); ?>
-            <?php 
+            <?php
                 if ($loggedIn == true){
-                    include("adminTools.php");  
+                    include("adminTools.php");
                 };
             ?>
             <div>Embed (Copy into your post):</div>
@@ -80,6 +80,10 @@
         <script src="/jquery.js"></script>
         <script src="/dropzone.js"></script>
         <script>
+           var embed = $("#embedCode")
+           embed.focus()
+           embed.select()
+        
             $("#flagBtn").click(function () {
                 $("#flagFile").show();
             });
