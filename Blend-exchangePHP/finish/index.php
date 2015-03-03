@@ -7,15 +7,11 @@
         exit;
     };
     //Process URL to get rid of stuff after the last slash
-<<<<<<< HEAD
+    
     $matches = [];
-    preg_match('/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-]+/', $questionUrl, $matches);
+    preg_match('/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\//', $questionUrl, $matches);
     $questionUrl = $matches["0"];
-=======
-     $matches = [];
-     preg_match('/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\//', $questionUrl, $matches);
-     $questionUrl = $matches["0"];
->>>>>>> master
+    
     $password = $_GET["password"];
     
     //Get file 

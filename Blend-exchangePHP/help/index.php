@@ -2,6 +2,13 @@
     <?php include("../parts/header.php"); ?>
         <div id="mainContainer">
             <h1>Help:</h1>
+            <div style="width: 400px; float: right;" ><img  src="/help/Demo.gif" alt="Demonstration"/>Steps to upload a .blend</div>
+            <h2>Upload a file</h2>
+            <ol>
+                <li>Drop a file</li>
+                <li>Enter the url of the question on blender.stackexchange</li>
+                <li>Copy embed code into post</li>
+            </ol>
             <h2>How do I edit or delete my .blend</h2>
             If you entered a password when uploading, you can use it to do this. However this feature has not been implemented yet.
             <h2>I clicked on the upload box nothing happend!</h2>
