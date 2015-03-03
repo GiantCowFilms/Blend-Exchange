@@ -120,6 +120,7 @@
     $blendData["downloads"] = 0;
     $blendData["flags"] = [];
     $blendData["favorites"] = 0;
+    $blendData["adminComment"] = "";
     ?>
     <?php include("../parts/header.php"); ?>
     <?php include("../parts/downloadPage.php"); ?>
