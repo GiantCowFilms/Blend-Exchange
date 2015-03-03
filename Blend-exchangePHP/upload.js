@@ -37,7 +37,9 @@ $("#upload").click(function () {
         blendDropzone.options.url = "/finish/?url=" + questionUrl + "&password=" + password;
         blendDropzone.processQueue();
     } else {
-        alert(["not a valid question"]);
+        $("#questionUrl").removeClass("txtBlueError")
+        //Delay is needed for reset due to a "bug?"
+        setTimeout(function () {$("#questionUrl").addClass("txtBlueError")}, 10);
     }
 });
 $("#cancel").click(function () {

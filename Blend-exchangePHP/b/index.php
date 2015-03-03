@@ -6,7 +6,7 @@
     
     include("../parts/database.php");
     
-    $blendData = $db->prepare("SELECT `id`, `fileName`, `fileGoogleId`, `flags`, `password`, `uploaderIp`, `questionLink`, `fileSize` FROM `blends` WHERE `id`= :id");
+    $blendData = $db->prepare("SELECT `id`, `fileName`, `fileGoogleId`, `flags`, `password`, `uploaderIp`, `questionLink`, `fileSize`,`adminComment` FROM `blends` WHERE `id`= :id");
     $blendData->execute(array('id' => $blendId));
     //If there are no rows, no file
     $fileExists = ($blendData->rowCount() != 0);
@@ -26,7 +26,13 @@
     
     $referingAdress = '';
     if(isset($_SERVER['HTTP_REFERER'])) {
-    $referingAdress = $_SERVER['HTTP_REFERER'];
+        $referingAdress = $_SERVER['HTTP_REFERER'];
+        //Process URL to get rid of stuff after the last slash
+        $notBlank = strlen($referingAdress) > 0;
+        $matches = [];
+        if (preg_match('/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-]+/', $referingAdress, $matches)){
+                $referingAdress = $matches["0"];
+        }
     }
     
     $db->prepare("INSERT INTO `accesses` SET `ref`=:ref, `type`='view', `ip`='".$ipAdress."', `fileId`=:fileId, `date`=NOW()")->execute(array('fileId' => $blendId,'ref' => $referingAdress));
@@ -81,6 +87,12 @@
     $rows->execute(array('fileId' => $blendId));
     $rows = $rows->rowCount();
     $blendData["favorites"] = $rows;
+    
+    $rows = $db->prepare("SELECT `val`,`id`,`accept` FROM `accesses` WHERE `type`='flag' AND `fileId`=:fileId");
+    $rows->execute(array('fileId' => $blendId));
+    $rows = $rows->fetchAll(PDO::FETCH_ASSOC);
+    $blendData["flags"] = $rows;
+    
     if(!$blendData["fileExists"]){
         header("HTTP/1.0 404 Not Found");
     }

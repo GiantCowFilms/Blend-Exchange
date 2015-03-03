@@ -4,41 +4,46 @@
             //Process flags
             $virusAlert = false;
             $copyrightAlert = false;
-            if(strlen($blendData["flags"]) != 0) {
-                $blendData["flags"] = split(";",$blendData["flags"]);
+            if(count($blendData["flags"]) != 0) {
                 foreach ($blendData["flags"] as $flag)
                 {
-                    if ($flag == "virus"){
-                        $virusAlert = true;  
+                    if ($flag["val"] == "virus"){
+                        $virusAlert = true;
                     };
-                    if ($flag == "copyright"){
-                        $copyrightAlert = true;  
+                     if ($flag["val"] == "copyright"){
+                        $copyrightAlert = true;
                     };
                 }
-            } 
+            }
         ?>
         <div id="mainContainer">
-            <?php 
+            <?php
+            if ($blendData["adminComment"] != ""){
+                echo "<div class=\"noticeWarning nwInfo bodyStack\">
+                ".$blendData["adminComment"]."
+                </div>";
+            }
             if ($copyrightAlert){
-                echo "            <div class=\"noticeWarning nwNotice\">
+                echo "            <div class=\"noticeWarning nwNotice bodyStack\">
                 NOTICE: This file has been removed on a copyright claim!
                 </div>";
                 exit;
             };
             if ($virusAlert){
-                echo "            <div class=\"noticeWarning nwDanger\">
+                echo "            <div class=\"noticeWarning nwDanger bodyStack\">
                 WARNING: This blend has been reported as containing maleware. Download at your own risk. The report is unconfirmed.
                 </div>";
             };
             ?>
-            <div id="uploadTarget" class="bodyStack">
+            <div id="fileStats" class="bodyStack contentTarget">
+                <div style="text-align: center;">
                         <img class="blendDisplayIcon" src="/blenderFileIcon.png"/>
-                        <div style="width: 420px; display: inline-block; margin-top: 25px;">
+                        <div style="display: inline-block; margin-top: 25px; text-align: left;">
                             <h2 class="blendDisplayTitle">
                                 <?php echo $blendData["fileName"] ?>
                             </h2>
-                            <span style="font-size: 18px;">
-                                 <a href="<?php echo $blendData["questionLink"] ?>"><?php echo substr($blendData["questionLink"], 7, 45); ?>...</a>
+                            <span class="downloadQuestionLink">
+                                 <a href="<?php echo $blendData["questionLink"] ?>"><?php echo substr($blendData["questionLink"], 32, 40); ?>...</a>
                                 <br />
                                 <?php echo round(intval($blendData["fileSize"])/1000000, 1, PHP_ROUND_HALF_UP); ?> MB
                                 <br />
@@ -47,20 +52,21 @@
                                 <?php echo $blendData["favorites"] ?> favorites
                             </span>
                         </div>
+                </div>
             </div>
             <div class="bodyStack">
-                <div id="flagBtn" class="btnBlue" style="width: 187px;">
+                <div id="flagBtn" class="btnBlue downloadBtnRow">
                     Flag
-                </div><div id="favoriteBtn" class="btnBlue" style="width: 187px; margin-left: 10px;">
+                </div><div id="favoriteBtn" class="btnBlue downloadBtnRow">
                     Favorite
-                </div><div id="downloadFile" class="btnBlue" style="width: 187px; margin-left: 10px;">
+                </div><div id="downloadFile" class="btnBlue downloadBtnRow" style="margin-right: 0">
                     <a href="/d/<?php echo $blendData["id"] ?>/<?php echo $blendData["fileName"] ?>">Download</a>
                 </div>
             </div>
             <?php include("flagForm.php"); ?>
-            <?php 
+            <?php
                 if ($loggedIn == true){
-                    include("adminTools.php");  
+                    include("adminTools.php");
                 };
             ?>
             <div>Embed (Copy into your post):</div>
@@ -79,6 +85,13 @@
         <script src="/jquery.js"></script>
         <script src="/dropzone.js"></script>
         <script>
+            //Only on finish page
+            if (window.location.pathname == "/") {
+                var embed = $("#embedCode")
+                embed.focus()
+                embed.select()
+            }
+
             $("#flagBtn").click(function () {
                 $("#flagFile").show();
             });
@@ -138,14 +151,18 @@
                 actOnFlag("accept");
             });
             function actOnFlag(action) {
+                $("#adminFlagForm").show();
+
+                var flagId = $("#adminFlagSelect option:selected").val();
+
                 $(document).on("click", "#adminFlagContinue", function () {
                     flagId = $("#adminFlagSelect option:selected").val();
                     $.ajax({
                         url: "/admin/adminTools/",
                         type: "POST",
                         data: { fileId: "<?php echo $blendData["id"] ?>", act: "actOnFlag", flagId: flagId, type: action },
-                        success: function () {
-
+                        success: function (r) {
+                            alert([r]);
                         }
                     });
                 });

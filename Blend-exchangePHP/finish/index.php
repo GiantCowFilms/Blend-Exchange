@@ -7,9 +7,11 @@
         exit;
     };
     //Process URL to get rid of stuff after the last slash
-     $matches = [];
-     preg_match('/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\//', $questionUrl, $matches);
-     $questionUrl = $matches["0"];
+    
+    $matches = [];
+    preg_match('/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\//', $questionUrl, $matches);
+    $questionUrl = $matches["0"];
+    
     $password = $_GET["password"];
     
     //Get file 
@@ -104,7 +106,6 @@
     $ipAdress = hash("sha256", $ipAdress, false);;
 
     include("../parts/database.php"); 
-    
     $db->prepare("INSERT INTO `blends` SET `id`=NULL, `fileName`=:fileName, `fileGoogleId`='".$createdFile->id."', `flags`='', `views`=0, `downloads`=0, `password`=:password, `uploaderIp`='".$ipAdress."', `questionLink`='".$questionUrl."', `fileSize`='".$dataSize."'")
     ->execute(
         array(
@@ -121,6 +122,7 @@
     $blendData["downloads"] = 0;
     $blendData["flags"] = [];
     $blendData["favorites"] = 0;
+    $blendData["adminComment"] = "";
     ?>
     <?php include("../parts/header.php"); ?>
     <?php include("../parts/downloadPage.php"); ?>

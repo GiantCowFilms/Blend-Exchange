@@ -8,7 +8,7 @@
                 <?php
                 foreach ($files as $file)
                     {
-                        echo "<li><a href='/b/".$file["id"]."/'>".$file["fileName"]."</a> - <a href='".$file["questionLink"]."'>Question</a> - Flagged: ".$file["val"]."</li>";
+                        echo "<li><a href='/b/".$file["id"]."/'>".$file["fileName"]."</a> - <a href='".$file["questionLink"]."'>Question</a><b> - Flagged: ".$file["val"]."</b> on ".$file["date"]."</li>";
                     }
                     
                 ?>
@@ -18,7 +18,7 @@
                 <?php
                 foreach ($autoFlags as $autoFlag)
                     {
-                        echo "<li><a href='/b/".$autoFlag["id"]."/'>".$autoFlag["fileName"]."</a> - <a href='".$autoFlag["questionLink"]."'>Question</a> - Flagged: ".$autoFlag["val"]."</li>";
+                        echo "<li><a href='/b/".$autoFlag["id"]."/'>".$autoFlag["fileName"]."</a> - <a href='".$autoFlag["questionLink"]."'>Question</a><b> - Flagged: ".$autoFlag["val"]."</b> valid: ".$autoFlag["validRefs"]." invalid: ".$autoFlag["invalidRefs"]."</li>";
                     }
                     
                 ?>
