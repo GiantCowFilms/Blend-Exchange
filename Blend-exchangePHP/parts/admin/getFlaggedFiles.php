@@ -13,6 +13,7 @@ FROM `blends`
 JOIN `accesses` ON `accesses`.`fileId` = `blends`.`id` AND `accesses`.`type` = 'view'
 GROUP BY `blends`.`id`
 HAVING `firstPart` > `secondPart`
+ORDER BY `accesses`.`date` ASC
 ");
 
 $autoFlags->execute();

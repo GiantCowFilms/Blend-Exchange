@@ -45,6 +45,10 @@
     $referingAdress = '';
     if(isset($_SERVER['HTTP_REFERER'])) {
         $referingAdress = $_SERVER['HTTP_REFERER'];
+        //Process URL to get rid of stuff after the last slash
+        $matches = [];
+        preg_match('/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-]+/', $referingAdress, $matches);
+        $referingAdress = $matches["0"];
     }
     
     $db->prepare("INSERT INTO `accesses` SET `ref`=:ref, `type`='download', `ip`='".$ipAdress."', `fileId`=:fileId, `date`=NOW()")->execute(array("fileId" => $blendId,'ref' => $referingAdress));    
