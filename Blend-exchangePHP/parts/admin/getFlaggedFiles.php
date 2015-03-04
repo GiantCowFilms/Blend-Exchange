@@ -10,10 +10,11 @@ include("../parts/database.php");
 //Query created with the help of TehShrike http://stackoverflow.com/users/201789/tehshrike
 $autoFlags = $db->prepare("
 SELECT `blends`.`id`,`blends`.`fileName`,`blends`.`questionLink`,`accesses`.`val`,
-SUM(`accesses`.`ref` != `blends`.`questionLink` AND `accesses`.`ref` !=  '') AS invalidRefs, SUM(`accesses`.`ref` = `blends`.`questionLink`) AS validRefs,
-SUM(`accesses`.`ref` != `blends`.`questionLink` AND `accesses`.`ref` !=  '') - SUM(`accesses`.`ref` = `blends`.`questionLink`) AS refGap
+SUM(`accesses`.`ref` != `blends`.`questionLink` AND `accesses`.`ref` != '') AS invalidRefs, SUM(`accesses`.`ref` = `blends`.`questionLink`) AS validRefs,
+SUM(`accesses`.`ref` != `blends`.`questionLink` AND `accesses`.`ref` != '') - SUM(`accesses`.`ref` = `blends`.`questionLink`) AS refGap
 FROM `blends`
 JOIN `accesses` ON `accesses`.`fileId` = `blends`.`id` AND `accesses`.`type` = 'view'
+WHERE `blends`.`valid`= 0
 GROUP BY `blends`.`id`
 HAVING `invalidRefs` > `validRefs`
 ORDER BY `refGap` DESC

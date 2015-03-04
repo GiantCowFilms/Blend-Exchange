@@ -85,6 +85,16 @@
         <script src="/jquery.js"></script>
         <script src="/dropzone.js"></script>
         <script>
+            <?php             
+            if ($virusAlert){
+                echo "";
+            };
+            ?>
+            $(document).on("click", "#downloadFile a", function (e) {
+                if (confirm('I understand that I do this at my own risk, and Blend-Exchange is not liable for any damage this file may cause?') != true) {
+                    e.preventDefault();
+                }
+            });
             //Only on finish page
             if (window.location.pathname == "/") {
                 var embed = $("#embedCode")
@@ -140,7 +150,21 @@
                     type: "POST",
                     data: { fileId: "<?php echo $blendData["id"] ?>", act: "Comment", text: comment },
                     success: function () {
-                    
+
+                    }
+                });
+            });
+            $(document).on("click", "#setValid", function () {
+                var valid = 2;
+                if (confirm('Is this valid?')) {
+                    valid = 1;
+                }
+                $.ajax({
+                    url: "/admin/adminTools/",
+                    type: "POST",
+                    data: { fileId: "<?php echo $blendData["id"] ?>", act: "setValid", type: valid },
+                    success: function (r) {
+                        alert([r]);
                     }
                 });
             });

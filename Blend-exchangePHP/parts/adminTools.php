@@ -1,6 +1,10 @@
 <div id="adminTools">
     <div>
-        <div class="btnBlue" style="width: 136px; margin-right: 10px;" id="adminComment">Comment</div><div class="btnBlue" style="width: 136px; margin-right: 10px;" id="adminDeclineFlag">Decline Flag</div><div class="btnBlue" style="width: 136px; margin-right: 10px;" id="adminAcceptFlag">Accept Flag</div><div class="btnBlue" style="width: 136px;">Delete</div>
+        <div class="btnBlue" style="width: 136px; margin-right: 10px;" id="adminComment">
+            Comment</div><div class="btnBlue" style="width: 136px; margin-right: 10px;" id="adminDeclineFlag">
+          Decline Flag</div><div class="btnBlue" style="width: 136px; margin-right: 10px;" id="adminAcceptFlag">
+              Accept Flag</div><div class="btnBlue" style="width: 136px; margin-right: 10px;" id="setValid">
+              Set Valid</div><div class="btnBlue" style="width: 136px;">Delete</div>
     </div>
     <form id="adminCommentForm" style="display: none;">
         <textarea class="txtBlue" id="adminCommentText">Admin: </textarea>

@@ -3,6 +3,7 @@
     <?php include("../parts/header.php"); ?>
     <?php include("../parts/admin/getFlaggedFiles.php"); ?>
         <div id="mainContainer">
+            <a href="/admin/all/">All files</a>
             <h2>Flagged Files:</h2>
             <ul>
                 <?php
