@@ -106,11 +106,10 @@
     $ipAdress = hash("sha256", $ipAdress, false);;
 
     include("../parts/database.php"); 
-    $db->prepare("INSERT INTO `blends` SET `id`=NULL, `fileName`=:fileName, `fileGoogleId`='".$createdFile->id."', `flags`='', `views`=0, `downloads`=0, `password`=:password, `uploaderIp`='".$ipAdress."', `questionLink`='".$questionUrl."', `fileSize`='".$dataSize."'")
-    ->execute(
+    $db->prepare("INSERT INTO `blends` SET `id`=NULL, `fileName`=:fileName, `fileGoogleId`='".$createdFile->id."', `flags`='', `views`=0, `downloads`=0, `password`=:password, `uploaderIp`='".$ipAdress."', `questionLink`='".$questionUrl."', `fileSize`='".$dataSize.", `date` = NOW() ")->execute(
         array(
         'fileName' => $_FILES['file']["name"],
-        'password' => $ipAdress = hash("sha256", $password, false)
+        'password' => hash("sha256", $password, false)
         )
     );
     $blendId = $db->lastInsertId("Id");
