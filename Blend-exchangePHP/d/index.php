@@ -32,10 +32,19 @@
     
     include("../parts/database.php");
     
-    $blendData = $db->prepare("SELECT `id`, `fileName`, `fileGoogleId`, `flags`, `views`, `downloads`, `password`, `uploaderIp`, `questionLink`, `fileSize` FROM `blends` WHERE `id`= :id");
+    $blendData = $db->prepare("SELECT `id`, `fileName`, `fileGoogleId`, `flags`, `views`, `downloads`, `password`, `uploaderIp`, `questionLink`, `fileSize`,`deleted` FROM `blends` WHERE `id`= :id");
     $blendData->execute(array('id' => $blendId));
     $blendData = $blendData->fetchAll(PDO::FETCH_ASSOC)["0"];
 
+    //Check if file was deleted
+    if ($blendData["deleted"] == 1) {
+        echo "            <div class=\"noticeWarning nwDanger bodyStack\">
+                    This file was deleted.
+                </div>";
+        exit();
+    }
+    
+    
     //New better download counter
     
     //Get IP adress

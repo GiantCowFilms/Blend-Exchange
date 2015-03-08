@@ -9,39 +9,12 @@
     //Process URL to get rid of stuff after the last slash
     
     $matches = [];
-    preg_match('/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\//', $questionUrl, $matches);
+    preg_match('/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-]+/', $questionUrl, $matches);
     $questionUrl = $matches["0"];
     
     $password = $_GET["password"];
     
-    //Get file 
-    //$blob = file_get_contents("../document.txt");
-    //$blob = fopen($_FILES['file']['tmp_name'], "rb");
-    //Get Oauth keys
-    $secretKeys = json_decode(file_get_contents("../secret/secret.json"));
-    $Key = $secretKeys->key;
-    $Cid = $secretKeys->cid;
-    $Secret = $secretKeys->secret;
-    $AccessToken = $secretKeys->accessToken;
-    $RefreshToken = $secretKeys->refreshToken;
-    
-    //Load dropbox library
-    require_once '../Google_Drive_Api/autoload.php';
-
-    $client = new Google_Client();
-    // Get your credentials from the console
-    $client->setClientId($Cid);
-    $client->setClientSecret($Secret);
-    $AccessTokenJson = '{
-        "access_token": "' . $AccessToken . '",
-        "token_type": "Bearer",
-        "expires_in": 3600,
-        "refresh_token": "' . $RefreshToken . '",
-        "created": 1424627698
-    }';
-    $client->setAccessToken($AccessTokenJson);
-    
-    $service = new Google_Service_Drive($client);
+    include("../parts/googleDriveAuth.php");
     
     //Insert a file
     $file = new Google_Service_Drive_DriveFile();
@@ -106,7 +79,7 @@
     $ipAdress = hash("sha256", $ipAdress, false);;
 
     include("../parts/database.php"); 
-    $db->prepare("INSERT INTO `blends` SET `id`=NULL, `fileName`=:fileName, `fileGoogleId`='".$createdFile->id."', `flags`='', `views`=0, `downloads`=0, `password`=:password, `uploaderIp`='".$ipAdress."', `questionLink`='".$questionUrl."', `fileSize`='".$dataSize.", `date` = NOW() ")->execute(
+    $db->prepare("INSERT INTO `blends` SET `id`=NULL, `fileName`=:fileName, `fileGoogleId`='".$createdFile->id."', `flags`='', `views`=0, `downloads`=0, `password`=:password, `uploaderIp`='".$ipAdress."', `questionLink`='".$questionUrl."', `fileSize`='".$dataSize."', `date`=NOW()")->execute(
         array(
         'fileName' => $_FILES['file']["name"],
         'password' => hash("sha256", $password, false)
@@ -122,6 +95,7 @@
     $blendData["flags"] = [];
     $blendData["favorites"] = 0;
     $blendData["adminComment"] = "";
+    $blendData["deleted"] = 0;
     ?>
     <?php include("../parts/header.php"); ?>
     <?php include("../parts/downloadPage.php"); ?>

@@ -23,11 +23,21 @@
                 ".$blendData["adminComment"]."
                 </div>";
             }
+            if ($blendData["deleted"] == 1) {
+                echo "            <div class=\"noticeWarning nwDanger bodyStack\">
+                    This file was deleted.
+                </div>";
+            if ($loggedIn != true){
+                exit();
+            };
+            }
             if ($copyrightAlert){
                 echo "            <div class=\"noticeWarning nwNotice bodyStack\">
                 NOTICE: This file has been removed on a copyright claim!
                 </div>";
-                exit;
+                if ($loggedIn != true){
+                    exit();
+                };
             };
             if ($virusAlert){
                 echo "            <div class=\"noticeWarning nwDanger bodyStack\">
@@ -69,8 +79,8 @@
                     include("adminTools.php");
                 };
             ?>
-            <div>Embed (Copy into your post):</div>
-            <textarea id="embedCode" class="txtBlue">[<img src="http://blend-exchange.giantcowfilms.com/embedImage.png?bid=<?php echo $blendData["id"] ?>" />](http://blend-exchange.giantcowfilms.com/b/<?php echo $blendData["id"]; ?>/)</textarea>
+            <div>Share this file:</div>
+            <textarea id="embedCode" class="txtBlue">[<img src="http://blend-exchange.giantcowfilms.com/embedImage.png?bid=<?php echo $blendData["id"]; ?>" />](http://blend-exchange.giantcowfilms.com/b/<?php echo $blendData["id"]; ?>/)</textarea>
             <div id="usageNotice">
                 <h2>
                     Disclaimer:
@@ -87,14 +97,13 @@
         <script>
             <?php             
             if ($virusAlert){
-                echo "";
-            };
-            ?>
-            $(document).on("click", "#downloadFile a", function (e) {
-                if (confirm('I understand that I do this at my own risk, and Blend-Exchange is not liable for any damage this file may cause?') != true) {
+                echo '            $(document).on("click", "#downloadFile a", function (e) {
+                if (confirm("I understand that I do this at my own risk, and Blend-Exchange is not liable for any damage this file may cause?") != true) {
                     e.preventDefault();
                 }
-            });
+            });';
+            };
+            ?>
             //Only on finish page
             if (window.location.pathname == "/") {
                 var embed = $("#embedCode")
@@ -140,6 +149,16 @@
             }
         </script>
         <script>
+            $(document).on("click", "#deleteFile", function () {
+                $.ajax({
+                    url: "/admin/adminTools/",
+                    type: "POST",
+                    data: { fileId: "<?php echo $blendData["id"] ?>", act: "delete"},
+                    success: function (r) {
+                        alert([r]);
+                    }
+                });
+            });
             $(document).on("click", "#adminComment", function () {
                 $("#adminCommentForm").show();
             });

@@ -6,11 +6,10 @@
     
     include("../parts/database.php");
     
-    $blendData = $db->prepare("SELECT `id`, `fileName`, `fileGoogleId`, `flags`, `password`, `uploaderIp`, `questionLink`, `fileSize`,`adminComment` FROM `blends` WHERE `id`= :id");
+    $blendData = $db->prepare("SELECT `id`, `fileName`, `fileGoogleId`, `flags`, `password`, `uploaderIp`, `questionLink`, `fileSize`,`adminComment`,`deleted` FROM `blends` WHERE `id`= :id");
     $blendData->execute(array('id' => $blendId));
     //If there are no rows, no file
     $fileExists = ($blendData->rowCount() != 0);
-    
     if($fileExists){
         $blendData = $blendData->fetchAll(PDO::FETCH_ASSOC)["0"];
     } else {

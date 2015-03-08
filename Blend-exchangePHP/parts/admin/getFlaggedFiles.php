@@ -14,7 +14,7 @@ SUM(`accesses`.`ref` != `blends`.`questionLink` AND `accesses`.`ref` != '') AS i
 SUM(`accesses`.`ref` != `blends`.`questionLink` AND `accesses`.`ref` != '') - SUM(`accesses`.`ref` = `blends`.`questionLink`) AS refGap
 FROM `blends`
 JOIN `accesses` ON `accesses`.`fileId` = `blends`.`id` AND `accesses`.`type` = 'view'
-WHERE `blends`.`valid`= 0
+WHERE `blends`.`valid`= 0 AND `blends`.`deleted`= 0
 GROUP BY `blends`.`id`
 HAVING `invalidRefs` > `validRefs`
 ORDER BY `refGap` DESC
@@ -32,7 +32,10 @@ foreach ($autoFlags as $key => $aflag)
 //var_dump($autoFlags);
 
 //Query created with the help of TehShrike http://stackoverflow.com/users/201789/tehshrike
-$files = $db->prepare("SELECT `blends`.`id`,`blends`.`fileName`,`blends`.`questionLink`,`accesses`.`val`,`accesses`.`date` FROM `blends` JOIN `accesses` ON `accesses`.`fileId` = `blends`.`id` AND `accesses`.`type` = 'flag' ORDER BY `accesses`.`date` DESC");
+$files = $db->prepare("SELECT `blends`.`id`,`blends`.`fileName`,`blends`.`questionLink`,`accesses`.`val`,`accesses`.`date` FROM `blends` 
+JOIN `accesses` ON `accesses`.`fileId` = `blends`.`id` AND `accesses`.`type` = 'flag'
+WHERE `blends`.`deleted`= 0 AND`accesses`.`accept` = 0
+ORDER BY `accesses`.`date` DESC");
 
 $files->execute();
 $files = $files->fetchAll(PDO::FETCH_ASSOC);

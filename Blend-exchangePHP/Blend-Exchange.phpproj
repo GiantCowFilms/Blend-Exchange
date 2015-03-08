@@ -156,6 +156,7 @@
     <Compile Include="parts\downloadPage.php" />
     <Compile Include="parts\flagForm.php" />
     <Compile Include="parts\footer.php" />
+    <Compile Include="parts\googleDriveAuth.php" />
     <Compile Include="parts\head.php" />
     <Compile Include="parts\header.php" />
     <Compile Include="parts\loginForm.php" />
