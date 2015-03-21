@@ -181,7 +181,7 @@ h1{
    height:35px;
 }
 
-#password {
+#loginForm #password {
    width:calc(65% - 10px);
    margin:0;
    vertical-align:bottom;
@@ -244,7 +244,9 @@ h1{
    text-align: center;
    padding:10px 0px;
 }
-
+#login {
+    width: 140px;
+}
 
 @media only screen and (max-width: 640px) {
    body{
@@ -335,4 +337,26 @@ h1{
    #fileStats {
       height: 135px;
    }
+}
+/*Table styles*/
+table{
+    border-spacing: 0;
+    border-collapse:collapse;
+}
+tr{
+    border-spacing: 0;
+    border-collapse:collapse;
+}
+td {
+    padding: 10px;
+    border: 2px;
+    border-collapse:collapse;
+    border-spacing: 0;
+}
+th {
+    font-weight: bold;
+    padding: 10px;
+    border: 2px;
+    border-collapse:collapse;
+    border-spacing: 0;
 }

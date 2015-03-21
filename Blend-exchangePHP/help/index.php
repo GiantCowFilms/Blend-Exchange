@@ -9,6 +9,7 @@
                 <li>Enter the url of the question on blender.stackexchange</li>
                 <li>Copy embed code into post</li>
             </ol>
+            If you need a <a href="/help/AdvancedHelp.gif"><b>More Detailed .Gif</b>, click here</a>.
             <h2>How do I edit or delete my .blend</h2>
             If you entered a password when uploading, you can use it to do this. However this feature has not been implemented yet.
             <h2>I clicked on the upload box nothing happend!</h2>

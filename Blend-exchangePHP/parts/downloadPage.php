@@ -27,7 +27,7 @@
                 echo "            <div class=\"noticeWarning nwDanger bodyStack\">
                     This file was deleted.
                 </div>";
-            if ($loggedIn != true){
+            if ($admin != true){
                 exit();
             };
             }
@@ -35,7 +35,7 @@
                 echo "            <div class=\"noticeWarning nwNotice bodyStack\">
                 NOTICE: This file has been removed on a copyright claim!
                 </div>";
-                if ($loggedIn != true){
+                if ($admin != true){
                     exit();
                 };
             };
@@ -79,7 +79,8 @@
                     include("adminTools.php");
                 };
             ?>
-            <div>Share this file:</div>
+            <h2 style="margin-top: 5px; margin-bottom: 5px;">Share this file:</h2>
+            <div>Add this text into your post:</div>
             <textarea id="embedCode" class="txtBlue">[<img src="http://blend-exchange.giantcowfilms.com/embedImage.png?bid=<?php echo $blendData["id"]; ?>" />](http://blend-exchange.giantcowfilms.com/b/<?php echo $blendData["id"]; ?>/)</textarea>
             <div id="usageNotice">
                 <h2>

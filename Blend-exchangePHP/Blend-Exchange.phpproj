@@ -21,7 +21,13 @@
     <Compile Include="admin\adminTools\index.php" />
     <Compile Include="admin\all\index.php" />
     <Compile Include="admin\index.php" />
-    <Compile Include="admin\login\index.php" />
+    <Compile Include="parts\registerForm.php" />
+    <Compile Include="register\index.php" />
+    <Compile Include="login\index.php" />
+    <Compile Include="parts\userAccount.php" />
+    <Compile Include="users\index.php" />
+    <Compile Include="users\register\index.php" />
+    <Compile Include="users\login\index.php" />
     <Compile Include="b\index.php" />
     <Compile Include="contribute\index.php" />
     <Compile Include="d\index.php" />
@@ -179,9 +185,11 @@
     <Content Include="Google_Drive_Api\README.md" />
     <Content Include="Google_Drive_Api\src\Google\IO\cacerts.pem" />
     <Content Include="Google_Drive_Api\style\ruleset.xml" />
+    <Content Include="help\AdvancedHelp.gif" />
     <Content Include="jquery.js" />
     <Content Include="layout.css" />
     <Content Include="lighttheme.css" />
+    <Content Include="register.js" />
     <Content Include="login.js" />
     <Content Include="main.css" />
     <Content Include="parts\.htaccess" />
@@ -191,7 +199,10 @@
     <Content Include="upload.js" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="admin\login\" />
+    <Folder Include="register\" />
+    <Folder Include="login\" />
+    <Folder Include="users\register\" />
+    <Folder Include="users\login\" />
     <Folder Include="admin\adminTools\" />
     <Folder Include="admin\all\" />
     <Folder Include="finish\" />
@@ -218,6 +229,7 @@
     <Folder Include="favorite\" />
     <Folder Include="embedUpload\" />
     <Folder Include="admin\" />
+    <Folder Include="users\" />
     <Folder Include="parts\admin\" />
     <Folder Include="userscript\" />
     <Folder Include="secret\" />

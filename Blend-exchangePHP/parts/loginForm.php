@@ -4,8 +4,7 @@
         Login failed
     </div>
     <input id="username" class="txtBlue bodyStack" placeholder="Username"/>
-    <input type="password" id="password" class="txtBlue bodyStack" placeholder="Password" />
-    <div class="btnBlue" id="login">
+    <input type="password" id="password" class="txtBlue bodyStack" placeholder="Password" /><div class="btnBlue" id="login">
         Login
     </div>
 </form>

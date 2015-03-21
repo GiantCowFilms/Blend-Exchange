@@ -9,17 +9,17 @@
     
     include("../../parts/database.php");
     
-    $userData = $db->prepare("SELECT `id` FROM `admins` WHERE `username`=:username AND `password`=:password");
+    $userData = $db->prepare("SELECT `id`,`admin` FROM `users` WHERE `username`=:username AND `password`=:password");
     $userData->execute(array('username' => $username,"password" => $password));
     //Not the best way to check for results, doing the login check in a query might be bad, but it sure is fast!
     if($userData->rowCount() == 1){
         $userData = $userData->fetchAll(PDO::FETCH_ASSOC)["0"];
-        $userId = $userData;
-        
+        $userId = $userData["id"];
+        $admin = $userData["admin"];
         //Set session
         $_SESSION["loggedIn"] = true;
         $_SESSION["userId"] = $userId;
-        
+        $_SESSION["admin"] = $admin > 0;
         //Send status
         echo '{
             "status": 1,

@@ -1,5 +1,7 @@
 <html>
-    <?php include("../parts/requireLogin.php"); ?>
+    <?php 
+    $requireAdmin = true;
+    include("../parts/requireLogin.php"); ?>
     <?php include("../parts/header.php"); ?>
     <?php include("../parts/admin/getFlaggedFiles.php"); ?>
         <div id="mainContainer">

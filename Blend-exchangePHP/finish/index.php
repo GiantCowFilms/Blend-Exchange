@@ -1,5 +1,6 @@
 <html>
     <?php
+    
     //Get information from form
     $questionUrl = $_GET["url"];
     if(!preg_match('/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-#0-9\/_?=]+$/',$questionUrl)){
@@ -12,7 +13,11 @@
     preg_match('/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-]+/', $questionUrl, $matches);
     $questionUrl = $matches["0"];
     
-    $password = $_GET["password"];
+    $password = "";
+    
+    if(isset($_GET["password"])){
+        $password = $_GET["password"];
+    }
     
     include("../parts/googleDriveAuth.php");
     
@@ -76,16 +81,31 @@
     
     //Get IP adress
     $ipAdress = $_SERVER['REMOTE_ADDR'];
-    $ipAdress = hash("sha256", $ipAdress, false);;
-
+    $ipAdress = hash("sha256", $ipAdress, false);
+    
+    include("../parts/checkLogin.php");
+    
+    if($loggedIn == false){
+        $userId = 0;
+    }
+    
     include("../parts/database.php"); 
-    $db->prepare("INSERT INTO `blends` SET `id`=NULL, `fileName`=:fileName, `fileGoogleId`='".$createdFile->id."', `flags`='', `views`=0, `downloads`=0, `password`=:password, `uploaderIp`='".$ipAdress."', `questionLink`='".$questionUrl."', `fileSize`='".$dataSize."', `date`=NOW()")->execute(
+    $db->prepare("INSERT INTO `blends` SET `id`=NULL, `fileName`=:fileName, `fileGoogleId`='".$createdFile->id."', `flags`='', `views`=0, `downloads`=0, `password`=:password, `uploaderIp`='".$ipAdress."', `questionLink`='".$questionUrl."', `fileSize`='".$dataSize."', `date`=NOW(), `owner`=:uid")->execute(
         array(
         'fileName' => $_FILES['file']["name"],
-        'password' => hash("sha256", $password, false)
+        'password' => hash("sha256", $password, false),
+        'uid' => $userId
         )
     );
+   
+    
     $blendId = $db->lastInsertId("Id");
+    
+    //Remove just cause!
+    if($loggedIn == false){
+        unset($userId);
+    }
+    
     $blendData["id"] = $blendId;
     $blendData["fileName"] = $_FILES['file']["name"];
     $blendData["questionLink"] = $questionUrl;

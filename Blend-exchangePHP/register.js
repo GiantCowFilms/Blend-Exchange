@@ -1,7 +1,7 @@
-﻿function loginUser () {
+﻿function registerUser () {
     //How to read a form like a pro: use a loop to cycle through each...
     var formData = [];
-    $('#loginForm input').each(function (){
+    $('#registerForm input').each(function () {
         var value = $(this).val()
         var name = $(this).attr('id');
         formData.push({ 
@@ -9,6 +9,8 @@
             value: value
         });
     });
+    //Check against this... maybe /^[a-z0-9_\-!@#$%\^&]{5,20}$/
+
     //Make a data object
     var loginData = {};
     formData.forEach(function (elm,index) {
@@ -20,7 +22,7 @@
     console.log(loginData);
 
     $.ajax({
-        url: "/users/login",
+        url: "/users/register",
         type: "get",
         success: function (result) {
             //Parse the message
@@ -29,10 +31,11 @@
             if (message.status == 1) {
                 location.reload();
             } else {
-                $("#loginFormError").show();
+                $("#registerFormError").text(message.message);
+                $("#registerFormError").show();
                 setTimeout(function () {
-                    $("#loginFormError").fadeOut("400");
-                },3000);
+                    $("#registerFormError").fadeOut("400");
+                }, 8000);
             }
         },
         data: loginData
@@ -40,4 +43,4 @@
 };
 
 //Click event to login user
-$(document).on("click", '#login', loginUser);
+$(document).on("click", '#register', registerUser);

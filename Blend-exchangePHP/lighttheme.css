@@ -273,6 +273,23 @@ h1 {
    border-color: #60BCF1;
 }
 
+/*Table styles*/
+
+td {
+    border-style: solid;
+    border-color:  #ababab;
+}
+th {
+    border-style: solid;
+    border-color:  #ababab;
+}
+thead td {
+    font-weight: bold;
+}
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
 /*Misc styles*/
 
 #footer {

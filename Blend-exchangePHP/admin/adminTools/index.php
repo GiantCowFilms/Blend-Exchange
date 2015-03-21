@@ -1,4 +1,6 @@
-<?php include("../../parts/requireLogin.php"); ?>
+<?php 
+$requireAdmin = true;
+include("../../parts/requireLogin.php"); ?>
 <?php include("../../parts/database.php"); ?>
 <?php 
     $act = $_POST["act"];

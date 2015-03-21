@@ -1,0 +1,31 @@
+<?php 
+include($_SERVER["DOCUMENT_ROOT"]."/parts/checkLogin.php");
+include($_SERVER["DOCUMENT_ROOT"]."/parts/database.php");
+
+//Query created with the help of TehShrike http://stackoverflow.com/users/201789/tehshrike
+$files = $db->prepare("SELECT `blends`.`id`,`blends`.`fileName`,`blends`.`questionLink`,`blends`.`date` FROM `blends` 
+WHERE `blends`.`deleted`= 0 AND `blends`.`owner`=:uid");
+
+$files->execute(["uid" => $userId]);
+$files = $files->fetchAll(PDO::FETCH_ASSOC);
+//add autoFlag catches
+?>
+<h2>Your Blends</h2>
+<table>
+    <thead>
+        <tr>
+            <th>File Name</th><th>Question</th><th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+
+        foreach ($files as $file)
+        {
+            echo "<tr><td><a href='/b/".$file["id"]."/'>".$file["fileName"]."</a></td>
+            <td><a href='".$file["questionLink"]."'>".substr($file["questionLink"], 32, 60)."...</a></td>
+            <td>".$file["date"]."</td></tr>";
+        }
+        ?>
+    </tbody>
+</table>
