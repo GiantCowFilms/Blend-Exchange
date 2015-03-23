@@ -75,7 +75,7 @@
             </div>
             <?php include("flagForm.php"); ?>
             <?php
-                if ($loggedIn == true){
+                if ($admin == true){
                     include("adminTools.php");
                 };
             ?>
@@ -110,8 +110,8 @@
                 var embed = $("#embedCode")
                 embed.focus()
                 embed.select()
+                $("#embedCode").addClass('attention');
             }
-
             $("#flagBtn").click(function () {
                 $("#flagFile").show();
             });

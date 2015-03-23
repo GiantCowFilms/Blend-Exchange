@@ -18,6 +18,7 @@
     });
     //Hash the password
     loginData.password = CryptoJS.SHA256(loginData.password).toString();
+    loginData.confirmPassword = CryptoJS.SHA256(loginData.confirmPassword).toString()
 
     console.log(loginData);
 

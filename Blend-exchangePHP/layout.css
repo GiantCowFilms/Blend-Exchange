@@ -181,7 +181,7 @@ h1{
    height:35px;
 }
 
-#loginForm #password {
+#uploadOptions #password {
    width:calc(65% - 10px);
    margin:0;
    vertical-align:bottom;
@@ -247,6 +247,13 @@ h1{
 #login {
     width: 140px;
 }
+#loginForm #password {
+   width:calc(65% - 10px);
+   margin:0;
+   vertical-align:bottom;
+   margin-right:10px;
+}
+
 
 @media only screen and (max-width: 640px) {
    body{

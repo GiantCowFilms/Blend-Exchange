@@ -29,3 +29,10 @@ $files = $files->fetchAll(PDO::FETCH_ASSOC);
         ?>
     </tbody>
 </table>
+
+    <h2>Your Account</h2>
+
+    <?php
+    include($_SERVER["DOCUMENT_ROOT"]."/parts/editAccountForm.php");    
+        
+    ?>

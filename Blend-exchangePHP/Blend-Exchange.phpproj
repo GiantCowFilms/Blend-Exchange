@@ -21,11 +21,14 @@
     <Compile Include="admin\adminTools\index.php" />
     <Compile Include="admin\all\index.php" />
     <Compile Include="admin\index.php" />
+    <Compile Include="parts\logger.php" />
     <Compile Include="parts\registerForm.php" />
+    <Compile Include="parts\editAccountForm.php" />
     <Compile Include="register\index.php" />
     <Compile Include="login\index.php" />
     <Compile Include="parts\userAccount.php" />
     <Compile Include="users\index.php" />
+    <Compile Include="users\update\index.php" />
     <Compile Include="users\register\index.php" />
     <Compile Include="users\login\index.php" />
     <Compile Include="b\index.php" />
@@ -193,14 +196,17 @@
     <Content Include="login.js" />
     <Content Include="main.css" />
     <Content Include="parts\.htaccess" />
+    <Content Include="robots.txt" />
     <Content Include="secret\.htaccess" />
     <Content Include="secret\secret.json" />
     <Content Include="sha256.js" />
     <Content Include="upload.js" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="logs\" />
     <Folder Include="register\" />
     <Folder Include="login\" />
+    <Folder Include="users\update\" />
     <Folder Include="users\register\" />
     <Folder Include="users\login\" />
     <Folder Include="admin\adminTools\" />

@@ -1,0 +1,26 @@
+﻿#
+# Bing is from the people who make IE, it has no place here.
+#
+User-agent: bingbot
+Disallow: /
+
+User-agent:*
+Disallow: /login/
+Disallow: /register/
+Disallow: /admin/
+Disallow: /phpmyadmin/
+# I have 0 pity for bots
+Disallow: /bot/heaven
+
+# I know at some point some weird nerdy person (like me) is going to read this and expect a good joke
+# knock knock
+# who's there?
+# blunt pencil
+# blunt pencil who?
+# there is no point to this joke
+
+# ...yah this is bad, but you can always add you own, and maybe some code improvements at our github repo ;D
+# https://github.com/GiantCowFilms/Blend-Exchange
+# Have a good day
+# Oh BTW, if your a BitBucket loyalist you can always suggest a joke here
+# http://chat.stackexchange.com/rooms/8888/the-renderfarm ping me with @GiantCowFilms

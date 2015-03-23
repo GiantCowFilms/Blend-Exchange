@@ -16,15 +16,22 @@
         <div id="mainContainer">
             <a href="/admin/"><-Back</a>
             <h2>All files:</h2>
-            <ul>
-                <?php
-                foreach ($files as $file)
+            <table>
+                <thead>
+                    <tr>
+                        <th>File Name</th><th>Question</th><th>Upload Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+
+                    foreach ($files as $file)
                     {
-                        echo "<li><a href='/b/".$file["id"]."/'>".$file["fileName"]."</a> - <a href='".$file["questionLink"]."'>Question</a> uploaded on ".$file["date"]."</li>";
+                        echo "<tr><td><a href='/b/".$file["id"]."/'>".$file["fileName"]."</a></td><td><a href='".$file["questionLink"]."'>".substr($file["questionLink"], 32, 60)."</a></td><td>".$file["date"]."</td></tr>";
                     }
-                    
-                ?>
-            </ul>
+                    ?>
+                </tbody>
+            </table>
         </div>
         <?php include("../../parts/footer.php"); ?>
         <script src="jquery.js"></script>

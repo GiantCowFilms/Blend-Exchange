@@ -57,7 +57,7 @@
         //Process URL to get rid of stuff after the last slash
         $notBlank = strlen($referingAdress) > 0;
         $matches = [];
-        if (preg_match('/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-]+/', $referingAdress, $matches)){
+        if (preg_match('/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z0-9-]+/', $referingAdress, $matches)){
             $referingAdress = $matches["0"];
         } 
     }
@@ -75,4 +75,4 @@
    
     echo $httpRequest->getResponseBody();
     
-    ?>
+    ?>0

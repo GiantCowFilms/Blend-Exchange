@@ -1,6 +1,9 @@
  <?php
     session_start();
  
+    include_once($_SERVER["DOCUMENT_ROOT"]."/parts/logger.php");
+    logger("LOGIN_TRY IP_HASH:".hash("sha256",$_SERVER['REMOTE_ADDR'], false),$_SERVER["DOCUMENT_ROOT"]."/logs/","login.log");
+    
     $username = $_GET["username"];
     $password = $_GET["password"];
 
@@ -21,6 +24,7 @@
         $_SESSION["userId"] = $userId;
         $_SESSION["admin"] = $admin > 0;
         //Send status
+        logger("LOGIN_SUCCESS IP_HASH:".hash("sha256",$_SERVER['REMOTE_ADDR'], false),$_SERVER["DOCUMENT_ROOT"]."/logs/","login.log");
         echo '{
             "status": 1,
             "message": "You are logged in"
@@ -31,6 +35,7 @@
             "status": 0,
             "message": "Login failed"
         }';
+        logger("LOGIN_FAIL IP_HASH:".hash("sha256",$_SERVER['REMOTE_ADDR'], false),$_SERVER["DOCUMENT_ROOT"]."/logs/","login.log");
     }
     
 ?>
