@@ -53,7 +53,7 @@
                                 <?php echo $blendData["fileName"] ?>
                             </h2>
                             <span class="downloadQuestionLink">
-                                 <a href="<?php echo $blendData["questionLink"] ?>">Question Url</a>
+                                 <a href="<?php echo $blendData["questionLink"] ?>">View Question</a>
                                 <br />
                                 <?php echo round(intval($blendData["fileSize"])/1000000, 1, PHP_ROUND_HALF_UP); ?> MB
                                 <br />

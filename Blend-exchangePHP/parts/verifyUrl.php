@@ -73,7 +73,6 @@
     
      function getId ($url)
      {
-         echo $url;
          global $_Question_Id;
          $qid = preg_replace($_Question_Id, "$1", $url);
         return $qid;
