@@ -33,10 +33,13 @@ blendDropzone.on("success", function (e, r) {
 $("#upload").click(function () {
     var password = $("#password").val().trim();
     var questionUrl = $("#questionUrl").val().trim();
+    //Better Regex (WIP): /^^https?:\/\/blender.stackexchange.com\/q(?:uestions|)\/[0-9]+\/(?:[A-z\-#0-9\/_?=]+|[0-9]+)?$/g
     if (/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-#0-9\/_?=]+$/.test(questionUrl)) {
         blendDropzone.options.url = "/finish/?url=" + questionUrl + "&password=" + password;
         blendDropzone.processQueue();
     } else {
+        $("#uploadUrlError").show();
+        setTimeout(function () { $("#uploadUrlError").hide(); }, 8000);
         $("#questionUrl").removeClass("txtBlueError")
         //Delay is needed for reset due to a "bug?"
         setTimeout(function () {$("#questionUrl").addClass("txtBlueError")}, 10);

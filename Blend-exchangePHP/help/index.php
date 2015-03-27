@@ -21,7 +21,8 @@
             <h2>My blend was taken down due to copyright, now what</h2>
             You can contact me, see below
             <h2>If you need help, contact me:</h2>
-            <a href="http://www.google.com/recaptcha/mailhide/d?k=01SR3F0O5RcRWWOXZyvP7Udw==&amp;c=93BWQEsO3Y4SRPmZVt6qRS8Rmai5fVwVKiVZTzKJY8QVvMGvFrYwOJ0f7keKKGVa" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501SR3F0O5RcRWWOXZyvP7Udw\75\75\46c\7593BWQEsO3Y4SRPmZVt6qRS8Rmai5fVwVKiVZTzKJY8QVvMGvFrYwOJ0f7keKKGVa', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">b...</a>@giantcowfilms.com - It may take a few days for a response, much faster to ping me <a href="http://chat.stackexchange.com/rooms/8888/the-renderfarm">here, using @GiantCowFilms</a>
+            <a href="http://www.google.com/recaptcha/mailhide/d?k=01SR3F0O5RcRWWOXZyvP7Udw==&amp;c=93BWQEsO3Y4SRPmZVt6qRS8Rmai5fVwVKiVZTzKJY8QVvMGvFrYwOJ0f7keKKGVa" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501SR3F0O5RcRWWOXZyvP7Udw\75\75\46c\7593BWQEsO3Y4SRPmZVt6qRS8Rmai5fVwVKiVZTzKJY8QVvMGvFrYwOJ0f7keKKGVa', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">b...@giantcowfilms.com</a> - It may take a few days for a response.
+            If you don't want to use email, you can report a bug by opening a <a href="https://github.com/GiantCowFilms/Blend-Exchange/issues/new">GitHub issue</a>.
         </div>
         <?php include("../parts/footer.php"); ?>
         <script src="jquery.js"></script>
