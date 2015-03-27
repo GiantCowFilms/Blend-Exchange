@@ -34,6 +34,27 @@ $("#upload").click(function () {
     var password = $("#password").val().trim();
     var questionUrl = $("#questionUrl").val().trim();
     //Better Regex (WIP): /^^https?:\/\/blender.stackexchange.com\/q(?:uestions|)\/[0-9]+\/(?:[A-z\-#0-9\/_?=]+|[0-9]+)?$/g
+    $.ajax({
+        url: "/finish/verifyUrl",
+        type: "get",
+        success: function (result) {
+            result = jQuery.parseJSON(result);
+            if (result.status == 1) {
+                blendDropzone.options.url = "/finish/?url=" + questionUrl + "&password=" + password;
+                blendDropzone.processQueue();
+            } else {
+                if (result.message != '') {
+                    $("#uploadUrlError").text(result.message);
+                }
+                $("#uploadUrlError").show();
+                setTimeout(function () { $("#uploadUrlError").hide(); }, 8000);
+                $("#questionUrl").removeClass("txtBlueError")
+                //Delay is needed for reset due to a "bug?"
+                setTimeout(function () { $("#questionUrl").addClass("txtBlueError") }, 10);
+            }
+        },
+        data: { url: questionUrl }
+    });
     if (/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-#0-9\/_?=]+$/.test(questionUrl)) {
         blendDropzone.options.url = "/finish/?url=" + questionUrl + "&password=" + password;
         blendDropzone.processQueue();

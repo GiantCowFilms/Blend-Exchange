@@ -28,10 +28,12 @@
         $referingAdress = $_SERVER['HTTP_REFERER'];
         //Process URL to get rid of stuff after the last slash
         $notBlank = strlen($referingAdress) > 0;
-        $matches = [];
-        if (preg_match('/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z0-9-]+/', $referingAdress, $matches)){
-                $referingAdress = $matches["0"];
-        }
+        
+        include("../parts/verifyUrl.php");
+        
+        if(verifyUrl($referingAdress,true)){
+            $referingAdress = cleanUrl(removeInvalid($referingAdress));
+        };
     }
     
     $db->prepare("INSERT INTO `accesses` SET `ref`=:ref, `type`='view', `ip`='".$ipAdress."', `fileId`=:fileId, `date`=NOW()")->execute(array('fileId' => $blendId,'ref' => $referingAdress));

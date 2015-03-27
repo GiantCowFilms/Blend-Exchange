@@ -21,9 +21,11 @@
     <Compile Include="admin\adminTools\index.php" />
     <Compile Include="admin\all\index.php" />
     <Compile Include="admin\index.php" />
+    <Compile Include="finish\verifyUrl\index.php" />
     <Compile Include="parts\logger.php" />
     <Compile Include="parts\registerForm.php" />
     <Compile Include="parts\editAccountForm.php" />
+    <Compile Include="parts\verifyUrl.php" />
     <Compile Include="register\index.php" />
     <Compile Include="login\index.php" />
     <Compile Include="parts\userAccount.php" />
@@ -203,6 +205,7 @@
     <Content Include="upload.js" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="finish\verifyUrl\" />
     <Folder Include="logs\" />
     <Folder Include="register\" />
     <Folder Include="login\" />

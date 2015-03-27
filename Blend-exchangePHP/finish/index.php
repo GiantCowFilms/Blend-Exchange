@@ -2,16 +2,17 @@
     <?php
     
     //Get information from form
+    include("../parts/verifyUrl.php");
+    
     $questionUrl = $_GET["url"];
-    if(!preg_match('/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-#0-9\/_?=]+$/',$questionUrl)){
+    if(!verifyUrl($questionUrl,true)){
         echo "Invalid url";
         exit;
     };
+    $questionUrl =  removeInvalid($questionUrl);
     //Process URL to get rid of stuff after the last slash
     
-    $matches = [];
-    preg_match('/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z0-9-]+/', $questionUrl, $matches);
-    $questionUrl = $matches["0"];
+    $questionUrl = cleanUrl($questionUrl);
     
     $password = "";
     
