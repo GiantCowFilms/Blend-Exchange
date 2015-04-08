@@ -2,11 +2,12 @@
     <?php 
     $requireAdmin = false;
     include("../parts/requireLogin.php"); 
-    if($_GET["uid"] != $userId){
+    if(($_GET["uid"] != $userId) && ($admin == false)){
         include("../parts/header.php");
         echo "<div class='noticeWarning nwDanger'>This is not your account page</div>";
         exit();  
     };
+     $pageUser = $_GET["uid"];
     ?>
     <?php include("../parts/header.php"); ?>
     <?php include("../parts/userAccount.php"); ?>

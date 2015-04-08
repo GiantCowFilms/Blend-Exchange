@@ -4,7 +4,7 @@ include($_SERVER["DOCUMENT_ROOT"]."/parts/database.php");
 
 //Query created with the help of TehShrike http://stackoverflow.com/users/201789/tehshrike
 $userData = $db->prepare("SELECT `id`,`username`,`email` FROM `users` WHERE `id`=:uid");
-$userData->execute(["uid" => $userId]);
+$userData->execute(["uid" => $pageUser]);
 $userData = $userData->fetchAll(PDO::FETCH_ASSOC)["0"];
 //add autoFlag catches
 ?>

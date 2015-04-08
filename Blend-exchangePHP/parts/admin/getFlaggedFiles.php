@@ -19,10 +19,8 @@ GROUP BY `blends`.`id`
 HAVING `invalidRefs` > `validRefs`
 ORDER BY `refGap` DESC
 ");
-
 $autoFlags->execute();
 $autoFlags = $autoFlags->fetchAll(PDO::FETCH_ASSOC);
-
 foreach ($autoFlags as $key => $aflag)
 {
     $autoFlags[$key]["val"] = 'auto-ref';
@@ -32,7 +30,7 @@ foreach ($autoFlags as $key => $aflag)
 //var_dump($autoFlags);
 
 //Query created with the help of TehShrike http://stackoverflow.com/users/201789/tehshrike
-$files = $db->prepare("SELECT `blends`.`id`,`blends`.`fileName`,`blends`.`questionLink`,`accesses`.`val`,`accesses`.`date` FROM `blends` 
+$files = $db->prepare("SELECT `blends`.`id`,`blends`.`fileName`,`blends`.`questionLink`,`blends`.`owner`,`accesses`.`val`,`accesses`.`date` FROM `blends` 
 JOIN `accesses` ON `accesses`.`fileId` = `blends`.`id` AND `accesses`.`type` = 'flag'
 WHERE `blends`.`deleted`= 0 AND`accesses`.`accept` = 0
 ORDER BY `accesses`.`date` DESC");
