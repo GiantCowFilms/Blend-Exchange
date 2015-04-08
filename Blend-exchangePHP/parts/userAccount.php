@@ -6,7 +6,7 @@ include($_SERVER["DOCUMENT_ROOT"]."/parts/database.php");
 $files = $db->prepare("SELECT `blends`.`id`,`blends`.`fileName`,`blends`.`questionLink`,`blends`.`date` FROM `blends` 
 WHERE `blends`.`deleted`= 0 AND `blends`.`owner`=:uid");
 
-$files->execute(["uid" => $userId]);
+$files->execute(["uid" => $pageUser]);
 $files = $files->fetchAll(PDO::FETCH_ASSOC);
 //add autoFlag catches
 ?>
@@ -33,6 +33,8 @@ $files = $files->fetchAll(PDO::FETCH_ASSOC);
     <h2>Your Account</h2>
 
     <?php
-    include($_SERVER["DOCUMENT_ROOT"]."/parts/editAccountForm.php");    
+    if($_GET["uid"] == $userId){
+        include($_SERVER["DOCUMENT_ROOT"]."/parts/editAccountForm.php");  
+    };  
         
     ?>

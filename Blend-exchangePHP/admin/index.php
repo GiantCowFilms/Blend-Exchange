@@ -5,7 +5,8 @@
     <?php include("../parts/header.php"); ?>
     <?php include("../parts/admin/getFlaggedFiles.php"); ?>
         <div id="mainContainer">
-            <a href="/admin/all/">All files</a>
+            <a href="/admin/all/">All files</a><br><br>
+            <a href="/admin/users/">Users</a>
             <h2>Flagged Files:</h2>
             <table>
                 <thead>

@@ -6,10 +6,9 @@
     <?php 
     include("../../parts/database.php");
 
-    //Autoflag:
-    //Looks for blends that have less then half of there refs from thier question link
-    //Query created with the help of TehShrike http://stackoverflow.com/users/201789/tehshrike
-    $files = $db->prepare("SELECT `id`,`fileName`,`questionLink`, `date` FROM `blends` ORDER BY `date` DESC LIMIT 0,100 ");
+    $files = $db->prepare("SELECT `blends`.`id`,`blends`.`fileName`,`blends`.`questionLink`, `blends`.`date`,`blends`.`owner`,`blends`.`fileSize`,`users`.`username` FROM `blends` 
+    LEFT JOIN `users` ON `users`.`id` = `blends`.`owner`
+    ORDER BY `date` DESC LIMIT 0,500");
     $files->execute();
     $files = $files->fetchAll(PDO::FETCH_ASSOC);
     ?>
@@ -19,7 +18,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th>File Name</th><th>Question</th><th>Upload Date</th>
+                        <th>File Name</th><th>Question</th><th>Size</th><th>Owner</th><th>Upload Date</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,7 +26,7 @@
 
                     foreach ($files as $file)
                     {
-                        echo "<tr><td><a href='/b/".$file["id"]."/'>".$file["fileName"]."</a></td><td><a href='".$file["questionLink"]."'>".substr($file["questionLink"], 32, 60)."</a></td><td>".$file["date"]."</td></tr>";
+                        echo "<tr><td><a href='/b/".$file["id"]."/'>".$file["fileName"]."</a></td><td><a href='".$file["questionLink"]."'>".substr($file["questionLink"], 32, 60)."</a></td><td>".round(intval($file["fileSize"])/1000000, 2, PHP_ROUND_HALF_UP)." MB</td><td><a href='/users/".$file["owner"]."/'>".$file["username"]."</a></td><td>".$file["date"]."</td></tr>";
                     }
                     ?>
                 </tbody>

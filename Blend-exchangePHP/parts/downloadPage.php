@@ -64,6 +64,9 @@
                         </div>
                 </div>
             </div>
+            <div id="favPrompt" style="display: none;" class="bodyStack noticeWarning nwInfo">
+                Found this file useful? <b>Give it a favorite </b>using the button below!
+            </div>
             <div class="bodyStack">
                 <div id="flagBtn" class="btnBlue downloadBtnRow">
                     Flag
@@ -105,6 +108,14 @@
             });';
             };
             ?>
+            //Propt download
+            $(document).on('click', "#downloadFile", function () {
+                $("#favPrompt").show();
+                setTimeout(function () {
+                    $("#favPrompt").hide();
+                }, 12000);
+            });
+
             //Only on finish page
             if (window.location.pathname == "/") {
                 var embed = $("#embedCode")
