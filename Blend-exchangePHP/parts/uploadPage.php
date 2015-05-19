@@ -9,6 +9,14 @@
                     </div>
             </form>
             <div id="uploadOptions">
+                <?php if ($loggedIn == true){
+                        echo "
+                        <div style='height: auto;' class='noticeWarning nwInfo bodyStack'>
+                                            You are logged in, Any uploaded files will be attached to this account.
+                        </div>
+                        ";
+                    } 
+                ?>
                 <div id="uploadUrlError" style="display: none; height: auto;" class="noticeWarning nwDanger bodyStack">
                     The provided url is not valid, please copy and paste the <b>entire</b> url, including the "http://" header.
                 </div>

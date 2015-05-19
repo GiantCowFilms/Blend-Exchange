@@ -1,5 +1,7 @@
 <html>
-    <?php include("parts/header.php"); ?>
+    <?php include("parts/header.php");
+          include("parts/checkLogin.php");
+          ?>
         <div id="mainContainer">
             <?php include("parts/uploadPage.php"); ?>
             <div id="usageNotice">
