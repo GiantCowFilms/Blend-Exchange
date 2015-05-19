@@ -57,7 +57,7 @@
                     loginData.confirmPassword = CryptoJS.SHA256(loginData.confirmPassword).toString();
                 };
                 loginData.id = <?php
-                               echo $userId;
+                               echo $pageUser;
                 ?>;
                 console.log(loginData);
 

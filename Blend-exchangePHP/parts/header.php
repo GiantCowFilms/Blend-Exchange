@@ -10,7 +10,7 @@
             <div class="logoStatus">&#945;lpha</div>
          </div>
          <div>
-            <a class="logoCredit" href="http://blender.stackexchange.com/users/">A long term .blend storage solution for blender.stackexchange</a>
+            <a class="logoCredit" href="http://blender.stackexchange.com/">A long term .blend storage solution for blender.stackexchange</a>
          </div>
          <img src="/logo.png" />
       </div>
