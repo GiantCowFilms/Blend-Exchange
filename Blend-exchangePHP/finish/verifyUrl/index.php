@@ -4,7 +4,7 @@ $url = $_GET["url"];
 if(verifyUrl($url,true)){
     echo '{
             "status": 1,
-            "message": "URl is valid"
+            "message": "Url is valid"
         }';
 } else {
     //Send status

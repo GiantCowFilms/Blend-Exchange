@@ -43,9 +43,10 @@ $("#upload").click(function () {
                 blendDropzone.options.url = "/finish/?url=" + questionUrl + "&password=" + password;
                 blendDropzone.processQueue();
             } else {
-                if (result.message != '') {
-                    $("#uploadUrlError").text(result.message);
-                }
+                //Skip the message
+                //if (result.message != '') {
+                //    $("#uploadUrlError").text(result.message);
+                //}
                 $("#uploadUrlError").show();
                 setTimeout(function () { $("#uploadUrlError").hide(); }, 8000);
                 $("#questionUrl").removeClass("txtBlueError")
@@ -55,12 +56,19 @@ $("#upload").click(function () {
         },
         data: { url: questionUrl }
     });
-    if (/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-#0-9\/_?=]+$/.test(questionUrl)) {
+    if (/^https?:\/\/blender.stackexchange.com\/q(?:uestions)?\/[0-9]+\/(?:[A-z\-#0-9\/_?=&]+|[0-9]+)?$/.test(questionUrl)) {
         blendDropzone.options.url = "/finish/?url=" + questionUrl + "&password=" + password;
         blendDropzone.processQueue();
     } else {
+        var uploadText = $("#uploadUrlError").html();
+        if (/^https?:\/\/blender.stackexchange.com\/a(?:nswer)?\/[0-9]+\/[0-9]+$/.test(questionUrl)) {
+            $("#uploadUrlError").html("Please use the <b>Question Url, not the Answer Url.</b> We cannot correctly process Answer Urls because of technical difficulties.");
+        }
         $("#uploadUrlError").show();
-        setTimeout(function () { $("#uploadUrlError").hide(); }, 8000);
+        setTimeout(function () {
+            $("#uploadUrlError").hide();
+            $("#uploadUrlError").html(uploadText);
+        }, 8000);
         $("#questionUrl").removeClass("txtBlueError")
         //Delay is needed for reset due to a "bug?"
         setTimeout(function () {$("#questionUrl").addClass("txtBlueError")}, 10);
