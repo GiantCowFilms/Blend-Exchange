@@ -1,4 +1,8 @@
  <?php
+    $requireAdmin = false;
+    include("../parts/requireLogin.php"); 
+ 
+ 
     session_start();
     
     $changePassword = true;
