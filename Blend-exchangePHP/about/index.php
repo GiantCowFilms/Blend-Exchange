@@ -6,8 +6,8 @@
              <h2>Contributions</h2>
                 <a href="http://blender.stackexchange.com/users/3127/giantcowfilms">GiantCowFilms:</a> Server administration, lead development, and some assistance with the userscript<br />
                 <a href="http://blender.stackexchange.com/users/599/gandalf3">gandalf3:</a> Lead development on the userscript and design, minor development, editing, and the wonderful favicon.<br />
-                <a href="http://stackoverflow.com/users/201789/tehshrike">TehShrike:</a> Very helpful database wizard, wrote several database queries for the site.
-                <a href="http://stackoverflow.com/users/4878556/mhsjlw">mhsjlw:</a> Found 1 (and counting) security hole (not extremely dangerous) .
+                <a href="http://stackoverflow.com/users/201789/tehshrike">TehShrike:</a> Very helpful database wizard, wrote several database queries for the site.<br />
+                <a href="http://stackoverflow.com/users/4878556/mhsjlw">mhsjlw:</a> Found 1 (and counting) security hole(s) (not extremely dangerous).
             <h1>
                 Faq:
             </h1>
