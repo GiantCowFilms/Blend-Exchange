@@ -6,11 +6,10 @@
     
     include("../parts/database.php");
     
-    $blendData = $db->prepare("SELECT `id`, `fileName`, `fileGoogleId`, `flags`, `password`, `uploaderIp`, `questionLink`, `fileSize` FROM `blends` WHERE `id`= :id");
+    $blendData = $db->prepare("SELECT `id`, `fileName`, `fileGoogleId`, `flags`, `password`, `uploaderIp`, `questionLink`, `fileSize`,`adminComment`,`deleted` FROM `blends` WHERE `id`= :id");
     $blendData->execute(array('id' => $blendId));
     //If there are no rows, no file
     $fileExists = ($blendData->rowCount() != 0);
-    
     if($fileExists){
         $blendData = $blendData->fetchAll(PDO::FETCH_ASSOC)["0"];
     } else {
@@ -28,9 +27,13 @@
     if(isset($_SERVER['HTTP_REFERER'])) {
         $referingAdress = $_SERVER['HTTP_REFERER'];
         //Process URL to get rid of stuff after the last slash
-        $matches = [];
-        preg_match('/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z-]+/', $referingAdress, $matches);
-        $referingAdress = $matches["0"];
+        $notBlank = strlen($referingAdress) > 0;
+        
+        include("../parts/verifyUrl.php");
+        
+        if(verifyUrl($referingAdress,true)){
+            $referingAdress = cleanUrl(removeInvalid($referingAdress));
+        };
     }
     
     $db->prepare("INSERT INTO `accesses` SET `ref`=:ref, `type`='view', `ip`='".$ipAdress."', `fileId`=:fileId, `date`=NOW()")->execute(array('fileId' => $blendId,'ref' => $referingAdress));

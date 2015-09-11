@@ -1,3 +1,10 @@
 RewriteEngine On
-RewriteRule ^b/([0-9]+)/$ /b/index.php?blendId=$1
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteCond %{REQUEST_URI} !d/([0-9]+)/.+\..+$
+RewriteRule ^(.*)$ /$1/ [L,R=301]
+RewriteRule ^b/([0-9]+)/?$ /b/index.php?blendId=$1
 RewriteRule ^d/([0-9]+)/.+\..+$ /d/index.php?blendId=$1
+RewriteRule ^users/([0-9]+)/?$ /users/index.php?uid=$1
+RewriteRule ^admin/runUtil/([A-z]+)/?$ /admin/runUtil/index.php?utilName=$1

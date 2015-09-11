@@ -18,11 +18,26 @@
         ?>
         <div id="mainContainer">
             <?php
+            if ($blendData["adminComment"] != ""){
+                echo "<div class=\"noticeWarning nwInfo bodyStack\">
+                ".$blendData["adminComment"]."
+                </div>";
+            }
+            if ($blendData["deleted"] == 1) {
+                echo "            <div class=\"noticeWarning nwDanger bodyStack\">
+                    This file was deleted.
+                </div>";
+            if ($admin != true){
+                exit();
+            };
+            }
             if ($copyrightAlert){
                 echo "            <div class=\"noticeWarning nwNotice bodyStack\">
                 NOTICE: This file has been removed on a copyright claim!
                 </div>";
-                exit;
+                if ($admin != true){
+                    exit();
+                };
             };
             if ($virusAlert){
                 echo "            <div class=\"noticeWarning nwDanger bodyStack\">
@@ -38,7 +53,7 @@
                                 <?php echo $blendData["fileName"] ?>
                             </h2>
                             <span class="downloadQuestionLink">
-                                 <a href="<?php echo $blendData["questionLink"] ?>"><?php echo substr($blendData["questionLink"], 32, 40); ?>...</a>
+                                 <a href="<?php echo $blendData["questionLink"] ?>">View Question</a>
                                 <br />
                                 <?php echo round(intval($blendData["fileSize"])/1000000, 1, PHP_ROUND_HALF_UP); ?> MB
                                 <br />
@@ -48,6 +63,9 @@
                             </span>
                         </div>
                 </div>
+            </div>
+            <div id="favPrompt" style="display: none;" class="bodyStack noticeWarning nwInfo">
+                Found this file useful? <b>Give it a favorite </b>using the button below!
             </div>
             <div class="bodyStack">
                 <div id="flagBtn" class="btnBlue downloadBtnRow">
@@ -60,12 +78,13 @@
             </div>
             <?php include("flagForm.php"); ?>
             <?php
-                if ($loggedIn == true){
+                if ($admin == true){
                     include("adminTools.php");
                 };
             ?>
-            <div>Embed (Copy into your post):</div>
-            <textarea id="embedCode" class="txtBlue">[<img src="http://blend-exchange.giantcowfilms.com/embedImage.png?bid=<?php echo $blendData["id"] ?>" />](http://blend-exchange.giantcowfilms.com/b/<?php echo $blendData["id"]; ?>/)</textarea>
+            <h2 style="margin-top: 5px; margin-bottom: 5px;">Share this file:</h2>
+            <div>Add this text into your post:</div>
+            <textarea id="embedCode" class="txtBlue">[<img src="http://blend-exchange.giantcowfilms.com/embedImage.png?bid=<?php echo $blendData["id"]; ?>" />](http://blend-exchange.giantcowfilms.com/b/<?php echo $blendData["id"]; ?>/)</textarea>
             <div id="usageNotice">
                 <h2>
                     Disclaimer:
@@ -80,10 +99,30 @@
         <script src="/jquery.js"></script>
         <script src="/dropzone.js"></script>
         <script>
-           var embed = $("#embedCode")
-           embed.focus()
-           embed.select()
-        
+            <?php             
+            if ($virusAlert){
+                echo '            $(document).on("click", "#downloadFile a", function (e) {
+                if (confirm("I understand that I do this at my own risk, and Blend-Exchange is not liable for any damage this file may cause?") != true) {
+                    e.preventDefault();
+                }
+            });';
+            };
+            ?>
+            //Propt download
+            $(document).on('click', "#downloadFile", function () {
+                $("#favPrompt").show();
+                setTimeout(function () {
+                    $("#favPrompt").hide();
+                }, 12000);
+            });
+
+            //Only on finish page
+            if (window.location.pathname == "/") {
+                var embed = $("#embedCode")
+                embed.focus()
+                embed.select()
+                $("#embedCode").addClass('attention');
+            }
             $("#flagBtn").click(function () {
                 $("#flagFile").show();
             });
@@ -122,6 +161,16 @@
             }
         </script>
         <script>
+            $(document).on("click", "#deleteFile", function () {
+                $.ajax({
+                    url: "/admin/adminTools/",
+                    type: "POST",
+                    data: { fileId: "<?php echo $blendData["id"] ?>", act: "delete"},
+                    success: function (r) {
+                        alert([r]);
+                    }
+                });
+            });
             $(document).on("click", "#adminComment", function () {
                 $("#adminCommentForm").show();
             });
@@ -132,7 +181,21 @@
                     type: "POST",
                     data: { fileId: "<?php echo $blendData["id"] ?>", act: "Comment", text: comment },
                     success: function () {
-                    
+
+                    }
+                });
+            });
+            $(document).on("click", "#setValid", function () {
+                var valid = 2;
+                if (confirm('Is this valid?')) {
+                    valid = 1;
+                }
+                $.ajax({
+                    url: "/admin/adminTools/",
+                    type: "POST",
+                    data: { fileId: "<?php echo $blendData["id"] ?>", act: "setValid", type: valid },
+                    success: function (r) {
+                        alert([r]);
                     }
                 });
             });

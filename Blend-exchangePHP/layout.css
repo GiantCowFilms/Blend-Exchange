@@ -175,13 +175,14 @@ h1{
    position:relative;
    width:100%;
    height:100%;
+   font-size: 18px;
 }
 
 #uploadOptions > div {
    height:35px;
 }
 
-#password {
+#uploadOptions #password {
    width:calc(65% - 10px);
    margin:0;
    vertical-align:bottom;
@@ -195,6 +196,7 @@ h1{
 }
 
 .progressContainer {
+   border: 1px solid;
    height: 10px;
 }
 .progress {
@@ -242,6 +244,15 @@ h1{
    width: 100%;
    text-align: center;
    padding:10px 0px;
+}
+#login {
+    width: 140px;
+}
+#loginForm #password {
+   width:calc(65% - 10px);
+   margin:0;
+   vertical-align:bottom;
+   margin-right:10px;
 }
 
 
@@ -334,4 +345,26 @@ h1{
    #fileStats {
       height: 135px;
    }
+}
+/*Table styles*/
+table{
+    border-spacing: 0;
+    border-collapse:collapse;
+}
+tr{
+    border-spacing: 0;
+    border-collapse:collapse;
+}
+td {
+    padding: 10px;
+    border: 2px;
+    border-collapse:collapse;
+    border-spacing: 0;
+}
+th {
+    font-weight: bold;
+    padding: 10px;
+    border: 2px;
+    border-collapse:collapse;
+    border-spacing: 0;
 }

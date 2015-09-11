@@ -1,6 +1,10 @@
 <div id="adminTools">
     <div>
-        <div class="btnBlue" style="width: 136px; margin-right: 10px;" id="adminComment">Comment</div><div class="btnBlue" style="width: 136px; margin-right: 10px;" id="adminDeclineFlag">Decline Flag</div><div class="btnBlue" style="width: 136px; margin-right: 10px;" id="adminAcceptFlag">Accept Flag</div><div class="btnBlue" style="width: 136px;">Delete</div>
+        <div class="btnBlue" style="width: 136px; margin-right: 10px;" id="adminComment">
+            Comment</div><div class="btnBlue" style="width: 136px; margin-right: 10px;" id="adminDeclineFlag">
+          Decline Flag</div><div class="btnBlue" style="width: 136px; margin-right: 10px;" id="adminAcceptFlag">
+              Accept Flag</div><div class="btnBlue" style="width: 136px; margin-right: 10px;" id="setValid">
+              Set Valid</div><div class="btnBlue" style="width: 136px;" id="deleteFile">Delete</div>
     </div>
     <form id="adminCommentForm" style="display: none;">
         <textarea class="txtBlue" id="adminCommentText">Admin: </textarea>
@@ -12,6 +16,7 @@
             <?php 
             foreach ($blendData["flags"] as $flag)
             {
+                var_dump($flag["accept"]);
                 if ($flag["accept"] == 0){
                     echo "<option val=\"".$flag["id"]."\">".$flag["val"]." (id: ".$flag["id"].")</option>";   
                 }
