@@ -5,11 +5,11 @@
     
     $ref = "";
     if (isset($_GET["ref"])) {
-        $ref = $_GET["ref"];
+        $ref = " PAGE_REF_CODE:".$_GET["ref"];
     }
     
     
-    logger("PAGE_HIT LOC:".$_SERVER['REQUEST_URI']." PAGE_REF_CODE:".$ref,$_SERVER["DOCUMENT_ROOT"]."/logs/","hits.log");
+    logger("PAGE_HIT LOC:".$_SERVER['REQUEST_URI'].$ref,$_SERVER["DOCUMENT_ROOT"]."/logs/","hits.log");
     
     ?>
     <head>
