@@ -2,7 +2,15 @@
         session_start();
     }
     include_once($_SERVER["DOCUMENT_ROOT"]."/parts/logger.php");
-    logger("PAGE_HIT LOC:".$_SERVER['REQUEST_URI'],$_SERVER["DOCUMENT_ROOT"]."/logs/","hits.log");
+    
+    $ref = "";
+    if (isset($_GET["ref"])) {
+        $ref = $_GET["ref"];
+    }
+    
+    
+    logger("PAGE_HIT LOC:".$_SERVER['REQUEST_URI']." PAGE_REF_CODE:".$ref,$_SERVER["DOCUMENT_ROOT"]."/logs/","hits.log");
+    
     ?>
     <head>
         <title>Blend-Exchange</title>
