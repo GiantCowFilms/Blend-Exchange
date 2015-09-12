@@ -22,8 +22,8 @@
 	.st14{display:inline;fill:#FF782A;}
 	.st15{display:inline;fill:#FFFFFF;}
 	.st16{display:inline;}
-	.st17{font-family:'MyriadPro-Regular';}
-	.st18{font-size:23.1858px;}
+	.st17{font-family:'Raleway-Medium';}
+	.st18{font-size:22.1892px;}
 	.st19{fill:#8D8D8D;}
 	.st20{font-family:'Raleway';}
 	.st21{font-size:12.5px;}
@@ -188,7 +188,7 @@
 	</g>
 	<g id="layer2" transform="translate(495.13264,1018.8338)" inkscape:label="stuff" class="st2">
 		
-			<image style="display:inline;overflow:visible;enable-background:new    ;" width="32" height="32" id="image6394" xlink:href="C77A8E58.png"  transform="matrix(1 0 0 1 358.7324 512.0432)">
+			<image style="display:inline;overflow:visible;enable-background:new    ;" width="32" height="32" id="image6394" xlink:href="C77A8E59.png"  transform="matrix(1 0 0 1 358.7324 512.0432)">
 		</image>
 		<path id="path6455" sodipodi:nodetypes="scccccszs" inkscape:connector-curvature="0" class="st13" d="M316.7,512.2v17h-4.9
 			l10.5,10.5l10.5-10.5h-5v-17c0-1.4-3.6-1.9-5.6-1.9C320.3,510.3,316.7,510.8,316.7,512.2z"/>
@@ -261,8 +261,8 @@
 				c-0.2-0.5-0.8-0.9-1.3-0.9h0h-3.5h-0.5v-3.9h-0.5h-0.4h-4c-0.4,0-0.6-0.5-0.3-0.7l4.8-4.7V516.9L289.8,516.9z"/>
 		</g>
 	</g>
-	<text transform="matrix(1 0 0 1 -157.6036 1104.9703)" class="st4 st17 st18">Blend</text>
-	<text transform="matrix(1 0 0 1 -101.5133 1104.9703)" class="st5 st17 st18">-Exchange</text>
+	<text transform="matrix(1 0 0 1 -157.6035 1105.1947)" class="st4 st17 st18">Blend</text>
+	<text transform="matrix(1 0 0 1 -95.5547 1105.1947)" class="st5 st17 st18">-Exchange</text>
 	<text transform="matrix(1 0 0 1 -173.1283 1126.2467)" class="st19 st20 st21">Long-term .blend hosting</text>
 	<text transform="matrix(1 0 0 1 -173.1283 1144.9967)" class="st19 st20 st21">Built for blender.stackexchange</text>
 </g>
