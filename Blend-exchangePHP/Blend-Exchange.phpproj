@@ -21,6 +21,7 @@
     <Compile Include="about\index.php" />
     <Compile Include="admin\adminTools\index.php" />
     <Compile Include="admin\users\index.php" />
+    <Compile Include="dynamicImg\communityAdOne.php" />
     <Compile Include="parts\admin\utils\test.php" />
     <Compile Include="admin\all\index.php" />
     <Compile Include="admin\index.php" />
@@ -185,6 +186,8 @@
     <Content Include=".htaccess" />
     <Content Include="document.txt" />
     <Content Include="dropzone.js" />
+    <Content Include="dynamicImg\font\Raleway-Bold.ttf" />
+    <Content Include="dynamicImg\img\DynamicCommunityAdOne.png" />
     <Content Include="favicon.ico" />
     <Content Include="Google_Drive_Api\.gitignore" />
     <Content Include="Google_Drive_Api\.travis.yml" />
@@ -211,6 +214,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="admin\users\" />
+    <Folder Include="dynamicImg\" />
+    <Folder Include="dynamicImg\img\" />
+    <Folder Include="dynamicImg\font\" />
+    <Folder Include="img\" />
     <Folder Include="parts\admin\utils\" />
     <Folder Include="admin\runUtil\" />
     <Folder Include="finish\verifyUrl\" />
