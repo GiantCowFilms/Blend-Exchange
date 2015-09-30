@@ -33,7 +33,7 @@ $files = $files->fetchAll(PDO::FETCH_ASSOC);
     <h2>Your Account</h2>
 
     <?php
-    if($_GET["uid"] == $userId){
+    if($pageUser == $userId){
         include($_SERVER["DOCUMENT_ROOT"]."/parts/editAccountForm.php");  
     };  
         
