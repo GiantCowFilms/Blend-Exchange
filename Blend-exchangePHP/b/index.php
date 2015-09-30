@@ -41,27 +41,8 @@
     require("../parts/blendViewCount.php");
     $blendData["views"] = getViewCount($blendId);
     
-    $rows = $db->prepare("SELECT `ip` FROM `accesses` WHERE `type`='download' AND `fileId`=:fileId");
-    $rows->execute(array('fileId' => $blendId));
-    $rows = $rows->fetchAll(PDO::FETCH_ASSOC);
-    $ips = [];
-    foreach ($rows as $key => $row)
-    {
-      $remove = false;
-      foreach ($ips as $ip)
-      {
-          if($ip == $row["ip"]){
-              unset($rows[$key]);
-              $remove = true;
-              break;
-          }
-      }
-      if($remove == false){
-          $ips[] = $row["ip"];
-      }
-    }
-
-    $blendData["downloads"] = count($rows);
+    require("../parts/blendDownloadCount.php");
+    $blendData["downloads"] = getDownloadCount($blendId);
     
     $rows = $db->prepare("SELECT `ip` FROM `accesses` WHERE `type`='favorite' AND `fileId`=:fileId");
     $rows->execute(array('fileId' => $blendId));
