@@ -1,4 +1,6 @@
-<?php include("../parts/head.php"); ?>
+<?php include("../parts/head.php"); 
+       include("../parts/checkLogin.php");
+      ?>
 <body style="width: 600px;">
 <?php 
 

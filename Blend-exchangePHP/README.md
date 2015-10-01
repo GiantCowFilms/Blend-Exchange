@@ -1,5 +1,5 @@
 # Blend-Exchange
-This is a WIP project to add permanent blend hosting for blender.stackexchange until we can convince the SE lords to add the feature
+This is a project to add long term (sorta perminant) blend hosting for blender.stackexchange until we can convince the SE lords to add the feature
 
 ###Basic idea:
 
@@ -18,6 +18,6 @@ In an HTTP header often the site that the link was clicked on his provided... if
  - View large files [ ] 
  - View suspecious ref files [ ] 
 * **Themes:** [ ]
- - CSS work [ ]
- - Switch themes javascript [ ] 
- - Switch themes php [ ] 
+ - CSS work [~]
+ - Switch themes javascript [X] 
+ - Switch themes php [X] 

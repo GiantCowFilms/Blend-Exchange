@@ -32,10 +32,19 @@
     
     include("../parts/database.php");
     
-    $blendData = $db->prepare("SELECT `id`, `fileName`, `fileGoogleId`, `flags`, `views`, `downloads`, `password`, `uploaderIp`, `questionLink`, `fileSize` FROM `blends` WHERE `id`= :id");
+    $blendData = $db->prepare("SELECT `id`, `fileName`, `fileGoogleId`, `flags`, `views`, `downloads`, `password`, `uploaderIp`, `questionLink`, `fileSize`,`deleted` FROM `blends` WHERE `id`= :id");
     $blendData->execute(array('id' => $blendId));
     $blendData = $blendData->fetchAll(PDO::FETCH_ASSOC)["0"];
 
+    //Check if file was deleted
+    if ($blendData["deleted"] == 1) {
+        echo "            <div class=\"noticeWarning nwDanger bodyStack\">
+                    This file was deleted.
+                </div>";
+        exit();
+    }
+    
+    
     //New better download counter
     
     //Get IP adress
@@ -45,6 +54,12 @@
     $referingAdress = '';
     if(isset($_SERVER['HTTP_REFERER'])) {
         $referingAdress = $_SERVER['HTTP_REFERER'];
+        //Process URL to get rid of stuff after the last slash
+        $notBlank = strlen($referingAdress) > 0;
+        $matches = [];
+        if (preg_match('/^http:\/\/blender.stackexchange.com\/questions\/[0-9]+\/[a-z0-9-]+/', $referingAdress, $matches)){
+            $referingAdress = $matches["0"];
+        } 
     }
     
     $db->prepare("INSERT INTO `accesses` SET `ref`=:ref, `type`='download', `ip`='".$ipAdress."', `fileId`=:fileId, `date`=NOW()")->execute(array("fileId" => $blendId,'ref' => $referingAdress));    
@@ -60,4 +75,4 @@
    
     echo $httpRequest->getResponseBody();
     
-    ?>
+    ?>0

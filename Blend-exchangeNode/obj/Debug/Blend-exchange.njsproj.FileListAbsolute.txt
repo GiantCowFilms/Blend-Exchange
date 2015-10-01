@@ -1,2 +1,0 @@
-Q:\dml\WebDevelopment\Blend-Exchange\Blend-exchange\obj\Debug\Blend-exchange.njsprojResolveAssemblyReference.cache
-Q:\dml\WebDevelopment\Blend-Exchange\Blend-exchange\bin\Microsoft.NodejsTools.WebRole.dll

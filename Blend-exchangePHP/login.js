@@ -20,7 +20,7 @@
     console.log(loginData);
 
     $.ajax({
-        url: "/admin/login",
+        url: "/users/login",
         type: "get",
         success: function (result) {
             //Parse the message
