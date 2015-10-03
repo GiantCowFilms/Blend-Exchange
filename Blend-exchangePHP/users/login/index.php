@@ -25,7 +25,7 @@
         $_SESSION["admin"] = $admin > 0;
         //Create long term cookie
         //Sleeper Cookie
-        setcookie("extendLogin", $userId.";".hash("sha256", $password.$userId.$username, false), time() + (86400 * 30), "/");
+        setcookie("extendLogin", $userId ."_". hash("sha256", $password.$userId.$username, false), time() + (86400 * 90), "/");
         
         //Send status
         logger("LOGIN_SUCCESS IP_HASH:".hash("sha256",$_SERVER['REMOTE_ADDR'], false),$_SERVER["DOCUMENT_ROOT"]."/logs/","login.log");
