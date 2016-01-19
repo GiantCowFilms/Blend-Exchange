@@ -100,7 +100,7 @@
 <path id="path4147" inkscape:connector-curvature="0" fill="none" d="M-194.8-530.563"/>
 <g id="layer2" transform="translate(495.13264,1018.8338)" inkscape:label="stuff" display="none">
 	
-		<image display="inline" overflow="visible" enable-background="new    " width="33" height="33" id="image6394" xlink:href="C77A8E56.png"  transform="matrix(0.9697 0 0 0.9697 358.9357 -290.4881)">
+		<image display="inline" overflow="visible" enable-background="new    " width="33" height="33" id="image6394" xlink:href="C77A8E57.png"  transform="matrix(0.9697 0 0 0.9697 358.9357 -290.4881)">
 	</image>
 	<path id="path6455" sodipodi:nodetypes="scccccszs" inkscape:connector-curvature="0" display="inline" fill="#109DF0" d="
 		M316.9-290.263v17H312l10.5,10.5l10.5-10.6h-5v-17c0-1.4-3.601-1.9-5.601-1.9C320.5-292.263,316.9-291.763,316.9-290.263z"/>
@@ -230,7 +230,7 @@
 		<text id="text116" transform="matrix(1 0 0 1 -100.0852 158.9932)" fill="#109DF0" font-family="'Raleway-Medium'" font-size="29.1873">-Exchange</text>
 </g>
 <text id="text120" transform="matrix(1 0 0 1 -76.606 454.4376)" fill="#8D8D8D" font-family="'Raleway-Bold'" font-size="26">9999</text>
-<text id="text124" transform="matrix(1 0 0 1 -126.2749 481.4981)" enable-background="new    "><tspan x="0" y="0" fill="#8D8D8D" font-family="'Raleway'" font-size="18">.Blend Files Hosted</tspan><tspan x="-32.381" y="21.6" fill="#8D8D8D" font-family="'Raleway'" font-size="18">Click Here to Upload Yours</tspan></text>
+<text id="text124" transform="matrix(1 0 0 1 -122.1709 481.4981)" enable-background="new    "><tspan x="0" y="0" fill="#8D8D8D" font-family="'Raleway'" font-size="18">.Blend files hosted</tspan><tspan x="-32.768" y="21.6" fill="#8D8D8D" font-family="'Raleway'" font-size="18">Click here to upload yours</tspan></text>
 <g id="g5452" transform="matrix(0.75232018,0,0,0.75232018,312.02493,222.18545)">
 	<path id="path4136" sodipodi:nodetypes="ccccccccccc" inkscape:connector-curvature="0" fill="#FF782A" d="M-105,346.383l0.6-68.9
 		l-21.8-0.6l-29.9-26.2l3.699-14.799l29.1,16l36.5-2.7l60.499-1.501l3.701,155.801l-74.8,0.1L-105,346.383z"/>
