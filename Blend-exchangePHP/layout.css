@@ -147,7 +147,7 @@ h1{
 }
 #navLinks li a {
    display:block;
-   height:100%;
+   /*height:100%; This suddenly caused a display bug. no idea why. */
    padding:5px 10px;
    padding-right:0px;
    transition:padding .3s;
