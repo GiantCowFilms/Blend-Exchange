@@ -32,17 +32,17 @@
     // $                                | End of string, stops invalid material form being tacked onto the end.
     
     //Match url
-    $_Match_Url = "/^https?:\/\/blender.stackexchange.com\/q(?:uestions)?\/[0-9]+\/(?:[A-z\-#0-9\/_?=&]+|[0-9]+)?$/";
+    $_Match_Url = "/^https?:\/\/(?:meta.)blender.stackexchange.com\/q(?:uestions)?\/[0-9]+\/(?:[A-z\-#0-9\/_?=&]+|[0-9]+)?$/";
     //Detect all invalid characters in Title
-    $_Invalid_Charicters = "/^(?<=https?:\/\/blender.stackexchange.com\/q(?:uestions)?\/[0-9]+\/[A-z\-#0-9\/_?=&]+)[^A-z\-#0-9\/_?=]/";
+    $_Invalid_Charicters = "/^(?<=https?:\/\/(?:meta.)blender.stackexchange.com\/q(?:uestions)?\/[0-9]+\/[A-z\-#0-9\/_?=&]+)[^A-z\-#0-9\/_?=]/";
     //Part of hack for PHP flavored regex limitation
-    $_Invalid_Charicters_Pre = "/^(https?:\/\/blender.stackexchange.com\/q(?:uestions)?\/[0-9]+\/)/";
+    $_Invalid_Charicters_Pre = "/^(https?:\/\/(?:meta.)blender.stackexchange.com\/q(?:uestions)?\/[0-9]+\/)/";
     $_Invalid_Charicters_Post = "/[^A-z\-#0-9\/_?=]/";
     
     //Catch ID
     //$_Question_Id = "/^(?<=^https?:\/\/blender.stackexchange.com\/q(?:uestions|)\/)[0-9]+(?=\/(?:[A-z\-#0-9\/_?=]+|[0-9]+)?$)/";
     //Hacky way to avoid the lookback limiatation
-    $_Question_Id = "/^https?:\/\/blender.stackexchange.com\/q(?:uestions)?\/([0-9]+)\/(?:[A-z\-#0-9\/_?=&]+|[0-9]+)?$/";
+    $_Question_Id = "/^https?:\/\/(?:meta.)blender.stackexchange.com\/q(?:uestions)?\/([0-9]+)\/(?:[A-z\-#0-9\/_?=&]+|[0-9]+)?$/";
     
     function removeInvalid ($url)
     {
