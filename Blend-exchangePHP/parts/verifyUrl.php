@@ -14,9 +14,9 @@
 // Set Regexes
 //
     //Match url
-    
+
     // Regex Explanation:
-    // Part of expression               | Explanation: 
+    // Part of expression               | Explanation:
     // ---------------------------------|---------------------------------
     // ^                                | Start of string, means nothing can be infront of our URL
     // http                             | Check for the text http at the beggining
@@ -30,20 +30,20 @@
     // [0-9]+                           | Can also match a number, technically not necessary, since the otherone does, but that may change since this identifies a different URL
     // )?                               | end if
     // $                                | End of string, stops invalid material form being tacked onto the end.
-    
+
     //Match url
-    $_Match_Url = "/^https?:\/\/(?:meta.)blender.stackexchange.com\/q(?:uestions)?\/[0-9]+\/(?:[A-z\-#0-9\/_?=&]+|[0-9]+)?$/";
+    $_Match_Url = "/^https?:\/\/(?:meta\.)?blender\.stackexchange\.com\/q(?:uestions)?\/[0-9]+\/(?:[A-z\-#0-9\/_?=&]+|[0-9]+)?$/";
     //Detect all invalid characters in Title
-    $_Invalid_Charicters = "/^(?<=https?:\/\/(?:meta.)blender.stackexchange.com\/q(?:uestions)?\/[0-9]+\/[A-z\-#0-9\/_?=&]+)[^A-z\-#0-9\/_?=]/";
+    $_Invalid_Charicters = "/^(?<=https?:\/\/(?:meta\.)?blender\.stackexchange\.com\/q(?:uestions)?\/[0-9]+\/[A-z\-#0-9\/_?=&]+)[^A-z\-#0-9\/_?=]/";
     //Part of hack for PHP flavored regex limitation
-    $_Invalid_Charicters_Pre = "/^(https?:\/\/(?:meta.)blender.stackexchange.com\/q(?:uestions)?\/[0-9]+\/)/";
+    $_Invalid_Charicters_Pre = "/^(https?:\/\/(?:meta\.)?blender\.stackexchange\.com\/q(?:uestions)?\/[0-9]+\/)/";
     $_Invalid_Charicters_Post = "/[^A-z\-#0-9\/_?=]/";
-    
+
     //Catch ID
     //$_Question_Id = "/^(?<=^https?:\/\/blender.stackexchange.com\/q(?:uestions|)\/)[0-9]+(?=\/(?:[A-z\-#0-9\/_?=]+|[0-9]+)?$)/";
     //Hacky way to avoid the lookback limiatation
-    $_Question_Id = "/^https?:\/\/(?:meta.)blender.stackexchange.com\/q(?:uestions)?\/([0-9]+)\/(?:[A-z\-#0-9\/_?=&]+|[0-9]+)?$/";
-    
+    $_Question_Id = "/^https?:\/\/(?:meta\.)?blender.stackexchange.com\/q(?:uestions)?\/([0-9]+)\/(?:[A-z\-#0-9\/_?=&]+|[0-9]+)?$/";
+
     function removeInvalid ($url)
     {
         //The particular lookback isn't supported, this is a workaround
@@ -56,7 +56,7 @@
         $url = $parts["0"].preg_replace($_Invalid_Charicters_Post,"",$parts["1"]);
     	return $url;
     };
-    
+
     function verifyUrl ($url, $removeInvalid = false)
     {
         global $_Match_Url;
@@ -70,14 +70,14 @@
         $valid = (bool) preg_match($_Match_Url, $url);
     	return $valid;
     };
-    
+
      function getId ($url)
      {
          global $_Question_Id;
          $qid = preg_replace($_Question_Id, "$1", $url);
         return $qid;
      }
-     
+
      function cleanUrl($url)
      {
          $id = getId($url);

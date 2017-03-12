@@ -15,6 +15,9 @@ blendDropzone.on("maxfilesexceeded", function (file) {
     this.removeAllFiles();
     this.addFile(file);
 });
+blendDropzone.on("error", function (file) {
+    alert(["error uploading"]);
+});
 $(".centerText").click(function (e) {
     e.stopPropagation();
 });
