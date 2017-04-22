@@ -1,5 +1,5 @@
 # Blend-Exchange
-This is a project to add long term *(sorta permanent)* blend hosting for blender.stackexchange.com <strike>until we can [convince the SE lords to add the feature](https://blender.meta.stackexchange.com/a/1050/12).</strike>
+This is a project to add long term *(sorta permanent)* blend hosting for blender.stackexchange.com until we can [convince the SE lords to add the feature](https://blender.meta.stackexchange.com/a/1050/12).
 
 ### Basic idea
 
@@ -15,9 +15,11 @@ A question link is **mandatory** in order to insure it is only used for BSE ques
  - [x] View flags basic
  - [ ] View flags advanced
  - [ ] View large files
- - [ ] View suspecious ref files
+ - [~] View suspecious ref files
  
 * **Themes:**
- - [ ] CSS work *(ongoing)*
- - [x] Switch themes via javascript
- - [x] Switch themes via php
+ - <strike>[ ] CSS work *(ongoing)*</strike>
+ - <strike>[ ] Switch themes via javascript</strike>
+ - <strike>[ ] Switch themes via php</strike>
+ 
+ *Currently, development on themes has been canceled*.
