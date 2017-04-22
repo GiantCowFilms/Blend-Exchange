@@ -1,23 +1,25 @@
 # Blend-Exchange
-This is a project to add long term (sorta perminant) blend hosting for blender.stackexchange until we can convince the SE lords to add the feature
+This is a project to add long term *(sorta permanent)* blend hosting for blender.stackexchange.com until we can [convince the SE lords to add the feature](https://blender.meta.stackexchange.com/a/1050/12).
 
-###Basic idea:
+### Basic idea
 
-Users can upload a file into a repo here on github or any free filestorage system that can be accessed publicly from the web and written to programatically
-The users will be required to include a question link in order to insure it is only used for BSE questions, since space is valuable.
+Users can upload a file into a repo here on github or any free file storage system that can be accessed publicly from the web and written to programatically. Am embeddable link is then provided that can be used in markdown on StackExchange.
 
-In an HTTP header often the site that the link was clicked on his provided... if more references come from not BSE or not the question, it can be reviewed, automating abuse control
+A question link is **mandatory** in order to insure it is only used for BSE questions since space is valuable. Uploaded files can be favorited and also peer reviewed by means of flagging.
 
 
-###TODO for the project
+### TODO for the project
 
-* **Admin tools:** [~]
- - Login [✓]
- - View flags basic [✓]
- - View flags advanced [ ] 
- - View large files [ ] 
- - View suspecious ref files [ ] 
-* **Themes:** [ ]
- - CSS work [~]
- - Switch themes javascript [X] 
- - Switch themes php [X] 
+* **Admin tools:**
+ - [x] Login
+ - [x] View flags basic
+ - [ ] View flags advanced
+ - [ ] View large files
+ - [~] View suspecious ref files
+ 
+* **Themes:**
+ - <strike>[ ] CSS work *(ongoing)*</strike>
+ - <strike>[ ] Switch themes via javascript</strike>
+ - <strike>[ ] Switch themes via php</strike>
+ 
+ *Currently, development on themes has been canceled*.
