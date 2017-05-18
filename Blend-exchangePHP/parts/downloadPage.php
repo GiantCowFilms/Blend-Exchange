@@ -84,7 +84,7 @@
             ?>
             <h2 style="margin-top: 5px; margin-bottom: 5px;">Share this file:</h2>
             <div>Add this text into your post:</div>
-            <textarea id="embedCode" class="txtBlue">[<img src="http://blend-exchange.giantcowfilms.com/embedImage.png?bid=<?php echo $blendData["id"]; ?>" />](http://blend-exchange.giantcowfilms.com/b/<?php echo $blendData["id"]; ?>/)</textarea>
+            <textarea id="embedCode" class="txtBlue">[<img src="https://blend-exchange.giantcowfilms.com/embedImage.png?bid=<?php echo $blendData["id"]; ?>" />](http://blend-exchange.giantcowfilms.com/b/<?php echo $blendData["id"]; ?>/)</textarea>
             <div id="usageNotice">
                 <h2>
                     Disclaimer:

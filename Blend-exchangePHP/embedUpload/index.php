@@ -5,7 +5,10 @@
 <?php 
 
 $questionLink = $_GET["qurl"];
-?><div style="margin-top: 20px;"></div><?php 
+?><div style="margin-top: 20px;"></div>
+<?php if(!$loggedIn){echo '<div>Optional <a href="/login/?returnUrl=/embedUpload?qurl='.$questionLink.'">Login</a></div>'; } ?>
+
+<?php 
 $embedUpload = true;
 include("../parts/uploadPage.php"); 
 ?>

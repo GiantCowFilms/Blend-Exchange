@@ -1,0 +1,5 @@
+SELECT `blends`.`id`,`blends`.`fileName`, SUM(`accesses`.`fileId` = `blends`.`id`) AS fileViews FROM `blends` 
+JOIN `accesses` ON `accesses`.`fileId` = `blends`.`id` AND `accesses`.`type` = 'view'
+WHERE `blends`.`valid`= 0 AND `blends`.`deleted`= 0
+GROUP BY `blends`.`id`
+    ORDER BY fileViews DESC

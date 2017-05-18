@@ -1,7 +1,7 @@
 <?php
 
 if (session_status() == PHP_SESSION_NONE) {
-    session_set_cookie_params(86400);
+    session_set_cookie_params(86400 * 50);
     session_start();
     session_regenerate_id();
 }
@@ -12,4 +12,5 @@ if((isset($_SESSION["loggedIn"]) == true) && ($_SESSION["loggedIn"] == true)){
     $loggedIn = $_SESSION["loggedIn"];
     $admin = $_SESSION["admin"];
 }
+
 ?>

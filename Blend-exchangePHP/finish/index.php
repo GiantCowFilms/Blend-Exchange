@@ -91,11 +91,12 @@
     }
     
     include("../parts/database.php"); 
-    $db->prepare("INSERT INTO `blends` SET `id`=NULL, `fileName`=:fileName, `fileGoogleId`='".$createdFile->id."', `flags`='', `views`=0, `downloads`=0, `password`=:password, `uploaderIp`='".$ipAdress."', `questionLink`='".$questionUrl."', `fileSize`='".$dataSize."', `date`=NOW(), `owner`=:uid")->execute(
+    $db->prepare("INSERT INTO `blends` SET `id`=NULL, `fileName`=:fileName, `fileGoogleId`='".$createdFile->id."', `flags`='', `views`=0, `downloads`=0, `password`=:password, `uploaderIp`='".$ipAdress."', `questionLink`=:qurl, `fileSize`='".$dataSize."', `date`=NOW(), `owner`=:uid, `valid`='0', `adminComment`=''")->execute(
         array(
         'fileName' => $_FILES['file']["name"],
         'password' => hash("sha256", $password, false),
-        'uid' => $userId
+        'uid' => $userId,
+        'qurl' => $questionUrl,
         )
     );
    
