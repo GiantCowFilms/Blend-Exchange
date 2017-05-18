@@ -15,7 +15,9 @@ $userData = $userData->fetchAll(PDO::FETCH_ASSOC)["0"];
         <div id="updateFormError" class="nwDanger noticeWarning" style="display: none; margin-bottom: 10px;">
         Your information was updated
     </div>
+    <label for="username">Username (public)</label>
     <input id="username" class="txtBlue bodyStack" placeholder="Username" value="<?php echo $userData["username"]; ?>"/>
+    <label for="email">Email (private)</label>
     <input id="email" class="txtBlue bodyStack" placeholder="Email" value="<?php echo $userData["email"]; ?>"/>
     <div class ="bodyStack"><a id="changePassword" style="cursor: pointer;">Change password</a></div>
     <div id="changePasswordForm" style="display: none;">
