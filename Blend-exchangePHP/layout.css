@@ -160,7 +160,6 @@ h1{
 
 .contentTarget {
    cursor: pointer;
-   height: 300px;
    position: relative;
 }
 .contentTarget .centerText {
@@ -171,6 +170,9 @@ h1{
    text-align: center;
 }
 
+#uploadTarget {
+   height: 300px;
+}
 #uploadText{
    position:relative;
    width:100%;
@@ -225,7 +227,9 @@ h1{
 }
 
 .blendDisplayContainer {
-    max-width: calc(100% - 150px)
+   max-width: calc(100% - 150px);
+   margin: 25px 0;
+   padding-left: 5px;
 }
 
 #fileStats img{
@@ -328,11 +332,15 @@ h1{
       right:0;
       font-size:8pt;
    }
-   .contentTarget {
+   #uploadTarget {
       height:200px;
    }
    
    /*Small download styles*/
+   
+   #fileStats {
+      padding: 5px;
+   }
    
    .blendDisplayTitle{
       font-size: 24px;
@@ -347,11 +355,10 @@ h1{
    }
    
    .blendDisplayContainer {
-      max-width: calc(100% - 60px)
-   }
-
-   #fileStats {
-      height: 135px;
+      max-width: calc(100% - 60px);
+      margin-top:0 !important; /* hack to work around style attrib on element, probably should be fixed there? */
+      margin:0;
+      padding-left: 0px;
    }
 }
 /*Quick fix for long titles*/
