@@ -48,7 +48,7 @@
             <div id="fileStats" class="bodyStack contentTarget">
                 <div style="text-align: center;">
                         <img class="blendDisplayIcon" src="/blenderFileIcon.png"/>
-                        <div style="display: inline-block; margin-top: 25px; text-align: left;">
+                        <div class="blendDisplayContainer" style="display: inline-block; margin-top: 25px; text-align: left;">
                             <h2 class="blendDisplayTitle">
                                 <?php echo $blendData["fileName"] ?>
                             </h2>

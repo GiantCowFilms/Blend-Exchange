@@ -224,6 +224,10 @@ h1{
    font-size:36px;
 }
 
+.blendDisplayContainer {
+    max-width: calc(100% - 150px)
+}
+
 #fileStats img{
    border-width:0;
    padding: 0;
@@ -342,6 +346,10 @@ h1{
       margin-left: 0;
    }
    
+   .blendDisplayContainer {
+      max-width: calc(100% - 60px)
+   }
+
    #fileStats {
       height: 135px;
    }
