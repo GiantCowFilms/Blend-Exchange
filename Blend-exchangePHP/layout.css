@@ -354,6 +354,12 @@ h1{
       height: 135px;
    }
 }
+/*Quick fix for long titles*/
+@media only screen and (max-width: 480px) {
+    .blendDisplayTitle {
+        font-size: 16px;
+    }
+}
 /*Table styles*/
 table{
     border-spacing: 0;
