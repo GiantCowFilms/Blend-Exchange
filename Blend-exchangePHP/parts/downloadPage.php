@@ -50,9 +50,7 @@
                         <img class="blendDisplayIcon" src="/blenderFileIcon.png"/>
                         <div class="blendDisplayContainer" style="display: inline-block; margin-top: 25px; text-align: left;">
                             <h2 class="blendDisplayTitle">
-                                <?php
-                                $no_extension = pathinfo($blendData["fileName"], PATHINFO_FILENAME);
-                                echo (strlen($blendData["fileName"]) > 50) ? substr($no_extension, 0, 50) . '... .' . pathinfo($blendData["fileName"], PATHINFO_EXTENSION) : $blendData["fileName"];  ?>
+                                <?php echo $blendData["fileName"];  ?>
                             </h2>
                             <span class="downloadQuestionLink">
                                  <a href="<?php echo $blendData["questionLink"] ?>">View Question</a>
