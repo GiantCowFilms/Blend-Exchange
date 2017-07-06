@@ -1,16 +1,15 @@
 /*Only structural layout css allowed in here. Fonts, colors, etc. should be go in separate theme stylesheets*/
 
-html {
+html, body {
    height: 100%;
 }
 
 body {
-   display:flex;
-   flex-direction:column;
-   position:relative;
+   display: flex;
+   flex-direction: column;
    max-width:960px;
-   margin:auto;
-   padding:0px 75px;
+   margin:0 auto;
+   padding:0 75px;
    min-height:100%;
    min-width:280px;
 }
@@ -84,12 +83,12 @@ h1{
    z-index: -1;
 }
 #logo {
-   position:absolute;
-   left:0;
-   bottom:0;
    font-size:38pt;
-   display: inline-block;
-   height:80px;
+   margin-top: 70px;
+
+}
+.tagLine{
+	font-size: 10px;
 }
 .logoText {
    display:inline-block;
@@ -117,10 +116,8 @@ h1{
    height:160px;
    margin-bottom: 20px;
 }
-#nav {
-   position:absolute;
-   height:100%;
-   right:0;
+nav {
+
 }
 #navLinks{
    display:flex;
