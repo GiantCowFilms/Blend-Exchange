@@ -1,9 +1,7 @@
-<html>
     <?php 
     $requireAdmin = true;
-    include("../../parts/requireLogin.php"); ?>
-    <?php include("../../parts/header.php"); ?>
-    <?php 
+    include("../../parts/requireLogin.php");
+    include("../../parts/header.php"); 
     include("../../parts/database.php");
     $users = $db->prepare("SELECT `users`.`id`,`users`.`username`,`users`.`email`, SUM(`blends`.`owner`=`users`.`id`) AS numBlends FROM `users` 
     LEFT JOIN `blends` ON `blends`.`owner` = `users`.`id`

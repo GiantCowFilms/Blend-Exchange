@@ -1,4 +1,3 @@
-<html>
     <?php
     
     //Get information from form

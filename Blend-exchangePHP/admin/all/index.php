@@ -1,9 +1,7 @@
-<html>
     <?php 
     $requireAdmin = true;
-    include("../../parts/requireLogin.php"); ?>
-    <?php include("../../parts/header.php"); ?>
-    <?php 
+    include("../../parts/requireLogin.php");
+    include("../../parts/header.php");
     include("../../parts/database.php");
 
     $files = $db->prepare("SELECT `blends`.`id`,`blends`.`fileName`,`blends`.`questionLink`, `blends`.`date`,`blends`.`owner`,`blends`.`fileSize`,`users`.`username` FROM `blends` 

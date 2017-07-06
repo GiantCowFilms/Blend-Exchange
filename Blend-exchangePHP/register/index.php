@@ -1,4 +1,3 @@
-<html>
     <?php 
     include("../parts/checkLogin.php");
     if($loggedIn == false){
@@ -6,7 +5,7 @@
         //Just add body tags, I want the login form to be more independent
         echo '<body><div id="mainContainer" style="margin: auto;">';
         include("../parts/registerForm.php"); 
-        echo "</div><body/>";
+        echo "</div><body/></html>";
         exit();
     }
     
