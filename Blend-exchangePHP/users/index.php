@@ -16,11 +16,7 @@
         <script src="/sha256.js"></script>
 
         <script>
-        $(document).ready(function()
-            { 
-                $("#blends_table").tablesorter(); 
-            } 
-        );
+            $("#blends_table").tablesorter(); 
         </script>
         <script>
             var original_text = $("#changePassword").text();
