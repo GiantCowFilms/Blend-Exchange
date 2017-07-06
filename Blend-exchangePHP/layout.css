@@ -389,3 +389,34 @@ th {
     border-collapse:collapse;
     border-spacing: 0;
 }
+
+table.tablesorter thead tr .tablesorter-header {
+	cursor: pointer;
+}
+.tablesorter-header.tablesorter-headerUnSorted::after {
+    content: "▲ ▼";
+    width: 10px;
+    display: inline-block;
+    font-size: 10px;
+    line-height: .9;
+    margin-left: 10px;
+}
+.tablesorter-header.tablesorter-headerDesc::after {
+    content: "▲";
+    width: 10px;
+    display: inline-block;
+    font-size: 10px;
+    line-height: .9;
+    margin-left: 10px;
+}
+.tablesorter-header.tablesorter-headerAsc::after {
+    content: "▼";
+    width: 10px;
+    font-size: 10px;
+    line-height: .9;
+    margin-left: 10px;
+}  
+.tablesorter-header-inner{
+    width: calc(100% - 20px);
+    display: inline-block;  
+}

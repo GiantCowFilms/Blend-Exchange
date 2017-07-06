@@ -12,7 +12,16 @@
     <?php include("../parts/userAccount.php"); ?>
         <?php include("../parts/footer.php"); ?>
         <script src="/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.15/js/jquery.tablesorter.min.js"></script>
         <script src="/sha256.js"></script>
+
+        <script>
+        $(document).ready(function()
+            { 
+                $("#blends_table").tablesorter(); 
+            } 
+        );
+        </script>
         <script>
             var original_text = $("#changePassword").text();
             $("#changePassword").click(function () {
