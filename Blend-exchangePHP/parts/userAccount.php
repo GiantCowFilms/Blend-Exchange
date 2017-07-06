@@ -24,10 +24,10 @@ foreach ($files as $key => $file)
 //add autoFlag catches
 ?>
 <h2>Your Blends</h2>
-<table>
+<table id="blends_table">
     <thead>
         <tr>
-            <th>File Name</th><th>Question</th><th>views</th><th>Downloads</th><th>Date</th>
+            <th>File Name</th><th>Question</th><th>Views</th><th>Downloads</th><th>Date</th>
         </tr>
     </thead>
     <tbody>
