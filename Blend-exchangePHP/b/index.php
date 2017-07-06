@@ -1,4 +1,3 @@
-<html>
     <?php
     $blendId = $_GET["blendId"];
     $blendId = intval($blendId);

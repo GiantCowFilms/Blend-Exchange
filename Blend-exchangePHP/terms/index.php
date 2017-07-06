@@ -1,4 +1,3 @@
-<html>
     <?php include("../parts/header.php"); ?>
         <div id="mainContainer">
 <h1> Terms of Service for Blend-Exchange</h1>
@@ -162,6 +161,7 @@
             <p>You can contact blend-exchange.giantcowfilms.com by email at our email address link at the <a href="#contactlink">top of this Terms of Service document</a>.</p>
 
         </div>
+		<?php include("../parts/footer.php"); ?>
         <script src="jquery.js"></script>
         <script src="dropzone.js"></script>
     </body>

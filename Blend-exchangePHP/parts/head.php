@@ -12,7 +12,9 @@
     logger("PAGE_HIT LOC:".$_SERVER['REQUEST_URI'].$ref,$_SERVER["DOCUMENT_ROOT"]."/logs/","hits.log");
     
     ?>
+<!DOCTYPE html>
     <head>
+        <meta charset='utf-8'>
         <title>Blend-Exchange</title>
         <link rel="stylesheet" media="screen" href="/layout.css" />
         <link rel="stylesheet" media="screen" href="/lighttheme.css" />

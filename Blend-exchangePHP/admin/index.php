@@ -1,9 +1,8 @@
-<html>
     <?php 
     $requireAdmin = true;
-    include("../parts/requireLogin.php"); ?>
-    <?php include("../parts/header.php"); ?>
-    <?php include("../parts/admin/getFlaggedFiles.php"); ?>
+    include("../parts/requireLogin.php");
+    include("../parts/header.php");
+    include("../parts/admin/getFlaggedFiles.php"); ?>
         <div id="mainContainer">
             <a href="/admin/all/">All files</a><br><br>
             <a href="/admin/users/">Users</a>

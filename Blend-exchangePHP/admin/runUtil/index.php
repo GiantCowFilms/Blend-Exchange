@@ -1,4 +1,3 @@
-<html>
     <?php 
     $requireAdmin = true;
     include("../../parts/requireLogin.php"); 

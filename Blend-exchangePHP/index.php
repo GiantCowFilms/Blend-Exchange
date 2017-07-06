@@ -1,4 +1,3 @@
-<html>
     <?php include("parts/header.php");
           include("parts/checkLogin.php");
           ?>

@@ -1,4 +1,3 @@
-<html>
     <?php include("../parts/header.php"); ?>
         <div id="mainContainer">
             <h1>Userscript</h1>
