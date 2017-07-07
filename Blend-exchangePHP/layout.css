@@ -30,6 +30,10 @@ h1{
    flex:1 0 auto;
 }
 
+#mainContainer{
+border-top: 1px solid #fff0; /* transparent border to stop the margin collapsing */
+}
+
 .bodyStack {
    margin-bottom: 10px;
 }
@@ -85,6 +89,7 @@ h1{
 #logo {
    font-size:38pt;
    margin-top: 70px;
+   display: inline-block;
 
 }
 .tagLine{
@@ -108,35 +113,27 @@ h1{
 /*Nav styles*/
 
 .headspace {
-   height:7%;
+   height:7vh;
    min-height:10px;
 }
 #header {
    position:relative;
    height:160px;
+   display: flex;
+   justify-content: space-between;
    margin-bottom: 20px;
 }
 nav {
-
+   width:150px
 }
 #navLinks{
-   display:flex;
+   display: flex;
    flex-direction: column;
-   justify-content:space-around;
-   position:absolute;
-   right:0;
-   bottom:0;
-   height: 100%;
-   width:20%;
-   min-width:150px;
+   justify-content: space-around;
+   height:100%;
    margin: 0;
-   margin-left: 10px;
-   padding: 0;
-   min-height:100%;
 }
 #navLinks li{
-   flex:1;
-   position:relative;
    list-style: none;
    font-size: 14pt;
    font-weight:300;
@@ -272,7 +269,7 @@ nav {
    
    /*Small nav styles*/
    
-   #nav {
+   nav {
       position:fixed;
       left:0;
       top:0;
@@ -286,6 +283,7 @@ nav {
       width:100%;
       bottom:0px;
       min-height:10px;
+	  padding: 0;
    }
    #navLinks > li {
       display:table-cell;
