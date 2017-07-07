@@ -45,6 +45,12 @@ h1{
    font-size:12pt;
 }
 
+/*DOCTYPE adjustment bug fix*/
+
+input:not([type="image" i]), textarea {
+    box-sizing: border-box;
+}
+
 /*Button styles*/
  
 .btnBlue {
