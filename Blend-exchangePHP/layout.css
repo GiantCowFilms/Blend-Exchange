@@ -47,9 +47,14 @@ h1{
 
 /*DOCTYPE adjustment bug fix*/
 
-input:not([type="image" i]), textarea {
+input, textarea {
     box-sizing: border-box;
 }
+
+input[type="image"] {
+    box-sizing: unset;
+}
+
 
 /*Button styles*/
  
