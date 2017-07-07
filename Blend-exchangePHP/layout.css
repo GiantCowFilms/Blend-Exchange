@@ -49,6 +49,17 @@ border-top: 1px solid #fff0; /* transparent border to stop the margin collapsing
    font-size:12pt;
 }
 
+/*DOCTYPE adjustment bug fix*/
+
+input, textarea {
+    box-sizing: border-box;
+}
+
+input[type="image"] {
+    box-sizing: unset;
+}
+
+
 /*Button styles*/
  
 .btnBlue {
@@ -88,7 +99,7 @@ border-top: 1px solid #fff0; /* transparent border to stop the margin collapsing
 }
 #logo {
    font-size:38pt;
-   margin-top: 70px;
+   padding-top: 70px;
    display: inline-block;
 
 }
