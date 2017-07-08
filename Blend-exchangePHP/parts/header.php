@@ -14,7 +14,7 @@
          </div>
          <img src="/logo.png" />
       </div>
-      <nav>
+      <div id="nav">
             <ul id="navLinks">
                <li><a href="/">Upload</a></li>
                <li><a href="/help">Help</a></li>
@@ -22,5 +22,5 @@
                <li><a href="/userscript">Userscript</a></li>
                <li><a href="/contribute">Contribute</a></li>
             </ul>
-      </nav>
+      </div>
    </div>
