@@ -3,7 +3,7 @@
     <div id="loginFormError" class="nwDanger noticeWarning" style="display: none; margin-bottom: 10px;">
         Login failed
     </div>
-    <input id="username" class="txtBlue bodyStack" placeholder="Username"/>
+    <input id="username" class="txtBlue bodyStack" placeholder="Username" autofocus/>
     <input type="password" id="password" class="txtBlue bodyStack" placeholder="Password" /><div class="btnBlue" id="login">
         Login
     </div>
