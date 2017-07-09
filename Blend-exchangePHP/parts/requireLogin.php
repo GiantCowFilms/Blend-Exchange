@@ -33,7 +33,7 @@ function failCheck( )
     //Just add body tags, I want the login form to be more independent
     echo '<body><div id="mainContainer" style="margin: auto;">';
     include("loginForm.php");
-    echo "</div><body/>";
+    echo "</div>";
     exit();
 }
 

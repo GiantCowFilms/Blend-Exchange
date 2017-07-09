@@ -133,8 +133,8 @@ input[type="image"] {
    justify-content: space-between;
    margin-bottom: 20px;
 }
-nav {
-   width:150px
+#nav {
+   display:inline-block;
 }
 #navLinks{
    display: flex;
@@ -150,7 +150,6 @@ nav {
    text-align:right;
 }
 #navLinks li a {
-   display:block;
    /*height:100%; This suddenly caused a display bug. no idea why. */
    padding:5px 10px;
    padding-right:0px;
@@ -279,7 +278,7 @@ nav {
    
    /*Small nav styles*/
    
-   nav {
+   #nav {
       position:fixed;
       left:0;
       top:0;
@@ -301,7 +300,8 @@ nav {
       height:100%;
       padding:0;
       font-size:12pt;
-      text-align:center;
+      vertical-align: middle;
+      text-align: center;
    }
    #navLinks li a {
       padding:0;
@@ -314,6 +314,9 @@ nav {
    }
    
    /*Small logo styles*/
+   #header{
+	   height: 120px;
+   }
    
    #logo > img {
       height:120px;
@@ -322,16 +325,17 @@ nav {
    #logo {
       width:100%;
       font-size:23pt;
+	  padding-top: 50px;
    }
    .logoText{
       position:relative;
-      left: 10%;
+      left: 20%;
    }
    .logoCredit{
       width:calc(100% - 10%);
       font-size:10pt;
       position:relative;
-      left: 10%;
+      left: 20%;
    }
    .logoStatus{
       right:0;
