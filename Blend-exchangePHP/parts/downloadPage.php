@@ -223,5 +223,3 @@
                 });
             }
         </script>
-    </body>
-</html>
