@@ -68,3 +68,5 @@
     ?>
     <?php include("../parts/downloadPage.php"); ?>
     <?php include("../parts/footer.php"); ?>
+	    </body>
+</html>
