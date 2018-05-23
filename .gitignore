@@ -1,0 +1,15 @@
+# IDE Garbage Files
+# Please feel free to add excludes for your IDE of choice
+
+#Visual Studio Code
+.vs/
+
+#Secret Configuration
+.env
+
+# Composer Dependencies
+vendor/
+
+#Symfony stuff
+.cache/
+

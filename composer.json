@@ -1,0 +1,29 @@
+{
+    "name":"Blend-Exchange",
+    "description":"Free long-term blend file hosting for blender.stackexchange.com",
+    "authors": [
+        {
+            "name":"GiantCowFilms",
+            "role":"Site Operator/Lead development"
+        },
+        {
+            "name":"gandalf3",
+            "role":"Designer / Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "filp/whoops": "~2.1",
+        "symfony/http-foundation": "^3.4",
+        "symfony/routing": "^3.4",
+        "vlucas/phpdotenv": "^2.4",
+        "illuminate/database": "^5.5",
+        "twig/twig": "2.0",
+        "rdlowrey/auryn": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "BlendExchange\\": "src/"
+        }
+    }
+}
