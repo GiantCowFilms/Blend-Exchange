@@ -12,18 +12,43 @@
         }
     ],
     "require": {
-        "php": ">=7.0.0",
+        "php": ">=7.2.0",
         "filp/whoops": "~2.1",
         "symfony/http-foundation": "^3.4",
         "symfony/routing": "^3.4",
         "vlucas/phpdotenv": "^2.4",
         "illuminate/database": "^5.5",
         "twig/twig": "2.0",
-        "rdlowrey/auryn": "^1.4"
+        "rdlowrey/auryn": "^1.4",
+        "google/apiclient": "^2.0",
+        "robmorgan/phinx": "^0.10.0",
+        "vlucas/valitron": "^1.4",
+        "rakit/validation": "^0.14.0",
+        "intervention/image": "^2.4",
+        "tenantcloud/laravel-boolean-softdeletes": "^0.1.0",
+        "tedivm/stash": "^0.14.2",
+        "lcobucci/jwt": "^3.2",
+        "nao-pon/flysystem-google-drive": "~1.1",
+        "league/flysystem": "^1.0",
+        "symfony/console": "^4.1",
+        "illuminate/pagination": "^5.6",
+        "cyberdummy/gzstream": "^0.0.2",
+        "league/fractal": "^0.17.0",
+        "omnimail/omnimail": "^0.3.1",
+        "daniel-zahariev/php-aws-ses": "^0.9.1",
+        "league/oauth2-client": "^2.3",
+        "alexmasterov/oauth2-stackexchange": "^0.1.0",
+        "monolog/monolog": "^1.23"
     },
     "autoload": {
         "psr-4": {
-            "BlendExchange\\": "src/"
+            "BlendExchange\\": "src/",
+            "BEMigrations\\": "migrations/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "7",
+        "codeception/codeception": "^2.5",
+        "flow/jsonpath": "^0.4.0"
     }
 }

@@ -1,0 +1,31 @@
+# suite config
+suites:
+    api:
+        actor: ApiTester
+        path: .
+        modules:
+            enabled:
+                - REST:
+                    url: http://blend-exchange.localhost
+                    depends: PhpBrowser
+                - \Helper\Api
+                - Db:
+                    dsn: "mysql:host=localhost;dbname=%DB_NAME%"
+                    user: "%DB_USER%"
+                    password: "%DB_PASSWORD%"
+                    dump: tests/Integration/_data/blend-exchange.sql
+                    populate: true
+                    cleanup: false
+             
+params:
+    - .env
+
+paths:
+    tests: tests/Integration
+    output: tests/Integration/_output
+    data: tests/Integration/_data
+    support: tests/Integration/_support
+
+settings:
+    shuffle: false
+    lint: true

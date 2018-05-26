@@ -11,6 +11,12 @@ require __DIR__ . '/../vendor/autoload.php';
 $config = require 'Configuration/Main.php';
 
 /**
+ * Add Logging
+ */
+
+
+
+/**
 * Register the error handler
 */
 
@@ -20,10 +26,11 @@ $environment = $config['environment'];
 
 $whoops = new \Whoops\Run;
 if ($environment !== 'production') {
+    $whoops->pushHandler(new \Whoops\Handler\PlainTextHandler);
     $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 } else {
-    $whoops->pushHandler(function($e){
-        echo 'Todo: Friendly error page and send an email to the developer';
+    $whoops->pushHandler(function () {
+        return 'Something broke. Sorry.';
     });
 }
 $whoops->register();
@@ -35,73 +42,53 @@ $whoops->register();
 $injector = require 'Dependencies.php';
 
 /**
- * Setup Database Connection
- */
-//Lots of Laravel weirdness happens here. Therefore not doing by dependance injection
-use Illuminate\Database\Capsule\Manager as Capsule;
-
-$capsule = new Capsule;
-
-$capsule->addConnection($config['database']);
-
-//Make this Capsule instance available globally.
-$capsule->setAsGlobal();
-
-// Setup the Eloquent ORM.
-$capsule->bootEloquent();
-
-/**
- * Create request object
+ * Error handlers with dependencies
  */
 
-use Symfony\Component\HttpFoundation\Request;
-
-$request = Request::createFromGlobals();
-
-/**
- * Setup Twig (View Templates)
- */
-
-$loader = new \Twig_Loader_Filesystem(__DIR__.'/Views');
-$twig = new \Twig_Environment($loader, array(
-    'cache' => __DIR__.'/Views/.cache',
-));
-
-$view = $twig;
-
-/**
- * Perform Routing
- */
-
-use Symfony\Component\Routing\Matcher\UrlMatcher;
-use Symfony\Component\Routing\RequestContext;
-use Symfony\Component\Routing\RouteCollection;
-
-$routes = new RouteCollection();
-$context = new RequestContext('/');
-$context->fromRequest($request);
-
-$application_routes = include 'Routes.php';
-
-foreach ($application_routes as $name => $route) {
-    $routes->add($name,$route);
+if ($environment === 'production') {
+    $whoops->pushHandler(
+        $injector->make(\BlendExchange\Exception\Handler\EmailHandler::class,[
+            ':to' => $config['email']['dev_email']
+        ])
+    );
 }
 
-$matcher = new UrlMatcher($routes, $context);
-$parameters = $matcher->match('/');
+$logger = $injector->make('Monolog\Logger');
+$whoops->pushHandler(
+    $injector->make(\BlendExchange\Exception\Handler\LogHandler::class));
+
 
 /**
- * Create Controller (And summon its dark powers)
+ * Setup Database Connection
+ */
+$database = require 'Database.php';
+
+/**
+ * Handle Http Request
  */
 
-$parts = explode(':',$parameters['_controller']);
-$controller = new $parts[0]($request,$view);
+function handle_http_request() {
+    global $injector;
+    $request = $injector->make('HttpFoundation\Request');
+    $routes = require 'Routes.php';
+    $httpKernel = $injector->make(Controllers\Http\Kernel::class,[':routes' => $routes ]);
+    $httpKernel->run($request);
+}
 
-//Cast the dark spell. Our response has been created!
-$response = $controller->{$parts[2]}();
+/**
+ * Handle Command
+ */
+use Symfony\Component\Console\Application;
+function handle_console_command() {
+    global $injector;
 
-//Don't forget to pack some snacks!
-$response->prepare($request);
+    $application = new Application();
 
-//Send or response off into the world. Good luck little fellow.
-$response->send();
+    $commands = require 'Commands.php';
+
+    foreach($commands as $command) {
+        $application->add($injector->make($command));
+    }
+
+    $application->run();
+}

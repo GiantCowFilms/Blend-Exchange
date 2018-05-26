@@ -1,0 +1,17 @@
+{
+    "include": [
+        "./**/*"
+    ],
+    "compilerOptions": {
+        "module": "es2015",
+        "target": "es2017",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./*"],
+            "@C/*": ["./Components/*"],
+            "@P/*": ["./Components/Pages/*"],
+        }
+    }
+}

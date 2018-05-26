@@ -3,9 +3,12 @@
 
 #Visual Studio Code
 .vs/
+.vscode/
 
 #Secret Configuration
 .env
+#Production copy of secret configuration
+.env.prod 
 
 # Composer Dependencies
 vendor/
@@ -13,3 +16,11 @@ vendor/
 #Symfony stuff
 .cache/
 
+#Node stuff
+node_modules/
+
+#webpack output
+blend-exchange.js
+
+# Dynamic Storage
+storage/

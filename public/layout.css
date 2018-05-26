@@ -1,0 +1,476 @@
+/*Only structural layout css allowed in here. Fonts, colors, etc. should be go in separate theme stylesheets*/
+
+html, body {
+   height: 100%;
+}
+
+body {
+   display: flex;
+   flex-direction: column;
+   max-width:960px;
+   margin:0 auto;
+   padding:0 75px;
+   min-height:100%;
+   min-width:280px;
+}
+
+/*Generic styles*/
+
+h1{
+   font-size:38pt;
+}
+
+#staticContainer img, #dynamicContainer img {
+   border:10px;
+   padding:5px;
+   max-width:calc(100% - 30px);
+}
+
+.wrapper {
+   flex:1 0 auto;
+   margin-top:7% /*instead of the headspace div*/
+}
+
+#staticContainer, #dynamicContainer{
+border-top: 1px solid #fff0; /* transparent border to stop the margin collapsing */
+}
+
+.bodyStack {
+   margin-bottom: 10px;
+}
+
+/*Text input styles*/
+
+.txtBlue{
+   width:100%;
+   height:35px;
+   border:1px;
+   outline:0;
+   padding:0px 5px;
+   font-size:12pt;
+}
+
+/*DOCTYPE adjustment bug fix*/
+
+input, textarea {
+    box-sizing: border-box;
+    /* resize is annoying: */
+    resize: none;
+}
+
+input[type="image"] {
+    box-sizing: unset;
+}
+
+
+/*Button styles*/
+ 
+.btnBlue {
+   display:inline-block;
+   min-width:50px;
+   max-width:350px;
+   height: 35px;
+   text-align: center;
+   line-height: 35px;
+   cursor: pointer;
+   margin:0;
+   margin-right: 5px;
+   padding: 0 5px 0 5px;
+   /*make button label not highlightable*/
+   -webkit-touch-callout: none;
+   -webkit-user-select: none;
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+.btnBlue > a {
+   padding:0px 20px;
+   display:block; /*make anchor fill button, so user can click anywhere on the button (not just on the text)*/
+   outline:none;
+}
+.btnBlue:last-of-type() {
+    margin-right: 0px;
+}
+/*Logo styles*/
+
+#logo > img {
+   display:inline-block;
+   position:absolute;
+   bottom:0;
+   height:160px;
+   left:-55px;
+   opacity:.2;
+   height:160px; /*height of #header*/
+   z-index: -1;
+}
+#logo {
+   font-size:38pt;
+   padding-top: 70px;
+   display: inline-block;
+}
+.tagLine{
+	font-size: 10px;
+}
+.logoText {
+   display:inline-block;
+   position:relative;
+   white-space: nowrap;
+}
+.logoCredit {
+   font-size:10pt;
+   display:inline-block;
+}
+.logoStatus {
+   position:absolute;
+   top: -5px;
+   right:0px;
+   font-size:16pt;
+}
+
+/*Nav styles*/
+
+
+#header {
+   position:relative;
+   height:160px;
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 20px;
+}
+#nav {
+   display:inline-block;
+   height: 100%; /*chrome only thing. FF displays correctly without it*/
+}
+#navLinks{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   height:100%;
+   margin: 0;
+}
+#navLinks li{
+   list-style: none;
+   font-size: 14pt;
+   font-weight:300;
+   text-align:right;
+}
+#navLinks li a {
+   /*height:100%; This suddenly caused a display bug. no idea why. */
+   padding:5px 10px;
+   padding-right:0px;
+   transition:padding .3s;
+}
+#navLinks li a:hover{
+   padding-right:5px;
+}
+
+/*Upload styles*/
+
+.contentTarget {
+   cursor: pointer;
+   position: relative;
+}
+.contentTarget .centerText {
+   margin: auto;
+   position:absolute;
+   top:0; left:0; bottom:0; right:0;
+   height:50px;
+   text-align: center;
+}
+
+#uploadTarget {
+   height: 300px;
+}
+#uploadText{
+   position:relative;
+   width:100%;
+   height:100%;
+   font-size: 18px;
+}
+
+#uploadFileCard {
+    padding: 15px;
+}
+
+#uploadOptions > div {
+   height:35px;
+}
+
+#questionLink {
+   width:calc(65% - 10px);
+   margin:0;
+   vertical-align:bottom;
+   margin-right:10px;
+}
+
+#upload { /*upload button*/
+   width:35%;
+   padding:0;
+   margin-right: 0;
+   float:right;
+}
+
+#uploadDrop {
+    opacity: 0; /* invisible but it's there! */
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.progressContainer {
+   border: 1px solid;
+   height: 10px;
+}
+.progress {
+   height: 10px;
+}
+
+#uploadArea {
+   margin: 20px;
+}
+
+/*Download styles*/
+
+.downloadBtnRow{
+   width: 32.5%;
+   margin-right: 1%;
+   padding: 0;
+}
+.blendDisplayIcon {
+   height: 150px;
+   margin-top: 25px;
+   margin-left: 10px;
+   vertical-align: top;
+}
+.blendDisplayTitle {
+   margin: 0;
+   font-size:36px;
+}
+
+.blendDisplayContainer {
+   max-width: calc(100% - 150px);
+   margin: 25px 0;
+   padding-left: 5px;
+}
+
+#fileStats img{
+   border-width:0;
+   padding: 0;
+}
+
+#embedCode {
+   width: 100%;
+   height: 64px;
+   resize: none;
+}
+
+/*Misc Styles*/
+
+#footer {
+   position:relative;
+   font-size:10pt;
+   margin-top:20px;
+   width: 100%;
+   text-align: center;
+   padding:10px 0px;
+}
+#login {
+    width: 140px;
+}
+#loginForm #password {
+   width:calc(65% - 10px);
+   margin:0;
+   vertical-align:bottom;
+   margin-right:10px;
+}
+
+/* 
+ * Utilities Styles 
+ */
+.modal {
+    padding: 20px;
+    box-sizing: content-box !important;
+}
+
+@media only screen and (max-width: 640px) {
+   body{
+      padding:0px 15px;
+   }
+   
+   #mainContainer {
+      margin:0;
+   }
+   
+   /*Small nav styles*/
+   
+   .wrapper {
+      margin-top: 47px
+   }
+   
+   #nav {
+      position:fixed;
+      left:0;
+      top:0;
+      width:100%;
+      height:40px;
+      z-index: 2;
+   }
+   #navLinks{
+      display:table;
+      position:absolute;
+      width:100%;
+      bottom:0px;
+      min-height:10px;
+	  padding: 0;
+   }
+   #navLinks > li {
+      display:table-cell;
+      border:0;
+      height:100%;
+      padding:0;
+      font-size:12pt;
+      vertical-align: middle;
+      text-align: center;
+   }
+   #navLinks li a {
+      padding:0;
+      padding-top:5px;
+      min-height:100%;
+   }
+   #navLinks li a:hover{
+      padding:0;
+      padding-top:5px;
+   }
+   
+   /*Small logo styles*/
+   #header{
+	   height: 120px;
+   }
+   
+   #logo > img {
+      height:120px;
+      left: 0;
+   }
+   #logo {
+      width:100%;
+      font-size:23pt;
+	  padding-top: 50px;
+   }
+   .logoText{
+      position:relative;
+      left: 20%;
+   }
+   .logoCredit{
+      font-size:10pt;
+      margin-left: 20%;
+   }
+   .logoStatus{
+      right:0;
+      font-size:8pt;
+   }
+   #uploadTarget {
+      height:200px;
+   }
+   
+   /*Small download styles*/
+   
+   #fileStats {
+      padding: 5px;
+   }
+   
+   .blendDisplayTitle{
+      font-size: 24px;
+   }
+   .downloadQuestionLink {
+      font-size: 10px;
+   }
+   .blendDisplayIcon {
+      height: 75px;
+      margin-top: 25px;
+      margin-left: 0;
+   }
+   
+   .blendDisplayContainer {
+      max-width: calc(100% - 60px);
+      margin-top:0 !important; /* hack to work around style attrib on element, probably should be fixed there? */
+      margin:0;
+      padding-left: 0px;
+   }
+}
+/*Quick fix for long titles*/
+@media only screen and (max-width: 480px) {
+    .blendDisplayTitle {
+        font-size: 16px;
+    }
+}
+/*Table styles*/
+table{
+    border-spacing: 0;
+    border-collapse:collapse;
+}
+tr{
+    border-spacing: 0;
+    border-collapse:collapse;
+}
+td {
+    padding: 10px;
+    border: 2px;
+    border-collapse:collapse;
+    border-spacing: 0;
+}
+th {
+    font-weight: bold;
+    padding: 10px;
+    border: 2px;
+    border-collapse:collapse;
+    border-spacing: 0;
+}
+
+table.tablesorter thead tr .tablesorter-header {
+	cursor: pointer;
+}
+.tablesorter-header.tablesorter-headerUnSorted::after {
+    content: "▲ ▼";
+    width: 10px;
+    display: inline-block;
+    font-size: 10px;
+    line-height: .9;
+    margin-left: 10px;
+}
+.tablesorter-header.tablesorter-headerDesc::after {
+    content: "▲";
+    width: 10px;
+    display: inline-block;
+    font-size: 10px;
+    line-height: .9;
+    margin-left: 10px;
+}
+.tablesorter-header.tablesorter-headerAsc::after {
+    content: "▼";
+    width: 10px;
+    font-size: 10px;
+    line-height: .9;
+    margin-left: 10px;
+}  
+.tablesorter-header-inner{
+    width: calc(100% - 20px);
+    display: inline-block;  
+}
+
+/* Paginator Styles */
+.paginator a {
+    cursor: pointer;
+}
+.paginator .currentPage {
+    font-weight: bold;
+}
+
+/* List Styles */
+
+.listItem h1,.listItem h2, .listItem h3 {
+    margin-bottom: 0.2em;
+}
+

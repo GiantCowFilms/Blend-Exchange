@@ -1,0 +1,450 @@
+/*Light theme*/
+/*Only colors and font style rules allowed in here.
+Layout rules belong in layout.css*/
+
+/*Colors:
+name    normal   alt
+
+orange  ff782a   cd5c02
+blue    109df0   29b0ff
+silver  f5f5f5   fafafa
+grey    ababab   777777
+black   444444
+*/
+
+/*Animation keyframes*/
+
+@keyframes file_drop_highlight {
+   from {
+      background-color:rgba(255,120,42,1);
+   }
+   to {
+      background-color:rgba(255,120,42,.1);
+   }
+}
+@keyframes txtBlueError {
+   0%{
+      background-color: #FF7A7A;
+      border-color: #ff2a2a;
+      color: #ffffff;
+   }
+   100% {
+      background-color:#fbfbfb;
+      color:#444;
+      border-color: #ccc;
+   }
+}
+@keyframes txtBlueErrorPlaceholder {
+   0%{
+      color:white;
+   }
+   100% {
+      color:#ababab;
+   }
+}
+@-webkit-keyframes file_drop_highlight {
+   from {
+      background-color:rgba(255,120,42,1);
+   }
+   to {
+      background-color:rgba(255,120,42,.1);
+   }
+}
+@-webkit-keyframes txtBlueError {
+   0%{
+      background-color: #FF7A7A;
+      border-color: #ff2a2a;
+      color: #ffffff;
+   }
+   100% {
+      background-color:#fbfbfb;
+      color:#444;
+      border-color: #ccc;
+   }
+}
+@-webkit-keyframes txtBlueErrorPlaceholder {
+   0%{
+      color:white;
+   }
+   100% {
+      color:#ababab;
+   }
+}
+
+
+body {
+   background-color:white;
+   font-family:Raleway;
+   color:#444;
+}
+
+/*Generic styles*/
+
+::-moz-selection {
+   background-color:#109df0;
+   color:white;
+}
+::selection {
+   background-color:#109df0;
+   color:white;
+}
+
+::-webkit-input-placeholder {
+   color: #ababab;
+   opacity:1;
+}
+::-moz-placeholder {
+   color: #ababab;
+   opacity:1;
+}
+:-ms-input-placeholder {
+   color: #ababab;
+   opacity:1;
+}
+
+a {
+   text-decoration:none;
+   color:#109df0;
+}
+
+a:hover {
+    color:#ff782a;
+}
+
+a h1,a h2,a h3,a h4 {
+    color: #666;
+}
+
+a:hover h1,a:hover h2,a:hover h3,a:hover h4 {
+    color:#ff782a;
+}
+
+h1 {
+   font-weight:500;
+}
+
+#mainContainer img {
+   border-color:#eee;
+   border-style:solid;
+}
+
+/*Text input styles*/
+
+.txtBlue {
+   background-color:#fbfbfb;
+   color:#444;
+   border-color: #ccc;
+   border-style: solid;
+}
+.txtBlue:hover {
+   background-color:white;
+}
+.txtBlue:hover::-moz-placeholder {
+   color: #777;
+}
+.txtBlue:hover:-ms-input-placeholder {
+   color: #777;
+}
+.txtBlue:hover::-webkit-input-placeholder {
+   color: #777;
+}
+.txtBlueError{
+   animation: txtBlueError 4s;
+   -webkit-animation: txtBlueError 4s; /* Chrome, Safari, Opera */
+}
+.txtBlueError::-moz-placeholder {
+   animation: txtBlueErrorPlaceholder 4s;
+   -webkit-animation: txtBlueErrorPlaceholder 4s; /* Chrome, Safari, Opera */
+}
+.txtBlueError:-ms-input-placeholder {
+   animation: txtBlueErrorPlaceholder 4s;
+   -webkit-animation: txtBlueErrorPlaceholder 4s; /* Chrome, Safari, Opera */
+}
+.txtBlueError::-webkit-input-placeholder {
+   animation: txtBlueErrorPlaceholder 4s;
+   -webkit-animation: txtBlueErrorPlaceholder 4s; /* Chrome, Safari, Opera */
+}
+
+/*Button styles*/
+
+.btnBlue {
+   background-color:#109df0;
+   color:white;
+}
+.btnBlue:hover {
+   background-color:#29b0ff;
+}
+.btnBlue:active {
+   background-color:#ff782a;
+}
+.btnBlue > a {
+   color:inherit;
+}
+button {
+    border: none;
+    font: inherit;
+}
+
+/*Logo styles*/
+
+#logo {
+   font-weight:500;
+}
+.logoOrange {
+   color:#ff782a;
+}
+.logoCredit {
+   color:#ababab;
+}
+.logoCredit:hover {
+   color:#ccc;
+}
+.logoStatus {
+   color:#ababab;
+}
+.logoText > a {
+   color:#109df0;
+}
+.logoText > a:hover > .logoBlue {
+   color:#29b0ff;
+}
+.logoText > a:hover > .logoOrange {
+   color:#FF9A3B;
+}
+
+/*Nav styles*/
+
+#navLinks li {
+   font-weight:300;
+   transition:background, .3s, font .01s;
+}
+#navLinks li:hover {
+   font-weight:500;
+   color:#29b0ff;
+}
+#navLinks li a:hover {
+   color:#29b0ff;
+}
+
+/*Upload styles*/
+
+.contentTarget {
+   border-style:dashed;
+   border-color:#ababab;
+   background-color:#fbfbfb;
+}
+.contentTarget:hover {
+   background-color:white;
+}
+
+#uploadText {
+   color:#ababab;
+}
+.contentTarget:hover #uploadText {
+   color:#777;
+}
+
+#uploadFileCard {
+    color: #444;
+}
+
+#uploadTarget.dragHover {
+   background-color:#E6FFEB;
+}
+
+/*hack to add "drop file here" text. Possibly better to add in js, but can be cleaned up a bit if this css solution is preffered*/
+#uploadTarget.dragHover > #uploadText:before {
+   content:"Drop file here";
+   font-size:20pt;
+   font-weight:500;
+   position:absolute;
+   margin: auto;
+   top:0; left:0; bottom:0; right:0;
+   text-align: center;
+   height:50px;
+   background-color:#E6FFEB;
+   z-index: 1;
+}
+
+#uploadTarget.dz-max-files-reached {
+   border-color:#ff782a;
+   
+   animation:file_drop_highlight;
+   animation-duration:2s;
+   animation-timing-function: cubic-bezier;
+   -webkit-animation:file_drop_highlight;
+   -webkit-animation-duration:2s;
+   -webkit-animation-timing-function: cubic-bezier;
+   
+   background-color:rgba(255,120,42,.1);
+}
+.progressContainer{
+    border-color: #ff782a;
+}
+.progress{
+    background-color: #ff782a;
+}
+
+/*Download styles*/
+
+#fileStats {
+   border-color: #60BCF1;
+}
+@-moz-keyframes attention {
+    0%,100% {
+        rotation: 0;
+    }
+    10%,50%,90% {
+        -moz-transform: rotate(-1deg);
+        -ms-transform: rotate(-1deg);
+        -o-transform: rotate(-1deg);
+        -webkit-transform: rotate(-1deg);
+        transform: rotate(-1deg);
+    }
+    30%,70% {
+        -moz-transform: rotate(1deg);
+        -ms-transform: rotate(1deg);
+        -o-transform: rotate(1deg);
+        -webkit-transform: rotate(1deg);
+        transform: rotate(1deg);
+    }
+
+    30% {
+        background-color: #ff782a;
+    }
+}
+
+@-webkit-keyframes attention {
+    0%,100% {
+        rotation: 0;
+    }
+    10%,20%,30%,40%,50%,60%,70%,80%,90% {
+        -moz-transform: rotate(-1deg);
+        -ms-transform: rotate(-1deg);
+        -o-transform: rotate(-1deg);
+        -webkit-transform: rotate(-1deg);
+        transform: rotate(-1deg);
+    }
+    5%,15%,25%,35%,45%,55%,65%,75%,85%,95% {
+        -moz-transform: rotate(1deg);
+        -ms-transform: rotate(1deg);
+        -o-transform: rotate(1deg);
+        -webkit-transform: rotate(1deg);
+        transform: rotate(1deg);
+    }
+
+    30% {
+        background-color: #ff782a;
+    }
+}
+
+
+@keyframes attention {
+    0%,100% {
+        rotation: 0;
+    }
+    10%,50%,90% {
+        -moz-transform: rotate(-5deg);
+        -ms-transform: rotate(-5deg);
+        -o-transform: rotate(-5deg);
+        -webkit-transform: rotate(-5deg);
+        transform: rotate(-5deg);
+    }
+    30%,70% {
+        -moz-transform: rotate(5deg);
+        -ms-transform: rotate(5deg);
+        -o-transform: rotate(5deg);
+        -webkit-transform: rotate(5deg);
+        transform: rotate(5deg);
+    }
+
+    30% {
+        background-color: #ff782a;
+    }
+}
+
+.attention {
+    -moz-animation: attention 1s;
+    -o-animation: attention 1s;
+    -webkit-animation: attention 1s;
+    animation: attention 1s;
+}
+
+/*Table styles*/
+
+td {
+    border-style: solid;
+    border-color:  #ababab;
+}
+th {
+    border-style: solid;
+    border-color:  #ababab;
+}
+thead td {
+    font-weight: bold;
+}
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+/* Utility Styles */
+
+/* Modal Styles */
+.modalBlackout {
+    background: #000;
+    opacity: 0.4;
+}
+
+.modal {
+    background: #fff;
+}
+
+/*Misc styles*/
+
+#footer {
+   width:100%;
+   background-color:#f5f5f5;
+   color:#ababab;
+}
+
+.noticeWarning {
+    padding: 15px;
+}
+.nwDanger {
+    background-color: #ff2a2a;
+    color: white;
+}
+.nwNotice {
+    background-color: #FFA200;
+    color: #000;
+}
+.nwInfo {
+    background-color: #29b0ff;
+    color: white;
+}
+.nwInfo a, .nwDanger a {
+    color: #fefefe;
+    font-weight:500;
+}
+.nwInfo a:hover, .nwDanger a:hover {
+    color: #ff782a;
+}
+
+
+@media only screen and (max-width: 640px) {
+   #nav {
+      background-color:#f5f5f5;
+   }
+   #navLinks li a {
+      font-weight:400;
+   }
+   #navLinks li:hover {
+      font-weight:500;
+      border-right-color:#cd5c02;
+      color:white;
+      background-color:#ff782a;
+   }
+   #navLinks li a:hover {
+      color:white;
+   }
+}

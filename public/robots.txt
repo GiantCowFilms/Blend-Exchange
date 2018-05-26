@@ -1,0 +1,19 @@
+# Get off my lawn!!!!!!
+User-agent:*
+Disallow: /auth/
+Disallow: /admin/
+
+# I know at some point some weird person is actually going to read this and expect a joke
+# knock knock
+# who's there?
+# blunt pencil
+# blunt pencil who?
+# there is no point to this joke
+
+# Like to code? Contribute to our repo:
+# https://github.com/GiantCowFilms/Blend-Exchange
+
+# Need to talk:
+# http://chat.stackexchange.com/rooms/8888/the-renderfarm ping me with @GiantCowFilms
+
+# Have a great rest of your day. Cheers!
