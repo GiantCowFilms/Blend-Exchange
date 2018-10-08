@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace BlendExchange\Controllers\Http;
+namespace BlendExchange\Kernel;
 
 use BlendExchange\Filesystem\Storage;
 use Symfony\Component\HttpFoundation\Request;
@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\RouteCollection;
 
-final class Kernel {
+final class Http {
     private $routes;
     private $storage;
 

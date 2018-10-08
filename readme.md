@@ -10,10 +10,6 @@ http://blend-exchange.giantcowfilms.com/about
 
 see [Setup.md](setup.md).
 
-## Coding Standards
-
-Have fun, don't do anything too spastic.
-
 ## Help, something is broke!
 
 If you are having trouble modifying blend-exchange, please <a href='http://giantcowfilms.com/contact'>contact me</a>. 
@@ -23,6 +19,15 @@ If you are having trouble modifying blend-exchange, please <a href='http://giant
 ### Overall Structure
 
 This codebase is split between a front end app, and API and a backend app. Basically, a page is either delivered via vue + json api endpoint or a twig template. Routes to API end points and twig templates are defined in `src/Routes.php`. Router to pages shown via vue are in `client/router.js`. 
+
+#### Backend Lifecycle
+
+All code enters through either the `/site` file or the `/public/index.php` which only contain code to call a function from `src/Bootstrap.php`. `Bootstrap.php` in turn calls `Dependencies.php`.
+
+If the application is entered via the webserver, `Bootstrap.php` calls `/Kernel/Http.php` which calls into the controller defined for the route in `src/Routes.php`. Controllers return a `Response`. 
+
+If the application is entered via the command line, `Bootstrap.php` call into a Symfony command application. 
+
 
 ### Migrations
 

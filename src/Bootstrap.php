@@ -71,7 +71,7 @@ function handle_http_request() {
     global $injector;
     $request = $injector->make('HttpFoundation\Request');
     $routes = require 'Routes.php';
-    $httpKernel = $injector->make(Controllers\Http\Kernel::class,[':routes' => $routes ]);
+    $httpKernel = $injector->make(Kernel\Http::class,[':routes' => $routes ]);
     $httpKernel->run($request);
 }
 

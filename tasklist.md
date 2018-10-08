@@ -1,5 +1,3 @@
-Rough todo list, not very well maintained.
-
 # Version 2.0
 
 ## 2.0
@@ -16,17 +14,17 @@ Rough todo list, not very well maintained.
  * [Done] Link SE Accounts
  * SE API based fraud tests
  * Make IP hashes much safer
- 
+
 ### Deployment
  * Adjust migrations for scale
+
+###Migration Tasklist
+* Check server MYSQL perms. May require temporary alteration.
+* Check mysql session variables, may need to permit larger connections
 
 ### Post Deployment
  * Update community ad URLs
  * Make post requesting bug reports
-
- ###Migration Tasklist
-  * Check server MYSQL perms. May require temporary alteration.
-  * Check mysql session variables, may need to permit larger connections
 
  ## 2.1
 Add full support for user profile
