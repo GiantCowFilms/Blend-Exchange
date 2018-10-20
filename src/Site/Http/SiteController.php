@@ -37,17 +37,29 @@ class SiteController
         return new Response($this->view->render('Pages/tos_page.twig'));
     }
 
-    public function about (\Google_Service_Drive $google_drive_service) {
-        $about = $google_drive_service->about->get([
-            'fields' => 'storageQuota'
-        ]);
-        $quota = $about->getStorageQuota();
-        return new Response($this->view->render('Pages/about_page.twig',[
-            'remaining' => ($quota->getLimit() - $quota->getUsageInDrive())/1024/1000/1000,
-            'used' => $quota->getUsageInDrive()/1024/1000/1000,
-            'total' => $quota->getLimit()/1024/1000/1000,
-            'percent' => ($quota->getUsageInDrive() / $quota->getLimit()) * 100
-        ]));
+    public function about (\Google_Service_Drive $google_drive_service, \Stash\Pool $cache) {
+        $item = $cache->getItem('About/Stats');
+        if ($item->isMiss()) {
+            $about = $google_drive_service->about->get([
+                'fields' => 'storageQuota'
+            ]);
+            
+            $quota = $about->getStorageQuota();
+            $data = [
+                'remaining' => ($quota->getLimit() - $quota->getUsageInDrive())/1024/1000/1000,
+                'used' => $quota->getUsageInDrive()/1024/1000/1000,
+                'total' => $quota->getLimit()/1024/1000/1000,
+                'percent' => ($quota->getUsageInDrive() / $quota->getLimit()) * 100
+            ];
+
+            $item->set($data);
+            $item->expiresAfter(3600 * 12); //Expires after half a day
+            $cache->save($item);
+        } else {
+            $data = $item->get();
+        }
+
+        return $this->api->jsonResponse($data);
     }
 
     public function endpointNotFound(Request $request) : Response

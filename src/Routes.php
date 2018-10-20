@@ -7,7 +7,7 @@ return [
      * Site
      */
 
-    'about' => (new Route('/about', [
+    'about' => (new Route('/api/about', [
         '_controller' => 'BlendExchange\Site\Http\SiteController::about'
     ]))->setMethods(['GET']),
     'privacy' => (new Route('/privacy', [

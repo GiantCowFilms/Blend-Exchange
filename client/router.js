@@ -12,7 +12,9 @@ import HelpPage from '@P/Site/HelpPage'
 import UserPage from '@P/User/UserPage'
 import UserscriptPage from '@P/Site/UserscriptPage'
 import ContributePage from '@P/Site/ContributePage'
-import store from '@/Store/index'
+import AboutPage from '@P/Site/AboutPage'
+import store from 
+'@/Store/index'
 Vue.use(Router)
 
 let router = new Router({
@@ -80,7 +82,7 @@ let router = new Router({
     {
       path: '/about',
       name: '',
-      component: MainLayout
+      component: AboutPage
     },
     {
       path: '/userscript',

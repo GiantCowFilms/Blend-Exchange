@@ -136,4 +136,6 @@ final class BlendFileFormat
             //return new DeflateStream($this->stream);
         }
     }
+
+    
 }

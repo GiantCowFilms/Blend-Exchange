@@ -14,7 +14,7 @@ abstract class BaseAd {
     private $image = null;
     public $cache;
 
-    function __construct ($cache = null) {
+    function __construct (\Stash\Pool $cache = null) {
         $this->cache = $cache;
     }
 

@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace BlendExchange\Api;
 
@@ -15,6 +15,7 @@ use BlendExchange\Authentication\Token\StatelessToken;
 
 use Psr\Http\Message\StreamInterface;
 use Symfony\Component\HttpFoundation\StreamedResponse;
+
 final class ApiResponseFactory
 {
     private $manager;
@@ -24,18 +25,18 @@ final class ApiResponseFactory
         $this->manager = $manager;
     }
 
-    private function resourceToHttpResponse(ResourceInterface $resource, int $code = 200) : Response
+    private function resourceToHttpResponse(ResourceInterface $resource, int $code = 200): Response
     {
         $resourceData = $this->manager->createData($resource)->toArray();
         return new JsonResponse($resourceData, $code);
     }
 
-    public function errorResponse(string $error,int $code = 500)
+    public function errorResponse(string $error, int $code = 500)
     {
         return new JsonResponse([
             'type' => 'error',
             'error' => $error,
-        ],$code);
+        ], $code);
     }
 
     public function validationFailResponse(array $errors, int $code = 422)
@@ -43,49 +44,58 @@ final class ApiResponseFactory
         return new JsonResponse([
             'type' => 'error',
             'errors' => $errors,
-        ],$code);
+        ], $code);
     }
 
-    public function requiresModificationResponse(TransformerAbstract $transformer, $item, StatelessToken $token, string $endpoint) : Response
+    public function requiresModificationResponse(TransformerAbstract $transformer, $item, StatelessToken $token, string $endpoint): Response
     {
         $resource = new Item($item, $transformer);
         $resourceData = $this->manager->createData($resource)->toArray();
-        $resourceData = array_merge($resourceData,[
+        $resourceData = array_merge($resourceData, [
             'type' => 'requires_modification',
-            'token' => 'Bearer '. (string)$token,
+            'token' => 'Bearer ' . (string)$token,
             'endpoint' => $endpoint
         ]);
-        return  new JsonResponse($resourceData,200);
+        return new JsonResponse($resourceData, 200);
     }
 
-    public function tokenResponse(TransformerAbstract $transformer, $item, StatelessToken $token) : Response
+    public function tokenResponse(TransformerAbstract $transformer, $item, StatelessToken $token): Response
     {
         $resource = new Item($item, $transformer);
         $resourceData = $this->manager->createData($resource)->toArray();
-        $resourceData = array_merge($resourceData,[
-            'token' => 'Bearer '. (string)$token
+        $resourceData = array_merge($resourceData, [
+            'token' => 'Bearer ' . (string)$token
         ]);
-        return  new JsonResponse($resourceData,200);
+        return new JsonResponse($resourceData, 200);
     }
 
-    public function successResponse() {
+    public function successResponse()
+    {
         return new JsonResponse([
             'type' => 'success'
-        ],200);
+        ], 200);
     }
 
-    public function itemResponse(TransformerAbstract $transformer, $item) : Response
+    public function itemResponse(TransformerAbstract $transformer, $item): Response
     {
         return $this->resourceToHttpResponse(new Item($item, $transformer));
     }
 
-    public function collectionResponse(TransformerAbstract $transformer, $collection) : Response
+    /**
+     * Transformerless data response
+     */
+    public function jsonResponse(array $json, int $code = 200): Response
+    {
+        return new JsonResponse(['data' => $json], $code);
+    }
+
+    public function collectionResponse(TransformerAbstract $transformer, $collection): Response
     {
         $resource = new Collection($collection, $transformer);
         return $this->resourceToHttpResponse($resource);
     }
 
-    public function paginationResponse(TransformerAbstract $transformer,PaginatorInterface $paginator, $collection) : Response
+    public function paginationResponse(TransformerAbstract $transformer, PaginatorInterface $paginator, $collection): Response
     {
         $resource = new Collection($collection, $transformer);
         $resource->setPaginator($paginator);
@@ -93,25 +103,26 @@ final class ApiResponseFactory
     }
 
 
-    public function streamResponse (StreamInterface $stream) : Response
+    public function streamResponse(StreamInterface $stream): Response
     {
         $response = new StreamedResponse();
-        $response->headers->set('Content-type','application/x-blender');
-        $response->setCallback(function () use ($stream) {
-            while (!$stream->eof()) {
-                echo $stream->read(1024 * 1000);
+        $response->headers->set('Content-type', 'application/x-blender');
+        $response->setCallback(function ()use ($stream)
+        {
+                    while (!$stream->eof()) {
+                                echo $stream->read(1024 * 1000);
                 ob_flush();
                 flush();
-            }
+                    }
         });
         return $response;
     }
 
-    public function notFoundResponse() : Response
+    public function notFoundResponse(): Response
     {
         return new JsonResponse([
             'type' => 'error',
             'error' => 'Endpoint was not found.'
-        ],404);
+        ], 404);
     }
 }

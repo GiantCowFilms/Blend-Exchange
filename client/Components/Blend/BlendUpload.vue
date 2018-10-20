@@ -71,7 +71,7 @@ export default {
         this.$set(this.blend,'questionLink',this.$route.query.qurl);
     },
     computed: {
-                ...mapGetters([
+        ...mapGetters([
             'currentUser',
             'isAuthenticated'
         ])
