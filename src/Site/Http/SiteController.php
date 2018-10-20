@@ -50,18 +50,6 @@ class SiteController
         ]));
     }
 
-    public function contribute () {
-        return new Response($this->view->render('Pages/contribute_page.twig'));
-    }
-
-    public function userscript () {
-        return new Response($this->view->render('Pages/userscript_page.twig'));
-    }
-
-    public function help () {
-        return new Response($this->view->render('Pages/help_page.twig'));
-    }
-
     public function endpointNotFound(Request $request) : Response
     {
         return $this->api->notFoundResponse();
