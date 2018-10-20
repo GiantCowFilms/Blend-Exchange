@@ -63,5 +63,15 @@ final class CreateBlend
         return $this->user->getId();
     }
 
+        /**
+     * Get the user
+     * 
+     * @return User The user
+     */
+
+    public function getUser () : User
+    {
+        return $this->user;
+    }
 
 }

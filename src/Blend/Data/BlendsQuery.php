@@ -36,12 +36,10 @@ final class BlendsQuery
             default:
                 $this->errors['sort'] = 'Invalid ordering parameter.';
         }
-        
+
         if ($this->owner !== null) {
-            $this->query = $this->query->where('owner',$this->owner);
+            $this->query = $this->query->where('owner','=',$this->owner);
         }
-
-
     }
 
     public function hasErrors() {

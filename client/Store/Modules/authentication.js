@@ -2,29 +2,15 @@ import blendExchange from "@/Api/BlendExchangeApi";
 import ls from 'local-storage'
 import axios from 'axios'
 
-function authFromStorage() {
-    var auth = {};
-    try {
-        auth.user = ls.get('auth-user');
-    } catch (e) {
-        auth.user = null;
-    }
-    auth.token = ls.get('auth-token') || '';
-    auth.state = ls.get('auth-state') || 'none';
-    return auth;
-}
-
-let auth = authFromStorage();
-
 const state = {
-    token: auth.token,
-    auth_state: auth.state,
-    auth_user: auth.user
+    token: '',
+    auth_state: 'none',
+    auth_user: null,
 }
 
 const getters = {
     isAuthenticated (state) {
-        return state.auth_state === 'authenticated'
+        return state.auth_state === 'authenticated';
     },
     isAdministrator (state) {
         return Array.isArray(state.auth_user.roles) && state.auth_user.roles.some(v => v === 'admin');
@@ -35,6 +21,29 @@ const getters = {
 }
 
 const actions = {
+    async ['AUTH_FROM_STORAGE'] (context) {
+        var auth = {};
+        auth.token = ls.get('auth-token') || '';
+        auth.state = ls.get('auth-state') || 'none';
+        auth.user = ls.get('auth-user') || {};
+        context.commit('SET_AUTH',auth);
+        try {
+            let response = await axios.get('/api/users/current',{
+                headers: {
+                    Authorization: `Bearer ${auth.token}`
+                }
+            });
+            auth.user = response.data.data;
+            context.commit('SET_AUTH',auth);
+        } catch(err) {
+            context.commit('SET_AUTH',{
+                token: '',
+                state: 'none',
+                user: {}
+            });
+            console.log('Currently logged out.')
+        }
+    },
     async ['LOGIN'] (context,auth) {
         context.commit('SET_AUTH',auth);
     },
@@ -64,6 +73,7 @@ const mutations = {
         state.token = auth.token;
         state.auth_state = 'authenticated';
         state.auth_user = auth.user;
+        axios.defaults.headers.common['Authorization'] = `Bearer ${auth.token}`;
     }
 }
 

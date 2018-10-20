@@ -3,9 +3,10 @@
     {% include 'Components/head.twig' %}
 <body>
     <div class="wrapper"> <!-- needed for sticky footer. -->
+        <div id="outerContainer">
         <div  id="dynamicContainer">
             </div>
-            <div id="staticContainer">
+            <div id="mainContainer">
                     {% block content %}
                     {% endblock %}  
             </div>

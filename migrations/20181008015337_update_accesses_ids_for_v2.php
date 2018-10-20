@@ -32,6 +32,11 @@ class UpdateAccessesIdsForV2 extends Migration
      */
     public function up()
     {
+        $path = __DIR__.'/../storage/migration';
+        if (!file_exists($path)) {
+            mkdir($path, 0777, true);
+        }   
+        $logFile = fopen($path . '/' + basename(__FILE__, '.php') + '_progress.log','a');
         $table = $this->table('accesses');
         $i = 0;
         while (true) {
@@ -45,7 +50,9 @@ class UpdateAccessesIdsForV2 extends Migration
                 $query .= 'UPDATE `accesses` SET `id`=\''.$this->getRandomId().'\' WHERE `id`=\''.$row["id"]."'" . "; ";
             }
             $this->execute('START TRANSACTION; ' . $query . ' COMMIT;');
-            echo sprintf('Updated ids for rows %u through %u',$i,$i + 100) . PHP_EOL;
+            $progress = sprintf('Updated ids for rows %u through %u',$i,$i + 100) . PHP_EOL;
+            echo $progress;
+            fwrite($logFile,$progress);
             $i += 100;
         }
     }

@@ -82,7 +82,7 @@ class User extends Eloquent {
     public function getRolesAttribute() {
         $roles = [];
         $roles[] = 'user';
-        if($this->role = 1) {
+        if($this->role === 1) {
             $roles[] = 'admin';
         }
         return $roles;

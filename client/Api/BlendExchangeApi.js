@@ -1,9 +1,10 @@
 import axios from 'axios'
 import ls from 'local-storage'
 
-if (ls.get('auth-token') !== null) {
-    axios.defaults.headers.common['Authorization'] = `Bearer ${ls.get('auth-token')}`;
-}
+// Moved to authentication.js
+// if (ls.get('auth-token') !== null) {
+//     axios.defaults.headers.common['Authorization'] = `Bearer ${ls.get('auth-token')}`;
+// }
 
 export default {
     transformApiResponse(format) {

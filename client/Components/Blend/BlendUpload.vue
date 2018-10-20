@@ -2,19 +2,24 @@
     <div>
     <form v-on:submit.prevent="submit(blend,files,form)">
         <ajax-error input="blendFile"></ajax-error>
-        <div id="uploadTarget" class="bodyStack contentTarget" v-on:dragenter="fileHover++" v-on:dragleave="fileHover--" :class="{ dragHover: fileHover > 0 }">
+        <div id="uploadTarget" class="bodyStack contentTarget" v-on:dragenter="fileHover++" v-on:dragleave="fileHover--" v-on:drop="fileHover--" :class="{ dragHover: fileHover > 0 }">
         <input id="uploadDrop" type="file" name="blendFile" @change="setFile(form, files, $event.target.name, $event.target.files)"/>
                 <div id="uploadText">
                     <div class="centerText" v-if="typeof files.blendFile === 'undefined'">
                         Drag a file here to upload a .blend<br>or click to browse
                     </div>
-                    <div id="uploadFileCard" v-if="typeof files.blendFile !== 'undefined'"> 
+                    <div id="uploadFileCard" v-if="typeof files.blendFile !== 'undefined'">
                         <h2>{{ files.blendFile.name }}</h2>
-                        <b>{{(files.blendFile.size/1024/1000).toFixed(1)}}</b> MB
-                        <div class="progressContainer">
-                            <div class="progress" :style="{width: form.uploadProgress['blendFile'] + '%'}"></div>
+                        <div v-if="(form.status == 'pending' || form.status == 'completed') && form.uploadProgress['blendFile'] == 100">
+                            <spinner style="display: inline-block;vertical-align: middle;"></spinner> <b>Processing...</b>
                         </div>
-                        <div>Files may take some time to process</div>
+                        <div v-else>
+                            <b>{{(files.blendFile.size/1024/1000).toFixed(1)}}</b> MB
+                            <div class="progressContainer">
+                                <div class="progress" :style="{width: form.uploadProgress['blendFile'] + '%'}"></div>
+                            </div>
+                            <div>Files may take some time to process</div>
+                        </div>
                     </div>
                 </div>
                 </div>
@@ -34,7 +39,7 @@
             </div>
 
                 <ajax-error input="questionLink"></ajax-error>
-    <input class="txtBlue bodyStack" v-model="blend.questionLink" id="questionLink" placeholder="Enter the url of the question on blender.stackexchange" value="" />
+    <input class="txtBlue bodyStack" type="text" v-model="blend.questionLink" id="questionLink" placeholder="Enter the url of the question on blender.stackexchange" />
     <button id="upload" class="btnBlue bodyStack">
         Upload
     </button>
@@ -52,7 +57,7 @@
 import ajaxForm from '@/Api/AjaxForm.js'
 import AjaxForm from '@/Mixins/AjaxForm.vue'
 import { mapGetters } from 'vuex'
-
+import embedTextGenerator from '@/Api/embedTextGenerator.js'
 export default {
     mixins: [AjaxForm],
     data () {
@@ -63,6 +68,7 @@ export default {
     },
     mounted () {
         this.setEndpoint('/blends/create');
+        this.$set(this.blend,'questionLink',this.$route.query.qurl);
     },
     computed: {
                 ...mapGetters([
@@ -72,6 +78,12 @@ export default {
     },
     methods: {
         completedAjaxUpload (data) {
+            window.parent.postMessage({ name: "embedSource", content: embedTextGenerator(data) }, "*");
+            //Alert for popup
+            if (window.opener != null && !window.opener.closed) {
+                window.opener.postMessage({ name: "embedSource", content:  embedTextGenerator(data)  }, "*");
+            }
+
             this.$router.push({ name: 'BlendPage', params: { id: data.id }});
         },
     }

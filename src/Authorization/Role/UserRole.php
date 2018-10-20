@@ -6,13 +6,17 @@ use BlendExchange\Authorization\Role;
 final class UserRole extends Role
 {
     private $permissions = [
-        'CreateBlend',
-        'DownloadBlend',
         'ListBlends',
-        'ViewProfile',
-        'ViewBlendList',
+        'ViewBlend',
+        'DownloadBlend',
+        'CreateBlend',
         'FlagBlend',
-        'CurrentUser'
+        'FavoriteBlend',
+        'AttachUploadedBlend',
+        'AttachExistingBlend',
+        'ViewPublicProfile',
+        'CurrentUser',
+        'ViewPrivateSettings'
     ];
 
     public function getPermissions() : array

@@ -5,7 +5,7 @@ export default {
     methods: {
         setFile(form,files,name,input) {
             this.$set(files,name,input[0]);
-            form.uploadProgress[name] = 0;
+            this.$set(form.uploadProgress,name,0);
         },
         setAuthentication(authentication) {
             this.form.auth = authentication;

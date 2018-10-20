@@ -12,11 +12,15 @@
  * [Done] Change to random ids for blends
  * [Done] Change to random ids for accesses
  * [Done] Link SE Accounts
- * SE API based fraud tests
- * Make IP hashes much safer
+ * [Done] Make IP hashes safer
+ * [Done] Fix embed upload CSS
+ * Add bootstrapping code to codeception
+ * Add unit tests to codeception
+ * Get rid of PHPUnit
+ * Validate file upload size
 
 ### Deployment
- * Adjust migrations for scale
+ * [] Adjust migrations for scale
 
 ###Migration Tasklist
 * Check server MYSQL perms. May require temporary alteration.
@@ -27,7 +31,8 @@
  * Make post requesting bug reports
 
  ## 2.1
-Add full support for user profile
+* SE API based fraud tests
+* Add full support for user profile
 
 
 ## 2.2

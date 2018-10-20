@@ -14,11 +14,11 @@
             </div>
             <div id="nav">
                   <ul id="navLinks">
-                     <li><a href="/">Upload</a></li>
-                     <li><a href="/help">Help</a></li>
+                     <li><router-link to="/">Upload</router-link></li>
+                     <li><router-link  to="/help">Help</router-link ></li>
                      <li><a href="/about">About</a></li>
-                     <li><a href="/userscript">Userscript</a></li>
-                     <li><a href="/contribute">Contribute</a></li>
+                     <li><router-link to="/userscript">Userscript</router-link></li>
+                     <li><router-link to="/contribute">Contribute</router-link></li>
                   </ul>
             </div>
          </div>

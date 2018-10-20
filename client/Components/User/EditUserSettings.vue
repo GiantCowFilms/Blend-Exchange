@@ -4,9 +4,9 @@
             <input name="username" v-model="user.username" placeholder="Username" class="txtBlue bodyStack"/>
         <ajax-error input="email" />
         <input name="email" v-model="user.email" class="txtBlue bodyStack" placeholder="Email" />
-        <div v-if="use_password">
+        <!--<div v-if="use_password">
             Change Password
-        </div>
+        </div>-->
         <div class='btnBlue' v-on:click="$modal.hide('editSettings')">
             Cancel
         </div>
@@ -22,6 +22,10 @@ export default {
     mixins: [
         AjaxForm
     ],
+    data () {
+        return {
+        };
+    },
     props: {
         user: {
             type: Object,
@@ -38,6 +42,7 @@ export default {
     },
     methods: {
         completedAjaxUpload (data) {
+            this.$modal.hide("editSettings");
             alert('Your settings were successfully updated!');
         },
     }

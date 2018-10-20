@@ -15,6 +15,9 @@ final class BlendFileFormat
     private $bitSize;
     private $version;
 
+    private $isCompressed = null;
+    private $uncompressedStream = null;
+
     public function __construct(StreamInterface $stream)
     {
         if(!$stream->isSeekable()) {
@@ -29,6 +32,7 @@ final class BlendFileFormat
     public function readHeader() {
         $stream = $this->getUncompressedStream();
         $head = $stream->read(12);
+        $stream->rewind();
         $this->bitSize = (substr($head,7,1) === '-') ? 64 : 32;
         $this->endian = substr($head,8,1) === 'V';
         $this->version = (int) substr($head,9,2);
@@ -36,25 +40,31 @@ final class BlendFileFormat
 
     public function isCompressed() : bool
     {
-        $header = $this->stream->read(7);
-        $result = $header !== 'BLENDER';
-        $this->stream->rewind();
-        return $result;
+        if ($this->isCompressed === null) {
+            $header = $this->stream->read(7);
+            $this->isCompressed = $header !== 'BLENDER';
+            $this->stream->rewind();
+        }
+        return $this->isCompressed;
     }
 
     public function isValid() : bool
     {
-        $result =  $this->getUncompressedStream()->read(7) === 'BLENDER';
+        $stream = $this->getUncompressedStream();
+        $result = $stream->read(7) === 'BLENDER';
+        $stream->rewind();
         return $result;
     }
 
     public function getUncompressedStream() : StreamInterface
     {
         if ($this->isCompressed()) {
-            return new InflateStream($this->stream);
+            //Unfortunately, seeking is not working correctly, therefore a new stream must be made every time :(
+            $this->uncompressedStream = new InflateStream($this->stream);
         } else {
-            return $this->stream;
+            $this->uncompressedStream = $this->stream;
         }
+        return $this->uncompressedStream;
     }
 
     private function createCompressedTmpfile () : StreamInterface
@@ -111,7 +121,9 @@ final class BlendFileFormat
             return null;
         }
 
-        return $stream->read($length);
+        $result = $stream->read($length);
+        $stream->rewind();
+        return $result;
     }
 
     public function getCompressedStream() : StreamInterface

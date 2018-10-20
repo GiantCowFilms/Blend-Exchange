@@ -6,12 +6,13 @@ use BlendExchange\Authorization\Role;
 final class GuestRole extends Role
 {
     private $permissions = [
-        'CreateBlend',
-        'DownloadBlend',
         'ListBlends',
-        'ViewProfile',
-        'ViewBlendList',
+        'ViewBlend',
+        'DownloadBlend',
+        'CreateBlend',
         'FlagBlend',
+        'FavoriteBlend',
+        'ViewPublicProfile',
     ];
 
     public function getPermissions() : array

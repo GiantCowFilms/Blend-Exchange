@@ -42,7 +42,7 @@ class UpdateBlendsForV2 extends AbstractMigration
         $table->changeColumn('adminComment',$table->getColumn('adminComment')->setOptions(['default' => '']));
         $table->changeColumn('valid',$table->getColumn('valid')->setOptions(['default' => 0]));
         $table->changeColumn('deleted',$table->getColumn('deleted')->setOptions(['default' => 0]));
-        $table->changeColumn('owner',$table->getColumn('owner')->setOptions(['limit' => 12,'null' => true]));
+        $table->changeColumn('owner','string',['limit' => 12,'null' => true]);
         $table->changeColumn('fileGoogleId',$table->getColumn('fileGoogleId')->setOptions(['null' => true]));
         $table->changeColumn('fileSize',$table->getColumn('fileSize')->setOptions(['null' => true]));
         $table->changeColumn('fileName',$table->getColumn('fileName')->setOptions(['null' => true]));
@@ -75,7 +75,7 @@ class UpdateBlendsForV2 extends AbstractMigration
     }
     public function down() {
         $table = $this->table('blends');
-        $table->changeColumn('owner',$table->getColumn('owner')->setOptions(['null' => false]));
+        $table->changeColumn('owner','integer',['null' => false]);
         $table->changeColumn('fileGoogleId',$table->getColumn('fileGoogleId')->setOptions(['null' => false]));
         if ($table->hasColumn('legacy_id')) {
             $table->removeColumn('id');

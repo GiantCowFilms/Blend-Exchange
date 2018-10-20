@@ -16,15 +16,15 @@ return [
     'terms' => (new Route('/terms', [
         '_controller' => 'BlendExchange\Site\Http\SiteController::termsOfService'
     ]))->setMethods(['GET']),
-    'contribute' => (new Route('/contribute', [
-        '_controller' => 'BlendExchange\Site\Http\SiteController::contribute'
-    ]))->setMethods(['GET']),
-    'help' => (new Route('/help', [
-        '_controller' => 'BlendExchange\Site\Http\SiteController::help'
-    ]))->setMethods(['GET']),
-    'userscript' => (new Route('/userscript', [
-        '_controller' => 'BlendExchange\Site\Http\SiteController::userscript'
-    ]))->setMethods(['GET']),
+    // 'contribute' => (new Route('/contribute', [
+    //     '_controller' => 'BlendExchange\Site\Http\SiteController::contribute'
+    // ]))->setMethods(['GET']),
+    // 'help' => (new Route('/help', [
+    //     '_controller' => 'BlendExchange\Site\Http\SiteController::help'
+    // ]))->setMethods(['GET']),
+    // 'userscript' => (new Route('/userscript', [
+    //     '_controller' => 'BlendExchange\Site\Http\SiteController::userscript'
+    // ]))->setMethods(['GET']),
     
     /**
      * User Auth

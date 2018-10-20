@@ -7,11 +7,16 @@ You will need the following installed
 * PHP 7.2.6+
 * Apache webserver
 * MySQL 5.7.14+
+* Node JS 8+
 
-Run `composer update` to install. To setup the database run `vendor/bin/phinx migrate -e dev`. If you have any issue installing stuff, please post an issue so it can be added to the requirements/instructions.
+## Installation
+
+Run `composer install` to install. To setup the database run `vendor/bin/phinx migrate -e dev`. If you have any issue installing stuff, please post an issue so it can be added to the requirements/instructions.
+
+To build the front end, run `npm install` and then `npm run build` to watch the frontend files for changes.
 
 ## ENVIRONMENT FILE
-Rename `example.env` to `.env` and populate the missing values.
+Copy `example.env` to a file called `.env` and populate the missing values.
 
 ### Stack Exchange Authentication
 

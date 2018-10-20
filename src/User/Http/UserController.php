@@ -104,11 +104,14 @@ class UserController
     }
 
     public function show($id) {
+        if (!$this->user->hasPermission('ViewPublicProfile')) {
+            return $this->api->endpointNotFoundResponse();
+        }
         $user = $this->userRepository->findUserById($id);
         if ($user === null) {
             return $this->api->errorResponse('User not found.',404);
         }
-        if ($this->userPolicy->userCanView($this->user, $user)) {
+        if ($this->userPolicy->userCanView($this->user, $user) && $this->user->hasPermission('ViewPrivateSettings')) {
             return $this->api->itemResponse($this->userTransformer,$user);
         } else {
             return $this->api->itemResponse($this->profileTransformer,$user);

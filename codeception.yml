@@ -5,6 +5,7 @@ suites:
         path: .
         modules:
             enabled:
+                - Asserts
                 - REST:
                     url: http://blend-exchange.localhost
                     depends: PhpBrowser

@@ -3,9 +3,9 @@
         <pagination :query="query" :pagination="pagination"></pagination>
         <spinner v-if="loading" :width="'64px'"></spinner>
         <div v-if="!loading" v-for="blend in blends" :key="blend.id" class="listItem">
-            <a :href="`/b/${blend.id}`">
+            <router-link :to="`/b/${blend.id}`">
             <h2>{{ blend.fileName }}</h2>
-            </a>
+            </router-link>
             <a :href="blend.questionLink">Question</a> | {{ blend.views_count }} views | {{blend.downloads_count }} downloads | {{ blend.favorites_count }} favorites
         </div>
     </div>

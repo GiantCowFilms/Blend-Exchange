@@ -1,10 +1,12 @@
 <template>
     <div>
-        <main-header></main-header>
-        <div id="mainContainer">
-            <slot name='content'>
+        <div id="outerContainer">
+            <main-header></main-header>
+            <div id="mainContainer">
+                <slot name='content'>
 
-            </slot> 
+                </slot> 
+            </div>
         </div>
     </div>
 </template>

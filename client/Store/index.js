@@ -18,8 +18,10 @@ let store = new Vuex.Store({
   strict: debug
 });
 
+//Auto login
+store.dispatch('AUTH_FROM_STORAGE');
 ls.on('auth_state',() => {
-  store.commit('SET_AUTH',authFromStorage());
+  store.dispatch('AUTH_FROM_STORAGE');
 });
 
 export default store;

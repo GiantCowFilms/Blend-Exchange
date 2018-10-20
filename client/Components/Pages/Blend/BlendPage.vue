@@ -46,7 +46,7 @@
             </div>
             <h2 style="margin-top: 5px; margin-bottom: 5px;">Share this file:</h2>
             <div>Add this text into your post:</div>
-            <textarea id="embedCode" class="txtBlue">[<img src="https://blend-exchange.giantcowfilms.com/embedImage.png?bid={{ blend.id }}" />](https://blend-exchange.giantcowfilms.com/b/{{ blend.id }}/)</textarea>
+            <textarea id="embedCode" class="txtBlue">{{ embedText }}</textarea>
                         <div id="usageNotice">
                 <h2>
                     Disclaimer:
@@ -63,7 +63,7 @@ import axios from 'axios';
 import blendExchange from '@/Api/BlendExchangeApi'
 import createFlagForm from '@C/Flag/CreateFlagForm'
 import moderateBlend from '@C/Blend/ModerateBlend'
-
+import embedTextGenerator from '@/Api/embedTextGenerator.js'
 export default {
     data: function () {
         return {
@@ -84,6 +84,9 @@ export default {
         },
         hasAdminComment () {
             return this.blend.adminComment !== '';
+        },
+        embedText () {
+            return embedTextGenerator(this.blend);
         }
     },
     async beforeRouteEnter (to, from, next) {

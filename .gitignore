@@ -7,8 +7,9 @@
 
 #Secret Configuration
 .env
-#Production copy of secret configuration
-.env.prod 
+# Any named env (e.g. .env.prod or .env.dev)
+.env.*
+!.env.example
 
 # Composer Dependencies
 vendor/

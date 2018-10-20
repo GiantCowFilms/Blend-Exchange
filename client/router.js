@@ -6,8 +6,12 @@ import BlendIndexPage from '@P/Blend/BlendIndexPage'
 import ErrorPage from '@P/ErrorPage'
 import Homepage from '@P/Homepage';
 import AuthCompletePage from '@P/Auth/AuthCompletePage'
+import EmbedUploadPage from '@P/Blend/EmbedUploadPage'
 import AuthStatus from '@/Components/Authentication/AuthStatus'
+import HelpPage from '@P/Site/HelpPage'
 import UserPage from '@P/User/UserPage'
+import UserscriptPage from '@P/Site/UserscriptPage'
+import ContributePage from '@P/Site/ContributePage'
 import store from '@/Store/index'
 Vue.use(Router)
 
@@ -59,6 +63,11 @@ let router = new Router({
       component: UserPage,
     },
     {
+      path: '/embedUpload',
+      name: 'EmbedUpload',
+      component: EmbedUploadPage
+    },
+    {
       path: '/privacy',
       name: '',
       component: MainLayout
@@ -76,17 +85,17 @@ let router = new Router({
     {
       path: '/userscript',
       name: '',
-      component: MainLayout
+      component: UserscriptPage
     },
     {
       path: '/contribute',
       name: '',
-      component: MainLayout
+      component: ContributePage
     },
     {
       path: '/help',
       name: '',
-      component: MainLayout
+      component: HelpPage
     },
     {
       path: '*',

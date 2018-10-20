@@ -174,7 +174,7 @@ class BlendController
         if ($blend === null) {
             return $this->api->errorResponse('Blend not found', 404);
         }
-        if (!$this->blendPolicy->userCanDownload($this->user, $blend)) {
+        if (!$this->blendPolicy->userCanDownload($this->user, $blend) || !$this->user->hasPermission('DownloadBlend')) {
             return $this->api->errorResponse('You cannot download this file.');
         }
         $this->accessManager->download($blend->id, $request->server->get("REMOTE_ADDR"));
@@ -198,6 +198,9 @@ class BlendController
 
     public function favorite($id, Request $request) : Response
     {
+        if ($this->user->hasPermission('FavoriteBlend')) {
+            return $this->api->itemResponse($this->adminBlendTransformer, $blend);
+        }
         $blend = $this->blendRepository->findBlendById($id);
         if ($blend === null) {
             return $this->api->validationFailResponse([

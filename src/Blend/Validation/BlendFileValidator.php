@@ -15,7 +15,9 @@ final class BlendFileValidator
         if(!$stream->isSeekable()) {
             throw new \RuntimeException('Cannot validate a non-seekable stream');
         }
-        $result = $stream->read(7) === 'BLENDER';
+        $stream->rewind();
+        $header = $stream->read(7);
+        $result = $header === 'BLENDER';
         $stream->rewind();
         return $result;
     }

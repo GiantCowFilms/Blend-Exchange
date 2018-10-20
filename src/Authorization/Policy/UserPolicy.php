@@ -21,7 +21,9 @@ final class UserPolicy
     public function userCanView (User $user,UserModel $userModel) {
         return (
             (
-            $user->getId() === $userModel->id) ||
+            $user->getId() === $userModel->id
+            && $user->hasPermission('ViewPrivateSettings')
+            ) ||
             $user->hasPermission('AdministerUsers')
         );
     }

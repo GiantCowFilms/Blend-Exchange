@@ -14,7 +14,11 @@ final class CreateBlendHandler {
         $blend->uploaderIp = $command->getUploaderIp();
         $blend->questionLink = $command->getQuestionLink();
         $blend->fileName = $command->getFileName();
-        $blend->owner = $command->getOwner();
+        if ($command->getUser()->hasPermission('AttachUploadedBlend')) {
+            $blend->owner = $command->getOwner();   
+        } else {
+            $blend->owner = null;
+        }
         $blend->save();
         return $blend;
     }

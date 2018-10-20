@@ -161,10 +161,13 @@ class BlendFile extends Eloquent
 
         $whereClauses = array_slice($relation_query->getQuery()->wheres,2);
         $subQuery = $db->table($foreign_table)->select($db->raw("COUNT(DISTINCT `{$field}`)"))->whereRaw('`fileId`=`blends`.`id`');
-        $subQuery->mergeWheres($whereClauses,$relation_query->getQuery()->bindings);
+        $subQuery->mergeWheres($whereClauses,$relation_query->getQuery()->bindings['where']);
 
         $query->addSelect($db->raw('`blends`.*'));
-        $query->addSelect($db->raw("({$subQuery->toSql()}) as {$relation}_count"))->mergeBindings($subQuery);
+        $query->addSelect($db->raw("({$subQuery->toSql()}) as {$relation}_count"));//->mergeBindings($subQuery);
+        // Since the bindings are now in the select part of the query, they need to be moved from where to select.
+        // This prevents an error where the pagination count is incorrect (thereby aborting the entire operation) because it removes the sub queries from the select (it deletes the select), but not the bindings, resulting in the bindings being mis-matched.
+        $query->getQuery()->bindings['select'] = array_merge($query->getQuery()->bindings['select'],$subQuery->bindings['where']);
         $query->groupBy('blends.id');
         return $query;
     }
