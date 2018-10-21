@@ -39,6 +39,9 @@ export default {
       deep: true
     }
   },
+  mounted () {
+    this.updateBlends(this.query);
+  },
   methods: {
     updateBlends: async function(query) {
       this.loading = true;

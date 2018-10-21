@@ -38,7 +38,8 @@ var baseConfiguration = {
             '@': path.resolve(__dirname, '../client/'),
             '@P': path.resolve(__dirname, '../client/Components/Pages'),
             '@C': path.resolve(__dirname, '../client/Components')
-        }
+        },
+        modules: [path.resolve(__dirname,'../node_modules')]
     },
     plugins: [
       new VueLoaderPlugin()

@@ -3,14 +3,16 @@ const state = {
 }
 
 const getters = {
-
+    getCurrentUser: state => {
+        return state.user;
+    }
 }
 
 const actions = {
     async ['GET_USER'] (context,id) {
-        let response = await blendExchange.getEndpoint(`/users/${id}`);
-        let user = response.data;
-        context.commit('SET_USER',response.data);
+        const response = await blendExchange.getEndpoint(`/users/${id}`);
+        const user = response.data;
+        context.commit('SET_USER',user);
     },
     ['UPDATE_USER'] (context, user) {
         context.commit('SET_USER',user);

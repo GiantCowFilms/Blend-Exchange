@@ -1,6 +1,7 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace BlendExchange\Authorization\Policy;
+
 use BlendExchange\Authorization\User;
 use BlendExchange\User\Model\User as UserModel;
 use BlendExchange\Authentication\Token\StatelessToken;
@@ -10,21 +11,35 @@ use BlendExchange\Authentication\Token\StatelessTokenValidator;
 
 final class UserPolicy
 {
-    public function __construct (StatelessTokenValidator $tokenValidator) {
+    public function __construct(StatelessTokenValidator $tokenValidator)
+    {
         $this->tokenValidator = $tokenValidator;
     }
 
-    public function tokenBearerCanSetup(StatelessToken $token,UserModel $user) {
+    public function tokenBearerCanSetup(StatelessToken $token, UserModel $user)
+    {
         return $user->email === null && $this->tokenValidator->validate($token, 'SetupUser', $user->id);
     }
 
-    public function userCanView (User $user,UserModel $userModel) {
+    public function userCanView(User $user, UserModel $userModel)
+    {
         return (
             (
             $user->getId() === $userModel->id
-            && $user->hasPermission('ViewPrivateSettings')
+             && $user->hasPermission('ViewPrivateSettings')
             ) ||
             $user->hasPermission('AdministerUsers')
         );
+    }
+
+    public function userCanEdit(User $user, UserModel $userModel)
+    {
+        return (
+            (
+                $user->getId() === $userModel->id
+                 && $user->hasPermission('EditPrivateSettings')
+            ) ||
+                $user->hasPermission('AdministerUsers')
+            );
     }
 }

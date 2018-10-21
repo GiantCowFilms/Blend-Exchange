@@ -18,6 +18,7 @@
  * Add unit tests to codeception
  * Get rid of PHPUnit
  * [Done] Validate file upload size
+ * [Done] Add full support for user profile
 
 ### Deployment
  * [] Adjust migrations for scale
@@ -32,7 +33,8 @@
 
  ## 2.1
 * SE API based fraud tests
-* Add full support for user profile
+* Password Reset/Password Change
+* Toggle "User Password"
 
 ## 2.2
 

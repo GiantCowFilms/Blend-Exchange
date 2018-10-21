@@ -16,7 +16,8 @@ final class UserRole extends Role
         'AttachExistingBlend',
         'ViewPublicProfile',
         'CurrentUser',
-        'ViewPrivateSettings'
+        'ViewPrivateSettings',
+        'EditPrivateSettings'
     ];
 
     public function getPermissions() : array

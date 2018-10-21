@@ -62,6 +62,9 @@ const actions = {
             state: 'none',
             user: null
         })
+    },
+    async ['UPDATE_USER'] (context,newUser) {
+        context.commit('SET_USER',newUser);
     }
 }
 
@@ -74,6 +77,10 @@ const mutations = {
         state.auth_state = 'authenticated';
         state.auth_user = auth.user;
         axios.defaults.headers.common['Authorization'] = `Bearer ${auth.token}`;
+    },
+    ['SET_USER'] (state,user) {
+        state.auth_user = user;
+        ls.set('auth-user',user);
     }
 }
 

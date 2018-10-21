@@ -1,7 +1,7 @@
 <template>
 <main-layout>
     <div slot="content">
-        <user-profile :user="user"/>
+        <user-profile :user="combinedUser"/>
     </div>
 </main-layout>
 </template>
@@ -12,6 +12,15 @@ import blendExchange from '@/Api/BlendExchangeApi'
 export default {
     components: { 
         UserProfile
+    },
+    computed: {
+        combinedUser () {
+            if (this.$route.params.id === this.$store.getters.currentUser.id) {
+                return this.$store.getters.currentUser;
+            } else {
+                return this.$data.user;
+            }
+        }
     },
     async beforeRouteEnter (to, from, next) {
         try {
@@ -32,8 +41,6 @@ export default {
     data() {
         return {
             user: {
-                id: 'bah',
-                username: 'bah'
             }
         }
     }
