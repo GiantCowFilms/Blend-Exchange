@@ -58,5 +58,19 @@ final class UploadBlendCest
         $I->seeResponseCodeIs(404);
     }
 
+    public function invalidBlendFileFails(ApiTester $I) {
+        $endpoint;
+        $token;
+        $this->_createBlend($I,$endpoint,$token);
+        $I->haveHttpHeader('Content-Type', 'application/json');
+        $I->haveHttpHeader('X-Resource-Token',$token);
+        $I->sendPOST($endpoint,file_get_contents(__DIR__ . '/../../TestBlends/Invalid_No_Compression.blend'));
+        $I->seeResponseCodeIs(422);
+        $I->seeResponseContainsJson([
+            'errors' => [
+                'blendFile' => 'All uploaded files must be in the blend file format'
+            ]
+        ]);
+    }
 
 }
