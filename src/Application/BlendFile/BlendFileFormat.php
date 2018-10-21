@@ -126,6 +126,10 @@ final class BlendFileFormat
         return $result;
     }
 
+    public function getStream() : StreamInterface {
+        return $this->stream;
+    }
+
     public function getCompressedStream() : StreamInterface
     {
         if ($this->isCompressed()) {

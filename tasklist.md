@@ -1,7 +1,7 @@
 # Version 2.0
 
 ## 2.0
-
+ * [Mostly Done] Re-do pretty much everything
  * [Done] Check for duplicate views
  * [Done] Add better blend not found/page not found pages
  * [Done] Add warnings for flagged blends
@@ -17,7 +17,7 @@
  * Add bootstrapping code to codeception
  * Add unit tests to codeception
  * Get rid of PHPUnit
- * Validate file upload size
+ * [Done] Validate file upload size
 
 ### Deployment
  * [] Adjust migrations for scale
@@ -33,7 +33,6 @@
  ## 2.1
 * SE API based fraud tests
 * Add full support for user profile
-
 
 ## 2.2
 

@@ -25,7 +25,10 @@ final class UploadBlendForm
      * Runs validation for the class.
      */
     private function validate() : void
-     {
+    {
+        if ($this->blend->getStream()->getSize() > 1e6 * 30) {
+            $this->errors['blendFile'] = "Uploaded blend files can be no larger than 30 MB";
+        }
         if(!$this->blendFileValidator->validate($this->blend->getUncompressedStream())) {
             $this->errors['blendFile'] = "All uploaded files must be in the blend file format";
         }
