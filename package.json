@@ -4,6 +4,7 @@
   "description": "Blend-Exchange Node Tools",
   "dependencies": {
     "axios": "^0.18.0",
+    "clone-deep": "^4.0.0",
     "css-loader": "^1.0.0",
     "dotenv": "^5.0.1",
     "local-storage": "^1.4.2",
