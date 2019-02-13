@@ -1,5 +1,4 @@
-<?php namespace User;
-
+<?php
 
 class UpdateUserCest
 {
