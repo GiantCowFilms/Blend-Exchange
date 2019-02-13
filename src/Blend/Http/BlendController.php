@@ -198,10 +198,10 @@ class BlendController
 
     public function favorite($id, Request $request) : Response
     {
-        if ($this->user->hasPermission('FavoriteBlend')) {
-            return $this->api->itemResponse($this->adminBlendTransformer, $blend);
-        }
         $blend = $this->blendRepository->findBlendById($id);
+        if (!$this->user->hasPermission('FavoriteBlend')) {
+            return $this->api->errorResponse('You do not have permission to favorite this file',403);
+        }
         if ($blend === null) {
             return $this->api->validationFailResponse([
                 'id' => 'A blend file with this id could not be found.'
