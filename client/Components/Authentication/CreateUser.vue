@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     completedAjaxUpload(data) {
-      this.$router.push({ name: 'UserPage', props: { id: data.id } });
+      this.$router.push({ name: 'UserPage', params: { id: data.id } });
     }
   }
 };
