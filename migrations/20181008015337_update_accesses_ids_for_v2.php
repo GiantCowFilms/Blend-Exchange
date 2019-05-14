@@ -5,6 +5,10 @@ use \Phinx\Migration\AbstractMigration as Migration;
 
 class UpdateAccessesIdsForV2 extends Migration
 {
+    use MigrationRandomIdTrait;
+    public function idSize () {
+        return 12;
+    }
     /**
      * Change Method.
      *
@@ -36,9 +40,27 @@ class UpdateAccessesIdsForV2 extends Migration
         if (!file_exists($path)) {
             mkdir($path, 0777, true);
         }   
-        $logFile = fopen($path . '/' + basename(__FILE__, '.php') + '_progress.log','a');
+        $logFile = fopen($path . '/' . basename(__FILE__, '.php') . '_progress.log','a+');
+        $cursor = -3;
+
+        fseek($logFile, $cursor, SEEK_END);
+        $char = fgetc($logFile);
+        $line  = '';
+
+        while ($char !== false && $char !== "\n" && $char !== "\r") {
+            /**
+             * Prepend the new char
+             */
+            $line = $char . $line;
+            fseek($logFile, --$cursor, SEEK_END);
+            $char = fgetc($logFile);
+        }
+        $last = substr($line,strrpos($line," ") + 1);
+        $start = intval($last);
+
         $table = $this->table('accesses');
-        $i = 0;
+        //$i = 0;
+        $i = $start;
         while (true) {
             $stmt = $this->query(sprintf('SELECT * FROM `accesses` LIMIT %u, %u',$i,$i + 100)); // returns PDOStatement
             $rows = $stmt->fetchAll();

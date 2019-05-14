@@ -26,7 +26,7 @@ All code enters through either the `/site` file or the `/public/index.php` which
 
 If the application is entered via the webserver, `Bootstrap.php` calls `/Kernel/Http.php` which calls into the controller defined for the route in `src/Routes.php`. Controllers return a `Response`. 
 
-If the application is entered via the command line, `Bootstrap.php` call into a Symfony command application. 
+If the application is entered via the command line, `Bootstrap.php` calls into a Symfony command application. 
 
 
 ### Migrations

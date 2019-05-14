@@ -6,7 +6,7 @@ use \Phinx\Migration\AbstractMigration as Migration;
 class MoveFlagsFromAccessTableToFlagsTable extends Migration
 {
     public function up()  {
-        $this->execute('INSERT INTO `flags` (`id`,`offense`,`message`,`ip`,`fileId`,`date`) SELECT `id`,`val`,`message`,`ip`,`fileId`,`date` FROM `accesses` WHERE `type`=\'flag\'');
+        $this->execute('INSERT INTO `flags` (`id`,`offense`,`message`,`ip`,`fileId`,`date`) SELECT `id`,SUBSTRING(`val`,0,50),`val`,`ip`,`fileId`,`date` FROM `accesses` WHERE `type`=\'flag\'');
         $this->execute('DELETE FROM `accesses` WHERE `type`=\'flag\'');
     }
     public function down() {

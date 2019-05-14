@@ -27,6 +27,9 @@ class CreateUsersTable extends AbstractMigration
      */
     public function change()
     {
+        $table = $this->table('users');
+        $table->rename('legacy_users');
+        $table->update();
         $table = $this->table('users',['id' => false, 'primary_key' => 'id']);
         $table->addColumn('id','string',['limit' => 10]);
         $table->addColumn('stackId','string',['limit' => 50]); //Technically an integer

@@ -7,10 +7,6 @@ use \Phinx\Migration\AbstractMigration;
  */
 class UpdateAccessesForV2 extends AbstractMigration
 {
-    use MigrationRandomIdTrait;
-    public function idSize () {
-        return 12;
-    }
     public function up()
     {
         //This will take a while . . . 
@@ -33,6 +29,9 @@ class UpdateAccessesForV2 extends AbstractMigration
             $table->changeColumn('ip',$table->getColumn('ip')->setOptions(['limit' => 512]));
             $table->changeColumn('fileId','string', ['limit' => 8]);
             $table->changeColumn('id','string', ['limit' => 12]);
+            $table->addIndex(['fileId']);
+            $table->addIndex(['type']);
+            $table->addIndex(['ip']);
             $table->update();
             if ($needsUpdate) {
                 $this->execute('UPDATE `accesses` INNER JOIN `blends` ON `blends`.`legacy_id` = `accesses`.`fileId` SET `accesses`.`fileId` = `blends`.`id`');
@@ -57,6 +56,10 @@ class UpdateAccessesForV2 extends AbstractMigration
         $table->removeColumn('id');
         $table->renameColumn('intId','id');
         $table->update();
+
+        $table->removeIndex(['fileId']);
+        $table->removeIndex(['type']);
+        $table->removeIndex(['ip']);
 
         $this->execute('UPDATE `accesses` INNER JOIN `blends` ON `blends`.`id` = `accesses`.`fileId` SET `accesses`.`fileId` = `blends`.`legacy_id`');
         $table->update();

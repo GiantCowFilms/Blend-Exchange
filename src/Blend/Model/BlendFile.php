@@ -150,7 +150,10 @@ class BlendFile extends Eloquent
     }
 
     
-    // SELECT `blends`.*, (SELECT COUNT(DISTINCT `ip`) FROM `accesses` WHERE `type`='view' AND `fileId`=`blends`.`id`) as vc, COUNT(DISTINCT `downloads`.`ip`) as dc FROM `blends` 
+    // SELECT `blends`.*, 
+    // (SELECT COUNT(DISTINCT `ip`) FROM `accesses` WHERE `type`='view' AND `fileId`=`blends`.`id`) as vc,
+    // (SELECT COUNT(DISTINCT `ip`) FROM `accesses` WHERE `type`='download' AND `fileId`=`blends`.`id`) as dc
+    // FROM `blends` 
     // GROUP BY `blends`.`id`  
 
     public function scopeWithUniqueCount ($query,$relation,$field) {

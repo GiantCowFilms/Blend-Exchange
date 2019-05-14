@@ -28,7 +28,7 @@
 <b>Terms of Service:</b></p>
                 <div id="privacyAgreements">
                     <ajax-error input="termsAndPrivacy"></ajax-error>
-                    <div class="bodyStack"><input v-model="blend.termsAndPrivacy" name="termsAndPrivacy" type="checkbox">I have read agree to the Blend-Exchange <a href="/terms">Terms of Service</a> and have read the <a href="/privacy">Privacy Policy</a>. </div>            
+                    <div class="bodyStack"><input v-model="blend.termsAndPrivacy" name="termsAndPrivacy" type="checkbox">I have read and agree to the Blend-Exchange <a href="/terms">Terms of Service</a> and have read the <a href="/privacy">Privacy Policy</a>. </div>            
                     <ajax-error input="certifyUnderstanding"></ajax-error>
                     <div class="bodyStack"><input v-model="blend.certifyUnderstanding" name="certifyUnderstanding" type="checkbox" />I understand the irrevocable rights to my content (including but not limited to royalty free distrbution) I grant Blend-Exchange as defined in the <a href="/terms">Terms of Service</a>.</div>
                     </div>
