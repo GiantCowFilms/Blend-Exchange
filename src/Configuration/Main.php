@@ -1,5 +1,6 @@
 <?php
-$dotenv = new Dotenv\Dotenv(__DIR__.'\\..\\..\\');
+$rootDir = DIRECTORY_SEPARATOR . '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR;
+$dotenv = new Dotenv\Dotenv(__DIR__.$rootDir);
 $dotenv->load();
 $dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASSWORD','GOOGLE_DRIVE_CLIENT_ID','GOOGLE_DRIVE_ACCESS_TOKEN','GOOGLE_DRIVE_REFRESH_TOKEN']);
 /**
@@ -8,7 +9,7 @@ $dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASSWORD','GOOGLE_DRIVE_
 return [
     'app_key' => getenv('APP_KEY'),
     'environment' => getenv('ENVIRONMENT'),
-    'main_log' => (__DIR__.'\\..\\..\\') . 'log/main.log',
+    'main_log' => (__DIR__.$rootDir) . 'log/main.log',
     'database' => [
         'driver' => 'mysql',
         'host' => getenv('DB_HOST'),
