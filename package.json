@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Blend-Exchange Node Tools",
   "dependencies": {
+    "@babel/polyfill": "^7.4.4",
     "axios": "^0.18.0",
     "clone-deep": "^4.0.1",
     "css-loader": "^1.0.1",
@@ -21,7 +22,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.2.2",
     "@babel/preset-env": "^7.4.5",
+    "@babel/preset-stage-2": "^7.0.0",
     "babel-loader": "^8.0.6",
     "babel-preset-vue": "^2.0.2",
     "webpack": "^4.32.2"
