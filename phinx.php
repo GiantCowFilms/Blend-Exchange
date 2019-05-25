@@ -12,7 +12,7 @@ return  [
       'dev' => [
         'adapter' => $config['database']['driver'],
         'host' =>   $config['database']['host'],
-        'name' =>   'blend-exchange',
+        'name' =>   $config['database']['database'],
         'user' =>   $config['database']['username'],
         'pass' => $config['database']['password'],
         'port' => 3306
@@ -20,7 +20,7 @@ return  [
       'production' => [
         'adapter' => $config['database']['driver'],
         'host' =>   $config['database']['host'],
-        'name' =>   'blend-exchange',
+        'name' =>   $config['database']['database'],
         'user' =>   $config['database']['username'],
         'pass' => $config['database']['password'],
         'port' => 3306
