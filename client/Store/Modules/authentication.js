@@ -72,9 +72,9 @@ const mutations = {
     ['SET_AUTH'] (state,auth) {
         ls.set('auth-token',auth.token);
         ls.set('auth-user',auth.user);
-        ls.set('auth-state','authenticated');
+        ls.set('auth-state',auth.state);
         state.token = auth.token;
-        state.auth_state = 'authenticated';
+        state.auth_state = auth.state;
         state.auth_user = auth.user;
         axios.defaults.headers.common['Authorization'] = `Bearer ${auth.token}`;
     },
