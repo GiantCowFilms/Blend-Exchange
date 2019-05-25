@@ -1,5 +1,5 @@
 <?php declare(strict_types = 1);
-$config = require 'src/Configuration/main.php';
+$config = require 'src/Configuration/Main.php';
 
 return  [
     'paths' => [
