@@ -13,12 +13,12 @@ final class UserAuthenticationTokenGenerator
         $this->key = $key;
     }
 
-    public function generate(User $user,$roles = [])
+    public function generate(User $user)
     {
         $builder = $this->generator->builder();
         $token = $builder->set('type','UserAuthenticationToken')
             ->set('sub',$user->id)
-            ->set('roles',$roles)
+            ->set('roles',$user->roles)
             ->setExpiration(time() + 86400 * 30)
             ->sign($this->signer,$this->key)
             ->getToken();
