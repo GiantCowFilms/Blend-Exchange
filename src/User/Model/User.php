@@ -74,6 +74,8 @@ class User extends Eloquent {
     {
         if ($this->account_type === 'password') {
             return password_verify($password,$this->password);
+        } else if ($this->account_type === 'partial') {
+            return false;
         } else {
             return true;
         }

@@ -35,7 +35,7 @@ export default {
     },
     methods: {
         completedAjaxUpload (data) {
-            store.dispatch('LOGIN',data);
+            store.dispatch('LOGIN', data);
             this.$router.push({
                 name: 'UserPage',
                 params: {

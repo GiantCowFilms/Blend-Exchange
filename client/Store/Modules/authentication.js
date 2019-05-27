@@ -45,16 +45,10 @@ const actions = {
         }
     },
     async ['LOGIN'] (context,auth) {
-        context.commit('SET_AUTH',auth);
-    },
-    async ['UPGRADE_TOKEN'] (context,setup_token) {
-        let result = await blendExchange.getResource({ 
-            endpoint: '/auth/token',
-            meta: {
-                token: setup_token
-            }
+        context.commit('SET_AUTH',{
+            state: "authenticated",
+            ...auth
         });
-        context.commit('SET_AUTH',result.data);
     },
     async ['LOGOUT'] (context) {
         context.commit('SET_AUTH',{

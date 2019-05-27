@@ -66,7 +66,7 @@ class UserController
             return $this->api->validationFailResponse($setupForm->getErrors());
         }
 
-        $token = $this->tokenFactory->createFormToken($request);
+        $token = $this->tokenFactory->createFromToken($request);
         $user = $this->userRepository->findIncompleteUserById($id);
 
         if (

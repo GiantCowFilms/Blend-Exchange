@@ -15,7 +15,7 @@ final class JwtTokenFactory implements StatelessTokenFactory {
         $this->requestDecoder = $requestDecoder;
     }
 
-    public function createFormToken(Request $request) : StatelessToken
+    public function createFromToken(Request $request) : StatelessToken
     {
         return $this->tokenParser->parseToken($this->requestDecoder->decode($request)->meta->token);
     }

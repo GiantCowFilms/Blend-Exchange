@@ -96,7 +96,7 @@ final class AuthController
 
     public function token(Request $request,AuthenticationTransformer $transformer, RequestDecoder $requestDecoder) : Response
     {
-        $token = $this->tokenFactory->createFormToken($request);
+        $token = $this->tokenFactory->createFromToken($request);
         $user = $this->userRepository->findUserById($token->getSubject());
         if (
             $user === null || 
@@ -105,9 +105,15 @@ final class AuthController
             return $this->api->errorResponse('Token Rejected.');
         }
 
+        try {
+            $password = $requestDecoder->decode($request)->data->password ?? null;
+        } catch (Exception $e) {
+            $password = null;
+        }
+
         $auth = $this->authenticateUserHandler->handle(new AuthenticateUser(
             $user,
-            (string) ($requestDecoder->decode($request)->data->password ?? null)
+            (string) ($password)
         ));
 
         if ($auth) {

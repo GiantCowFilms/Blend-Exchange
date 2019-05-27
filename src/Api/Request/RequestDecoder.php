@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class RequestDecoder
 {
-    public function decode(Request $request) : object 
+    public function decode(Request $request) : ?object
     {
         return json_decode($request->getContent());
     }
