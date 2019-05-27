@@ -19,7 +19,7 @@ final class AdminBlendsQuery
     public function buildQuery()
     {
         if ($this->flagged) {
-            $this->query = $this->query->withCount('flags')->where('flag_count', '>', 0);
+            $this->query = $this->query->withCount('flags')->has('flags', '>', 0);
         }
         if ($this->deleted) {
             $this->query = $this->query->withTrashed();
