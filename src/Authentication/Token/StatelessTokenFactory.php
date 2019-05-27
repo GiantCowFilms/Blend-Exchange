@@ -5,5 +5,5 @@ namespace BlendExchange\Authentication\Token;
 use Symfony\Component\HttpFoundation\Request;
 
 interface StatelessTokenFactory {
-    public function createFormToken (Request $request) : StatelessToken;
+    public function createFromToken (Request $request) : StatelessToken;
 }

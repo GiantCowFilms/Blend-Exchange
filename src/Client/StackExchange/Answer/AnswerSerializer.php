@@ -8,6 +8,6 @@ final class AnswerSerializer extends Serializer
     public function serialize(object $item) 
     {
         $answer = new Answer();
-        $answer->set
+        //$answer->set
     }
 }

@@ -19,12 +19,13 @@
  * Get rid of PHPUnit
  * [Done] Validate file upload size
  * [Done] Add full support for user profile
+ * [] Fix login for passwordless users
 
 ### Migration Process
  1. Offline Existing site.
  2. Export/Backup production DB
  3. Load production DB into new server.
- 4. 
+
 
 ### Deployment
  * [] Adjust migrations for scale

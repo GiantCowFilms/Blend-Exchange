@@ -38,27 +38,33 @@ export default {
     },
     async beforeRouteEnter (to, from, next) {
         try {
-            var response = await blendExchange.getEndpoint(`/auth/setup_token`,{
+            let setup_response = await blendExchange.getEndpoint(`/auth/setup_token`,{
                 params: {
                     code: to.query.code
                 }
             });
             
-            if (response.data.account_type === 'external') {
-                store.dispatch('UPGRADE_TOKEN',response.meta.modification_token);
+            if (setup_response.data.account_type === 'external') {
+                let response = await blendExchange.setEndpoint(`/auth/token`, {
+                    meta: {
+                        token: setup_response.meta.modification_token
+                    }
+                });
+
+                await store.dispatch('LOGIN', response.data);
                 next(vm => {
                     vm.$router.push({
                         name: 'UserPage',
                         params: {
-                            id: response.data.id
+                            id: setup_response.data.id
                         }
                     });
                 })
             }
 
             next(vm => {
-                vm.$data.user = response.data;
-                vm.$data.token = response.meta.modification_token
+                vm.$data.user = setup_response.data;
+                vm.$data.token = setup_response.meta.modification_token
             });
 
         } catch (err) {
