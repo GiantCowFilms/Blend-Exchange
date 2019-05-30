@@ -109,6 +109,14 @@ export default {
             }
         }
     },
+    async beforeMount () {
+         //Alert for iframe
+        window.parent.postMessage({ name: "embedSource", content: this.embedText }, "*");
+        //Alert for popup
+        if (window.opener != null && !window.opener.closed) {
+            window.opener.postMessage({ name: "embedSource", content: this.embedText }, "*");
+        }
+    },
     methods: {
         hasWarning: function (warning) {
             return this.blend.flags && this.blend.flags.some((elem) => { return elem.offense === warning;});
