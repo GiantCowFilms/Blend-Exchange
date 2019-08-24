@@ -12,6 +12,7 @@ final class BlendsQueryFactory {
     public function createFromRequest(Request $request) : BlendsQuery
     {
         $query =  new BlendsQuery(
+            new VisibleBlendsQuery(),
             (string)$request->query->get('sort'),
             (int)($request->query->get('page')?? 1)
         );

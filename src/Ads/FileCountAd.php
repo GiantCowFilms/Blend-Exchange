@@ -1,7 +1,9 @@
 <?php declare(strict_types=1);
 
 namespace BlendExchange\Ads;
-use BlendExchange\Blend\Model\BlendFile;
+
+use BlendExchange\Blend\Data\VisibleBlendsQuery;
+
 final class FileCountAd extends BaseAd {
     public $cords = [0,368];
     public $imageName = 'FileCountAd';
@@ -12,6 +14,8 @@ final class FileCountAd extends BaseAd {
 
     public function text () : string
     {
-        return (string)BlendFile::count();
+        $query = new VisibleBlendsQuery();
+        $query->buildQuery();
+        return (string)($query->getQuery()->count());
     }
 }

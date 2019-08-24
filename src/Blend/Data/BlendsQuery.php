@@ -11,11 +11,12 @@ final class BlendsQuery
     private $orderBy;
     private $owner = null;
 
-    public function __construct(string $orderBy, int $page)
+    public function __construct(VisibleBlendsQuery $query, string $orderBy, int $page)
     {
         $this->orderBy = $orderBy;
         $this->page = $page;
-        $this->query = BlendFile::query();
+        $query->buildQuery();
+        $this->query = $query->getQuery();
     }
 
     public function buildQuery() {
