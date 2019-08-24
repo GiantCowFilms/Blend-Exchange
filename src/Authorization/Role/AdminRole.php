@@ -11,7 +11,9 @@ final class AdminRole extends Role
         'HardDeleteBlend',
         'ViewUser',
         'AdminQuery',
-        'AdminComment'
+        'AdminComment',
+        'AcceptFlag',
+        'DeclineFlag'
     ];
 
     public function getPermissions() : array
