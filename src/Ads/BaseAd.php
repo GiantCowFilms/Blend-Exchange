@@ -7,7 +7,7 @@ abstract class BaseAd {
     public $imageName = 'AdNotFound';
     public $align = 'left'; // left|center|right
     public $font = 'RalewayBold.ttf';
-    public $useCache = false;
+    public $useCache = true;
     public $fontSize = 30;
     public $fontColor = [0,0,0];
     public $resourceDir = '/../../resources';
@@ -56,7 +56,7 @@ abstract class BaseAd {
         return $image;
     }
 
-    public function getText () {
+    public function getText (): string {
         if($this->useCache) {
             $item = $this->cache->getItem('Ads/'.$this->imageName);
             if ($item->isMiss()) {
@@ -65,7 +65,7 @@ abstract class BaseAd {
                 $item->expiresAfter(3600 * 24); //Expires after one day
                 $this->cache->save($item);
             } else {
-                $text = $item->get();
+                $text = (string) $item->get();
             }
         } else {
             $text = $this->text();
