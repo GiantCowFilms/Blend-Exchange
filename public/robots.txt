@@ -1,4 +1,4 @@
-# Get off my lawn!!!!!!
+# Robots, get off my lawn!!!!!!
 User-agent:*
 Disallow: /auth/
 Disallow: /admin/
@@ -13,7 +13,9 @@ Disallow: /admin/
 # Like to code? Contribute to our repo:
 # https://github.com/GiantCowFilms/Blend-Exchange
 
-# Need to talk:
-# http://chat.stackexchange.com/rooms/8888/the-renderfarm ping me with @GiantCowFilms
+# Need to talk? 
+# http://chat.stackexchange.com/rooms/8888/the-renderfarm 
+# ping me with @GiantCowFilms
+# or https://giantcowfilms.com/contact/
 
 # Have a great rest of your day. Cheers!
