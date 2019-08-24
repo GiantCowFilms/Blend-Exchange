@@ -11,12 +11,32 @@ You will need the following installed
 
 ## Installation
 
+### Webserver
+
+The webserver should be configured to serve the contents of the `/public` folder.
+
+Example apache configuration:
+
+```text
+<VirtualHost *:80>
+    DocumentRoot "C:\Blend-Exchange\public"
+    ServerName blend-exchange.localhost
+    <Directory "C:\Blend-Exchange\public">
+        Order allow,deny
+        Allow from all
+        Require all granted
+    </Directory>
+</VirtualHost>
+```
+
+### Packages/Build
+
 Run `composer install` to install. To setup the database run `vendor/bin/phinx migrate -e dev`. If you have any issue installing stuff, please post an issue so it can be added to the requirements/instructions.
 
 To build the front end, run `npm install` and then `npm run build` to watch the frontend files for changes.
 
 ## ENVIRONMENT FILE
-Copy `example.env` to a file called `.env` and populate the missing values.
+Copy `.env.example` to a file called `.env` and populate the missing values.
 
 ### Stack Exchange Authentication
 
@@ -47,4 +67,4 @@ Exchange for codes. You will now have the `GOOGLE_DRIVE_REFRESH_TOKEN` and `GOOG
 
 ## Site Commands
 
-Some additionally useful commands can be accessed by running `php site`. in the terminal.
+Some additional useful commands can be accessed by running `php site`. in the terminal.
