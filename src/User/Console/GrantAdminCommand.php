@@ -40,7 +40,7 @@ final class GrantAdminCommand extends Command {
             return 0;
         }
         if($user->account_type !== 'password') {
-            $output->writeln('Users must set password receiving admin permissions');
+            $output->writeln('Users must set password to receive admin permissions');
             return 0;
         }
         $command = new GrantAdmin($user);

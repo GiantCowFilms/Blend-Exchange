@@ -11,6 +11,7 @@ final class AdminFlagTransformer extends TransformerAbstract
     {
         return [
             'id' => $flag->id,
+            'accepted' => $flag->accepted,
             'offense' => $flag->offense,
             'message' => $flag->message
         ];

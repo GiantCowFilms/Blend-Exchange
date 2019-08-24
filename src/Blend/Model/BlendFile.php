@@ -91,7 +91,7 @@ class BlendFile extends Eloquent
 
     public function flags()
     {
-        return $this->hasMany(Flag::class, 'fileId', 'id');
+        return $this->hasMany(Flag::class, 'fileId', 'id')->where('accepted','!=',2);
     }
 
     /**

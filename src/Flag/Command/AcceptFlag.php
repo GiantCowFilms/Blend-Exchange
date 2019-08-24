@@ -8,7 +8,7 @@ final class AcceptFlag
 
     public function __construct (string $flagId)
     {
-        $this->flagId;
+        $this->flagId = $flagId;
     }
 
     public function getFlagId() : string

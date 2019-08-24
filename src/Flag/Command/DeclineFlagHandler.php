@@ -15,7 +15,8 @@ final class DeclineFlagHandler
 
     public function handle(DeclineFlag $command) : void
     {
-        $flag = $this->flagRepository->getById($command->getFlagId());
-        $flag->decline();
+        $flag = $this->flagRepository->getFlagById($command->getFlagId());
+        $flag->accepted = 2;
+        $flag->save();
     }
 }

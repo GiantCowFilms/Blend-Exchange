@@ -113,6 +113,9 @@ class UserController
         }
 
         $updateUserForm = $this->updateUserFormFactory->createFromRequest($request);
+        if ($updateUserForm->hasErrors()) {
+            return $this->api->validationFailResponse($updateUserForm->getErrors());
+        }
 
         $updateUserCommand = $updateUserForm->toCommand($user);
         $this->updateUserHandler->handle($updateUserCommand);

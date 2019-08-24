@@ -15,7 +15,8 @@ final class AcceptFlagHandler
 
     public function handle(AcceptFlag $command) : void
     {
-        $flag = $this->flagRepository->getById($command->getFlagId());
-        $flag->accept();
+        $flag = $this->flagRepository->getFlagById($command->getFlagId());
+        $flag->accepted = 1;
+        $flag->save();
     }
 }

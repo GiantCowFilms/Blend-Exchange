@@ -10,7 +10,7 @@ final class FlagRepository
 
     }
 
-    public function getFlagById(string $id): Flag
+    public function getFlagById(string $id): ?Flag
     {
         return Flag::find($id);
     }
