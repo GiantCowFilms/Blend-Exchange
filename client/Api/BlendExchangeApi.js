@@ -27,7 +27,8 @@ export default {
 
         var output = {
             data,
-            meta: format.meta || {}
+            meta: format.meta || {},
+            type: format.type
         };
 
         if (format.type === 'requires_modification') {

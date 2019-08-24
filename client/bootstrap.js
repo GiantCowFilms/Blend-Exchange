@@ -4,14 +4,15 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import vmodal from 'vue-js-modal'
-import AjaxForm from '@C/Utilities/AjaxForm'
+import AjaxForm from './Components/Utilities/AjaxForm.vue'
 import AjaxButton from '@C/Utilities/AjaxButton'
 import AjaxError from '@C/Utilities/AjaxFormError'
 import Spinner from '@C/Utilities/Spinner'
 import MainLayout from '@/Components/Layout/MainLayout'
 import axios from 'axios';
 import VueAxios from 'vue-axios';
-import store from './Store'
+import store from './Store';
+
 //Plugins
 Vue.use(AjaxForm);
 Vue.use(AjaxButton);
