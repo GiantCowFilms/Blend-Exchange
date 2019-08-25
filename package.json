@@ -4,7 +4,7 @@
   "description": "Blend-Exchange Node Tools",
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "clone-deep": "^4.0.1",
     "css-loader": "^1.0.1",
     "dotenv": "^5.0.1",
