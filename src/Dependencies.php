@@ -106,6 +106,15 @@ $injector->define(BlendExchange\Filesystem\Storage::class,[
     ':adapter' => new \League\Flysystem\Adapter\Local(__DIR__ . '/../storage')
 ]);
 
+/**
+ * Setup BulkStorage Flysystem
+ */
+
+$injector->define(BlendExchange\Filesystem\BulkStorage::class,[
+    'adapter' => \BlendExchange\Client\GoogleDrive\GoogleDriveAdapter::class
+]);
+
+
 // $injector->delegate('BlendExchange\Filesystem\Storage',function () use ($injector) {
 //     return $injector->make(\League\Flysystem\Filesystem::class,[
 //         'AbstractAdapter' => 'BlendExchange\Filesystem\StorageAdapter'

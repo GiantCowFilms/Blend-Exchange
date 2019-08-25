@@ -26,6 +26,13 @@ final class Data {
         return $size; 
     }
 
+    /**
+     * @return resource
+     */
+    public function getHandle () {
+        return $this->handle;
+    }
+
     public function getStream () : StreamInterface
     {
         return new Stream($this->handle);

@@ -73,9 +73,9 @@ final class BlendFileFormat
         $tmpfile = gzopen($tmpfilename,'wb9');
         while (!$this->stream->eof()) gzwrite($tmpfile,$this->stream->read(8192));
         $this->stream->rewind();
-        register_shutdown_function(function () use ($tmpfilename) {
-            unlink($tmpfilename);
-        });
+        // register_shutdown_function(function () use ($tmpfilename) {
+        //     unlink($tmpfilename);
+        // });
         return new Stream(fopen($tmpfilename,'rb'));
     }
 
