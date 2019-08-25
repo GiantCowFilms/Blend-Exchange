@@ -13,21 +13,24 @@ You will need the following installed
 
 ### Webserver
 
-The webserver should be configured to serve the contents of the `/public` folder.
+The webserver should have the following configuration setup:
 
-Example apache configuration:
+* `mod_php` for the appropriate php version should be enabled
+* `mod_rewrite` should be enabled.
+*   The root of the domain used for Blend-Exchange should be configured to serve the contents of the `/public` folder.
+    Example Apache configuration:
 
-```text
-<VirtualHost *:80>
-    DocumentRoot "C:\Blend-Exchange\public"
-    ServerName blend-exchange.localhost
-    <Directory "C:\Blend-Exchange\public">
-        Order allow,deny
-        Allow from all
-        Require all granted
-    </Directory>
-</VirtualHost>
-```
+    ```text
+    <VirtualHost *:80>
+        DocumentRoot "C:\Blend-Exchange\public"
+        ServerName blend-exchange.localhost
+        <Directory "C:\Blend-Exchange\public">
+            Order allow,deny
+            Allow from all
+            Require all granted
+        </Directory>
+    </VirtualHost>
+    ```
 
 ### Packages/Build
 
@@ -35,7 +38,7 @@ Run `composer install` to install. To setup the database run `vendor/bin/phinx m
 
 To build the front end, run `npm install` and then `npm run build` to watch the frontend files for changes.
 
-## ENVIRONMENT FILE
+## Environment File
 Copy `.env.example` to a file called `.env` and populate the missing values.
 
 ### Stack Exchange Authentication
