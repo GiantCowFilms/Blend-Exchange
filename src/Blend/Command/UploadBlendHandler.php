@@ -9,9 +9,6 @@ use BlendExchange\Filesystem\BulkStorage;
 class UploadBlendHandler
 {
     private $fileSystem;
-    private $handle;
-    private $chunkStart = 0;
-    private $errors = [];
 
     public function __construct(BulkStorage $fileSystem)
     {
@@ -24,9 +21,11 @@ class UploadBlendHandler
         $stream = $command->getStream();
         $blend->fileSize = $stream->getSize();
         $resource = StreamWrapper::getResource($stream);
-        $this->fileSystem->putStream($blend->id,$resource);
+        if(!$this->fileSystem->putStream("new/" . $blend->id,$resource)) {
+            throw new \Exception("Unable to upload blend file.");
+        }
   
-        $blend->fileGoogleId = "new/" + $blend->id;
+        $blend->fileGoogleId = "new/" . $blend->id;
         $blend->save();
         return $blend;
     }

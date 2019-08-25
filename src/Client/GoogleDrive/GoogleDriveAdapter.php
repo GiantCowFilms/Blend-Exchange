@@ -3,6 +3,7 @@ namespace BlendExchange\Client\GoogleDrive;
 use League\Flysystem\Adapter\NullAdapter;
 use League\Flysystem\Config;
 use GuzzleHttp\Psr7\Stream;
+use GuzzleHttp\Psr7\PumpStream;
 
 class GoogleDriveAdapter extends NullAdapter {
     private $googleDriveService;
@@ -16,6 +17,7 @@ class GoogleDriveAdapter extends NullAdapter {
      * @inheritdoc
      */
     public function writeStream($path, $resource, Config $config) {
+        $path = substr($path,4);
         /**
          * Upload to Google Drive
          */
@@ -77,26 +79,32 @@ class GoogleDriveAdapter extends NullAdapter {
         ];
     }
 
+    private function getGoogleId(string $path) : ?string {
+        $fileGoogleId = $path;
+        if(substr($path,0,4) === "new/") {
+            $files = $this->googleDriveService->files->listFiles([
+                'q' => "name='" . substr($path,4) . ".blend'",
+                'fields' => 'files(id,size)'
+            ]);
+            $fileGoogleId = isset($files[0]) ? $files[0]->id : null;
+        }
+        return $fileGoogleId;
+    }
+
 
     /**
      * @inheritdoc
      */
     public function readStream($path)
     {
-        $fileGoogleId = $path;
-        if(substr($path,0,4) === "new/") {
-            $files = $service->files->listFiles([
-                'q' => "name='" + substr($path,4) + "'",
-                'fields' => 'files(id,size)'
-            ]);
-            $fileGoogleId = $files[0]->id;
-        }
+        $chunkStart = 0;
+        $fileGoogleId = $this->getGoogleId($path);
         $chunkSizeBytes = 1 * 1024 * 1024;
-        $chunkEnd = $this->chunkStart + $chunkSizeBytes;
+        $chunkEnd = $chunkStart + $chunkSizeBytes;
         $fileSize = (int)$this->googleDriveService->files->get($fileGoogleId, ['fields' => 'size'])->size;
         $http = $this->googleDriveService->getClient()->authorize();
-        $stream = new PumpStream(function ($length) use ($blend,$http,$fileSize) {
-            if ($this->chunkStart >= $fileSize) {
+        $stream = new PumpStream(function ($length) use ($fileGoogleId,$http,$fileSize,&$chunkStart) {
+            if ($chunkStart >= $fileSize) {
                 return false;
             }
             $response = $http->request(
@@ -105,11 +113,11 @@ class GoogleDriveAdapter extends NullAdapter {
                 [
                     'query' => ['alt' => 'media'],
                     'headers' => [
-                        'Range' => sprintf('bytes=%s-%s', $this->chunkStart, min($this->chunkStart + $length, $fileSize))
+                        'Range' => sprintf('bytes=%s-%s', $chunkStart, min($chunkStart + $length, $fileSize))
                     ]
                 ]
             );
-            $this->chunkStart += $length + 1;
+            $chunkStart += $length + 1;
             $chunkData = $response->getBody()->getContents();
             return $chunkData;
         });
@@ -118,5 +126,12 @@ class GoogleDriveAdapter extends NullAdapter {
             'stream' => $stream,
             'type' => 'file'
         ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function has($path) {
+        return $this->getGoogleId($path) !== null;
     }
 }
