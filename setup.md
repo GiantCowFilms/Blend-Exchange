@@ -47,23 +47,27 @@ Needed tokens can be obtained by registering an application here https://stackap
 
 ### Google Drive Authentication
 
-#### Getting Oauth Credientails
+#### Getting OAuth Credentials
 
-Go to:
-https://console.developers.google.com
-and register an application with the Google Drive V3 enabled. Copy the Client ID and Client Secret. They respectively are the values for `GOOGLE_DRIVE_CLIENT_ID` and `GOOGLE_DRIVE_CLIENT_SECRET` in the .env
+Use the [Google Developer Console](https://console.developers.google.com) to create a new project. Under OAuth consent screen, set the project name. Then under APIs/Services > Credentials, create a new OAuth client ID. Choose Web Client. At this point it should give you the Client ID and Client secret. They respectively are the values for `GOOGLE_DRIVE_CLIENT_ID` and `GOOGLE_DRIVE_CLIENT_SECRET` in the `.env`. Under authorized redirect URIs put
+
+```
+https://developers.google.com/oauthplayground 
+```
+
+To use the oauthplayground to retrieve the refresh token as explained in the next section.
+
 
 #### Getting A Refresh Token for your Google Drive Account
 
-To get the Oauth Keys for the google drive account, go to 
-https://developers.google.com/oauthplayground/
+To get the OAuth Keys for the google drive account, go to https://developers.google.com/oauthplayground/
 
-Click on the settings icon (cog in upper right hand corner), and check *Use your own Oauth credentials*. Fill in your Client Id and Client Secret
+Click on the settings icon (cog in upper right hand corner), and check *Use your own Oauth credentials*. Fill in your Client Id and Client Secret.
 
 On the left hand panel, input the following scopes:
 
 ```
-https://www.googleapi.com/auth/drive
+https://www.googleapis.com/auth/drive
 ```
 
 Exchange for codes. You will now have the `GOOGLE_DRIVE_REFRESH_TOKEN` and `GOOGLE_DRIVE_ACCESS_TOKEN` needed by the .env file.
