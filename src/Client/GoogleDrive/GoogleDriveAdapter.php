@@ -25,7 +25,7 @@ class GoogleDriveAdapter extends NullAdapter {
         $chunkSizeBytes = 1 * 1024 * 1024;
 
         $drive_file = new \Google_Service_Drive_DriveFile();
-        $drive_file->setName($path . '.blend');
+        $drive_file->setName($path);
         $drive_file->setDescription('Blend-Exchange User File');
         $drive_file->setMimeType('application/x-blender');
         stream_set_chunk_size($resource,$chunkSizeBytes);
@@ -83,7 +83,7 @@ class GoogleDriveAdapter extends NullAdapter {
         $fileGoogleId = $path;
         if(substr($path,0,4) === "new/") {
             $files = $this->googleDriveService->files->listFiles([
-                'q' => "name='" . substr($path,4) . ".blend'",
+                'q' => "name='" . substr($path,4) . "'",
                 'fields' => 'files(id,size)'
             ]);
             $fileGoogleId = isset($files[0]) ? $files[0]->id : null;

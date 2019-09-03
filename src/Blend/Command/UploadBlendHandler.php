@@ -21,11 +21,11 @@ class UploadBlendHandler
         $stream = $command->getStream();
         $blend->fileSize = $stream->getSize();
         $resource = StreamWrapper::getResource($stream);
-        if(!$this->fileSystem->putStream("new/" . $blend->id,$resource)) {
+        if(!$this->fileSystem->putStream("new/" . $blend->id . ".blend",$resource)) {
             throw new \Exception("Unable to upload blend file.");
         }
   
-        $blend->fileGoogleId = "new/" . $blend->id;
+        $blend->fileGoogleId = "new/" . $blend->id . ".blend";
         $blend->save();
         return $blend;
     }
