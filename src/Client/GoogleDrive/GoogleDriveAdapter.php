@@ -80,13 +80,17 @@ class GoogleDriveAdapter extends NullAdapter {
     }
 
     private function getGoogleId(string $path) : ?string {
-        $fileGoogleId = $path;
-        if(substr($path,0,4) === "new/") {
+        // If the file has a blend-extension, it is identified by name
+        // Otherwise, it is a legacy file, and the path is the fileGoogleId.
+        if(pathinfo($path, PATHINFO_EXTENSION) === "blend") {
+            //Find the file in google drive by name. Note that it is directory unaware
             $files = $this->googleDriveService->files->listFiles([
-                'q' => "name='" . substr($path,4) . "'",
-                'fields' => 'files(id,size)'
+                'q' => "name contains '" . basename($path) . "'",
+                'fields' => 'files(id,size,name)'
             ]);
             $fileGoogleId = isset($files[0]) ? $files[0]->id : null;
+        } else {
+            $fileGoogleId = $path;
         }
         return $fileGoogleId;
     }

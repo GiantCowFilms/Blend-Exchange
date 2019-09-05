@@ -94,6 +94,10 @@ class BlendFile extends Eloquent
         return $this->hasMany(Flag::class, 'fileId', 'id')->where('accepted','!=',2);
     }
 
+    public function getStoragePath() {
+        return $this->fileGoogleId === "new" ? "blends/" . $this->id . ".blend" : $this->fileGoogleId;
+    }
+
     /**
      * Checks if the file is visible to the public
      *

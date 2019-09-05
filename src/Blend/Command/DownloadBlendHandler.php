@@ -32,6 +32,6 @@ class DownloadBlendHandler
         if ($blend === null) {
             throw new \Exception('Blend Not Found');
         }
-        return $this->flysystem->readStream($blend->fileGoogleId);
+        return $this->flysystem->readStream($blend->getStoragePath());
     }
 }
