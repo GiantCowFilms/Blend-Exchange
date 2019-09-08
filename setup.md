@@ -72,6 +72,13 @@ https://www.googleapis.com/auth/drive
 
 Exchange for codes. You will now have the `GOOGLE_DRIVE_REFRESH_TOKEN` and `GOOGLE_DRIVE_ACCESS_TOKEN` needed by the .env file.
 
+### Backblaze Cloud Storage
+
+Create a backblaze cloud storage account, and create a new bucket.
+Copy the master key, and the master key id into the ACCOUNT_ID and APPLICATION_KEY configuration items. 
+
+Create a bucket in backblaze, and copy the name of that bucket into the BUCKET_NAME configuration item.
+
 ## Site Commands
 
 Some additional useful commands can be accessed by running `php site`. in the terminal.
