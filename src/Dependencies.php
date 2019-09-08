@@ -107,11 +107,26 @@ $injector->define(BlendExchange\Filesystem\Storage::class,[
 ]);
 
 /**
+ * Setup Backblaze
+ */
+$injector->define(\BackblazeB2\Client::class,[
+    ':accountId' => $config['backblaze']['account_id'],
+    ':applicationKey' => $config['backblaze']['application_key']
+]);
+
+$injector->define(\Mhetreramesh\Flysystem\BackblazeAdapter::class,[
+    ':bucketName' => $config['backblaze']['bucket_name']
+]);
+
+/**
  * Setup BulkStorage Flysystem
  */
 
 $injector->define(BlendExchange\Filesystem\BulkStorage::class,[
-    'adapter' => \BlendExchange\Client\GoogleDrive\GoogleDriveAdapter::class
+    ':adapter' => $injector->make(\League\Flysystem\Replicate\ReplicateAdapter::class,[
+        'source'  => BlendExchange\Client\GoogleDrive\GoogleDriveAdapter::class,
+        'replica'  => \Mhetreramesh\Flysystem\BackblazeAdapter::class
+    ])
 ]);
 
 

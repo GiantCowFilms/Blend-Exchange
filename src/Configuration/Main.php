@@ -25,6 +25,11 @@ return [
         'access_token' => getenv('GOOGLE_DRIVE_ACCESS_TOKEN'),
         'refresh_token' => getenv('GOOGLE_DRIVE_REFRESH_TOKEN')
     ],
+    'backblaze' => [
+        'account_id' => getenv('BACKBLAZE_ACCOUNT_ID'),
+        'application_key' => getenv('BACKBLAZE_APPLICATION_KEY'),
+        'bucket_name' => getenv('BACKBLAZE_BUCKET_NAME')
+    ],
     'stackexchange' => [
         'client_id' => getenv('SE_CLIENT_ID'),
         'client_secret' => getenv('SE_CLIENT_SECRET'),
