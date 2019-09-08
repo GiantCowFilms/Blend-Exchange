@@ -29,8 +29,7 @@ class GoogleDriveAdapter extends NullAdapter {
         $drive_file->setDescription('Blend-Exchange User File');
         $drive_file->setMimeType('application/x-blender');
         stream_set_chunk_size($resource,$chunkSizeBytes);
-        $stream = new Stream($resource);
-        $dataSize = $stream->getSize();
+        $dataSize = fstat($resource)['size'];
 
         $this->googleDriveService->getClient()->setDefer(true);
         $request = $this->googleDriveService->files->create($drive_file, [
@@ -50,9 +49,9 @@ class GoogleDriveAdapter extends NullAdapter {
         // Upload the various chunks. $status will be false until the process is
         // complete.
         $status = false;
-        $stream->rewind();
-        while (!$status && !$stream->eof()) {
-            $chunk = $stream->read($chunkSizeBytes);
+        rewind($resource);
+        while (!$status && !feof($resource)) {
+            $chunk = fread($resource,$chunkSizeBytes);
             $status = $media->nextChunk($chunk);
         }
 
@@ -63,7 +62,6 @@ class GoogleDriveAdapter extends NullAdapter {
             $result = $status;
         }
 
-        $stream->close();
         // Reset to the client to execute requests immediately in the future.
         $this->googleDriveService->getClient()->setDefer(false);
 
