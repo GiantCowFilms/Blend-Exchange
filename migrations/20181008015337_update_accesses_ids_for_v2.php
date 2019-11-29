@@ -57,8 +57,8 @@ class UpdateAccessesIdsForV2 extends Migration
         }
         $last = substr($line,strrpos($line," ") + 1);
         $start = intval($last);
-
         $table = $this->table('accesses');
+        $this->execute('ALTER TABLE `accesses` DISABLE KEYS;');
         //$i = 0;
         $i = $start;
         while (true) {
@@ -77,5 +77,6 @@ class UpdateAccessesIdsForV2 extends Migration
             fwrite($logFile,$progress);
             $i += 100;
         }
+        $this->execute('ALTER TABLE `accesses` ENABLE KEYS;');
     }
 }
