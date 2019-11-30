@@ -61,8 +61,10 @@ class UpdateAccessesIdsForV2 extends Migration
         $this->execute('ALTER TABLE `accesses` DISABLE KEYS;');
         //$i = 0;
         $i = $start;
+        $jump = 1000;
+        $startTime = time();
         while (true) {
-            $stmt = $this->query(sprintf('SELECT * FROM `accesses` LIMIT %u, %u',$i,$i + 100)); // returns PDOStatement
+            $stmt = $this->query(sprintf('SELECT * FROM `accesses` LIMIT %u, %u',$i,$i + $jump)); // returns PDOStatement
             $rows = $stmt->fetchAll();
             if (count($rows) === 0) {
                 break;
@@ -72,10 +74,12 @@ class UpdateAccessesIdsForV2 extends Migration
                 $query .= 'UPDATE `accesses` SET `id`=\''.$this->getRandomId().'\' WHERE `id`=\''.$row["id"]."'" . "; ";
             }
             $this->execute('START TRANSACTION; ' . $query . ' COMMIT;');
-            $progress = sprintf('Updated ids for rows %u through %u',$i,$i + 100) . PHP_EOL;
+            $progress = sprintf('Updated ids for rows %u through %u',$i,$i + $jump) . PHP_EOL;
             echo $progress;
+            $deltaTime = time() - $startTime;
+            // echo floor($deltaTime / 60) + "m " + ($deltaTime % 60) + "s ";
             fwrite($logFile,$progress);
-            $i += 100;
+            $i += $jump;
         }
         $this->execute('ALTER TABLE `accesses` ENABLE KEYS;');
     }
