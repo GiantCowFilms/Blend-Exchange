@@ -94,7 +94,7 @@ export default {
             var response = await blendExchange.getEndpoint(`/blends/${to.params.id}`);
             var blend = response.data;
             if (blend.id !== to.params.id) {
-                next(vm => vm.$router.push({ name: 'BlendFile', params: { id: blend.id }}));
+                next(vm => vm.$router.push({ name: 'BlendPage', params: { id: blend.id }}));
             } else {
                 next(vm => vm.$data.blend = blend);
             }
