@@ -28,7 +28,8 @@ class UpdateAccessesForV2 extends AbstractMigration
             }
             $table->changeColumn('ip',$table->getColumn('ip')->setOptions(['limit' => 512]));
             $table->changeColumn('fileId','string', ['limit' => 8]);
-            $table->changeColumn('id','string', ['limit' => 12]);
+            // Removing to go back to auto-incrementing identifiers.
+            // $table->changeColumn('id','string', ['limit' => 12]);
             $table->addIndex(['fileId']);
             $table->addIndex(['type']);
             $table->addIndex(['ip']);
