@@ -64,6 +64,7 @@ import blendExchange from '@/Api/BlendExchangeApi'
 import createFlagForm from '@C/Flag/CreateFlagForm'
 import moderateBlend from '@C/Blend/ModerateBlend'
 import embedTextGenerator from '@/Api/embedTextGenerator.js'
+
 export default {
     data: function () {
         return {
@@ -89,12 +90,45 @@ export default {
             return embedTextGenerator(this.blend);
         }
     },
+    async beforeRouteUpdate (to, from, next) {
+        this.post = null
+        getPost(to.params.id, (err, post) => {
+        this.setData(err, post)
+        next()
+        })
+    },
+    async beforeRouteUpdate (to, from, next) {
+        try {
+            var response = await blendExchange.getEndpoint(`/blends/${to.params.id}`);
+            var blend = response.data;
+            if (blend.id !== to.params.id) {
+                this.blend = blend;
+                next(vm => { 
+                    vm.$router.push({ name: 'BlendPage', params: { id: blend.id }})
+                });
+            } else {
+                next(vm => vm.$data.blend = blend);
+            }
+        } catch (err) {
+            if(!err.response) {
+                throw err;
+            }
+            if(err.response.status == 404) {
+                next(new Error('Blend file was not found.'));
+            } else {
+                next(new Error('An internal error occured retrieving this blend file.'));
+            }
+        }
+    },
     async beforeRouteEnter (to, from, next) {
         try {
             var response = await blendExchange.getEndpoint(`/blends/${to.params.id}`);
             var blend = response.data;
             if (blend.id !== to.params.id) {
-                next(vm => vm.$router.push({ name: 'BlendPage', params: { id: blend.id }}));
+                next(vm => { 
+                    vm.$data.blend = blend; 
+                    vm.$router.push({ name: 'BlendPage', params: { id: blend.id }})
+                });
             } else {
                 next(vm => vm.$data.blend = blend);
             }
