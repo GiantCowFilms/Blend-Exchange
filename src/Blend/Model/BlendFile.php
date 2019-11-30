@@ -159,6 +159,8 @@ class BlendFile extends Eloquent
     // (SELECT COUNT(DISTINCT `ip`) FROM `accesses` WHERE `type`='download' AND `fileId`=`blends`.`id`) as dc
     // FROM `blends` 
     // GROUP BY `blends`.`id`  
+    // ORDER BY vc DESC
+    // LIMIT 0,30
 
     public function scopeWithUniqueCount ($query,$relation,$field) {
         $db = $this->getConnection();
