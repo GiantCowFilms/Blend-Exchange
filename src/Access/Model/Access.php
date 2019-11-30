@@ -12,7 +12,8 @@ use \BlendExchange\Model\Traits\RandomId;
 
 class Access extends Eloquent {
 
-    use RandomId;
+    // Disabled due to move to interger IDs due to migration issues
+    // use RandomId;
 
 	protected function idSize(){
 		return 12;
