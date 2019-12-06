@@ -130,7 +130,11 @@ return [
      * Ads
      */
 
-    'ad' => (new Route('/ads/{name}.png', [
+    'ad' => (new Route('/communityImages/{name}.png', [
+        '_controller' => 'BlendExchange\Ads\Http\AdController::show'
+    ]))->setMethods(['GET']),
+
+    'ad_legacy' => (new Route('/ads/{name}.png', [
         '_controller' => 'BlendExchange\Ads\Http\AdController::show'
     ]))->setMethods(['GET']),
 
