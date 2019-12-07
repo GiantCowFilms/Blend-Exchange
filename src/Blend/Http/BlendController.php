@@ -177,7 +177,8 @@ class BlendController
         if (!$this->blendPolicy->userCanDownload($this->user, $blend) || !$this->user->hasPermission('DownloadBlend')) {
             return $this->api->errorResponse('You cannot download this file.');
         }
-        $this->accessManager->download($blend->id, $request->server->get("REMOTE_ADDR"));
+        $forwardingHeader = $request->headers->get("X-Forwarded-For");
+        $this->accessManager->download($blend, $forwardingHeader ?? $request->server->get("REMOTE_ADDR"));
         $stream = $downloadBlendHandler->handle(new DownloadBlend($blend->id));
         return $this->api->streamResponse($stream);
     }
@@ -188,7 +189,8 @@ class BlendController
         if ($blend === null) {
             return $this->api->errorResponse('Blend not found', 404);
         }
-        $this->accessManager->view($blend->id, $request->server->get("REMOTE_ADDR"));
+        $forwardingHeader = $request->headers->get("X-Forwarded-For");
+        $this->accessManager->view($blend, $forwardingHeader ?? $request->server->get("REMOTE_ADDR"));
         if ($this->user->hasPermission('ModerateBlend')) {
             return $this->api->itemResponse($this->adminBlendTransformer, $blend);
         } else {

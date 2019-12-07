@@ -20,17 +20,22 @@ final class BlendsQuery
     }
 
     public function buildQuery() {
-        $this->query = $this->query->where('fileGoogleId','!=',null)->withCount('favorites')->withUniqueCount('views','ip')->withUniqueCount('downloads','ip');
-        switch($this->orderBy) 
+        $this->query = $this->query
+            ->where('fileGoogleId','!=',null)->withCount('favorites');
+        // Use cached value instead
+        //->withUniqueCount('views','ip')->withUniqueCount('downloads','ip');
+        switch($this->orderBy)
         {
             case 'date':
                 $this->query = $this->query->orderBy('date','DESC');
                 break;
             case 'views':
-                $this->query = $this->query->orderBy('views_count','DESC');
+                //$this->query = $this->query->orderBy('views_count','DESC');
+                $this->query = $this->query->orderBy('view_count_cache','DESC');
                 break;
             case 'downloads':
-                $this->query = $this->query->orderBy('downloads_count','DESC');
+                //$this->query = $this->query->orderBy('downloads_count','DESC');
+                $this->query = $this->query->orderBy('download_count_cache','DESC');
                 break;
             case '':
                 break;

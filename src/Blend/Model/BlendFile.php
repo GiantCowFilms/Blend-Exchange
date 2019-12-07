@@ -69,6 +69,8 @@ class BlendFile extends Eloquent
         'adminComment'
     ];
 
+
+
     public function accesses()
     {
         return $this->hasMany(Access::class, 'fileId', 'id');
@@ -96,6 +98,29 @@ class BlendFile extends Eloquent
 
     public function getStoragePath() {
         return $this->fileGoogleId === "new" ? "blends/" . $this->id . ".blend" : $this->fileGoogleId;
+    }
+
+    public function getViewsCountAttribute($value)
+    {
+        return $this->attributes['view_count_cache'];
+    }
+
+    public function getDownloadsCountAttribute($value)
+    {
+        return $this->attributes['download_count_cache'];
+    }
+
+    public function updateDownloadCache() {
+        $this->updateCountCache('download');
+    }
+
+    public function updateViewCache() {
+        $this->updateCountCache('view');
+    }
+
+
+    private function updateCountCache($name) {
+        $this->attributes[$name.'_count_cache'] = $this->attributes[$name.'s_count'];
     }
 
     /**

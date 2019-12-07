@@ -5,6 +5,8 @@ namespace BlendExchange\Access;
 use BlendExchange\Access\Model\Access;
 use Symfony\Component\HttpFoundation\Request;
 use BlendExchange\Input\IpAddress;
+use BlendExchange\Blend\Model\BlendFile;
+
 final class AccessManager 
 {
     public function __construct () {
@@ -22,15 +24,19 @@ final class AccessManager
         return $access;
     }
 
-    public function view(string $id,string $ipAddress) : void
+    public function view(BlendFile $blend,string $ipAddress) : void
     {
-        $view = $this->createAccess('view',$id,$ipAddress);
+        $view = $this->createAccess('view',$blend->id,$ipAddress);
         $view->save();
+        $blend->updateViewCache();
+        $blend->save();
     }
 
-    public function download(string $id,string $ipAddress) : void
+    public function download(BlendFile $blend,string $ipAddress) : void
     {
-        $download = $this->createAccess('download',$id,$ipAddress);
+        $download = $this->createAccess('download',$blend->id,$ipAddress);
+        $blend->updateDownloadCache();
+        $blend->save();
         $download->save();
     }
 }
