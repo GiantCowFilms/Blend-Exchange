@@ -2,7 +2,7 @@
 
 use \Phinx\Migration\AbstractMigration;
 
-class UpdatBlendsCacheAccessCounts extends AbstractMigration
+class UpdateBlendsCacheAccessCounts extends AbstractMigration
 {
     /**
      * Change Method.
@@ -39,7 +39,7 @@ class UpdatBlendsCacheAccessCounts extends AbstractMigration
         $table->addIndex('download_count_cache');
         $table->save();
         $this->execute("
-            UPDATE `blends` SET `blends`.`view_count_cache` = (SELECT COUNT(DISTINCT `ip`) FROM `accesses` WHERE `type`='view' AND `fileId`=`blends`.`id` GROUP BY `blends`.`id`)
+            UPDATE `blends` SET `blends`.`view_count_cache` = IFNULL((SELECT COUNT(DISTINCT `ip`) FROM `accesses` WHERE `type`='view' AND `fileId`=`blends`.`id` GROUP BY `blends`.`id`),0)
         ");
         $this->execute("
             UPDATE `blends` SET `blends`.`download_count_cache` = IFNULL((SELECT COUNT(DISTINCT `ip`) FROM `accesses` WHERE `type`='download' AND `fileId`=`blends`.`id` GROUP BY `blends`.`id`),0)
