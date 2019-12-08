@@ -33,8 +33,8 @@ class UpdateBlendsCacheAccessCounts extends AbstractMigration
     public function up() {
         $table = $this->table('blends');
         $this->execute("START TRANSACTION");
-        $table->addColumn('view_count_cache','integer');
-        $table->addColumn('download_count_cache','integer');
+        $table->addColumn('view_count_cache','integer',['default' => 0]);
+        $table->addColumn('download_count_cache','integer',['default' => 0]);
         $table->addIndex('view_count_cache');
         $table->addIndex('download_count_cache');
         $table->save();

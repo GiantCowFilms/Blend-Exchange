@@ -10,19 +10,19 @@ INSERT INTO `blends` (`legacy_id`, `fileName`, `fileGoogleId`, `password`, `uplo
 (NULL, 'Test 5.blend', '1qKPoB581V32cLDiDP5P2uO71o0VLmbna', '', 'ip 1', 'https://blender.stackexchange.com/q/24886', 0, NULL, NOW(), '', 0, NULL, 'Os4bHoI3');
 
 INSERT INTO `accesses` (`accept`, `fileId`, `type`, `ip`, `val`, `date`, `id`, `message`) VALUES
-(0, '07W3q7wD', 'view', 'ip 1', '', '2018-07-05 12:12:30', '0628QlSQEwso', NULL),
-(0, '07W3q7wD', 'view', 'ip 1', '', '2018-07-13 06:35:01', '178GjBbkRkd2', NULL),
-(0, '07W3q7wD', 'view', 'ip 2', '', '2018-07-13 06:35:01', '0qlav9s0O4pn', NULL),
-(0, '07W3q7wD', 'view', 'ip 3', '', '2018-07-13 06:35:01', '2jRdane9qdxA', NULL),
+(0, '07W3q7wD', 'view', 'ip 1', '', '2018-07-05 12:12:30', 0, NULL),
+(0, '07W3q7wD', 'view', 'ip 1', '', '2018-07-13 06:35:01', 1, NULL),
+(0, '07W3q7wD', 'view', 'ip 2', '', '2018-07-13 06:35:01', 2, NULL),
+(0, '07W3q7wD', 'view', 'ip 3', '', '2018-07-13 06:35:01', 3, NULL),
 
-(0, '07W3q7wD', 'download', 'ip 1', '', '2018-07-05 12:12:30', '0628Ql2QEwso', NULL),
-(0, '07W3q7wD', 'download', 'ip 1', '', '2018-07-13 06:35:01', 'sk89jBbkRkd2', NULL),
-(0, '07W3q7wD', 'download', 'ip 2', '', '2018-07-13 06:35:01', '0qqav9s0O4pn', NULL),
-(0, '07W3q7wD', 'download', 'ip 3', '', '2018-07-13 06:35:01', '2jRhjki9qdxA', NULL),
+(0, '07W3q7wD', 'download', 'ip 1', '', '2018-07-05 12:12:30', 4, NULL),
+(0, '07W3q7wD', 'download', 'ip 1', '', '2018-07-13 06:35:01', 5, NULL),
+(0, '07W3q7wD', 'download', 'ip 2', '', '2018-07-13 06:35:01', 6, NULL),
+(0, '07W3q7wD', 'download', 'ip 3', '', '2018-07-13 06:35:01', 7, NULL),
 
-(0, 'b723tg78', 'download', 'ip 1', '', '2018-07-05 12:12:30', 'sdio234h4309', NULL),
-(0, 'b723tg78', 'download', 'ip 1', '', '2018-07-13 06:35:01', '0qqav3434233', NULL),
-(0, 'b723tg78', 'download', 'ip 3', '', '2018-07-13 06:35:01', 'pio23n490329', NULL);
+(0, 'b723tg78', 'download', 'ip 1', '', '2018-07-05 12:12:30', 8, NULL),
+(0, 'b723tg78', 'download', 'ip 1', '', '2018-07-13 06:35:01', 9, NULL),
+(0, 'b723tg78', 'download', 'ip 3', '', '2018-07-13 06:35:01', 10, NULL);
 
 INSERT INTO `users` (`id`,`stackId`,`role`,`email`,`username`,`password`) VALUES
 --- TODO move stack id the .env

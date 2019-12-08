@@ -102,12 +102,12 @@ class BlendFile extends Eloquent
 
     public function getViewsCountAttribute($value)
     {
-        return $this->attributes['view_count_cache'];
+        return $this->attributes['view_count_cache'] ?? 0;
     }
 
     public function getDownloadsCountAttribute($value)
     {
-        return $this->attributes['download_count_cache'];
+        return $this->attributes['download_count_cache'] ?? 0;
     }
 
     public function updateDownloadCache() {
