@@ -27,9 +27,11 @@ final class IpAddress {
         $anonymized = $this->ipAddress;
         try {
             if ($this->detectType() === self::V4) {
-                $anonymized = substr($anonymized,0,strrpos($anonymized,'.',-1));
+                $lastDot = strrpos($anonymized,'.',-1);
+                $anonymized = substr($anonymized,0,is_int($lastDot) ? $lastDot : 0);
             } else {
-                $anonymized = substr($anonymized,0,strrpos($anonymized,':',-1));
+                $lastColon = strrpos($anonymized,':',-1);
+                $anonymized = substr($anonymized,0,is_int($lastColon) ? $lastDot : 0);
             }
         } catch(\Exception $e) {
             
