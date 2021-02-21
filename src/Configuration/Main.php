@@ -10,6 +10,7 @@ return [
     'app_key' => getenv('APP_KEY'),
     'environment' => getenv('ENVIRONMENT'),
     'main_log' => (__DIR__.$rootDir) . 'log/main.log',
+    'debug_log'  => (__DIR__.$rootDir) . 'log/debug.log',
     'database' => [
         'driver' => 'mysql',
         'host' => getenv('DB_HOST'),

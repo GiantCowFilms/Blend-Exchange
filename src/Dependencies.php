@@ -34,6 +34,7 @@ use Monolog\Handler\StreamHandler;
 $injector->delegate('Monolog\Logger',function () use ($injector,$config) {
     $logger = new Logger('BLEND-EXCHANGE');
     $logger->pushHandler(new StreamHandler($config['main_log'], Logger::WARNING));
+    $logger->pushHandler(new StreamHandler($config['debug_log'], Logger::DEBUG));
     return $logger;
 });
 
