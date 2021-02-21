@@ -110,7 +110,7 @@ final class EmailHandler extends Handler
         }
         $email = (new Email())
             ->addTo($this->to)
-            ->setFrom('error.bot@blend-exchange.giantcowfilms.com')
+            ->setFrom('error.bot@blend-exchange.com')
             ->setSubject('A fatal error occurred')
             ->setTextBody(
                 $this->generateResponse()

@@ -4,7 +4,7 @@ Completely re-written because the old version was a hacky weekend project that o
 
 ## About blend exchange. 
 
-http://blend-exchange.giantcowfilms.com/about
+https://blend-exchange.com/about
 
 ## Installation
 

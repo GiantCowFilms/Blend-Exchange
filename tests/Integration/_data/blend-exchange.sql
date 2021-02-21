@@ -26,5 +26,5 @@ INSERT INTO `accesses` (`accept`, `fileId`, `type`, `ip`, `val`, `date`, `id`, `
 
 INSERT INTO `users` (`id`,`stackId`,`role`,`email`,`username`,`password`) VALUES
 --- TODO move stack id the .env
-('DEdzry8A7J','63102',0,'john.doe@blend-exchange.giantcowfilms.com
+('DEdzry8A7J','63102',0,'john.doe@blend-exchange.com
 ','John Doe',null)
