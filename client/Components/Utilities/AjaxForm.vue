@@ -100,47 +100,6 @@ export default {
                     this.$data.errors = err.response.data.errors;
                 }
             }
-
-            return;
-            this.$data.serverError = false;
-            var uploadData = {};
-            for (let field of Object.keys(this.$data.postData)) {
-                if (!(this.$data.postData[field] instanceof File)) {
-                    uploadData[field] = this.$data.postData[field]
-                }
-            }
-            var uploadFiles = {};
-            for (let field of Object.keys(this.$data.postData)) {
-                if (this.$data.postData[field] instanceof File) {
-                    uploadFiles[field] = this.$data.postData[field]
-                }
-            }
-            try {
-                var data = await this.uploadForm(this.$props.action,uploadData);
-                if( 
-                    typeof data !== 'undefined' && 
-                    typeof data._meta !== 'undefined'&&
-                    data._meta.type === 'requires_modification'
-                ) {
-                    await this.uploadFiles(data._meta.endpoint,uploadFiles,data._meta.modification_token);
-                }
-                this.$emit('completedAjaxUpload',this.$props.name, data);
-            } catch (err) {
-                if (typeof err.response === 'undefined') {
-                    throw err;
-                }
-                if (err.response.status !== 422) {
-                    if (err.response.data.type === 'error') {
-                        this.$data.serverError = err.response.data.error;
-                    } else {
-                        this.$data.serverError = 'There was an internal error attempting to complete your request.';
-                    }
-
-                } else {
-                    this.$data.serverError = err.response.data.error;
-                    this.$data.errors = err.response.data.errors;
-                }
-            }
         }
     },
     install: function (Vue,options) {

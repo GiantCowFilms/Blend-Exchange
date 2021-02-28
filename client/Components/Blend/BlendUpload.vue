@@ -1,6 +1,9 @@
 <template>
     <div>
     <form v-on:submit.prevent="submit(blend,files,form)">
+        <div v-if="form.serverError" class="noticeWarning nwDanger bodyStack">
+            {{ form.serverError }}
+        </div>
         <ajax-error input="blendFile"></ajax-error>
         <div id="uploadTarget" class="bodyStack contentTarget" v-on:dragenter="fileHover++" v-on:dragleave="fileHover--" v-on:drop="fileHover--" :class="{ dragHover: fileHover > 0 }">
         <input id="uploadDrop" type="file" name="blendFile" @change="setFile(form, files, $event.target.name, $event.target.files)"/>
