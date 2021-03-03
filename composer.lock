@@ -741,7 +741,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GiantCowFilms/backblaze-b2.git",
-                "reference": "0ea7786ec8b3a9047ae91c51d548a563f06012f2"
+                "reference": "f8e637c76f55deb351d6c5180adb458a00bf151d"
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.1",
