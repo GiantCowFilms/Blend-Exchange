@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "acdf7069011613de85f60027b9b0b111",
+    "content-hash": "80760a8baf67bd1b0ad0c21db8f7883c",
     "packages": [
         {
             "name": "alexmasterov/oauth2-stackexchange",
@@ -517,21 +517,28 @@
         },
         {
             "name": "daniel-zahariev/php-aws-ses",
-            "version": "0.9.1",
+            "version": "0.9.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/daniel-zahariev/php-aws-ses.git",
-                "reference": "093c23a2d964937494e199a0f417e64b86128331"
+                "reference": "4584427a358d8bf4aa8c2ce308afadc5f9601ab8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daniel-zahariev/php-aws-ses/zipball/093c23a2d964937494e199a0f417e64b86128331",
-                "reference": "093c23a2d964937494e199a0f417e64b86128331",
+                "url": "https://api.github.com/repos/daniel-zahariev/php-aws-ses/zipball/4584427a358d8bf4aa8c2ce308afadc5f9601ab8",
+                "reference": "4584427a358d8bf4aa8c2ce308afadc5f9601ab8",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
+                "ext-simplexml": "*",
                 "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "fzaninotto/faker": "^1.7",
+                "phpspec/prophecy": "~1.0",
+                "phpunit/php-code-coverage": "^6.0",
+                "phpunit/phpunit": "^7.1"
             },
             "type": "library",
             "autoload": {
@@ -541,7 +548,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD"
+                "MIT"
             ],
             "authors": [
                 {
@@ -559,7 +566,7 @@
                 "rest",
                 "ses"
             ],
-            "time": "2018-01-05T10:42:59+00:00"
+            "time": "2021-03-25T08:23:36+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -794,7 +801,7 @@
                 "filesystem",
                 "storage"
             ],
-            "time": "2019-09-08T08:28:55+00:00"
+            "time": "2021-02-26T02:09:32+00:00"
         },
         {
             "name": "google/apiclient",
@@ -1501,8 +1508,8 @@
             "authors": [
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
-                    "role": "Developer",
-                    "email": "lcobucci@gmail.com"
+                    "email": "lcobucci@gmail.com",
+                    "role": "Developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -1859,9 +1866,9 @@
             "authors": [
                 {
                     "name": "Ramesh Mhetre",
-                    "role": "Developer",
                     "email": "mhetreramesh@gmail.com",
-                    "homepage": "https://about.me/rameshmhetre"
+                    "homepage": "https://about.me/rameshmhetre",
+                    "role": "Developer"
                 }
             ],
             "description": "Backblaze adapter for the flysystem filesystem abstraction library",
@@ -1913,8 +1920,8 @@
             "authors": [
                 {
                     "name": "Frank Kleine",
-                    "role": "Developer",
-                    "homepage": "http://frankkleine.de/"
+                    "homepage": "http://frankkleine.de/",
+                    "role": "Developer"
                 }
             ],
             "description": "Virtual file system to mock the real file system in unit tests.",
@@ -4234,12 +4241,12 @@
             "version": "1.7.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/facebook/php-webdriver.git",
+                "url": "https://github.com/php-webdriver/php-webdriver-archive.git",
                 "reference": "e43de70f3c7166169d0f14a374505392734160e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/e43de70f3c7166169d0f14a374505392734160e5",
+                "url": "https://api.github.com/repos/php-webdriver/php-webdriver-archive/zipball/e43de70f3c7166169d0f14a374505392734160e5",
                 "reference": "e43de70f3c7166169d0f14a374505392734160e5",
                 "shasum": ""
             },
@@ -4287,6 +4294,7 @@
                 "selenium",
                 "webdriver"
             ],
+            "abandoned": "php-webdriver/webdriver",
             "time": "2019-06-13T08:02:18+00:00"
         },
         {
@@ -4328,6 +4336,7 @@
                 }
             ],
             "description": "JSONPath implementation for parsing, searching and flattening arrays",
+            "abandoned": "softcreatr/jsonpath",
             "time": "2018-03-04T16:39:47+00:00"
         },
         {
@@ -4942,6 +4951,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-07-25T05:29:42+00:00"
         },
         {
@@ -6192,8 +6202,8 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "role": "Developer",
-                    "email": "arne@blankerts.de"
+                    "email": "arne@blankerts.de",
+                    "role": "Developer"
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
@@ -6204,12 +6214,12 @@
             "version": "1.5.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
+                "url": "https://github.com/webmozarts/assert.git",
                 "reference": "88e6d84706d09a236046d686bbea96f07b3a34f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/88e6d84706d09a236046d686bbea96f07b3a34f4",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/88e6d84706d09a236046d686bbea96f07b3a34f4",
                 "reference": "88e6d84706d09a236046d686bbea96f07b3a34f4",
                 "shasum": ""
             },

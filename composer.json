@@ -41,7 +41,7 @@
         "cyberdummy/gzstream": "^0.0.2",
         "league/fractal": "^0.17.0",
         "omnimail/omnimail": "^0.3.1",
-        "daniel-zahariev/php-aws-ses": "^0.9.1",
+        "daniel-zahariev/php-aws-ses": "^0.9.5",
         "league/oauth2-client": "^2.3",
         "alexmasterov/oauth2-stackexchange": "^0.1.0",
         "monolog/monolog": "^1.23",
