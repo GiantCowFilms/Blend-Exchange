@@ -42,6 +42,8 @@
 * SE API based fraud tests
 * Password Reset/Password Change
 * Toggle "User Password"
+* Save soft/hard delete reason
+* Allow downloads to be blocked while keeping file metadata visible.
 
 ## 2.2
 

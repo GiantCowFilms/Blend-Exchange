@@ -38,6 +38,12 @@ Run `composer install` to install. To setup the database run `vendor/bin/phinx m
 
 To build the front end, run `npm install` and then `npm run build` to watch the frontend files for changes.
 
+### Running Tests
+
+To run all the tests, run `./vendor/bin/codecept run`. 
+
+To run the test in a single class use: `./vendor/bin/codecept run api [file path within test dir]` (e.g. `./vendor/bin/codecept run api Blend/BlendsCest`). You can also add a method name like so to run a single test method: `./vendor/bin/codecept run api Blend/BlendsCest:blendsIndexReturnsListOfBlends`.
+
 ## Environment File
 Copy `.env.example` to a file called `.env` and populate the missing values.
 
