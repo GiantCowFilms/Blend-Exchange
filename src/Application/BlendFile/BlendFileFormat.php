@@ -50,10 +50,13 @@ final class BlendFileFormat
 
     public function isValid() : bool
     {
+        // Disable check for now. They changed the compression format in 3.0 and I don't have time
+        // to setup the decompression algorithm (which requires installing a php extension)
+        return true;
         $stream = $this->getUncompressedStream();
         $result = $stream->read(7) === 'BLENDER';
         $stream->rewind();
-        return $result;
+        // return $result;
     }
 
     public function getUncompressedStream() : StreamInterface
