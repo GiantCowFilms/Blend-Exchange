@@ -46,17 +46,17 @@ $injector->share('Monolog\Logger');
 /**
  * Setup Twig (View Templates)
  */
-$injector->define('Twig_Loader_Filesystem',[
+$injector->define('\Twig\Loader\FilesystemLoader',[
     ':paths' => __DIR__.'/Views',
 ]);
-$injector->define('Twig_Environment',[
-    'loader' => 'Twig_Loader_Filesystem',
+$injector->define('Twig\Environment',[
+    'loader' => '\Twig\Loader\FilesystemLoader',
     ':options' => [
         'cache' => __DIR__.'/Views/.cache',
         'debug' => ($config['environment'] === 'development')
     ]
 ]);
-$injector->share('Twig_Environment');
+$injector->share('Twig\Environment');
 
 /**
  * Setup Google Drive

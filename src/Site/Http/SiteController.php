@@ -6,14 +6,14 @@ use BlendExchange\Api\ApiResponseFactory;
 use BlendExchange\Filesystem\Storage;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Twig_Environment;
+use Twig\Environment;
 
 class SiteController
 {
 
     public function __construct (
         ApiResponseFactory $api,
-        Twig_Environment $view
+        Environment $view
     ) {
         $this->api = $api;
         $this->view = $view;
