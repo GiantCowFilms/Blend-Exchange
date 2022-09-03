@@ -180,6 +180,10 @@ h1 {
 .btnBlue > a {
    color:inherit;
 }
+.btnBlue:disabled {
+   background-color:#add3e9;
+   cursor: not-allowed;
+}
 button {
     border: none;
     font: inherit;

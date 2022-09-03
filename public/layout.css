@@ -235,6 +235,14 @@ input[type="image"] {
    margin: 20px;
 }
 
+#uploadTarget .sizeWarning {
+   font-size: 10pt;
+}
+
+#uploadTarget.dragHover .sizeWarning {
+   display: none;
+}
+
 /*Download styles*/
 
 .downloadBtnRow{

@@ -5,15 +5,19 @@
             {{ form.serverError }}
         </div>
         <ajax-error input="blendFile"></ajax-error>
+        <div v-if="typeof files.blendFile !== 'undefined' && (files.blendFile.size > 1024 * 1000 * 30)" class="noticeWarning nwDanger bodyStack">
+            Error: Files must be smaller than 30 MB. Remove any unnecessary image textures and simulation data.
+        </div>
         <div id="uploadTarget" class="bodyStack contentTarget" v-on:dragenter="fileHover++" v-on:dragleave="fileHover--" v-on:drop="fileHover--" :class="{ dragHover: fileHover > 0 }">
         <input id="uploadDrop" type="file" name="blendFile" @change="setFile(form, files, $event.target.name, $event.target.files)"/>
                 <div id="uploadText">
                     <div class="centerText" v-if="typeof files.blendFile === 'undefined'">
-                        Drag a file here to upload a .blend<br>or click to browse
+                        Drag a file here to upload a .blend<br>or click to browse<br>
+                        <span class="sizeWarning">Files must be smaller than <b>30MB</b></span>
                     </div>
                     <div id="uploadFileCard" v-if="typeof files.blendFile !== 'undefined'">
                         <h2>{{ files.blendFile.name }}</h2>
-                        <div v-if="(form.status == 'pending' || form.status == 'completed') && form.uploadProgress['blendFile'] == 100">
+                        <div v-if="form.status == 'completed' || (form.status == 'pending' && form.uploadProgress['blendFile'] == 100)">
                             <spinner style="display: inline-block;vertical-align: middle;"></spinner> <b>Processing...</b>
                         </div>
                         <div v-else>
@@ -43,7 +47,7 @@
 
                 <ajax-error input="questionLink"></ajax-error>
     <input class="txtBlue bodyStack" type="text" v-model="blend.questionLink" id="questionLink" placeholder="Enter the url of the question on blender.stackexchange" />
-    <button id="upload" class="btnBlue bodyStack">
+    <button id="upload" class="btnBlue bodyStack" v-bind:disabled="form.status === 'pending'">
         Upload
     </button>
     </form>
@@ -57,7 +61,6 @@
     </div>
 </template>
 <script>
-import ajaxForm from '@/Api/AjaxForm.js'
 import AjaxForm from '@/Mixins/AjaxForm.vue'
 import { mapGetters } from 'vuex'
 import embedTextGenerator from '@/Api/embedTextGenerator.js'
@@ -80,6 +83,9 @@ export default {
         ])
     },
     methods: {
+        validateInputs(input,form,files) {
+
+        },
         completedAjaxUpload (data) {
             window.parent.postMessage({ name: "embedSource", content: embedTextGenerator(data) }, "*");
             //Alert for popup
