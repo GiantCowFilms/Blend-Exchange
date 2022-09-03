@@ -12,6 +12,9 @@ final class BlendFileValidator
 
     public function validate(StreamInterface $stream) : bool
     {
+        // Disable check for now. They changed the compression format in 3.0 and I don't have time
+        // to setup the decompression algorithm (which requires installing a php extension)
+        return true;
         if(!$stream->isSeekable()) {
             throw new \RuntimeException('Cannot validate a non-seekable stream');
         }

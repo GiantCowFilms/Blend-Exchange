@@ -97,6 +97,11 @@ class BlendFile extends Eloquent
     }
 
     public function getStoragePath() {
+        // Blend exchange used to store the file's identifier in google drive.
+        // I am now attempting to migrate to BackBlaze which provides cheaper
+        // service and is better suited for the use case. In order to support both
+        // storage systems under a single abstraction, I am using the files path/name
+        // instead of its google specific identifier.
         return $this->fileGoogleId === "new" ? "blends/" . $this->id . ".blend" : $this->fileGoogleId;
     }
 

@@ -58,6 +58,9 @@ final class UploadBlendCest
         $I->seeResponseCodeIs(404);
     }
 
+    /**
+     * @skip Disabled blend file validation due to issue uploading v >3.0 blend files (they changed the compression algorithm)
+     */
     public function invalidBlendFileFails(ApiTester $I) {
         $endpoint;
         $token;
